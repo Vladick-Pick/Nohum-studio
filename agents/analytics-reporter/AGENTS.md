@@ -4,7 +4,8 @@ name: Analytics Reporter
 title: Analytics Reporter
 schema: agentcompanies/v1
 slug: analytics-reporter
-reportsTo: ../support-lead/AGENTS.md
+role: "researcher"
+reportsTo: "support-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

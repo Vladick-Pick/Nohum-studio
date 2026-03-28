@@ -4,7 +4,8 @@ name: Competitor Scout
 title: Competitive Intelligence Specialist
 schema: agentcompanies/v1
 slug: competitor-scout
-reportsTo: ../research-lead/AGENTS.md
+role: researcher
+reportsTo: research-lead
 docs:
   - HEARTBEAT.md
   - SOUL.md

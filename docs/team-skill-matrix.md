@@ -18,7 +18,6 @@ Members: `Research Synthesizer`, `Competitor Scout`, `Demand Validator`, `Revenu
 Runtime base skills:
 - `paperclip`
 - `paperclip-knowledge`
-- `para-memory-files`
 
 Mandatory local skills:
 - `venture-policy`

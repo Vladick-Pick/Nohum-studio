@@ -4,7 +4,8 @@ name: Community Builder
 title: Community Builder
 schema: agentcompanies/v1
 slug: community-builder
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

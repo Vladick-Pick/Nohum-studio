@@ -4,7 +4,8 @@ name: Security Engineer
 title: Security Engineer
 schema: agentcompanies/v1
 slug: security-engineer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "devops"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

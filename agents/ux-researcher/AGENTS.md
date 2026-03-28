@@ -4,7 +4,8 @@ name: UX Researcher
 title: UX Researcher
 schema: agentcompanies/v1
 slug: ux-researcher
-reportsTo: ../launch-lead/AGENTS.md
+role: "designer"
+reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

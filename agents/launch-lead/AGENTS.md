@@ -4,7 +4,8 @@ name: Launch Lead
 title: Head of Product Launch
 schema: agentcompanies/v1
 slug: launch-lead
-reportsTo: ../ceo/AGENTS.md
+role: "pm"
+reportsTo: "ceo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

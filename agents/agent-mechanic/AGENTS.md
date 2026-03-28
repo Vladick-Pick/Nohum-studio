@@ -4,7 +4,8 @@ name: Agent Mechanic
 title: Agent Reliability Engineer
 schema: agentcompanies/v1
 slug: agent-mechanic
-reportsTo: ../chief-of-staff/AGENTS.md
+role: devops
+reportsTo: chief-of-staff
 docs:
   - HEARTBEAT.md
   - SOUL.md

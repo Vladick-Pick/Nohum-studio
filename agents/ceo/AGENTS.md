@@ -4,6 +4,7 @@ name: CEO
 title: Chief Executive Officer
 schema: agentcompanies/v1
 slug: ceo
+role: "ceo"
 reportsTo: null
 docs:
   - HEARTBEAT.md

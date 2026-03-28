@@ -4,7 +4,8 @@ name: Chief of Staff
 title: Chief of Staff
 schema: agentcompanies/v1
 slug: chief-of-staff
-reportsTo: ../ceo/AGENTS.md
+role: pm
+reportsTo: ceo
 docs:
   - HEARTBEAT.md
   - SOUL.md

@@ -4,7 +4,8 @@ name: Research Lead
 title: Head of Research
 schema: agentcompanies/v1
 slug: research-lead
-reportsTo: ../ceo/AGENTS.md
+role: researcher
+reportsTo: ceo
 docs:
   - HEARTBEAT.md
   - SOUL.md

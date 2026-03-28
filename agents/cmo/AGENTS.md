@@ -4,7 +4,8 @@ name: CMO
 title: Chief Marketing Officer
 schema: agentcompanies/v1
 slug: cmo
-reportsTo: ../ceo/AGENTS.md
+role: "cmo"
+reportsTo: "ceo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

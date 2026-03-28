@@ -4,7 +4,8 @@ name: Pricing Strategist
 title: Pricing Strategist
 schema: agentcompanies/v1
 slug: pricing-strategist
-reportsTo: ../launch-lead/AGENTS.md
+role: "pm"
+reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

@@ -4,7 +4,8 @@ name: Feedback Synthesizer
 title: Feedback Synthesizer
 schema: agentcompanies/v1
 slug: feedback-synthesizer
-reportsTo: ../support-lead/AGENTS.md
+role: "researcher"
+reportsTo: "support-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

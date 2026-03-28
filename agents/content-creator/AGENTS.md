@@ -4,7 +4,8 @@ name: Content Creator
 title: Content Creator
 schema: agentcompanies/v1
 slug: content-creator
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

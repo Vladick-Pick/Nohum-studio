@@ -4,7 +4,8 @@ name: Demand Validator
 title: Demand Signal Specialist
 schema: agentcompanies/v1
 slug: demand-validator
-reportsTo: ../research-lead/AGENTS.md
+role: researcher
+reportsTo: research-lead
 docs:
   - HEARTBEAT.md
   - SOUL.md

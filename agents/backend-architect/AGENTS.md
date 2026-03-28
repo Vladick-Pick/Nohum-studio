@@ -4,7 +4,8 @@ name: Backend Architect
 title: Backend Architect
 schema: agentcompanies/v1
 slug: backend-architect
-reportsTo: ../vp-engineering/AGENTS.md
+role: "engineer"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

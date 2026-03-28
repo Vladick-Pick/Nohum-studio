@@ -4,7 +4,8 @@ name: Product Definer
 title: Product Definition Owner
 schema: agentcompanies/v1
 slug: product-definer
-reportsTo: ../launch-lead/AGENTS.md
+role: "pm"
+reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

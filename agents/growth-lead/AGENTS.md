@@ -4,7 +4,8 @@ name: Growth Lead
 title: Growth and Demand Generation Lead
 schema: agentcompanies/v1
 slug: growth-lead
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

@@ -4,7 +4,8 @@ name: Launch Program Manager
 title: Launch Program Manager
 schema: agentcompanies/v1
 slug: launch-program-manager
-reportsTo: ../launch-lead/AGENTS.md
+role: "pm"
+reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

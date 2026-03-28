@@ -2455,7 +2455,7 @@ function managerPathForFrontmatter(agent) {
   if (!agent.reportsToSlug) {
     return "null";
   }
-  return `../${agent.reportsToSlug}/AGENTS.md`;
+  return quote(agent.reportsToSlug);
 }
 
 function importMode(agent) {
@@ -2566,6 +2566,7 @@ name: ${agent.name}
 title: ${agent.title}
 schema: agentcompanies/v1
 slug: ${agent.slug}
+role: ${quote(agent.role)}
 reportsTo: ${managerPathForFrontmatter(agent)}
 docs:
   - HEARTBEAT.md
@@ -2837,12 +2838,18 @@ function renderPaperclipYaml() {
   ];
   for (const agent of allAgents) {
     lines.push(`  ${agent.slug}:`);
+    lines.push(`    role: ${quote(agent.role)}`);
+    lines.push(`    icon: ${quote(agent.icon)}`);
+    lines.push(`    capabilities: ${quote(agent.capabilities)}`);
+    lines.push(`    reportsTo: ${agent.reportsToSlug ? quote(agent.reportsToSlug) : "null"}`);
     lines.push("    adapter:");
     lines.push("      type: codex_local");
     lines.push("      config:");
     lines.push("        model: gpt-5.4");
     lines.push("        modelReasoningEffort: high");
     lines.push(`    budgetMonthlyCents: ${agent.budgetMonthlyCents}`);
+    lines.push("    permissions:");
+    lines.push(`      canCreateAgents: ${agent.canCreateAgents ? "true" : "false"}`);
     lines.push("    inputs:");
     lines.push("      env:");
     for (const secret of unique(agent.secrets)) {

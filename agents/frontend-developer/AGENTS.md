@@ -4,7 +4,8 @@ name: Frontend Developer
 title: Frontend Developer
 schema: agentcompanies/v1
 slug: frontend-developer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "engineer"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

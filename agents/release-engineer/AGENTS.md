@@ -4,7 +4,8 @@ name: Release Engineer
 title: Release Engineer
 schema: agentcompanies/v1
 slug: release-engineer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "devops"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

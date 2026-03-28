@@ -4,7 +4,8 @@ name: QA Engineer
 title: QA Engineer
 schema: agentcompanies/v1
 slug: qa-engineer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "qa"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

@@ -4,7 +4,8 @@ name: QA Director
 title: QA Director
 schema: agentcompanies/v1
 slug: qa-director
-reportsTo: ../vp-engineering/AGENTS.md
+role: "qa"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

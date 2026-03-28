@@ -4,7 +4,8 @@ name: Revenue Validator
 title: Monetization and Pricing Specialist
 schema: agentcompanies/v1
 slug: revenue-validator
-reportsTo: ../research-lead/AGENTS.md
+role: researcher
+reportsTo: research-lead
 docs:
   - HEARTBEAT.md
   - SOUL.md

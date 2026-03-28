@@ -4,7 +4,8 @@ name: Support Responder
 title: Support Responder
 schema: agentcompanies/v1
 slug: support-responder
-reportsTo: ../support-lead/AGENTS.md
+role: "general"
+reportsTo: "support-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

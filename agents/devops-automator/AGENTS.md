@@ -4,7 +4,8 @@ name: DevOps Automator
 title: DevOps Automator
 schema: agentcompanies/v1
 slug: devops-automator
-reportsTo: ../vp-engineering/AGENTS.md
+role: "devops"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

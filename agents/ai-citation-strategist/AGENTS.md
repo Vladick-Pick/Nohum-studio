@@ -4,7 +4,8 @@ name: AI Citation Strategist
 title: AI Citation Strategist
 schema: agentcompanies/v1
 slug: ai-citation-strategist
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

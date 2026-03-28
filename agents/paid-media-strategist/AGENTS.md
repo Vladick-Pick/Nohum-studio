@@ -4,7 +4,8 @@ name: Paid Media Strategist
 title: Paid Media Strategist
 schema: agentcompanies/v1
 slug: paid-media-strategist
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

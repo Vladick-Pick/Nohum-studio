@@ -4,7 +4,8 @@ name: Senior Developer
 title: Senior Developer
 schema: agentcompanies/v1
 slug: senior-developer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "engineer"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

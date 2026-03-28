@@ -6,12 +6,18 @@ company:
 
 agents:
   ceo:
+    role: "ceo"
+    icon: "crown"
+    capabilities: "Owns venture factory policy, WIP, budget headroom, gate approvals, and executive manager coordination."
+    reportsTo: null
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 25000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -21,12 +27,18 @@ agents:
       - Verify control-plane approvals and governance docs are wired.
       - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
   chief-of-staff:
+    role: "pm"
+    icon: "target"
+    capabilities: "Owns cadence, blocked-work triage, cross-team sequencing, and operating review preparation."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 18000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -36,12 +48,18 @@ agents:
       - Keep wake-on-demand available and wire cadence dashboards after import.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   agent-mechanic:
+    role: "devops"
+    icon: "wrench"
+    capabilities: "Owns runtime, prompt, tool, and workspace reliability failures plus preventive fixes."
+    reportsTo: "chief-of-staff"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -54,12 +72,18 @@ agents:
       - Grant diagnostic-only access to runtime paths and tool health scripts.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   research-lead:
+    role: "researcher"
+    icon: "search"
+    capabilities: "Owns sourcing, market evidence, economics, queue discipline, and final QUEUE/KILL recommendations."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 18000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -72,12 +96,18 @@ agents:
       - Existing live core slug should upgrade in place.
       - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
   research-synthesizer:
+    role: "researcher"
+    icon: "brain"
+    capabilities: "Turns raw research into canonical queue packages, assumption maps, and decision-ready summaries."
+    reportsTo: "research-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 12000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -87,12 +117,18 @@ agents:
       - Pause after import until research templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   competitor-scout:
+    role: "researcher"
+    icon: "telescope"
+    capabilities: "Proves direct competitors, pricing surfaces, and category shape with explicit freshness and citations."
+    reportsTo: "research-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 12000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -105,12 +141,18 @@ agents:
       - Pause after import until browser access and evidence templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   demand-validator:
+    role: "researcher"
+    icon: "radar"
+    capabilities: "Validates search, traffic, usage, review, and community signals before queue promotion."
+    reportsTo: "research-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 12000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -123,12 +165,18 @@ agents:
       - Pause after import until demand evidence template is wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   revenue-validator:
+    role: "researcher"
+    icon: "gem"
+    capabilities: "Validates pricing reality, payment plausibility, packaging, and the path to five-thousand MRR."
+    reportsTo: "research-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 12000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -138,12 +186,18 @@ agents:
       - Pause after import until pricing and payment evidence surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   launch-lead:
+    role: "pm"
+    icon: "rocket"
+    capabilities: "Owns product-launch doctrine, Gate B readiness, launch coordination, and cross-team launch packets."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 22000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -159,12 +213,18 @@ agents:
       - Existing live core slug should upgrade in place and be rebound as head of Product Launch.
       - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
   product-definer:
+    role: "pm"
+    icon: "lightbulb"
+    capabilities: "Turns a promoted venture into a buildable product definition with explicit ICP, JTBD, offer, pricing, and MVP boundaries."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -174,12 +234,18 @@ agents:
       - New specialist. Keep paused until Gate B artifacts and templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ux-researcher:
+    role: "designer"
+    icon: "search-code"
+    capabilities: "Translates customer evidence into user workflows, friction maps, and clarity on what must be true for first-time activation."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -189,12 +255,18 @@ agents:
       - New specialist. Activate only after feedback and research surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ux-architect:
+    role: "designer"
+    icon: "layout-template"
+    capabilities: "Turns research and definition into coherent flows, IA, states, and implementation-ready UX guidance."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -204,12 +276,18 @@ agents:
       - New specialist. Keep paused until design and engineering handoff surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ui-designer:
+    role: "designer"
+    icon: "palette"
+    capabilities: "Turns approved flows into launch-ready visual interfaces, states, and component direction aligned to the product promise."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -219,12 +297,18 @@ agents:
       - New specialist. Keep paused until design handoff paths are available.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   pricing-strategist:
+    role: "pm"
+    icon: "badge-dollar-sign"
+    capabilities: "Owns launch pricing structure, packaging logic, and first-payment plausibility before the venture ships."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 16000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -237,12 +321,18 @@ agents:
       - New specialist. Keep paused until pricing and payment evidence surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   launch-program-manager:
+    role: "pm"
+    icon: "clipboard-list"
+    capabilities: "Coordinates the cross-team launch calendar, dependencies, and canonical artifact flow across product, marketing, engineering, and support."
+    reportsTo: "launch-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -252,12 +342,18 @@ agents:
       - New specialist. Activate only after team-level checklists are imported.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   cmo:
+    role: "cmo"
+    icon: "megaphone"
+    capabilities: "Owns positioning, channel strategy, demand generation, measurement discipline, and marketing readiness for each launch."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 22000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -270,12 +366,18 @@ agents:
       - New top-level manager. Keep paused until analytics and campaign destinations are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   growth-lead:
+    role: "cmo"
+    icon: "trending-up"
+    capabilities: "Owns launch acquisition strategy, experiment cadence, and early funnel learning for each active venture."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -288,12 +390,18 @@ agents:
       - Existing package role moves under CMO; keep paused until analytics destinations are confirmed.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   marketing-strategist:
+    role: "cmo"
+    icon: "compass"
+    capabilities: "Builds market-facing positioning, campaign architecture, and audience-specific storylines from the launch brief."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -303,12 +411,18 @@ agents:
       - New specialist. Activate once positioning and message surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   seo-specialist:
+    role: "cmo"
+    icon: "search"
+    capabilities: "Owns search-intent capture, organic discoverability, and keyword-to-message alignment for the venture launch surface."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 14000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -321,12 +435,18 @@ agents:
       - New specialist. Activate once content and analytics surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   content-creator:
+    role: "cmo"
+    icon: "pen-square"
+    capabilities: "Creates launch content, lifecycle copy, and customer-facing narratives aligned to the offer, segment, and channel plan."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 14500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -336,12 +456,18 @@ agents:
       - New specialist. Activate once content destinations and templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   paid-media-strategist:
+    role: "cmo"
+    icon: "badge-percent"
+    capabilities: "Designs paid acquisition experiments, budget use, and channel-specific offers for early launch learning."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -354,12 +480,18 @@ agents:
       - New specialist. Keep paused until analytics destinations and campaign surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   tracking-measurement-specialist:
+    role: "cmo"
+    icon: "activity"
+    capabilities: "Owns event definitions, launch measurement wiring, dashboard quality, and attribution sanity for marketing and product-launch teams."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -372,12 +504,18 @@ agents:
       - New specialist. Keep paused until analytics destinations and dashboards are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   community-builder:
+    role: "cmo"
+    icon: "messages-square"
+    capabilities: "Builds owned and borrowed audience loops through authentic community participation, feedback collection, and launch amplification."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 14000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -387,12 +525,18 @@ agents:
       - New specialist. Activate once community surfaces and summaries are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ai-citation-strategist:
+    role: "cmo"
+    icon: "sparkles"
+    capabilities: "Optimizes brand and product visibility in AI-assisted discovery systems through citation, mention, and source-quality strategy."
+    reportsTo: "cmo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -405,12 +549,18 @@ agents:
       - New specialist. Activate once content inventory and measurement surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   vp-engineering:
+    role: "cto"
+    icon: "cpu"
+    capabilities: "Owns the engineering system for venture delivery, review, QA, release, reliability, and architectural coherence."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 23000
+    permissions:
+      canCreateAgents: true
     inputs:
       env:
         OPENAI_API_KEY:
@@ -423,12 +573,18 @@ agents:
       - New top-level manager. Keep paused until repo and release tooling are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   software-architect:
+    role: "engineer"
+    icon: "blocks"
+    capabilities: "Owns system shape, major trade-offs, and architectural decisions needed to implement the approved venture scope cleanly."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 19000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -441,12 +597,18 @@ agents:
       - New specialist. Activate once engineering worktree access is wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   backend-architect:
+    role: "engineer"
+    icon: "database"
+    capabilities: "Owns backend service shape, data contracts, persistence choices, and server-side performance or reliability trade-offs."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 18000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -459,12 +621,18 @@ agents:
       - New specialist. Activate once backend repo access and CI are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   frontend-developer:
+    role: "engineer"
+    icon: "monitor-smartphone"
+    capabilities: "Implements the launch-facing product surface with clean state handling, verified UI behavior, and fidelity to the approved UX and copy."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -477,12 +645,18 @@ agents:
       - New specialist. Activate once repo access and test tooling are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ai-engineer:
+    role: "engineer"
+    icon: "bot"
+    capabilities: "Implements AI-specific product behavior, model integrations, and evaluation paths while staying inside the approved scope and reliability bar."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 18000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -495,12 +669,18 @@ agents:
       - New specialist. Activate once repo access and evaluation tooling are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   senior-developer:
+    role: "engineer"
+    icon: "hammer"
+    capabilities: "Executes substantial implementation slices, resolves cross-cutting defects, and converts approved plans into shippable code with evidence."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 18000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -513,12 +693,18 @@ agents:
       - New specialist. Activate once repo and test access are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   devops-automator:
+    role: "devops"
+    icon: "workflow"
+    capabilities: "Owns build, deploy, CI/CD, and environment automation required to ship and operate the venture safely."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -531,12 +717,18 @@ agents:
       - New specialist. Activate once deploy tooling and secrets are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   sre:
+    role: "devops"
+    icon: "shield-check"
+    capabilities: "Owns service reliability, observability, incident-readiness, and operational risk posture for the shipped venture."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -549,12 +741,18 @@ agents:
       - New specialist. Activate once observability surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   security-engineer:
+    role: "devops"
+    icon: "lock"
+    capabilities: "Owns security review, threat assumptions, and hardening guidance across the launch-bound product surface and release path."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -567,12 +765,18 @@ agents:
       - New specialist. Activate once repo and runtime review surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   code-reviewer:
+    role: "qa"
+    icon: "scan-eye"
+    capabilities: "Acts as the independent code-quality gate between implementation and QA or release."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -585,12 +789,18 @@ agents:
       - Existing package role moves under VP Engineering; keep paused until repo access is wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   qa-director:
+    role: "qa"
+    icon: "clipboard-check"
+    capabilities: "Owns QA strategy, risk-based test coverage, and launch-go quality framing across the venture release train."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 16000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -603,12 +813,18 @@ agents:
       - New specialist. Activate once QA tooling and test environments are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   qa-engineer:
+    role: "qa"
+    icon: "bug"
+    capabilities: "Executes test scenarios, reproduces defects, validates fixes, and creates release-quality evidence for venture launches."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 14500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -621,12 +837,18 @@ agents:
       - New specialist. Activate once QA tooling and test environments are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   release-engineer:
+    role: "devops"
+    icon: "package-check"
+    capabilities: "Owns final merge, release mechanics, rollout, rollback preparation, and final release communication quality."
+    reportsTo: "vp-engineering"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 15500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -639,12 +861,18 @@ agents:
       - Existing package role moves under VP Engineering; keep paused until release tooling is wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   support-lead:
+    role: "pm"
+    icon: "life-buoy"
+    capabilities: "Owns support readiness, feedback capture, incident routing, and support-to-product signal quality after launch."
+    reportsTo: "ceo"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 17000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -660,12 +888,18 @@ agents:
       - Existing package role becomes a top-level manager; keep paused until support tooling and escalation templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   support-responder:
+    role: "general"
+    icon: "message-circle-reply"
+    capabilities: "Handles first-line support responses, triage, and canonical ticket capture without losing signal quality."
+    reportsTo: "support-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 13000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -678,12 +912,18 @@ agents:
       - New specialist. Activate once support queue tooling is wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   feedback-synthesizer:
+    role: "researcher"
+    icon: "notebook-tabs"
+    capabilities: "Turns qualitative support and launch feedback into structured themes, product implications, and escalation-ready evidence."
+    reportsTo: "support-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 13500
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:
@@ -696,12 +936,18 @@ agents:
       - Existing package role moves under Support Lead; keep paused until support and analytics surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   analytics-reporter:
+    role: "researcher"
+    icon: "bar-chart-3"
+    capabilities: "Combines product, support, and marketing metrics into readable post-launch operating reports."
+    reportsTo: "support-lead"
     adapter:
       type: codex_local
       config:
         model: gpt-5.4
         modelReasoningEffort: high
     budgetMonthlyCents: 14000
+    permissions:
+      canCreateAgents: false
     inputs:
       env:
         OPENAI_API_KEY:

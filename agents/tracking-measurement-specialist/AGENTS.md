@@ -4,7 +4,8 @@ name: Tracking & Measurement Specialist
 title: Tracking & Measurement Specialist
 schema: agentcompanies/v1
 slug: tracking-measurement-specialist
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

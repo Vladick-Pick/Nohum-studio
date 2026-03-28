@@ -4,7 +4,8 @@ name: AI Engineer
 title: AI Engineer
 schema: agentcompanies/v1
 slug: ai-engineer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "engineer"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

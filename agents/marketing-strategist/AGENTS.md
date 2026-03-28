@@ -4,7 +4,8 @@ name: Marketing Strategist
 title: Marketing Strategist
 schema: agentcompanies/v1
 slug: marketing-strategist
-reportsTo: ../cmo/AGENTS.md
+role: "cmo"
+reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

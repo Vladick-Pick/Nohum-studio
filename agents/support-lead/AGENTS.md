@@ -4,7 +4,8 @@ name: Support Lead
 title: Support Lead
 schema: agentcompanies/v1
 slug: support-lead
-reportsTo: ../ceo/AGENTS.md
+role: "pm"
+reportsTo: "ceo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

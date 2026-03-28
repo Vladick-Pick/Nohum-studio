@@ -4,7 +4,8 @@ name: UI Designer
 title: UI Designer
 schema: agentcompanies/v1
 slug: ui-designer
-reportsTo: ../launch-lead/AGENTS.md
+role: "designer"
+reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md
   - SOUL.md

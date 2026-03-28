@@ -4,7 +4,8 @@ name: VP of Engineering
 title: VP of Engineering
 schema: agentcompanies/v1
 slug: vp-engineering
-reportsTo: ../ceo/AGENTS.md
+role: "cto"
+reportsTo: "ceo"
 docs:
   - HEARTBEAT.md
   - SOUL.md

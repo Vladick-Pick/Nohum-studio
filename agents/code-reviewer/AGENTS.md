@@ -4,7 +4,8 @@ name: Code Reviewer
 title: Engineering Code Reviewer
 schema: agentcompanies/v1
 slug: code-reviewer
-reportsTo: ../vp-engineering/AGENTS.md
+role: "qa"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

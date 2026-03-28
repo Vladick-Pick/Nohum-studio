@@ -4,7 +4,8 @@ name: SRE
 title: Site Reliability Engineer
 schema: agentcompanies/v1
 slug: sre
-reportsTo: ../vp-engineering/AGENTS.md
+role: "devops"
+reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md
