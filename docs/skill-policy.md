@@ -1,13 +1,14 @@
 # NoHum Skill Policy
 
-NoHum skill policy is now explicit: role ownership lives in the org structure, repeatable specialist behavior lives in local skills, and runtime platform skills remain a separate base layer.
+NoHum skill policy is now explicit: role ownership lives in the org structure, repeatable specialist behavior lives in local skills, and the package must physically contain every skill referenced by agent bundles.
 
 ## Skill Layers
 
-1. Runtime base skills
+1. Base operating skills vendored in this repo
    - `paperclip`
    - `paperclip-create-agent`
    - `paperclip-knowledge`
+   - `para-memory-files`
 2. Vendored local skills inside this repo
    - imported and normalized from `pm-skills`, `superpowers`, and `gstack`
 3. NoHum overlay skills
@@ -34,7 +35,7 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 
 - No core team should rely on prompt prose alone for its operating behavior.
 - Team docs must reference actual local skill directories when a behavior is part of the package contract.
-- Runtime base skills are required in live environments but are not assumed to auto-import from this repo.
+- Base operating skills are part of the package contract and must exist locally under `skills/`, even when they depend on post-import runtime wiring.
 - If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.

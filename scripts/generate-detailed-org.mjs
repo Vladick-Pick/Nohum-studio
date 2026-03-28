@@ -2906,7 +2906,7 @@ This package now vendors selected local skills from four sources:
 - \`superpowers\` for engineering execution discipline
 - \`gstack\` for engineering review, QA, release, and security pipeline
 
-The runtime base skills \`paperclip\`, \`paperclip-create-agent\`, and \`paperclip-knowledge\` remain external runtime prerequisites. Team-specific operating skills now live in this repository under \`skills/\`. For gstack-derived engineering skills, the local \`SKILL.md\` files in this repo are the source of truth; upstream templates remain lineage only.
+The base operating skills \`paperclip\`, \`paperclip-create-agent\`, \`paperclip-knowledge\`, and \`para-memory-files\` are vendored in this repository so import-time skill references resolve inside the package. They still require live runtime wiring after import: Paperclip API env vars for the control-plane skills, and a writable adapter memory path for \`para-memory-files\`. For gstack-derived engineering skills, the local \`SKILL.md\` files in this repo are the source of truth; upstream templates remain lineage only.
 
 ## Import Policy
 
@@ -2939,14 +2939,15 @@ If preview shows rename or duplicate behavior for any preexisting slug, stop the
 function renderSkillPolicy() {
   return `# NoHum Skill Policy
 
-NoHum skill policy is now explicit: role ownership lives in the org structure, repeatable specialist behavior lives in local skills, and runtime platform skills remain a separate base layer.
+NoHum skill policy is now explicit: role ownership lives in the org structure, repeatable specialist behavior lives in local skills, and the package must physically contain every skill referenced by agent bundles.
 
 ## Skill Layers
 
-1. Runtime base skills
+1. Base operating skills vendored in this repo
    - \`paperclip\`
    - \`paperclip-create-agent\`
    - \`paperclip-knowledge\`
+   - \`para-memory-files\`
 2. Vendored local skills inside this repo
    - imported and normalized from \`pm-skills\`, \`superpowers\`, and \`gstack\`
 3. NoHum overlay skills
@@ -2973,7 +2974,7 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 
 - No core team should rely on prompt prose alone for its operating behavior.
 - Team docs must reference actual local skill directories when a behavior is part of the package contract.
-- Runtime base skills are required in live environments but are not assumed to auto-import from this repo.
+- Base operating skills are part of the package contract and must exist locally under \`skills/\`, even when they depend on post-import runtime wiring.
 - If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.
@@ -3011,7 +3012,8 @@ Why:
 This matrix defines team-level skill bundles for the detailed-core package.
 
 Rules:
-- Runtime base skills are listed separately from vendored local skills.
+- Base operating skills are listed separately from team-specific local skills.
+- Base operating skills must also exist locally in \`skills/\` so agent references resolve during import preview.
 - Mandatory local skills must exist in \`skills/\`.
 - Optional skills are still local to this repository when listed here.
 - No role should rely on prompt prose only for core behavior.

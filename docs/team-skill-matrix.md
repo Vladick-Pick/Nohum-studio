@@ -3,7 +3,8 @@
 This matrix defines team-level skill bundles for the detailed-core package.
 
 Rules:
-- Runtime base skills are listed separately from vendored local skills.
+- Base operating skills are listed separately from team-specific local skills.
+- Base operating skills must also exist locally in `skills/` so agent references resolve during import preview.
 - Mandatory local skills must exist in `skills/`.
 - Optional skills are still local to this repository when listed here.
 - No role should rely on prompt prose only for core behavior.
@@ -17,6 +18,7 @@ Members: `Research Synthesizer`, `Competitor Scout`, `Demand Validator`, `Revenu
 Runtime base skills:
 - `paperclip`
 - `paperclip-knowledge`
+- `para-memory-files`
 
 Mandatory local skills:
 - `venture-policy`
