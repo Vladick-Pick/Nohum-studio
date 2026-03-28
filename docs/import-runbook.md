@@ -10,7 +10,10 @@ Existing live `NoHum Studio` company.
 - `ceo`
 - `research-lead`
 - `launch-lead`
-- Import all other agents as new and keep them paused until runtime wiring is complete:
+- Preview every non-core slug before import and classify it one of two ways:
+- already present live: reconcile or update in place, do not create a duplicate
+- absent live: import as new and keep it paused until runtime wiring is complete
+- Non-core slugs that must be checked individually:
 - `chief-of-staff`
 - `agent-mechanic`
 - `research-synthesizer`
@@ -54,15 +57,18 @@ Existing live `NoHum Studio` company.
 
 1. Preview the repository import against the current Paperclip runtime.
 2. Confirm that `ceo`, `research-lead`, and `launch-lead` map 1:1 without rename or duplicate behavior.
-3. Confirm that newly introduced managers `cmo`, `vp-engineering`, and `support-lead` appear as new records, not replacements.
-4. Abort bulk import if any core slug is about to duplicate.
+3. For each non-core slug, determine whether it is already present live or absent.
+4. If the non-core slug is already present live, verify that preview preserves the slug and updates the reporting line without producing a second record.
+5. If the non-core slug is absent live, verify it appears as a new paused record.
+6. Abort bulk import if any preexisting slug is about to rename or duplicate.
 
 ## Post-Preview Expectations
 
 - `launch-lead` remains the same slug but now owns only Product Launch.
 - `growth-lead` must report to `cmo` after import.
 - `code-reviewer` and `release-engineer` must report to `vp-engineering`.
-- all newly introduced roles remain paused until secrets, tools, and instruction bundles are wired.
+- any non-core role that already existed live should be rebound in place, not duplicated.
+- any non-core role created by this import should remain paused until secrets, tools, and instruction bundles are wired.
 
 ## Mandatory Follow-Up
 

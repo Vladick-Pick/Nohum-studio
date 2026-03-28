@@ -26,4 +26,4 @@ Restrictions:
 Post-import note:
 
 - New specialist. Activate once deploy tooling and secrets are wired.
-- This is a newly introduced specialist or manager. Import as new and keep paused until runtime wiring is complete.
+- This is a non-core slug. Preview it against the live company first: if the slug already exists, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.

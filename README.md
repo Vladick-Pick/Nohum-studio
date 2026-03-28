@@ -40,7 +40,7 @@ This package now vendors selected local skills from four sources:
 - `superpowers` for engineering execution discipline
 - `gstack` for engineering review, QA, release, and security pipeline
 
-The runtime base skills `paperclip`, `paperclip-create-agent`, and `paperclip-knowledge` remain external runtime prerequisites. Team-specific operating skills now live in this repository under `skills/`.
+The runtime base skills `paperclip`, `paperclip-create-agent`, and `paperclip-knowledge` remain external runtime prerequisites. Team-specific operating skills now live in this repository under `skills/`. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
 
 ## Import Policy
 
@@ -52,10 +52,11 @@ Safe migration path:
    - `ceo`
    - `research-lead`
    - `launch-lead`
-2. import all newly introduced managers and specialists as new records
-3. keep new roles paused until secrets, tools, and runtime instructions are wired
+2. preview every non-core slug against the live company before import
+3. if a non-core slug already exists live, reconcile or update it in place instead of creating a duplicate
+4. import only absent non-core roles as new records and keep them paused until secrets, tools, and runtime instructions are wired
 
-If preview shows rename or duplicate behavior for any core slug, stop the bulk import and switch to manual package-driven migration.
+If preview shows rename or duplicate behavior for any preexisting slug, stop the bulk import and switch to manual package-driven migration.
 
 ## Repository Map
 

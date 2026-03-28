@@ -9,7 +9,7 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
    - `paperclip-create-agent`
    - `paperclip-knowledge`
 2. Vendored local skills inside this repo
-   - imported from `pm-skills`, `superpowers`, and `gstack`
+   - imported and normalized from `pm-skills`, `superpowers`, and `gstack`
 3. NoHum overlay skills
    - `venture-policy`
    - `research-scorecard`
@@ -28,13 +28,14 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 - `agency-agents`: source of role topology and deliverable-first behavior, not direct runtime skill files
 - `pm-skills`: source of research, product, GTM, marketing, support, and analytics skill files
 - `superpowers`: source of engineering execution workflow skills
-- `gstack`: source of review, QA, release, and security pipeline skills
+- `gstack`: source lineage for review, QA, release, and security pipeline skills, but local NoHum-adapted files are authoritative
 
 ## Rules
 
 - No core team should rely on prompt prose alone for its operating behavior.
 - Team docs must reference actual local skill directories when a behavior is part of the package contract.
 - Runtime base skills are required in live environments but are not assumed to auto-import from this repo.
+- If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.
 

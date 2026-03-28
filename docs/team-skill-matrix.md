@@ -7,6 +7,7 @@ Rules:
 - Mandatory local skills must exist in `skills/`.
 - Optional skills are still local to this repository when listed here.
 - No role should rely on prompt prose only for core behavior.
+- When an engineering skill comes from gstack lineage, the local NoHum `SKILL.md` is authoritative.
 
 ## Research Team
 

@@ -34,7 +34,7 @@ agents:
           requirement: optional
     notes:
       - Keep wake-on-demand available and wire cadence dashboards after import.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   agent-mechanic:
     adapter:
       type: codex_local
@@ -52,7 +52,7 @@ agents:
           requirement: optional
     notes:
       - Grant diagnostic-only access to runtime paths and tool health scripts.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   research-lead:
     adapter:
       type: codex_local
@@ -85,7 +85,7 @@ agents:
           requirement: optional
     notes:
       - Pause after import until research templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   competitor-scout:
     adapter:
       type: codex_local
@@ -103,7 +103,7 @@ agents:
           requirement: optional
     notes:
       - Pause after import until browser access and evidence templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   demand-validator:
     adapter:
       type: codex_local
@@ -121,7 +121,7 @@ agents:
           requirement: optional
     notes:
       - Pause after import until demand evidence template is wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   revenue-validator:
     adapter:
       type: codex_local
@@ -136,7 +136,7 @@ agents:
           requirement: optional
     notes:
       - Pause after import until pricing and payment evidence surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   launch-lead:
     adapter:
       type: codex_local
@@ -172,7 +172,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until Gate B artifacts and templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ux-researcher:
     adapter:
       type: codex_local
@@ -187,7 +187,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate only after feedback and research surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ux-architect:
     adapter:
       type: codex_local
@@ -202,7 +202,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until design and engineering handoff surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ui-designer:
     adapter:
       type: codex_local
@@ -217,7 +217,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until design handoff paths are available.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   pricing-strategist:
     adapter:
       type: codex_local
@@ -235,7 +235,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until pricing and payment evidence surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   launch-program-manager:
     adapter:
       type: codex_local
@@ -250,7 +250,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate only after team-level checklists are imported.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   cmo:
     adapter:
       type: codex_local
@@ -268,7 +268,7 @@ agents:
           requirement: optional
     notes:
       - New top-level manager. Keep paused until analytics and campaign destinations are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   growth-lead:
     adapter:
       type: codex_local
@@ -286,7 +286,7 @@ agents:
           requirement: optional
     notes:
       - Existing package role moves under CMO; keep paused until analytics destinations are confirmed.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   marketing-strategist:
     adapter:
       type: codex_local
@@ -301,7 +301,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once positioning and message surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   seo-specialist:
     adapter:
       type: codex_local
@@ -319,7 +319,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once content and analytics surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   content-creator:
     adapter:
       type: codex_local
@@ -334,7 +334,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once content destinations and templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   paid-media-strategist:
     adapter:
       type: codex_local
@@ -352,7 +352,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until analytics destinations and campaign surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   tracking-measurement-specialist:
     adapter:
       type: codex_local
@@ -370,7 +370,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Keep paused until analytics destinations and dashboards are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   community-builder:
     adapter:
       type: codex_local
@@ -385,7 +385,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once community surfaces and summaries are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ai-citation-strategist:
     adapter:
       type: codex_local
@@ -403,7 +403,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once content inventory and measurement surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   vp-engineering:
     adapter:
       type: codex_local
@@ -421,7 +421,7 @@ agents:
           requirement: optional
     notes:
       - New top-level manager. Keep paused until repo and release tooling are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   software-architect:
     adapter:
       type: codex_local
@@ -439,7 +439,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once engineering worktree access is wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   backend-architect:
     adapter:
       type: codex_local
@@ -457,7 +457,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once backend repo access and CI are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   frontend-developer:
     adapter:
       type: codex_local
@@ -475,7 +475,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once repo access and test tooling are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   ai-engineer:
     adapter:
       type: codex_local
@@ -493,7 +493,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once repo access and evaluation tooling are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   senior-developer:
     adapter:
       type: codex_local
@@ -511,7 +511,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once repo and test access are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   devops-automator:
     adapter:
       type: codex_local
@@ -529,7 +529,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once deploy tooling and secrets are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   sre:
     adapter:
       type: codex_local
@@ -547,7 +547,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once observability surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   security-engineer:
     adapter:
       type: codex_local
@@ -565,7 +565,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once repo and runtime review surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   code-reviewer:
     adapter:
       type: codex_local
@@ -583,7 +583,7 @@ agents:
           requirement: optional
     notes:
       - Existing package role moves under VP Engineering; keep paused until repo access is wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   qa-director:
     adapter:
       type: codex_local
@@ -601,7 +601,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once QA tooling and test environments are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   qa-engineer:
     adapter:
       type: codex_local
@@ -619,7 +619,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once QA tooling and test environments are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   release-engineer:
     adapter:
       type: codex_local
@@ -637,7 +637,7 @@ agents:
           requirement: optional
     notes:
       - Existing package role moves under VP Engineering; keep paused until release tooling is wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   support-lead:
     adapter:
       type: codex_local
@@ -658,7 +658,7 @@ agents:
           requirement: optional
     notes:
       - Existing package role becomes a top-level manager; keep paused until support tooling and escalation templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   support-responder:
     adapter:
       type: codex_local
@@ -676,7 +676,7 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once support queue tooling is wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   feedback-synthesizer:
     adapter:
       type: codex_local
@@ -694,7 +694,7 @@ agents:
           requirement: optional
     notes:
       - Existing package role moves under Support Lead; keep paused until support and analytics surfaces are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   analytics-reporter:
     adapter:
       type: codex_local
@@ -712,4 +712,4 @@ agents:
           requirement: optional
     notes:
       - New specialist. Activate once analytics surfaces and report templates are wired.
-      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.
+      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.

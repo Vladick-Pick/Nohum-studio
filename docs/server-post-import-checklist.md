@@ -4,6 +4,7 @@
 
 - confirm `ceo`, `research-lead`, and `launch-lead` upgraded in place
 - confirm no duplicates were created for core slugs
+- confirm any non-core slug that already existed live was reconciled in place instead of duplicated
 
 ## 2. Reporting Line Check
 
@@ -50,7 +51,8 @@
 
 ## 3. Pause State Check
 
-- all non-core newly introduced roles should remain paused until runtime wiring is complete
+- all non-core roles created by this import should remain paused until runtime wiring is complete
+- any non-core role reconciled from a previous package should keep the new reporting line and remain paused until its new tooling is wired
 - newly introduced top-level managers `cmo` and `vp-engineering` should stay paused until their tool and secret surfaces are ready
 
 ## 4. Tooling and Secrets Check

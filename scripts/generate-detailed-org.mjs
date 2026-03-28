@@ -2459,7 +2459,7 @@ function managerPathForFrontmatter(agent) {
 }
 
 function importMode(agent) {
-  return coreReplaceAgents.includes(agent.slug) ? "replace-core" : "new-paused";
+  return coreReplaceAgents.includes(agent.slug) ? "replace-core" : "reconcile-or-new-paused";
 }
 
 function disciplineSoul(agent) {
@@ -2505,7 +2505,7 @@ function disciplineHeartbeat(agent) {
       "Re-open the launch brief, audience definition, and current measurement plan.",
       "Verify offer, audience, channel, and metric before producing campaign work.",
       "Refresh the canonical campaign or measurement artifact instead of leaving comments-only notes.",
-      "Route instrumentation gaps to `Tracking & Measurement Specialist` or `CMO` quickly.",
+      "Escalate instrumentation gaps immediately and record the owner responsible for fixing them.",
       "Escalate if product definition or pricing is still unstable.",
     ],
     engineering: [
@@ -2637,7 +2637,7 @@ function renderTools(agent) {
   const importNote =
     importMode(agent) === "replace-core"
       ? "This slug is part of the exact-parity core upgrade path. Upgrade in place and rebind runtime wiring carefully."
-      : "This is a newly introduced specialist or manager. Import as new and keep paused until runtime wiring is complete.";
+      : "This is a non-core slug. Preview it against the live company first: if the slug already exists, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.";
   return `# ${agent.name} Tools
 
 Primary operating surfaces:
@@ -2855,7 +2855,9 @@ function renderPaperclipYaml() {
     if (importMode(agent) === "replace-core") {
       lines.push("      - Exact-parity core slug. Upgrade in place and validate reporting lines after import.");
     } else {
-      lines.push("      - Newly introduced role. Import as new and keep paused until runtime wiring is complete.");
+      lines.push(
+        "      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete."
+      );
     }
   }
   return lines.join("\n");
@@ -2904,7 +2906,7 @@ This package now vendors selected local skills from four sources:
 - \`superpowers\` for engineering execution discipline
 - \`gstack\` for engineering review, QA, release, and security pipeline
 
-The runtime base skills \`paperclip\`, \`paperclip-create-agent\`, and \`paperclip-knowledge\` remain external runtime prerequisites. Team-specific operating skills now live in this repository under \`skills/\`.
+The runtime base skills \`paperclip\`, \`paperclip-create-agent\`, and \`paperclip-knowledge\` remain external runtime prerequisites. Team-specific operating skills now live in this repository under \`skills/\`. For gstack-derived engineering skills, the local \`SKILL.md\` files in this repo are the source of truth; upstream templates remain lineage only.
 
 ## Import Policy
 
@@ -2916,10 +2918,11 @@ Safe migration path:
    - \`ceo\`
    - \`research-lead\`
    - \`launch-lead\`
-2. import all newly introduced managers and specialists as new records
-3. keep new roles paused until secrets, tools, and runtime instructions are wired
+2. preview every non-core slug against the live company before import
+3. if a non-core slug already exists live, reconcile or update it in place instead of creating a duplicate
+4. import only absent non-core roles as new records and keep them paused until secrets, tools, and runtime instructions are wired
 
-If preview shows rename or duplicate behavior for any core slug, stop the bulk import and switch to manual package-driven migration.
+If preview shows rename or duplicate behavior for any preexisting slug, stop the bulk import and switch to manual package-driven migration.
 
 ## Repository Map
 
@@ -2945,7 +2948,7 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
    - \`paperclip-create-agent\`
    - \`paperclip-knowledge\`
 2. Vendored local skills inside this repo
-   - imported from \`pm-skills\`, \`superpowers\`, and \`gstack\`
+   - imported and normalized from \`pm-skills\`, \`superpowers\`, and \`gstack\`
 3. NoHum overlay skills
    - \`venture-policy\`
    - \`research-scorecard\`
@@ -2964,13 +2967,14 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 - \`agency-agents\`: source of role topology and deliverable-first behavior, not direct runtime skill files
 - \`pm-skills\`: source of research, product, GTM, marketing, support, and analytics skill files
 - \`superpowers\`: source of engineering execution workflow skills
-- \`gstack\`: source of review, QA, release, and security pipeline skills
+- \`gstack\`: source lineage for review, QA, release, and security pipeline skills, but local NoHum-adapted files are authoritative
 
 ## Rules
 
 - No core team should rely on prompt prose alone for its operating behavior.
 - Team docs must reference actual local skill directories when a behavior is part of the package contract.
 - Runtime base skills are required in live environments but are not assumed to auto-import from this repo.
+- If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.
 
@@ -3011,6 +3015,7 @@ Rules:
 - Mandatory local skills must exist in \`skills/\`.
 - Optional skills are still local to this repository when listed here.
 - No role should rely on prompt prose only for core behavior.
+- When an engineering skill comes from gstack lineage, the local NoHum \`SKILL.md\` is authoritative.
 
 ${sections.join("\n")}
 
@@ -3138,22 +3143,28 @@ Existing live \`NoHum Studio\` company.
 
 - Replace in place only for exact-parity core slugs:
 ${mdList(coreReplaceAgents.map((slug) => `\`${slug}\``))}
-- Import all other agents as new and keep them paused until runtime wiring is complete:
+- Preview every non-core slug before import and classify it one of two ways:
+- already present live: reconcile or update in place, do not create a duplicate
+- absent live: import as new and keep it paused until runtime wiring is complete
+- Non-core slugs that must be checked individually:
 ${mdList(newAgents.map((slug) => `\`${slug}\``))}
 
 ## Dry-Run Sequence
 
 1. Preview the repository import against the current Paperclip runtime.
 2. Confirm that \`ceo\`, \`research-lead\`, and \`launch-lead\` map 1:1 without rename or duplicate behavior.
-3. Confirm that newly introduced managers \`cmo\`, \`vp-engineering\`, and \`support-lead\` appear as new records, not replacements.
-4. Abort bulk import if any core slug is about to duplicate.
+3. For each non-core slug, determine whether it is already present live or absent.
+4. If the non-core slug is already present live, verify that preview preserves the slug and updates the reporting line without producing a second record.
+5. If the non-core slug is absent live, verify it appears as a new paused record.
+6. Abort bulk import if any preexisting slug is about to rename or duplicate.
 
 ## Post-Preview Expectations
 
 - \`launch-lead\` remains the same slug but now owns only Product Launch.
 - \`growth-lead\` must report to \`cmo\` after import.
 - \`code-reviewer\` and \`release-engineer\` must report to \`vp-engineering\`.
-- all newly introduced roles remain paused until secrets, tools, and instruction bundles are wired.
+- any non-core role that already existed live should be rebound in place, not duplicated.
+- any non-core role created by this import should remain paused until secrets, tools, and instruction bundles are wired.
 
 ## Mandatory Follow-Up
 
@@ -3172,6 +3183,7 @@ function renderServerChecklist() {
 
 - confirm \`ceo\`, \`research-lead\`, and \`launch-lead\` upgraded in place
 - confirm no duplicates were created for core slugs
+- confirm any non-core slug that already existed live was reconciled in place instead of duplicated
 
 ## 2. Reporting Line Check
 
@@ -3179,7 +3191,8 @@ function renderServerChecklist() {
 
 ## 3. Pause State Check
 
-- all non-core newly introduced roles should remain paused until runtime wiring is complete
+- all non-core roles created by this import should remain paused until runtime wiring is complete
+- any non-core role reconciled from a previous package should keep the new reporting line and remain paused until its new tooling is wired
 - newly introduced top-level managers \`cmo\` and \`vp-engineering\` should stay paused until their tool and secret surfaces are ready
 
 ## 4. Tooling and Secrets Check
@@ -3217,12 +3230,14 @@ This migration upgrades the previous compact package into a detailed-core org pa
 - \`growth-lead\` moved under \`cmo\`.
 - \`code-reviewer\` and \`release-engineer\` moved under \`vp-engineering\`.
 - the compact \`delivery-engineer\` role was removed from the package in favor of a full Engineering team.
-- local skills are now vendored directly from \`pm-skills\`, \`superpowers\`, and \`gstack\`.
+- local skills are now vendored directly from \`pm-skills\` and \`superpowers\`, plus NoHum-adapted \`gstack\`-derived engineering skills.
 
 ## Migration Safety Rules
 
 - replace only the exact-parity core slugs in bulk
-- import all new roles as paused
+- preview every non-core slug individually before import
+- if a non-core slug already exists live, reconcile or update it in place instead of duplicating it
+- only absent non-core roles should import as new and remain paused
 - validate reporting lines before activating any new manager or specialist
 - do not rely on \`teams/\` auto-materializing into live runtime behavior
 `;
