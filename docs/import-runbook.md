@@ -1,93 +1,16 @@
 # Import Runbook
 
-This runbook assumes the official `paperclipai/paperclip` CLI and upgrades the existing live `NoHum Studio` company instead of creating a new one.
+## Default Target
 
-## Goal
+Existing live `NoHum Studio` company.
 
-Import the v1.5 package into the current server-hosted company without duplicating the existing core identities.
+## Collision Policy
 
-## Package Source
-
-Use the public repository or a checked-out local copy of it:
-
-```sh
-https://github.com/Vladick-Pick/Nohum-studio.git
-```
-
-or
-
-```sh
-/absolute/path/to/Nohum-studio
-```
-
-## CLI Shape
-
-Current CLI syntax on the local Paperclip checkout:
-
-```sh
-pnpm paperclipai company import \
-  --from <path-or-url> \
-  --target <new|existing> \
-  --company-id <existing-company-id> \
-  --collision <rename|skip|replace> \
-  --agents <comma-separated slugs or all> \
-  --dry-run
-```
-
-## Why Import In Two Passes
-
-The CLI accepts one collision strategy per import command.
-
-NoHum v1.5 needs two different behaviors:
-
-- existing core agents should be replaced only when identity parity is exact
-- newly introduced specialists should be created as new agents and then paused
-
-That means the safe path is a two-pass import.
-
-## Step 1: Preview core-agent replacement
-
-Core agents with expected identity parity:
-
+- Replace in place only for exact-parity core slugs:
 - `ceo`
 - `research-lead`
 - `launch-lead`
-
-```sh
-pnpm paperclipai company import \
-  --from /absolute/path/to/Nohum-studio \
-  --target existing \
-  --company-id <live-company-id> \
-  --agents ceo,research-lead,launch-lead \
-  --collision replace \
-  --dry-run \
-  --json
-```
-
-Review:
-
-- exact match to existing live identities
-- no rename behavior
-- no unexpected duplicate agent plan
-- valid role mapping and adapter config warnings only where expected
-
-If preview shows rename or duplicate behavior for any core agent, stop here and switch to manual migration.
-
-## Step 2: Apply core-agent replacement
-
-```sh
-pnpm paperclipai company import \
-  --from /absolute/path/to/Nohum-studio \
-  --target existing \
-  --company-id <live-company-id> \
-  --agents ceo,research-lead,launch-lead \
-  --collision replace
-```
-
-## Step 3: Preview specialist import
-
-New v1.5 agents:
-
+- Import all other agents as new and keep them paused until runtime wiring is complete:
 - `chief-of-staff`
 - `agent-mechanic`
 - `research-synthesizer`
@@ -95,67 +18,52 @@ New v1.5 agents:
 - `demand-validator`
 - `revenue-validator`
 - `product-definer`
+- `ux-researcher`
+- `ux-architect`
+- `ui-designer`
+- `pricing-strategist`
+- `launch-program-manager`
+- `cmo`
 - `growth-lead`
-- `support-lead`
-- `feedback-synthesizer`
-- `delivery-engineer`
+- `marketing-strategist`
+- `seo-specialist`
+- `content-creator`
+- `paid-media-strategist`
+- `tracking-measurement-specialist`
+- `community-builder`
+- `ai-citation-strategist`
+- `vp-engineering`
+- `software-architect`
+- `backend-architect`
+- `frontend-developer`
+- `ai-engineer`
+- `senior-developer`
+- `devops-automator`
+- `sre`
+- `security-engineer`
 - `code-reviewer`
+- `qa-director`
+- `qa-engineer`
 - `release-engineer`
+- `support-lead`
+- `support-responder`
+- `feedback-synthesizer`
+- `analytics-reporter`
 
-```sh
-pnpm paperclipai company import \
-  --from /absolute/path/to/Nohum-studio \
-  --target existing \
-  --company-id <live-company-id> \
-  --agents chief-of-staff,agent-mechanic,research-synthesizer,competitor-scout,demand-validator,revenue-validator,product-definer,growth-lead,support-lead,feedback-synthesizer,delivery-engineer,code-reviewer,release-engineer \
-  --collision rename \
-  --dry-run \
-  --json
-```
+## Dry-Run Sequence
 
-Review:
+1. Preview the repository import against the current Paperclip runtime.
+2. Confirm that `ceo`, `research-lead`, and `launch-lead` map 1:1 without rename or duplicate behavior.
+3. Confirm that newly introduced managers `cmo`, `vp-engineering`, and `support-lead` appear as new records, not replacements.
+4. Abort bulk import if any core slug is about to duplicate.
 
-- every specialist is planned as a new agent
-- no collision with the three existing core agents
-- reporting lines are preserved
-- if any specialist already exists from an earlier partial rollout, stop and switch that slug to manual remediation instead of using `rename`
+## Post-Preview Expectations
 
-## Step 4: Apply specialist import
+- `launch-lead` remains the same slug but now owns only Product Launch.
+- `growth-lead` must report to `cmo` after import.
+- `code-reviewer` and `release-engineer` must report to `vp-engineering`.
+- all newly introduced roles remain paused until secrets, tools, and instruction bundles are wired.
 
-```sh
-pnpm paperclipai company import \
-  --from /absolute/path/to/Nohum-studio \
-  --target existing \
-  --company-id <live-company-id> \
-  --agents chief-of-staff,agent-mechanic,research-synthesizer,competitor-scout,demand-validator,revenue-validator,product-definer,growth-lead,support-lead,feedback-synthesizer,delivery-engineer,code-reviewer,release-engineer \
-  --collision rename
-```
+## Mandatory Follow-Up
 
-## Step 5: Post-import runtime wiring
-
-After both passes:
-
-1. verify `CEO`, `Research Lead`, and `Launch Lead` were updated in place
-2. verify the specialist roster was created once each
-3. manually pause newly created specialists because portability manifest does not carry agent status
-4. sync the four-file managed instruction bundles where runtime stores them separately
-5. apply secrets and tool wiring from `docs/mcp-access-matrix.md`
-6. verify budgets and heartbeat settings from `.paperclip.yaml`
-
-## Import Reality
-
-Expected imported runtime entities on current portability flow:
-
-- company metadata
-- agents
-
-Do not assume automatic materialization of:
-
-- `teams/`
-- `skills/`
-- `projects/`
-- `tasks/`
-- `templates/`
-- `docs/`
-
-Those remain the bootstrap and post-import wiring layer.
+After import, run the checklist in `docs/server-post-import-checklist.md` before resuming new roles.

@@ -1,14 +1,28 @@
 # Growth Lead Tools
 
-Use:
+Primary operating surfaces:
 
-- launch briefs
-- handoff dossiers
-- customer-facing message artifacts
-- metrics and experiment logs
+- Analytics dashboards
+- channel docs
+- campaign experiment trackers
 
-Avoid:
+Required evidence surfaces:
 
-- adding features to compensate for weak messaging
-- channel expansion without evidence
-- comments-only handoffs
+- funnel report
+- experiment log
+- North Star metric view
+
+Secrets usually wired after import:
+
+- `OPENAI_API_KEY`
+- `ANALYTICS_API_KEY`
+
+Restrictions:
+
+- No channel scaling without measured signal
+- No price or promise changes without cross-team review
+
+Post-import note:
+
+- Existing package role moves under CMO; keep paused until analytics destinations are confirmed.
+- This is a newly introduced specialist or manager. Import as new and keep paused until runtime wiring is complete.

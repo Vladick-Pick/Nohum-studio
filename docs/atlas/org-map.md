@@ -1,87 +1,66 @@
-# NoHum Atlas: Org Map
-
-Date: 2026-03-28
-
-## Intent
-
-This diagram shows reporting lines and role intent.
-
-It does not describe business flow. It describes org shape.
-
-## Role Notes
-
-- `CEO`
-  - studio allocator and gate owner
-- `Chief of Staff`
-  - operating cadence, execution reliability, org health, escalation routing
-- `Agent Mechanic`
-  - agent reliability engineer; fixes why agents do not execute properly
-- `Research Lead`
-  - owns research pod quality and queue package quality bar
-- `Launch Lead`
-  - owns venture execution from Product Definition through launch readiness
-
-## Live vs Target
-
-- `CEO`: `LIVE`
-- `Chief of Staff`: `LIVE`
-- `Agent Mechanic`: `LIVE`, but file bundle incomplete
-- `Research Lead`: `LIVE`
-- `Launch Lead`: `LIVE`
-- specialists under the leads: `TARGET`
-
-## Diagram
+# NoHum Detailed-Core Org Map
 
 ```mermaid
-flowchart TD
-  B["Board"]
-  CEO["CEO<br/>LIVE"]
+graph TD
+  CEO["CEO"]
+  COS["Chief of Staff"]
+  AM["Agent Mechanic"]
+  RL["Research Lead"]
+  LL["Launch Lead"]
+  CMO["CMO"]
+  VPE["VP of Engineering"]
+  SL["Support Lead"]
 
-  B --> CEO
+  CEO --> COS
+  CEO --> RL
+  CEO --> LL
+  CEO --> CMO
+  CEO --> VPE
+  CEO --> SL
+  COS --> AM
 
-  CEO --> COS["Chief of Staff<br/>LIVE"]
-  CEO --> RL["Research Lead<br/>LIVE"]
-  CEO --> LL["Launch Lead<br/>LIVE"]
+  RL --> RS["Research Synthesizer"]
+  RL --> CS["Competitor Scout"]
+  RL --> DV["Demand Validator"]
+  RL --> RV["Revenue Validator"]
 
-  COS --> AM["Agent Mechanic<br/>LIVE / PARTIAL"]
-  COS --> HC["Hiring Coordinator<br/>TARGET"]
-  COS --> EA["Execution Auditor<br/>TARGET"]
-  COS --> KS["Knowledge Steward<br/>TARGET"]
+  LL --> PD["Product Definer"]
+  LL --> UXR["UX Researcher"]
+  LL --> UXA["UX Architect"]
+  LL --> UID["UI Designer"]
+  LL --> PS["Pricing Strategist"]
+  LL --> LPM["Launch Program Manager"]
 
-  RL --> RIS["Intake Scout<br/>TARGET"]
-  RL --> RCS["Competitor Scout<br/>TARGET"]
-  RL --> RDV["Demand Validator<br/>TARGET"]
-  RL --> RRV["Revenue Validator<br/>TARGET"]
-  RL --> RSY["Research Synthesizer<br/>TARGET"]
+  CMO --> GL["Growth Lead"]
+  CMO --> MS["Marketing Strategist"]
+  CMO --> SEO["SEO Specialist"]
+  CMO --> CC["Content Creator"]
+  CMO --> PMS["Paid Media Strategist"]
+  CMO --> TMS["Tracking & Measurement Specialist"]
+  CMO --> CB["Community Builder"]
+  CMO --> AIC["AI Citation Strategist"]
 
-  LL --> PD["Product Definer<br/>TARGET"]
-  LL --> DL["Dev Lead<br/>TARGET"]
-  LL --> GL["Growth Lead<br/>TARGET"]
-  LL --> SL["Support Lead<br/>TARGET"]
-  LL --> VRA["Venture Research Analyst<br/>TARGET"]
+  VPE --> SA["Software Architect"]
+  VPE --> BA["Backend Architect"]
+  VPE --> FD["Frontend Developer"]
+  VPE --> AIE["AI Engineer"]
+  VPE --> SD["Senior Developer"]
+  VPE --> DO["DevOps Automator"]
+  VPE --> SRE["SRE"]
+  VPE --> SEC["Security Engineer"]
+  VPE --> CR["Code Reviewer"]
+  VPE --> QAD["QA Director"]
+  VPE --> QAE["QA Engineer"]
+  VPE --> RE["Release Engineer"]
 
-  DL --> FE["Frontend Builder<br/>TARGET"]
-  DL --> BE["Backend Builder<br/>TARGET"]
-  DL --> QA["QA / Verifier<br/>TARGET"]
-
-  GL --> COPY["Copy / Landing Builder<br/>TARGET"]
-  GL --> DIST["Distribution Operator<br/>TARGET"]
-  GL --> ANA["Analytics Operator<br/>TARGET"]
-
-  SL --> TRI["Support Triage<br/>TARGET"]
-  SL --> FSY["Feedback Synthesizer<br/>TARGET"]
+  SL --> SR["Support Responder"]
+  SL --> FS["Feedback Synthesizer"]
+  SL --> AR["Analytics Reporter"]
 ```
 
-## Settings Principle
+## Notes
 
-Every agent should eventually own:
-
-- local `AGENTS.md`
-- local `SOUL.md`
-- local `HEARTBEAT.md`
-- local `TOOLS.md`
-- per-agent skills
-- per-agent permissions
-- per-agent heartbeat timing
-- per-agent budget cap
-- per-agent workspace access policy
+- `launch-lead` remains exact-parity import-safe core but now owns only Product Launch.
+- `growth-lead` now reports to `cmo`.
+- `code-reviewer` and `release-engineer` now report to `vp-engineering`.
+- Design stays inside Product Launch instead of becoming a standalone department.

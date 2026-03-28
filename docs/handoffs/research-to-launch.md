@@ -1,10 +1,12 @@
-# Research To Launch Handoff
+# Research to Product Launch
 
-- `venture_id`
-- queue package link
-- thesis
-- top evidence links
-- score summary
-- economics summary
-- strongest risks
-- what `Launch Lead` must still decide
+Required artifacts:
+- research dossier
+- queue package
+- assumption map
+- pricing evidence
+
+Rules:
+- No venture enters Product Launch without a canonical research dossier.
+- Research must state what is proven, what is assumed, and what still needs launch-stage validation.
+- Launch Lead must explicitly accept or reject the dossier before definition work begins.

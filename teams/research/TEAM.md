@@ -1,7 +1,7 @@
 ---
 name: Research
 slug: research
-description: Research engine for sourcing, validation, and canonical queue-package production.
+description: Source venture candidates, prove direct evidence, and hand off only decision-grade queue packages.
 manager: ../../agents/research-lead/AGENTS.md
 includes:
   - ../../agents/research-lead/AGENTS.md
@@ -11,37 +11,73 @@ includes:
   - ../../agents/revenue-validator/AGENTS.md
   - ../../skills/venture-policy/SKILL.md
   - ../../skills/research-scorecard/SKILL.md
+  - ../../skills/research-competitor-analysis/SKILL.md
+  - ../../skills/research-demand-validation/SKILL.md
+  - ../../skills/research-revenue-validation/SKILL.md
+  - ../../skills/competitor-analysis/SKILL.md
+  - ../../skills/market-sizing/SKILL.md
+  - ../../skills/pricing-strategy/SKILL.md
+  - ../../skills/monetization-strategy/SKILL.md
+  - ../../skills/identify-assumptions-new/SKILL.md
+  - ../../skills/prioritize-assumptions/SKILL.md
 tags:
   - nohum
   - venture-factory
   - bootstrap-layer
 ---
 
+## Manager
+
+`Research Lead`
+
+## Member Agents
+
+- `Research Synthesizer`
+- `Competitor Scout`
+- `Demand Validator`
+- `Revenue Validator`
+
+## Core Skills
+
+Runtime base skills:
+- `paperclip`
+- `paperclip-knowledge`
+
+Vendored local skills:
+- `venture-policy`
+- `research-scorecard`
+- `research-competitor-analysis`
+- `research-demand-validation`
+- `research-revenue-validation`
+- `competitor-analysis`
+- `market-sizing`
+- `pricing-strategy`
+- `monetization-strategy`
+- `identify-assumptions-new`
+- `prioritize-assumptions`
+
 ## Mission
 
-Produce decision-grade venture research outputs and enforce `QUEUE / KILL / KILL FOR NOW` discipline.
+Source venture candidates, prove direct evidence, and hand off only decision-grade queue packages.
 
 ## Main Outputs
 
-- `market-evidence`
-- `scorecard`
-- `economics`
-- `decision-log`
-- canonical queue package
+- queue package
+- competitor, demand, and monetization evidence
+- assumption map
+- QUEUE / KILL / KILL FOR NOW recommendation
 
 ## Upstream Inputs
 
-- raw ideas from `Hypothesis Funnel`
-- policy constraints from control plane
-- known portfolio constraints and queue capacity
+- CEO sourcing priorities and policy constraints
+- venture-policy and budget guardrails
 
 ## Downstream Handoffs
 
-- winner package -> `CEO` for Gate A path
-- research dossier inputs -> `Launch Team`
-- rejected ideas -> revisit pool and logs
+- Product Launch Team via research dossier and queue package
+- CEO for Gate A and queue decisions
 
 ## Team Notes
 
-- This team package is a bootstrap layer and may require post-import wiring.
-- Stage movement authority remains with designated owners and board gates.
+- `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
+- Every cross-team handoff must point to a canonical artifact, never comments-only status.

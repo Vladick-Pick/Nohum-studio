@@ -1,19 +1,21 @@
 # Build Playbook
 
-Trigger: Gate B approved.
-
-Active roles:
-- `Delivery Engineer`
+Owners:
+- `VP of Engineering`
+- `Software Architect`
+- `Senior Developer`
 - `Code Reviewer`
+- `QA Director`
 - `Release Engineer`
-- `Launch Lead`
 
-Canonical outputs:
-- repo/workspace attached
-- tested implementation
+Expected outputs:
+- implementation plan
 - review verdict
-- release outcome
+- QA verdict
+- release checklist
 
-Exit condition:
-- launch-ready build
-- or blocked with explicit retry / escalation
+Operating sequence:
+1. Begin only from an approved Gate B packet and definition-to-build handoff dossier.
+2. Keep architecture, implementation, review, QA, and release as separate gates.
+3. Require fresh verification evidence before review, QA, and release claims.
+4. Use rollback-aware release packaging, not one-shot shipping.

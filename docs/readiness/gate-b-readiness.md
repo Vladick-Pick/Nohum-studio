@@ -1,13 +1,9 @@
 # Gate B Readiness
 
-- ICP explicit
-- JTBD explicit
-- offer explicit
-- pricing explicit
-- MVP boundary explicit
-- launch channel explicit
-- payment path trustworthy
-- analytics defined
-- feedback capture defined
-- `launch-brief` complete
-- `handoff-dossier` complete
+Checklist:
+- [ ] Product definition packet exists and is coherent
+- [ ] ICP, offer, pricing, and MVP boundary are explicit
+- [ ] UX flow and key states are documented
+- [ ] Engineering has a clean definition-to-build handoff dossier
+- [ ] Marketing has a measurable launch plan
+- [ ] Support has a readiness and escalation outline

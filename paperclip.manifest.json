@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-03-28T15:00:00Z",
+  "generatedAt": "2026-03-28T17:30:00Z",
   "source": null,
   "includes": {
     "company": true,
@@ -21,7 +21,7 @@
       "role": "ceo",
       "title": "Chief Executive Officer",
       "icon": "crown",
-      "capabilities": "Owns venture factory policy, WIP, budget headroom, Gate A, Gate B, escalation, and manager coordination.",
+      "capabilities": "Owns venture factory policy, WIP, budget headroom, gate approvals, and executive manager coordination.",
       "reportsToSlug": null,
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -32,7 +32,7 @@
       "permissions": {
         "canCreateAgents": true
       },
-      "budgetMonthlyCents": 20000,
+      "budgetMonthlyCents": 25000,
       "metadata": null
     },
     {
@@ -53,7 +53,7 @@
       "permissions": {
         "canCreateAgents": true
       },
-      "budgetMonthlyCents": 15000,
+      "budgetMonthlyCents": 18000,
       "metadata": null
     },
     {
@@ -74,7 +74,7 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 12000,
+      "budgetMonthlyCents": 15000,
       "metadata": null
     },
     {
@@ -84,7 +84,7 @@
       "role": "researcher",
       "title": "Head of Research",
       "icon": "search",
-      "capabilities": "Owns sourcing, market evidence, scorecards, economics, and queue recommendations.",
+      "capabilities": "Owns sourcing, market evidence, economics, queue discipline, and final QUEUE/KILL recommendations.",
       "reportsToSlug": "ceo",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -95,7 +95,7 @@
       "permissions": {
         "canCreateAgents": true
       },
-      "budgetMonthlyCents": 15000,
+      "budgetMonthlyCents": 18000,
       "metadata": null
     },
     {
@@ -105,7 +105,7 @@
       "role": "researcher",
       "title": "Research Synthesis Specialist",
       "icon": "brain",
-      "capabilities": "Turns raw research into canonical queue packages, assumptions, and decision-ready summaries.",
+      "capabilities": "Turns raw research into canonical queue packages, assumption maps, and decision-ready summaries.",
       "reportsToSlug": "research-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -116,7 +116,7 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 10000,
+      "budgetMonthlyCents": 12000,
       "metadata": null
     },
     {
@@ -126,7 +126,7 @@
       "role": "researcher",
       "title": "Competitive Intelligence Specialist",
       "icon": "telescope",
-      "capabilities": "Proves direct competitors, pricing surfaces, and category shape with explicit evidence freshness.",
+      "capabilities": "Proves direct competitors, pricing surfaces, and category shape with explicit freshness and citations.",
       "reportsToSlug": "research-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -137,7 +137,7 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 10000,
+      "budgetMonthlyCents": 12000,
       "metadata": null
     },
     {
@@ -147,7 +147,7 @@
       "role": "researcher",
       "title": "Demand Signal Specialist",
       "icon": "radar",
-      "capabilities": "Validates search, traffic, usage, and review signals before queue promotion.",
+      "capabilities": "Validates search, traffic, usage, review, and community signals before queue promotion.",
       "reportsToSlug": "research-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -158,7 +158,7 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 10000,
+      "budgetMonthlyCents": 12000,
       "metadata": null
     },
     {
@@ -168,7 +168,7 @@
       "role": "researcher",
       "title": "Monetization and Pricing Specialist",
       "icon": "gem",
-      "capabilities": "Validates pricing reality, first-payment plausibility, and the path to five-thousand MRR.",
+      "capabilities": "Validates pricing reality, payment plausibility, packaging, and the path to five-thousand MRR.",
       "reportsToSlug": "research-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -179,7 +179,7 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 10000,
+      "budgetMonthlyCents": 12000,
       "metadata": null
     },
     {
@@ -187,9 +187,9 @@
       "name": "Launch Lead",
       "path": "agents/launch-lead/AGENTS.md",
       "role": "pm",
-      "title": "Head of Launch",
+      "title": "Head of Product Launch",
       "icon": "rocket",
-      "capabilities": "Owns product definition, Gate B readiness, launch readiness, and early feedback synthesis.",
+      "capabilities": "Owns product-launch doctrine, Gate B readiness, launch coordination, and cross-team launch packets.",
       "reportsToSlug": "ceo",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -200,7 +200,7 @@
       "permissions": {
         "canCreateAgents": true
       },
-      "budgetMonthlyCents": 20000,
+      "budgetMonthlyCents": 22000,
       "metadata": null
     },
     {
@@ -210,7 +210,28 @@
       "role": "pm",
       "title": "Product Definition Owner",
       "icon": "lightbulb",
-      "capabilities": "Turns queue winners into explicit ICP, JTBD, offer, pricing, and MVP boundary packages.",
+      "capabilities": "Turns a promoted venture into a buildable product definition with explicit ICP, JTBD, offer, pricing, and MVP boundaries.",
+      "reportsToSlug": "launch-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "ux-researcher",
+      "name": "UX Researcher",
+      "path": "agents/ux-researcher/AGENTS.md",
+      "role": "designer",
+      "title": "UX Researcher",
+      "icon": "search-code",
+      "capabilities": "Translates customer evidence into user workflows, friction maps, and clarity on what must be true for first-time activation.",
       "reportsToSlug": "launch-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -225,14 +246,161 @@
       "metadata": null
     },
     {
+      "slug": "ux-architect",
+      "name": "UX Architect",
+      "path": "agents/ux-architect/AGENTS.md",
+      "role": "designer",
+      "title": "UX Architect",
+      "icon": "layout-template",
+      "capabilities": "Turns research and definition into coherent flows, IA, states, and implementation-ready UX guidance.",
+      "reportsToSlug": "launch-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15500,
+      "metadata": null
+    },
+    {
+      "slug": "ui-designer",
+      "name": "UI Designer",
+      "path": "agents/ui-designer/AGENTS.md",
+      "role": "designer",
+      "title": "UI Designer",
+      "icon": "palette",
+      "capabilities": "Turns approved flows into launch-ready visual interfaces, states, and component direction aligned to the product promise.",
+      "reportsToSlug": "launch-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "pricing-strategist",
+      "name": "Pricing Strategist",
+      "path": "agents/pricing-strategist/AGENTS.md",
+      "role": "pm",
+      "title": "Pricing Strategist",
+      "icon": "badge-dollar-sign",
+      "capabilities": "Owns launch pricing structure, packaging logic, and first-payment plausibility before the venture ships.",
+      "reportsToSlug": "launch-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 16000,
+      "metadata": null
+    },
+    {
+      "slug": "launch-program-manager",
+      "name": "Launch Program Manager",
+      "path": "agents/launch-program-manager/AGENTS.md",
+      "role": "pm",
+      "title": "Launch Program Manager",
+      "icon": "clipboard-list",
+      "capabilities": "Coordinates the cross-team launch calendar, dependencies, and canonical artifact flow across product, marketing, engineering, and support.",
+      "reportsToSlug": "launch-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "cmo",
+      "name": "CMO",
+      "path": "agents/cmo/AGENTS.md",
+      "role": "cmo",
+      "title": "Chief Marketing Officer",
+      "icon": "megaphone",
+      "capabilities": "Owns positioning, channel strategy, demand generation, measurement discipline, and marketing readiness for each launch.",
+      "reportsToSlug": "ceo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": true
+      },
+      "budgetMonthlyCents": 22000,
+      "metadata": null
+    },
+    {
       "slug": "growth-lead",
       "name": "Growth Lead",
       "path": "agents/growth-lead/AGENTS.md",
       "role": "cmo",
-      "title": "Launch Growth Owner",
-      "icon": "globe",
-      "capabilities": "Owns channel choice, positioning, launch motion, and first-window metrics framing.",
-      "reportsToSlug": "launch-lead",
+      "title": "Growth and Demand Generation Lead",
+      "icon": "trending-up",
+      "capabilities": "Owns launch acquisition strategy, experiment cadence, and early funnel learning for each active venture.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "marketing-strategist",
+      "name": "Marketing Strategist",
+      "path": "agents/marketing-strategist/AGENTS.md",
+      "role": "cmo",
+      "title": "Marketing Strategist",
+      "icon": "compass",
+      "capabilities": "Builds market-facing positioning, campaign architecture, and audience-specific storylines from the launch brief.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "seo-specialist",
+      "name": "SEO Specialist",
+      "path": "agents/seo-specialist/AGENTS.md",
+      "role": "cmo",
+      "title": "SEO Specialist",
+      "icon": "search",
+      "capabilities": "Owns search-intent capture, organic discoverability, and keyword-to-message alignment for the venture launch surface.",
+      "reportsToSlug": "cmo",
       "adapterType": "codex_local",
       "adapterConfig": {
         "model": "gpt-5.4",
@@ -246,14 +414,14 @@
       "metadata": null
     },
     {
-      "slug": "support-lead",
-      "name": "Support Lead",
-      "path": "agents/support-lead/AGENTS.md",
-      "role": "pm",
-      "title": "Support and Feedback Operations Lead",
-      "icon": "message-square",
-      "capabilities": "Owns support burden visibility, feedback capture, and post-launch escalation routing.",
-      "reportsToSlug": "launch-lead",
+      "slug": "content-creator",
+      "name": "Content Creator",
+      "path": "agents/content-creator/AGENTS.md",
+      "role": "cmo",
+      "title": "Content Creator",
+      "icon": "pen-square",
+      "capabilities": "Creates launch content, lifecycle copy, and customer-facing narratives aligned to the offer, segment, and channel plan.",
+      "reportsToSlug": "cmo",
       "adapterType": "codex_local",
       "adapterConfig": {
         "model": "gpt-5.4",
@@ -263,17 +431,395 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 12000,
+      "budgetMonthlyCents": 14500,
       "metadata": null
     },
     {
-      "slug": "feedback-synthesizer",
-      "name": "Feedback Synthesizer",
-      "path": "agents/feedback-synthesizer/AGENTS.md",
-      "role": "researcher",
-      "title": "Feedback Intelligence Specialist",
-      "icon": "microscope",
-      "capabilities": "Normalizes raw customer feedback into structured decision-grade insights for launch and portfolio review.",
+      "slug": "paid-media-strategist",
+      "name": "Paid Media Strategist",
+      "path": "agents/paid-media-strategist/AGENTS.md",
+      "role": "cmo",
+      "title": "Paid Media Strategist",
+      "icon": "badge-percent",
+      "capabilities": "Designs paid acquisition experiments, budget use, and channel-specific offers for early launch learning.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "tracking-measurement-specialist",
+      "name": "Tracking & Measurement Specialist",
+      "path": "agents/tracking-measurement-specialist/AGENTS.md",
+      "role": "cmo",
+      "title": "Tracking & Measurement Specialist",
+      "icon": "activity",
+      "capabilities": "Owns event definitions, launch measurement wiring, dashboard quality, and attribution sanity for marketing and product-launch teams.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15500,
+      "metadata": null
+    },
+    {
+      "slug": "community-builder",
+      "name": "Community Builder",
+      "path": "agents/community-builder/AGENTS.md",
+      "role": "cmo",
+      "title": "Community Builder",
+      "icon": "messages-square",
+      "capabilities": "Builds owned and borrowed audience loops through authentic community participation, feedback collection, and launch amplification.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 14000,
+      "metadata": null
+    },
+    {
+      "slug": "ai-citation-strategist",
+      "name": "AI Citation Strategist",
+      "path": "agents/ai-citation-strategist/AGENTS.md",
+      "role": "cmo",
+      "title": "AI Citation Strategist",
+      "icon": "sparkles",
+      "capabilities": "Optimizes brand and product visibility in AI-assisted discovery systems through citation, mention, and source-quality strategy.",
+      "reportsToSlug": "cmo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "vp-engineering",
+      "name": "VP of Engineering",
+      "path": "agents/vp-engineering/AGENTS.md",
+      "role": "cto",
+      "title": "VP of Engineering",
+      "icon": "cpu",
+      "capabilities": "Owns the engineering system for venture delivery, review, QA, release, reliability, and architectural coherence.",
+      "reportsToSlug": "ceo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": true
+      },
+      "budgetMonthlyCents": 23000,
+      "metadata": null
+    },
+    {
+      "slug": "software-architect",
+      "name": "Software Architect",
+      "path": "agents/software-architect/AGENTS.md",
+      "role": "engineer",
+      "title": "Software Architect",
+      "icon": "blocks",
+      "capabilities": "Owns system shape, major trade-offs, and architectural decisions needed to implement the approved venture scope cleanly.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 19000,
+      "metadata": null
+    },
+    {
+      "slug": "backend-architect",
+      "name": "Backend Architect",
+      "path": "agents/backend-architect/AGENTS.md",
+      "role": "engineer",
+      "title": "Backend Architect",
+      "icon": "database",
+      "capabilities": "Owns backend service shape, data contracts, persistence choices, and server-side performance or reliability trade-offs.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 18000,
+      "metadata": null
+    },
+    {
+      "slug": "frontend-developer",
+      "name": "Frontend Developer",
+      "path": "agents/frontend-developer/AGENTS.md",
+      "role": "engineer",
+      "title": "Frontend Developer",
+      "icon": "monitor-smartphone",
+      "capabilities": "Implements the launch-facing product surface with clean state handling, verified UI behavior, and fidelity to the approved UX and copy.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "ai-engineer",
+      "name": "AI Engineer",
+      "path": "agents/ai-engineer/AGENTS.md",
+      "role": "engineer",
+      "title": "AI Engineer",
+      "icon": "bot",
+      "capabilities": "Implements AI-specific product behavior, model integrations, and evaluation paths while staying inside the approved scope and reliability bar.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 18000,
+      "metadata": null
+    },
+    {
+      "slug": "senior-developer",
+      "name": "Senior Developer",
+      "path": "agents/senior-developer/AGENTS.md",
+      "role": "engineer",
+      "title": "Senior Developer",
+      "icon": "hammer",
+      "capabilities": "Executes substantial implementation slices, resolves cross-cutting defects, and converts approved plans into shippable code with evidence.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 18000,
+      "metadata": null
+    },
+    {
+      "slug": "devops-automator",
+      "name": "DevOps Automator",
+      "path": "agents/devops-automator/AGENTS.md",
+      "role": "devops",
+      "title": "DevOps Automator",
+      "icon": "workflow",
+      "capabilities": "Owns build, deploy, CI/CD, and environment automation required to ship and operate the venture safely.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "sre",
+      "name": "SRE",
+      "path": "agents/sre/AGENTS.md",
+      "role": "devops",
+      "title": "Site Reliability Engineer",
+      "icon": "shield-check",
+      "capabilities": "Owns service reliability, observability, incident-readiness, and operational risk posture for the shipped venture.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "security-engineer",
+      "name": "Security Engineer",
+      "path": "agents/security-engineer/AGENTS.md",
+      "role": "devops",
+      "title": "Security Engineer",
+      "icon": "lock",
+      "capabilities": "Owns security review, threat assumptions, and hardening guidance across the launch-bound product surface and release path.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "code-reviewer",
+      "name": "Code Reviewer",
+      "path": "agents/code-reviewer/AGENTS.md",
+      "role": "qa",
+      "title": "Engineering Code Reviewer",
+      "icon": "scan-eye",
+      "capabilities": "Acts as the independent code-quality gate between implementation and QA or release.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15000,
+      "metadata": null
+    },
+    {
+      "slug": "qa-director",
+      "name": "QA Director",
+      "path": "agents/qa-director/AGENTS.md",
+      "role": "qa",
+      "title": "QA Director",
+      "icon": "clipboard-check",
+      "capabilities": "Owns QA strategy, risk-based test coverage, and launch-go quality framing across the venture release train.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 16000,
+      "metadata": null
+    },
+    {
+      "slug": "qa-engineer",
+      "name": "QA Engineer",
+      "path": "agents/qa-engineer/AGENTS.md",
+      "role": "qa",
+      "title": "QA Engineer",
+      "icon": "bug",
+      "capabilities": "Executes test scenarios, reproduces defects, validates fixes, and creates release-quality evidence for venture launches.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 14500,
+      "metadata": null
+    },
+    {
+      "slug": "release-engineer",
+      "name": "Release Engineer",
+      "path": "agents/release-engineer/AGENTS.md",
+      "role": "devops",
+      "title": "Release Engineer",
+      "icon": "package-check",
+      "capabilities": "Owns final merge, release mechanics, rollout, rollback preparation, and final release communication quality.",
+      "reportsToSlug": "vp-engineering",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 15500,
+      "metadata": null
+    },
+    {
+      "slug": "support-lead",
+      "name": "Support Lead",
+      "path": "agents/support-lead/AGENTS.md",
+      "role": "pm",
+      "title": "Support Lead",
+      "icon": "life-buoy",
+      "capabilities": "Owns support readiness, feedback capture, incident routing, and support-to-product signal quality after launch.",
+      "reportsToSlug": "ceo",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 17000,
+      "metadata": null
+    },
+    {
+      "slug": "support-responder",
+      "name": "Support Responder",
+      "path": "agents/support-responder/AGENTS.md",
+      "role": "general",
+      "title": "Support Responder",
+      "icon": "message-circle-reply",
+      "capabilities": "Handles first-line support responses, triage, and canonical ticket capture without losing signal quality.",
       "reportsToSlug": "support-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -284,18 +830,18 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 9000,
+      "budgetMonthlyCents": 13000,
       "metadata": null
     },
     {
-      "slug": "delivery-engineer",
-      "name": "Delivery Engineer",
-      "path": "agents/delivery-engineer/AGENTS.md",
-      "role": "engineer",
-      "title": "Venture Delivery Engineer",
-      "icon": "code",
-      "capabilities": "Implements approved venture scope with strict verification evidence and handoff discipline.",
-      "reportsToSlug": "launch-lead",
+      "slug": "feedback-synthesizer",
+      "name": "Feedback Synthesizer",
+      "path": "agents/feedback-synthesizer/AGENTS.md",
+      "role": "researcher",
+      "title": "Feedback Synthesizer",
+      "icon": "notebook-tabs",
+      "capabilities": "Turns qualitative support and launch feedback into structured themes, product implications, and escalation-ready evidence.",
+      "reportsToSlug": "support-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
         "model": "gpt-5.4",
@@ -305,18 +851,18 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 20000,
+      "budgetMonthlyCents": 13500,
       "metadata": null
     },
     {
-      "slug": "code-reviewer",
-      "name": "Code Reviewer",
-      "path": "agents/code-reviewer/AGENTS.md",
-      "role": "qa",
-      "title": "Venture Code Reviewer",
-      "icon": "shield",
-      "capabilities": "Runs the independent quality gate against the plan, dossier, and verification evidence.",
-      "reportsToSlug": "launch-lead",
+      "slug": "analytics-reporter",
+      "name": "Analytics Reporter",
+      "path": "agents/analytics-reporter/AGENTS.md",
+      "role": "researcher",
+      "title": "Analytics Reporter",
+      "icon": "bar-chart-3",
+      "capabilities": "Combines product, support, and marketing metrics into readable post-launch operating reports.",
+      "reportsToSlug": "support-lead",
       "adapterType": "codex_local",
       "adapterConfig": {
         "model": "gpt-5.4",
@@ -326,61 +872,8 @@
       "permissions": {
         "canCreateAgents": false
       },
-      "budgetMonthlyCents": 12000,
+      "budgetMonthlyCents": 14000,
       "metadata": null
-    },
-    {
-      "slug": "release-engineer",
-      "name": "Release Engineer",
-      "path": "agents/release-engineer/AGENTS.md",
-      "role": "devops",
-      "title": "Venture Release Engineer",
-      "icon": "git-branch",
-      "capabilities": "Owns final verification, release notes, merge path, and post-release cleanup.",
-      "reportsToSlug": "launch-lead",
-      "adapterType": "codex_local",
-      "adapterConfig": {
-        "model": "gpt-5.4",
-        "modelReasoningEffort": "high"
-      },
-      "runtimeConfig": {},
-      "permissions": {
-        "canCreateAgents": false
-      },
-      "budgetMonthlyCents": 12000,
-      "metadata": null
-    }
-  ],
-  "requiredSecrets": [
-    {
-      "key": "OPENAI_API_KEY",
-      "description": "Required for codex-local execution across the NoHum Studio roster.",
-      "agentSlug": null,
-      "providerHint": "OpenAI"
-    },
-    {
-      "key": "APIFY_TOKEN",
-      "description": "Optional token for large-scale research, sourcing, and traffic evidence collection.",
-      "agentSlug": "research-lead",
-      "providerHint": "Apify"
-    },
-    {
-      "key": "PAYMENT_PROVIDER_API_KEY",
-      "description": "Optional payment provider key for launch readiness and payment signal wiring.",
-      "agentSlug": "launch-lead",
-      "providerHint": "Payment provider"
-    },
-    {
-      "key": "ANALYTICS_API_KEY",
-      "description": "Optional analytics destination key for launch metrics and support signal checks.",
-      "agentSlug": "growth-lead",
-      "providerHint": "Analytics provider"
-    },
-    {
-      "key": "GITHUB_TOKEN",
-      "description": "Optional GitHub token for delivery, review, and release automation.",
-      "agentSlug": "delivery-engineer",
-      "providerHint": "GitHub"
     }
   ]
 }

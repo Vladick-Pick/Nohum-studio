@@ -1,9 +1,9 @@
 # Launch Readiness
 
-- build approved
-- payment capture live
-- analytics live
-- feedback capture live
-- release notes or change summary ready
-- support and escalation path clear
-- kill criteria remain explicit
+Checklist:
+- [ ] Release candidate passed review and QA gates
+- [ ] Launch brief, pricing, and message pack are aligned
+- [ ] Analytics and measurement dashboards are live enough to trust
+- [ ] Support lead accepted the launch-to-support handoff
+- [ ] Release and rollback notes exist
+- [ ] First-payment handling and ambiguity policy are explicit

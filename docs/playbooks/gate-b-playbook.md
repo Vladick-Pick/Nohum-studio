@@ -1,20 +1,15 @@
 # Gate B Playbook
 
-Trigger: venture definition package is complete enough for review.
-
-Active roles:
+Owners:
 - `Launch Lead`
+- `Product Launch Team`
 - `CEO`
-- board
 
-Canonical outputs:
-- `Gate B Readiness`
-- approve / block decision
+Expected outputs:
+- Gate B packet
+- PASS / FAIL / RETRY / ESCALATE verdict
 
-Required checks:
-- ICP and JTBD explicit
-- offer and pricing explicit
-- MVP boundary fixed
-- payment path trustworthy
-- analytics and feedback capture present
-- handoff dossier complete
+Operating sequence:
+1. Verify product definition, UX flow, pricing, measurement, and support-readiness prerequisites.
+2. Ensure Engineering, Marketing, and Support all have explicit downstream artifacts to consume.
+3. Escalate unresolved payment, pricing, or launch-readiness ambiguity before build starts.

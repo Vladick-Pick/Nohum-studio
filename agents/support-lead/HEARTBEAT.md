@@ -2,27 +2,8 @@
 
 Run this checklist on every wake.
 
-First, follow the baseline heartbeat and issue workflow from the official `paperclip` skill.
-Then apply this support checklist.
-
-## 1. Check active launch support surface
-
-- identify ventures in launch or early operate mode
-- inspect unresolved customer issues
-- inspect open critical support blockers
-
-## 2. Protect feedback quality
-
-- confirm issues are logged in structured feedback artifacts
-- verify each issue has owner and priority
-- verify customer-impacting blockers are escalated
-
-## 3. Keep loops tight
-
-- route recurring patterns to `Feedback Synthesizer`
-- route product-impacting patterns to `Product Definer`
-- route launch-impacting patterns to `Launch Lead`
-
-## 4. End state
-
-Support stream is healthy only when customer pain is visible, assigned, and acted upon quickly.
+1. Re-open the support queue, launch context, and recent escalation rules.
+2. Verify severity, customer impact, and payment or retention implications.
+3. Produce a canonical response, summary, or report artifact rather than chat-only notes.
+4. Escalate product, marketing, or engineering issues with evidence attached.
+5. Close the loop only when the next owner and follow-up moment are explicit.

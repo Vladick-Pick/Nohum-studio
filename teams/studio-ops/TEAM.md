@@ -1,44 +1,65 @@
 ---
 name: Studio Ops
 slug: studio-ops
-description: Control-plane reliability, org cadence, and migration-safe operating routines.
+description: Protect operating cadence, runtime reliability, migration safety, and instruction quality while the org evolves.
 manager: ../../agents/chief-of-staff/AGENTS.md
 includes:
   - ../../agents/chief-of-staff/AGENTS.md
   - ../../agents/agent-mechanic/AGENTS.md
-  - ../../skills/venture-policy/SKILL.md
-  - ../../skills/launch-gates/SKILL.md
-  - ../../skills/portfolio-review/SKILL.md
+  - ../../skills/studio-ops-agent-reliability/SKILL.md
+  - ../../skills/writing-skills/SKILL.md
+  - ../../skills/verification-before-completion/SKILL.md
+  - ../../skills/systematic-debugging/SKILL.md
+  - ../../skills/executing-plans/SKILL.md
 tags:
   - nohum
   - venture-factory
   - bootstrap-layer
 ---
 
+## Manager
+
+`Chief of Staff`
+
+## Member Agents
+
+- `Agent Mechanic`
+
+## Core Skills
+
+Runtime base skills:
+- `paperclip`
+- `paperclip-create-agent`
+- `paperclip-knowledge`
+
+Vendored local skills:
+- `studio-ops-agent-reliability`
+- `writing-skills`
+- `verification-before-completion`
+- `systematic-debugging`
+- `executing-plans`
+
 ## Mission
 
-Keep the company operable, reliable, and migration-safe while the venture machine evolves.
+Protect operating cadence, runtime reliability, migration safety, and instruction quality while the org evolves.
 
 ## Main Outputs
 
-- operating cadence reports
-- reliability incident records
+- operating reviews
+- runtime reliability fixes
 - migration checklists
-- routine definitions and policy updates
+- instruction and skill maintenance
 
 ## Upstream Inputs
 
-- blocked-work and failure signals from all teams
-- runtime diagnostics from `Agent Mechanic`
-- governance directives from `CEO`
+- CEO operating priorities
+- company health and migration incidents
 
 ## Downstream Handoffs
 
-- reliability fixes and runbooks -> all team leads
-- escalation packages -> `CEO`
-- migration guidance -> board/operator workflows
+- all teams through cadence, reliability, and post-import wiring support
 
 ## Team Notes
 
-- `CEO` is executive owner but not the operating manager of this team.
-- Team remains lightweight in v1.5 and focuses on reliability and coordination.
+- `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
+- Every cross-team handoff must point to a canonical artifact, never comments-only status.

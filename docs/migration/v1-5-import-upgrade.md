@@ -1,14 +1,20 @@
-# NoHum Studio v1.5 Import Upgrade
+# v1.5 Import Upgrade
 
-1. Validate the GitHub package against the current portability importer before touching the live company.
-2. Use `--target existing`, never `--target new`, for the v1.5 upgrade.
-3. Replace only the exact-parity core agents:
-   - `ceo`
-   - `research-lead`
-   - `launch-lead`
-4. Import the new specialist roster in a second pass.
-5. If preview shows any specialist already exists, stop and remediate that slug manually before bulk import.
-6. Manually pause newly created specialists after import because portability manifest does not encode agent status.
-7. Treat `teams/` as package/bootstrap documentation unless the importer proves it materializes them.
-8. Apply post-import runtime wiring for managed instruction files, bundled skills, and MCP/tool access.
-9. Re-run a bootstrap audit after import before waking the new org.
+This migration upgrades the previous compact package into a detailed-core org package.
+
+## What Changed
+
+- Product Launch is now separate from Marketing, Engineering, and Support.
+- `launch-lead` is preserved as exact-parity core but narrowed to Product Launch ownership.
+- new top-level managers were added: `cmo` and `vp-engineering`.
+- `growth-lead` moved under `cmo`.
+- `code-reviewer` and `release-engineer` moved under `vp-engineering`.
+- the compact `delivery-engineer` role was removed from the package in favor of a full Engineering team.
+- local skills are now vendored directly from `pm-skills`, `superpowers`, and `gstack`.
+
+## Migration Safety Rules
+
+- replace only the exact-parity core slugs in bulk
+- import all new roles as paused
+- validate reporting lines before activating any new manager or specialist
+- do not rely on `teams/` auto-materializing into live runtime behavior

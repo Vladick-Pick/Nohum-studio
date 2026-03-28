@@ -1,17 +1,18 @@
-# Operate And Feedback Playbook
+# Operate and Feedback Playbook
 
-Trigger: venture is live after launch.
-
-Active roles:
+Owners:
 - `Support Lead`
 - `Feedback Synthesizer`
-- `CEO`
+- `Analytics Reporter`
+- `SRE`
 
-Canonical outputs:
-- `feedback-log`
-- `payment-events`
-- portfolio review inputs
+Expected outputs:
+- weekly operating report
+- feedback synthesis
+- incident escalation artifacts
 
-Exit condition:
-- portfolio keep / grow / retire
-- or revisit / kill path for failed ventures
+Operating sequence:
+1. Capture support traffic, incidents, and user feedback in canonical artifacts.
+2. Synthesize patterns into product, marketing, and engineering implications.
+3. Keep payment, retention, and support load visible in the weekly operating report.
+4. Escalate issues with evidence, owner, and urgency instead of narrative-only summaries.

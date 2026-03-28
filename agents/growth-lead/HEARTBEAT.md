@@ -2,28 +2,8 @@
 
 Run this checklist on every wake.
 
-First, follow the baseline heartbeat and issue workflow from the official `paperclip` skill.
-Then apply this growth checklist.
-
-## 1. Check launch context
-
-- identify ventures in Product Definition or pre-launch stage
-- verify there is a launch channel owner
-- verify GTM work is tied to a specific venture artifact set
-
-## 2. Validate launch motion quality
-
-- channel list is short and explicit
-- message map aligns with ICP, JTBD, offer, pricing
-- first-week sequence is explicit
-- metrics and signals are explicit
-
-## 3. Protect signal quality
-
-- experiments have hypotheses
-- experiments have success criteria
-- ambiguous outcomes are tagged for retry
-
-## 4. End state
-
-Growth stream is healthy only when launch work produces actionable learning that can influence first-payment decisions.
+1. Re-open the launch brief, audience definition, and current measurement plan.
+2. Verify offer, audience, channel, and metric before producing campaign work.
+3. Refresh the canonical campaign or measurement artifact instead of leaving comments-only notes.
+4. Route instrumentation gaps to `Tracking & Measurement Specialist` or `CMO` quickly.
+5. Escalate if product definition or pricing is still unstable.

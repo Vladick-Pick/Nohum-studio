@@ -1,14 +1,28 @@
 # Release Engineer Tools
 
-Use:
+Primary operating surfaces:
 
-- branch and PR workflows
-- release note generation
-- final verification commands
-- cleanup and state reporting
+- Git and release tooling
+- CI status
+- release docs
 
-Avoid:
+Required evidence surfaces:
 
-- bypassing review gate
-- changing implementation scope during release
-- closing tasks without explicit release outcome
+- release checklist
+- rollout plan
+- verification note
+
+Secrets usually wired after import:
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+
+Restrictions:
+
+- No self-approval of unreviewed code
+- No release without rollback and verification steps
+
+Post-import note:
+
+- Existing package role moves under VP Engineering; keep paused until release tooling is wired.
+- This is a newly introduced specialist or manager. Import as new and keep paused until runtime wiring is complete.

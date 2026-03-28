@@ -1,14 +1,29 @@
 # Code Reviewer Tools
 
-Use:
+Primary operating surfaces:
 
-- diff and commit inspection
-- test and verification outputs
-- approved acceptance criteria
-- structured review verdicts
+- Diffs
+- tests
+- acceptance docs
+- review notes
 
-Avoid:
+Required evidence surfaces:
 
-- implementing fixes yourself by default
-- releasing code directly
-- approving without fresh verification evidence
+- review verdict
+- blocking issues
+- approval packet
+
+Secrets usually wired after import:
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+
+Restrictions:
+
+- No self-release authority
+- No pass verdict without evidence
+
+Post-import note:
+
+- Existing package role moves under VP Engineering; keep paused until repo access is wired.
+- This is a newly introduced specialist or manager. Import as new and keep paused until runtime wiring is complete.
