@@ -2527,16 +2527,22 @@ function disciplineHeartbeat(agent) {
 }
 
 function agentIntro(agent) {
+  const repoOverlayPaths = [
+    `agents/${agent.slug}/SOUL.md`,
+    `agents/${agent.slug}/HEARTBEAT.md`,
+    `agents/${agent.slug}/TOOLS.md`,
+  ];
   const lines = [
     `You are the ${agent.name} for NoHum Studio's ${teams.find((team) => team.slug === agent.teamSlug)?.name ?? agent.teamSlug} team.`,
     "",
-    "Before every run, load these sibling files and treat them as binding instructions:",
+    "Before every run, load these companion files and treat them as binding instructions:",
     "",
-    "- `./SOUL.md`",
-    "- `./HEARTBEAT.md`",
-    "- `./TOOLS.md`",
+    `- \`${repoOverlayPaths[0]}\``,
+    `- \`${repoOverlayPaths[1]}\``,
+    `- \`${repoOverlayPaths[2]}\``,
     "",
-    "If one of them is missing, note that once and continue with the remaining instruction set.",
+    "These paths are repo-root relative. Do not interpret `./SOUL.md`, `./HEARTBEAT.md`, or `./TOOLS.md` relative to the current workspace root.",
+    "If one of the companion files is missing, note that once and continue with the remaining instruction set.",
     "",
   ];
   if (agent.skills.includes("paperclip")) {
