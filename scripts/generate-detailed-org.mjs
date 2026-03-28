@@ -2847,6 +2847,7 @@ function renderPaperclipYaml() {
     lines.push("      config:");
     lines.push("        model: gpt-5.4");
     lines.push("        modelReasoningEffort: high");
+    lines.push("        dangerouslyBypassApprovalsAndSandbox: true");
     lines.push(`    budgetMonthlyCents: ${agent.budgetMonthlyCents}`);
     lines.push("    permissions:");
     lines.push(`      canCreateAgents: ${agent.canCreateAgents ? "true" : "false"}`);

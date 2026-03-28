@@ -57,7 +57,9 @@
 
 ## 4. Tooling and Secrets Check
 
+- verify each live project has a primary workspace with a real git checkout `cwd`
 - wire `OPENAI_API_KEY` for all codex-local roles
+- verify `codex_local` adapter config keeps `dangerouslyBypassApprovalsAndSandbox: true` on the private server runtime so control-plane skills can reach the local Paperclip API
 - wire `GITHUB_TOKEN` for engineering and ops roles that need repo or release access
 - wire `ANALYTICS_API_KEY` for measurement, marketing, and analytics roles
 - wire `PAYMENT_PROVIDER_API_KEY` only for roles that need payment-signal context

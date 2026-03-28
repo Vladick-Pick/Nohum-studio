@@ -15,6 +15,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 25000
     permissions:
       canCreateAgents: true
@@ -36,6 +37,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 18000
     permissions:
       canCreateAgents: true
@@ -57,6 +59,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -81,6 +84,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 18000
     permissions:
       canCreateAgents: true
@@ -105,6 +109,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -126,6 +131,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -150,6 +156,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -174,6 +181,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -195,6 +203,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 22000
     permissions:
       canCreateAgents: true
@@ -222,6 +231,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -243,6 +253,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -264,6 +275,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15500
     permissions:
       canCreateAgents: false
@@ -285,6 +297,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -306,6 +319,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 16000
     permissions:
       canCreateAgents: false
@@ -330,6 +344,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -351,6 +366,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 22000
     permissions:
       canCreateAgents: true
@@ -375,6 +391,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -399,6 +416,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -420,6 +438,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 14000
     permissions:
       canCreateAgents: false
@@ -444,6 +463,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 14500
     permissions:
       canCreateAgents: false
@@ -465,6 +485,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -489,6 +510,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15500
     permissions:
       canCreateAgents: false
@@ -513,6 +535,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 14000
     permissions:
       canCreateAgents: false
@@ -534,6 +557,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -558,6 +582,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 23000
     permissions:
       canCreateAgents: true
@@ -582,6 +607,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 19000
     permissions:
       canCreateAgents: false
@@ -606,6 +632,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 18000
     permissions:
       canCreateAgents: false
@@ -630,6 +657,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -654,6 +682,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 18000
     permissions:
       canCreateAgents: false
@@ -678,6 +707,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 18000
     permissions:
       canCreateAgents: false
@@ -702,6 +732,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -726,6 +757,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -750,6 +782,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -774,6 +807,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: false
@@ -798,6 +832,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 16000
     permissions:
       canCreateAgents: false
@@ -822,6 +857,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 14500
     permissions:
       canCreateAgents: false
@@ -846,6 +882,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 15500
     permissions:
       canCreateAgents: false
@@ -870,6 +907,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 17000
     permissions:
       canCreateAgents: false
@@ -897,6 +935,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 13000
     permissions:
       canCreateAgents: false
@@ -921,6 +960,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 13500
     permissions:
       canCreateAgents: false
@@ -945,6 +985,7 @@ agents:
       config:
         model: gpt-5.4
         modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: true
     budgetMonthlyCents: 14000
     permissions:
       canCreateAgents: false

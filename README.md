@@ -42,6 +42,8 @@ This package now vendors selected local skills from four sources:
 
 The base operating skills `paperclip`, `paperclip-create-agent`, `paperclip-knowledge`, and `para-memory-files` are vendored in this repository so import-time skill references resolve inside the package. They still require live runtime wiring after import: Paperclip API env vars for the control-plane skills, and a writable adapter memory path for `para-memory-files`. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
 
+For the private `codex_local` server runtime, agent adapter config intentionally enables `dangerouslyBypassApprovalsAndSandbox` so agents can reach the local Paperclip API and operate inside the bound project workspace instead of failing on sandboxed localhost calls.
+
 ## Import Policy
 
 Default target is the existing live `NoHum Studio` company.
