@@ -1,0 +1,276 @@
+schema: paperclip/v1
+description: Bootstrap runtime defaults for NoHum Studio v1.5.
+
+company:
+  budgetMonthlyCents: 250000
+
+agents:
+  ceo:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 20000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Bootstrap default only. Final runtime adapter, cwd, and heartbeat should be set during import or immediately after.
+  chief-of-staff:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Control-plane role. Keep wake-on-demand available and wire cadence surfaces after import.
+  agent-mechanic:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 12000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Reliability role. Grant runtime workspace and diagnostic visibility, not board permissions.
+  research-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        APIFY_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Manager of the research pod. Existing live agent should be upgraded in place when identity parity is exact.
+  research-synthesizer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 10000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Pause after import until research pod wiring is complete.
+  competitor-scout:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 10000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        APIFY_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Requires browser/web research access and citation discipline.
+  demand-validator:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 10000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        APIFY_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Pause after import until demand evidence template is wired.
+  revenue-validator:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 10000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Pair with pricing and payment evidence surfaces before activation.
+  launch-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 20000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        PAYMENT_PROVIDER_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Manager of definition, build, launch, and support lanes. Existing live agent should be upgraded in place.
+  product-definer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 15000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Pause after import until Gate B artifacts are in place.
+  growth-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 14000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        ANALYTICS_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Wire analytics destinations and launch metric templates before activation.
+  support-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 12000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        PAYMENT_PROVIDER_API_KEY:
+          kind: secret
+          requirement: optional
+        ANALYTICS_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Keep paused until release and support handoff path exists.
+  feedback-synthesizer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 9000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Activate only after support signal capture is wired.
+  delivery-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 20000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Grant repo/worktree access only after Gate B and review policy are ready.
+  code-reviewer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 12000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Keep independent from release execution permissions.
+  release-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+    budgetMonthlyCents: 12000
+    inputs:
+      env:
+        OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+    notes:
+      - Newly introduced specialist. Activate only after independent review is wired and verified.
+
+routines:
+  weekly-board-review:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 10 * * 1"
+        timezone: Europe/Istanbul
+  portfolio-health-review:
+    triggers:
+      - kind: schedule
+        cronExpression: "0 12 * * 1"
+        timezone: Europe/Istanbul
