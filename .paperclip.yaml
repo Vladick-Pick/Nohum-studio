@@ -71,6 +71,9 @@ agents:
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
+        SENTRY_AUTH_TOKEN:
+          kind: secret
+          requirement: optional
     notes:
       - Grant diagnostic-only access to runtime paths and tool health scripts.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -93,7 +96,7 @@ agents:
         OPENAI_API_KEY:
           kind: secret
           requirement: optional
-        APIFY_TOKEN:
+        BRAVE_API_KEY:
           kind: secret
           requirement: optional
     notes:
@@ -140,7 +143,7 @@ agents:
         OPENAI_API_KEY:
           kind: secret
           requirement: optional
-        APIFY_TOKEN:
+        BRAVE_API_KEY:
           kind: secret
           requirement: optional
     notes:
@@ -165,7 +168,7 @@ agents:
         OPENAI_API_KEY:
           kind: secret
           requirement: optional
-        APIFY_TOKEN:
+        BRAVE_API_KEY:
           kind: secret
           requirement: optional
     notes:
@@ -188,6 +191,12 @@ agents:
     inputs:
       env:
         OPENAI_API_KEY:
+          kind: secret
+          requirement: optional
+        BRAVE_API_KEY:
+          kind: secret
+          requirement: optional
+        PAYMENT_PROVIDER_API_KEY:
           kind: secret
           requirement: optional
     notes:
@@ -594,6 +603,9 @@ agents:
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
+        DEPLOY_PROVIDER_TOKEN:
+          kind: secret
+          requirement: optional
     notes:
       - New top-level manager. Keep paused until repo and release tooling are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -617,6 +629,9 @@ agents:
           kind: secret
           requirement: optional
         GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+        DEPLOY_PROVIDER_TOKEN:
           kind: secret
           requirement: optional
     notes:
@@ -644,6 +659,12 @@ agents:
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
+        DEPLOY_PROVIDER_TOKEN:
+          kind: secret
+          requirement: optional
+        SENTRY_AUTH_TOKEN:
+          kind: secret
+          requirement: optional
     notes:
       - New specialist. Activate once backend repo access and CI are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -667,6 +688,9 @@ agents:
           kind: secret
           requirement: optional
         GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+        DEPLOY_PROVIDER_TOKEN:
           kind: secret
           requirement: optional
     notes:

@@ -7,16 +7,122 @@ Important:
 - Access is enforced via runtime adapter config, environment wiring, and policy docs.
 - Never embed board credentials in agent configs.
 
-| Role | Primary tool surfaces | MCP access profile | Required secrets | Restrictions | Post-import wiring notes |
+## Secret Model
+
+- `Paperclip Company Secrets` are the canonical source of truth for NoHum credentials.
+- Secret create, rotate, list, and delete actions stay board-only.
+- Agents receive only scoped runtime env through `secret_ref`.
+- Venture app env in Railway is a manual runtime copy in v1, not the canonical origin.
+
+## Naming Contract
+
+Provider-specific secrets:
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+- `BRAVE_API_KEY`
+- `RAILWAY_TOKEN`
+- `SENTRY_AUTH_TOKEN`
+- `SENTRY_DSN`
+- `LAVA_API_KEY`
+- `LAVA_WEBHOOK_SECRET`
+- `PLAUSIBLE_API_KEY`
+- `RESEND_API_KEY`
+- `DATABASE_URL`
+- `BETTER_AUTH_SECRET`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+- `R2_ENDPOINT`
+
+Canonical aliases for the agent and policy layer:
+
+- `PAYMENT_PROVIDER_API_KEY` -> Lava.top
+- `ANALYTICS_API_KEY` -> Plausible
+- `EMAIL_PROVIDER_API_KEY` -> Resend
+- `DEPLOY_PROVIDER_TOKEN` -> Railway
+- `SEARCH_PROVIDER_API_KEY` remains optional later; v1 research roles use `BRAVE_API_KEY` directly
+
+Rule:
+
+- app code uses provider-specific names
+- policy docs and agent runtime wiring use canonical aliases when that avoids unnecessary vendor coupling
+
+## Minimum Viable Core Set
+
+Company-wide agent/runtime secrets:
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+- `BRAVE_API_KEY`
+- `RAILWAY_TOKEN`
+- `SENTRY_AUTH_TOKEN`
+- `PAYMENT_PROVIDER_API_KEY`
+- `ANALYTICS_API_KEY`
+
+Mapped provider-level secrets:
+
+- `LAVA_API_KEY`
+- `LAVA_WEBHOOK_SECRET`
+- `PLAUSIBLE_API_KEY`
+- `RESEND_API_KEY`
+
+Per-venture app secrets:
+
+- `DATABASE_URL`
+- `BETTER_AUTH_SECRET`
+- `LAVA_API_KEY`
+- `LAVA_WEBHOOK_SECRET`
+- `PLAUSIBLE_API_KEY`
+- `RESEND_API_KEY`
+- `SENTRY_DSN`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+- `R2_ENDPOINT`
+
+## MCP Credential Policy
+
+No-key or local-first:
+
+- `Serena`
+- `Playwright MCP`
+
+Credential-backed:
+
+- `Brave Search MCP` -> `BRAVE_API_KEY`
+- `Railway MCP` -> `DEPLOY_PROVIDER_TOKEN` and, where needed, an authenticated Railway CLI session backed by `RAILWAY_TOKEN`
+- `Sentry MCP` -> `SENTRY_AUTH_TOKEN`
+- `Lava.top` integration -> `PAYMENT_PROVIDER_API_KEY` at the agent layer and `LAVA_API_KEY` at the app layer
+- `Plausible` API-based analytics access -> `ANALYTICS_API_KEY` at the agent layer and `PLAUSIBLE_API_KEY` at the app layer
+
+Optional or not core on day one:
+
+- `Context7` is optional and should not block company bring-up
+- `Supabase MCP` is out of the default path because Supabase is not part of the canonical stack
+- `mcp-awesome` is a discovery catalog, not a runtime dependency
+
+## Canonical MCP Stack
+
+NoHum default ventures assume this MCP set:
+
+- `Serena` for engineering repo and semantic code navigation
+- `Playwright MCP` for browser QA, launch smoke tests, and UI diagnostics
+- `Brave Search MCP` for research, GTM, and support discovery work
+- `Railway MCP` for deploy and runtime operations
+- `Sentry MCP` for reliability and production diagnostics
+
+Anything outside this set is an exception path. `Context7` is allowed as optional documentation support. `Supabase MCP` is out of the default path because Supabase is not part of the canonical stack.
+| Role | Primary tool surfaces | MCP access profile | Runtime secrets usually wired | Restrictions | Post-import wiring notes |
 |---|---|---|---|---|---|
 | CEO | Paperclip API, governance docs, portfolio reviews | paperclip, paperclip-knowledge, optional GitHub read | `OPENAI_API_KEY` | No board credentials in runtime; No direct code shipping | Verify control-plane approvals and governance docs are wired. |
 | Chief of Staff | Paperclip API, task/project monitoring, org docs | paperclip, paperclip-knowledge, optional GitHub read | `OPENAI_API_KEY` | No production release actions; No board-only overrides | Keep wake-on-demand available and wire cadence dashboards after import. |
-| Agent Mechanic | Paperclip API, runtime logs, repo inspection, health checks | paperclip, paperclip-knowledge, optional GitHub plus browser diagnostics | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No gate approvals; No strategy overrides | Grant diagnostic-only access to runtime paths and tool health scripts. |
-| Research Lead | Research docs, queue package, evidence registry | paperclip, paperclip-knowledge, browser research, optional memory | `OPENAI_API_KEY`, `APIFY_TOKEN` | No build or release writes; No bypass of Gate A evidence | Existing live core slug should upgrade in place. |
+| Agent Mechanic | Paperclip API, runtime logs, repo inspection, health checks | paperclip, paperclip-knowledge, optional GitHub plus browser diagnostics, optional Sentry diagnostics | `OPENAI_API_KEY`, `GITHUB_TOKEN`, `SENTRY_AUTH_TOKEN` | No gate approvals; No strategy overrides | Grant diagnostic-only access to runtime paths, tool health scripts, and Sentry diagnostics if wired. |
+| Research Lead | Research docs, queue package, evidence registry | paperclip, paperclip-knowledge, browser research, optional memory | `OPENAI_API_KEY`, `BRAVE_API_KEY` | No build or release writes; No bypass of Gate A evidence | Existing live core slug should upgrade in place. |
 | Research Synthesizer | Knowledge docs, scorecards, queue artifacts | paperclip-knowledge, optional memory | `OPENAI_API_KEY` | No decision override outside Research Lead | Pause after import until research templates are wired. |
-| Competitor Scout | Browser research, pricing pages, evidence capture | browser/web research, optional memory | `OPENAI_API_KEY`, `APIFY_TOKEN` | No stage transitions; Citations required on all claims | Pause after import until browser access and evidence templates are wired. |
-| Demand Validator | Traffic/review sources, research docs | browser/web research, optional analytics read | `OPENAI_API_KEY`, `APIFY_TOKEN` | No pricing decisions alone; No queue promotion without evidence | Pause after import until demand evidence template is wired. |
-| Revenue Validator | Pricing and payment proof sources | browser/web research, optional payment metadata read | `OPENAI_API_KEY` | No payment acceptance decision; Must state assumptions explicitly | Pause after import until pricing and payment evidence surfaces are wired. |
+| Competitor Scout | Browser research, pricing pages, evidence capture | browser/web research, optional memory | `OPENAI_API_KEY`, `BRAVE_API_KEY` | No stage transitions; Citations required on all claims | Pause after import until browser access and evidence templates are wired. |
+| Demand Validator | Traffic/review sources, research docs | browser/web research, optional analytics read | `OPENAI_API_KEY`, `BRAVE_API_KEY` | No pricing decisions alone; No queue promotion without evidence | Pause after import until demand evidence template is wired. |
+| Revenue Validator | Pricing and payment proof sources | browser/web research, optional payment metadata read | `OPENAI_API_KEY`, `BRAVE_API_KEY`, `PAYMENT_PROVIDER_API_KEY` | No payment acceptance decision; Must state assumptions explicitly | Pause after import until pricing and payment evidence surfaces are wired. |
 | Launch Lead | Paperclip issues and knowledge, launch brief and handoff dossier, pricing and launch readiness docs, browser research for unresolved market or channel questions | paperclip, paperclip-knowledge, optional browser research | `OPENAI_API_KEY`, `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY` | Does not approve board-only exceptions; Does not self-execute engineering work; Does not launch without payment capture and measurement | Existing live core slug should upgrade in place and be rebound as head of Product Launch. |
 | Product Definer | Paperclip knowledge docs, PRD and acceptance criteria artifacts, customer journey and ICP docs | paperclip, paperclip-knowledge, optional browser research | `OPENAI_API_KEY` | No vague ICP or offer language; No release authority; No hidden assumptions in handoff artifacts | New specialist. Keep paused until Gate B artifacts and templates are wired. |
 | UX Researcher | Feedback docs, journey maps, persona artifacts, meeting summaries | paperclip-knowledge, optional browser research | `OPENAI_API_KEY` | No speculative personas without evidence; No pixel decisions without user-flow rationale | New specialist. Activate only after feedback and research surfaces are wired. |
@@ -33,19 +139,19 @@ Important:
 | Tracking & Measurement Specialist | Analytics dashboards, event definitions, measurement docs | paperclip-knowledge, browser research, analytics read | `OPENAI_API_KEY`, `ANALYTICS_API_KEY` | No claiming attribution certainty when instrumentation is weak; No metric definitions hidden in chat threads | New specialist. Keep paused until analytics destinations and dashboards are wired. |
 | Community Builder | Community notes, feedback summaries, launch message pack | paperclip-knowledge, browser research, analytics read | `OPENAI_API_KEY` | No astroturfing or fabricated endorsements; No community claims without direct evidence | New specialist. Activate once community surfaces and summaries are wired. |
 | AI Citation Strategist | Content inventory, AI-discovery research notes, metrics docs | paperclip-knowledge, browser research, analytics read | `OPENAI_API_KEY`, `ANALYTICS_API_KEY` | No fabricated citations or manipulated references; No recommendation claims without observable source support | New specialist. Activate once content inventory and measurement surfaces are wired. |
-| VP of Engineering | Paperclip tasks, repo and worktree access, CI and deploy notes | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No bypass of review and QA gates; No hidden scope expansion beyond approved handoff | New top-level manager. Keep paused until repo and release tooling are wired. |
+| VP of Engineering | Paperclip tasks, repo and worktree access, CI and deploy notes | repo/worktree, git/GitHub, CI/test tooling, optional Railway MCP | `OPENAI_API_KEY`, `GITHUB_TOKEN`, `DEPLOY_PROVIDER_TOKEN` | No bypass of review and QA gates; No hidden scope expansion beyond approved handoff | New top-level manager. Keep paused until repo and release tooling are wired. |
 | Software Architect | Repo read/write, planning docs, architecture notes | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No pseudo-architecture detached from the actual repo; No release approval authority | New specialist. Activate once engineering worktree access is wired. |
 | Backend Architect | Repo and tests, backend docs, performance notes | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No speculative infrastructure work beyond approved scope; No silent schema or contract changes | New specialist. Activate once backend repo access and CI are wired. |
 | Frontend Developer | Repo/worktree, tests, browser if needed, review package | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No skipping verification; No self-approval of review or release | New specialist. Activate once repo access and test tooling are wired. |
 | AI Engineer | Repo/worktree, tests, evaluation docs | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No opaque model behavior claims without tests or evidence; No scope drift into speculative AI features | New specialist. Activate once repo access and evaluation tooling are wired. |
 | Senior Developer | Repo/worktree, tests, review package | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No bypass of review and QA boundaries; No completion claims without fresh evidence | New specialist. Activate once repo and test access are wired. |
-| DevOps Automator | CI/CD, deploy notes, runtime configs, release docs | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No undocumented infra changes; No release without rollback or rollout notes | New specialist. Activate once deploy tooling and secrets are wired. |
-| SRE | Observability notes, runtime diagnostics, release and canary plans | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No reliability claims without signals or checks; No incident readiness based on assumptions alone | New specialist. Activate once observability surfaces are wired. |
+| DevOps Automator | CI/CD, deploy notes, runtime configs, release docs | repo/worktree, git/GitHub, CI/test tooling, Railway MCP | `OPENAI_API_KEY`, `GITHUB_TOKEN`, `DEPLOY_PROVIDER_TOKEN` | No undocumented infra changes; No release without rollback or rollout notes | New specialist. Activate once deploy tooling and secrets are wired. |
+| SRE | Observability notes, runtime diagnostics, release and canary plans | repo/worktree, git/GitHub, CI/test tooling, Railway MCP, optional Sentry MCP | `OPENAI_API_KEY`, `GITHUB_TOKEN`, `DEPLOY_PROVIDER_TOKEN`, `SENTRY_AUTH_TOKEN` | No reliability claims without signals or checks; No incident readiness based on assumptions alone | New specialist. Activate once observability surfaces are wired. |
 | Security Engineer | Diffs, review notes, runtime risk docs | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No vague security theater; No approval of release without explicit risk framing | New specialist. Activate once repo and runtime review surfaces are wired. |
 | Code Reviewer | Diffs, tests, acceptance docs, review notes | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No self-release authority; No pass verdict without evidence | Existing package role moves under VP Engineering; keep paused until repo access is wired. |
 | QA Director | QA reports, test scenarios, release notes | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No fuzzy QA sign-off; No skipping critical-path risk coverage | New specialist. Activate once QA tooling and test environments are wired. |
 | QA Engineer | Tests, QA reports, release evidence | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No approving fixes without rerunning evidence; No collapsing QA findings into vague summaries | New specialist. Activate once QA tooling and test environments are wired. |
-| Release Engineer | Git and release tooling, CI status, release docs | repo/worktree, git/GitHub, CI/test tooling | `OPENAI_API_KEY`, `GITHUB_TOKEN` | No self-approval of unreviewed code; No release without rollback and verification steps | Existing package role moves under VP Engineering; keep paused until release tooling is wired. |
+| Release Engineer | Git and release tooling, CI status, release docs | repo/worktree, git/GitHub, CI/test tooling, Railway MCP | `OPENAI_API_KEY`, `GITHUB_TOKEN`, `DEPLOY_PROVIDER_TOKEN` | No self-approval of unreviewed code; No release without rollback and verification steps | Existing package role moves under VP Engineering; keep paused until release tooling is wired. |
 | Support Lead | Support logs, feedback docs, metrics dashboards, Paperclip tasks | paperclip, paperclip-knowledge, analytics read | `OPENAI_API_KEY`, `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY` | No support readiness claims without escalation owners; No payment ambiguity resolved without policy | Existing package role becomes a top-level manager; keep paused until support tooling and escalation templates are wired. |
 | Support Responder | Support queue, response templates, policy docs | paperclip-knowledge, analytics read | `OPENAI_API_KEY`, `PAYMENT_PROVIDER_API_KEY` | No ad-hoc promises outside policy; No unresolved critical issue closed without owner | New specialist. Activate once support queue tooling is wired. |
 | Feedback Synthesizer | Knowledge docs, support summaries, feedback datasets | paperclip-knowledge, analytics read | `OPENAI_API_KEY`, `ANALYTICS_API_KEY` | No collapsing feedback into vague anecdotes; No backlog recommendations without evidence clusters | Existing package role moves under Support Lead; keep paused until support and analytics surfaces are wired. |
@@ -54,6 +160,9 @@ Important:
 ## Restriction Baseline
 
 - Board-only decisions remain outside agent runtime credentials.
+- Secret CRUD stays board-only even when agent runtime needs the value.
+- Agent configs should store only `secret_ref`, never plaintext secrets.
+- Leave agent secret refs on `"version": "latest"` so company-level rotations propagate automatically.
 - Cross-role handoffs must point to canonical artifacts, never comments-only updates.
 - No role can bypass Gate A, Gate B, review, QA, or release requirements.
 - Engineering roles cannot self-approve implementation, review, QA, and release in one step.

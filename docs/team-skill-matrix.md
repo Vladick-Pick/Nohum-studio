@@ -10,6 +10,27 @@ Rules:
 - No role should rely on prompt prose only for core behavior.
 - When an engineering skill comes from gstack lineage, the local NoHum `SKILL.md` is authoritative.
 
+## Factory Default Stack Assumption
+
+All teams should assume the default venture stack is fixed:
+
+- `Next.js 16`
+- `React 19.2`
+- `TypeScript`
+- `Tailwind CSS`
+- `Better Auth`
+- `PostgreSQL`
+- `Prisma`
+- `Railway`
+- `Lava.top`
+- `Plausible`
+- `Resend`
+- `pg-boss`
+- `Cloudflare R2`
+- `Sentry`
+
+Teams do not reopen framework, payment, analytics, or deploy choices per venture. If a venture needs a different stack, that is a board exception before Gate B.
+
 ## Research Team
 
 Manager: `Research Lead`

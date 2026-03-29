@@ -13,6 +13,8 @@ You are designing a metrics dashboard for **$ARGUMENTS**.
 
 If the user provides files (existing dashboards, analytics data, OKRs, or strategy docs), read them first.
 
+For NoHum default-path ventures, treat `Plausible` as the default product and launch measurement surface and `Sentry` as the default operational health surface. Alternative analytics tools are examples, not default vendor choices.
+
 ### Domain Context
 
 **Metrics vs KPIs vs NSM**: Metrics = all measurable things. KPIs = a few key quantitative metrics tracked over a longer period. North Star Metric = a single customer-centric KPI that is a leading indicator of business success.
@@ -74,9 +76,9 @@ For case studies and more detail: [Are You Tracking the Right Metrics?](https://
    - What's the expected response time?
 
 6. **Recommend tools** based on the user's context:
-   - Amplitude, Mixpanel, PostHog for product analytics
-   - Looker, Metabase, Mode for SQL-based dashboards
-   - Datadog, Grafana for operational health
+   - `Plausible` first for default-path product and launch analytics
+   - Looker, Metabase, or Mode for SQL-based dashboards when the venture truly needs them
+   - `Sentry` first for operational health and error visibility
 
 Think step by step. Save the dashboard specification as a markdown document.
 

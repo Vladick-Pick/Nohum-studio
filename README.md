@@ -42,7 +42,50 @@ This package now vendors selected local skills from four sources:
 
 The base operating skills `paperclip`, `paperclip-create-agent`, `paperclip-knowledge`, and `para-memory-files` are vendored in this repository so import-time skill references resolve inside the package. They still require live runtime wiring after import: Paperclip API env vars for the control-plane skills, and a writable adapter memory path for `para-memory-files`. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
 
-For the private `codex_local` server runtime, agent adapter config intentionally enables `dangerouslyBypassApprovalsAndSandbox` so agents can reach the local Paperclip API and operate inside the bound project workspace instead of failing on sandboxed localhost calls.
+## Secret And Credential Model
+
+`Paperclip Company Secrets` are the canonical source of truth for NoHum credentials.
+
+Rules:
+
+- secret CRUD is board-only
+- raw values never live in prompts, docs, or repository files
+- agents receive only scoped runtime env via `secret_ref`
+- Railway app env vars are manual runtime copies, not the canonical origin
+- agent and policy wiring use layered aliases such as `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY`, and `DEPLOY_PROVIDER_TOKEN`
+
+See:
+
+- `docs/decisions/0004-secret-and-credential-architecture.md`
+- `docs/mcp-access-matrix.md`
+- `docs/server-post-import-checklist.md`
+
+## Factory Default Stack
+
+NoHum does not choose a fresh tech stack per venture. The default path is fixed to:
+
+- `Next.js 16`
+- `React 19.2`
+- `TypeScript`
+- `Tailwind CSS`
+- `Better Auth`
+- `PostgreSQL`
+- `Prisma`
+- `Railway`
+- `Lava.top`
+- `Plausible`
+- `Resend`
+- `pg-boss`
+- `Cloudflare R2`
+- `Sentry`
+
+When a subsystem is needed, the provider choice is fixed. A venture may diverge only through an explicit board exception before Gate B.
+
+See:
+
+- `docs/decisions/0005-factory-default-stack-and-mcp.md`
+- `docs/factory-default-stack.md`
+- `docs/mcp-access-matrix.md`
 
 ## Import Policy
 
@@ -67,5 +110,8 @@ If preview shows rename or duplicate behavior for any preexisting slug, stop the
 - `skills/`: vendored local skills plus NoHum overlays
 - `docs/team-skill-matrix.md`: team-level runtime and vendored skill policy
 - `docs/mcp-access-matrix.md`: tool, MCP, and secret policy by role
+- `docs/decisions/0004-secret-and-credential-architecture.md`: canonical secret and credential model
+- `docs/decisions/0005-factory-default-stack-and-mcp.md`: canonical product stack and MCP decision
+- `docs/factory-default-stack.md`: operational stack contract for default ventures
 - `docs/import-runbook.md`: package-driven import sequence
 - `docs/server-post-import-checklist.md`: server-side validation checklist

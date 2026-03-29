@@ -7,6 +7,16 @@ description: "Identify the best GTM motions and tools across 7 motion types: Inb
 ## Overview
 Identify and evaluate the best go-to-market motions for your product. This skill analyzes seven proven GTM approaches with specific tools and tactics to help you build a balanced acquisition strategy.
 
+## NoHum Default Stack Note
+
+When this skill suggests tooling, the NoHum default venture stack still wins:
+
+- payments -> `Lava.top`
+- measurement -> `Plausible`
+- error monitoring -> `Sentry`
+
+Upstream examples in the motion catalog are idea prompts, not permission to replace the factory default stack.
+
 ## When to Use
 - Selecting marketing channels for your product
 - Choosing between inbound vs outbound strategy
@@ -50,7 +60,7 @@ Build engaged communities where customers help each other and spread the word.
 
 ### 5. Partner Marketing
 Leverage partner networks to co-market and reach new audiences.
-- **Tools**: Miro, AWS Startups, Oracle Partners, Stripe, Shopify App Store
+- **Tools**: Miro, AWS Startups, Oracle Partners, Shopify App Store, partner directories
 - **Tactics**: Partner integrations, co-marketing agreements, channel partnerships, resellers
 - **Best For**: Complementary products, platform ecosystems, expanding market reach
 - **Strength**: Access to established customer bases; shared costs; credibility
@@ -66,7 +76,7 @@ Treat high-value accounts as individual markets with personalized campaigns.
 
 ### 7. Product-Led Growth (PLG)
 Drive adoption through the product experience itself with minimal sales friction.
-- **Tools**: Hotjar, Amplitude, Sentry, PostHog, Intercom, Appcues
+- **Tools**: Hotjar, Plausible, Sentry, Intercom, Appcues, in-app instrumentation
 - **Tactics**: Free trials, freemium models, in-app onboarding, self-serve demos, product analytics
 - **Best For**: Self-service products, SMB market, low ACV, viral potential
 - **Strength**: Low CAC; aligns product and growth; strong PMF signals; scalable

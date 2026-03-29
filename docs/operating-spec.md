@@ -75,8 +75,32 @@ It must appear in:
 - one active venture plus one queued venture
 - 14 days from `build_start_at` to valid first external payment
 - only fast-cycle / self-serve / low-touch products in v1
+- default ventures must fit the canonical NoHum stack without architecture churn
 - board participates 15-20 minutes daily
 - company budget hard cap: $1k per month with board override only
+
+## Canonical Product Stack
+
+Default-path ventures use:
+
+- `Next.js 16` fullstack
+- `React 19.2`
+- `TypeScript`
+- `Tailwind CSS`
+- `Better Auth`
+- `PostgreSQL`
+- `Prisma`
+- `Railway`
+- `Lava.top`
+- `Plausible`
+- `Resend`
+- `pg-boss`
+- `Cloudflare R2`
+- `Sentry`
+
+NoHum does not pick among equivalent framework or provider alternatives per venture.
+
+If a product needs a non-canonical stack, that is a board exception before Gate B, not an implementation-time preference.
 
 ## Org Model
 
@@ -225,7 +249,7 @@ Queue decay:
 #### `build -> launch`
 
 - entry: product repo attached
-- entry: payment hook + analytics + feedback capture live
+- entry: `Lava.top` payment hook + `Plausible` measurement + feedback capture live
 - exit: launch is live
 - approver: Launch Lead
 
@@ -268,9 +292,9 @@ Only one exception exists:
 
 ## Payment Signal Contract
 
-Payment provider is intentionally not hard-coded in v1.
+Default payment provider is `Lava.top` in v1.
 
-The system uses a provider-agnostic `Payment Signal Adapter`.
+The system still stores normalized payment events internally through a `Payment Signal Adapter`, but any alternative provider requires a board-approved stack exception before Gate B.
 
 Normalized payment event fields:
 
@@ -293,6 +317,7 @@ Normalized payment event fields:
 
 A payment counts only when:
 
+- the event comes from live `Lava.top` payment evidence or its normalized equivalent in the adapter
 - mode is live
 - status is captured or paid
 - payment is not marked test or internal

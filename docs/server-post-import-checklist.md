@@ -55,14 +55,68 @@
 - any non-core role reconciled from a previous package should keep the new reporting line and remain paused until its new tooling is wired
 - newly introduced top-level managers `cmo` and `vp-engineering` should stay paused until their tool and secret surfaces are ready
 
-## 4. Tooling and Secrets Check
+## 4. Company Secrets and Runtime Wiring Check
 
-- verify each live project has a primary workspace with a real git checkout `cwd`
+### 4.1 Canonical Source Of Truth
+
+- create and rotate secrets in `Paperclip Company Secrets`, not in the repo and not in comments
+- keep secret CRUD board-only
+- treat Railway env as a runtime copy, not the canonical origin
+
+### 4.2 Minimum Viable Core Set
+
+Company-wide agent/runtime secrets:
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+- `BRAVE_API_KEY`
+- `RAILWAY_TOKEN`
+- `SENTRY_AUTH_TOKEN`
+- `PAYMENT_PROVIDER_API_KEY`
+- `ANALYTICS_API_KEY`
+
+Mapped provider-level secrets:
+
+- `LAVA_API_KEY`
+- `LAVA_WEBHOOK_SECRET`
+- `PLAUSIBLE_API_KEY`
+- `RESEND_API_KEY`
+
+Per-venture app secrets:
+
+- `DATABASE_URL`
+- `BETTER_AUTH_SECRET`
+- `LAVA_API_KEY`
+- `LAVA_WEBHOOK_SECRET`
+- `PLAUSIBLE_API_KEY`
+- `RESEND_API_KEY`
+- `SENTRY_DSN`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+- `R2_ENDPOINT`
+
+### 4.3 Agent Runtime Wiring
+
+- bind agent-facing aliases through `Company Secrets`:
+  - `PAYMENT_PROVIDER_API_KEY` -> Lava.top
+  - `ANALYTICS_API_KEY` -> Plausible
+  - `DEPLOY_PROVIDER_TOKEN` -> Railway
 - wire `OPENAI_API_KEY` for all codex-local roles
-- verify `codex_local` adapter config keeps `dangerouslyBypassApprovalsAndSandbox: true` on the private server runtime so control-plane skills can reach the local Paperclip API
-- wire `GITHUB_TOKEN` for engineering and ops roles that need repo or release access
+- wire `GITHUB_TOKEN` for engineering and ops roles that need repo, review, or release access
+- wire `BRAVE_API_KEY` for research roles using Brave Search MCP
+- wire `DEPLOY_PROVIDER_TOKEN` to Railway-facing engineering roles
+- wire `SENTRY_AUTH_TOKEN` only to reliability roles that need observability diagnostics
 - wire `ANALYTICS_API_KEY` for measurement, marketing, and analytics roles
 - wire `PAYMENT_PROVIDER_API_KEY` only for roles that need payment-signal context
+- verify live agent config stores `secret_ref`, not plaintext values
+- keep runtime secret refs on `"version": "latest"`
+
+### 4.4 Venture App Runtime Copies
+
+- copy only the needed subset from `Company Secrets` into Railway env for the active venture
+- use provider-specific names in app env: `LAVA_API_KEY`, `PLAUSIBLE_API_KEY`, `RESEND_API_KEY`, `SENTRY_DSN`, `DATABASE_URL`, and `R2_*`
+- when rotating a secret, update `Company Secrets` first and then update the Railway copies for affected ventures
 
 ## 5. Instruction Bundle Check
 

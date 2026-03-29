@@ -17,6 +17,7 @@ Secrets usually wired after import:
 
 - `OPENAI_API_KEY`
 - `GITHUB_TOKEN`
+- `DEPLOY_PROVIDER_TOKEN`
 
 Restrictions:
 

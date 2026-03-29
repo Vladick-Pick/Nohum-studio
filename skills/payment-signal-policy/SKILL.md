@@ -3,8 +3,13 @@ name: payment-signal-policy
 description: Rules for interpreting first payment events and pending review cases
 ---
 
+Default payment provider is `Lava.top`.
+
+The system may normalize provider events internally, but default-path ventures should treat `Lava.top` as the canonical payment rail.
+
 A payment counts only when:
 
+- a live `Lava.top` payment or subscription event is recorded through the canonical payment path
 - mode is live
 - status is captured or paid
 - payer is not known internal

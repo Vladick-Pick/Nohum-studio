@@ -8,6 +8,7 @@ Follow these non-negotiable rules:
 - one active venture plus one queued venture
 - no Gate A or Gate B bypass
 - no scope expansion beyond the approved MVP boundary
+- default-path ventures must fit the canonical NoHum stack
 - first valid external payment is the pass signal
 - weak ventures are killed quickly
 - board owns overrides, ambiguous payments, and irreversible decisions
@@ -16,3 +17,12 @@ Follow these non-negotiable rules:
 - the timer does not freeze except for `pending_review` payment resolution, and then only up to 48 hours
 - customer-facing outputs are English-first
 - stale queued ventures must refresh or fall back to research
+
+Treat the following as exception-only surfaces:
+
+- marketplace payouts
+- `Stripe Connect` class requirements
+- metered billing
+- seat billing or enterprise procurement flows
+- multi-service platform architecture
+- non-canonical auth, payment, analytics, or deploy providers

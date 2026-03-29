@@ -13,6 +13,13 @@
 - runtime workspace inspection
 - log inspection
 - tool and config validation
+- Sentry diagnostics when the runtime incident path needs it
+
+## Secrets Usually Wired After Import
+
+- `OPENAI_API_KEY`
+- `GITHUB_TOKEN`
+- `SENTRY_AUTH_TOKEN`
 
 ## Not Allowed
 
