@@ -24,7 +24,7 @@ const preservedAgents = [
     teamSlug: "control-plane",
     tools: "Paperclip API, governance docs, portfolio reviews",
     mcp: "paperclip, paperclip-knowledge, optional GitHub read",
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: ["No board credentials in runtime", "No direct code shipping"],
     postImport: "Verify control-plane approvals and governance docs are wired.",
   },
@@ -43,7 +43,7 @@ const preservedAgents = [
     teamSlug: "studio-ops",
     tools: "Paperclip API, task/project monitoring, org docs",
     mcp: "paperclip, paperclip-knowledge, optional GitHub read",
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: ["No production release actions", "No board-only overrides"],
     postImport: "Keep wake-on-demand available and wire cadence dashboards after import.",
   },
@@ -62,7 +62,7 @@ const preservedAgents = [
     teamSlug: "studio-ops",
     tools: "Paperclip API, runtime logs, repo inspection, health checks",
     mcp: "paperclip, paperclip-knowledge, optional GitHub plus browser diagnostics",
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: ["No gate approvals", "No strategy overrides"],
     postImport: "Grant diagnostic-only access to runtime paths and tool health scripts.",
   },
@@ -81,7 +81,7 @@ const preservedAgents = [
     teamSlug: "research",
     tools: "Research docs, queue package, evidence registry",
     mcp: "paperclip, paperclip-knowledge, browser research, optional memory",
-    secrets: ["OPENAI_API_KEY", "APIFY_TOKEN"],
+    secrets: ["APIFY_TOKEN"],
     restrictions: ["No build or release writes", "No bypass of Gate A evidence"],
     postImport: "Existing live core slug should upgrade in place.",
   },
@@ -100,7 +100,7 @@ const preservedAgents = [
     teamSlug: "research",
     tools: "Knowledge docs, scorecards, queue artifacts",
     mcp: "paperclip-knowledge, optional memory",
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: ["No decision override outside Research Lead"],
     postImport: "Pause after import until research templates are wired.",
   },
@@ -119,7 +119,7 @@ const preservedAgents = [
     teamSlug: "research",
     tools: "Browser research, pricing pages, evidence capture",
     mcp: "browser/web research, optional memory",
-    secrets: ["OPENAI_API_KEY", "APIFY_TOKEN"],
+    secrets: ["APIFY_TOKEN"],
     restrictions: ["No stage transitions", "Citations required on all claims"],
     postImport: "Pause after import until browser access and evidence templates are wired.",
   },
@@ -138,7 +138,7 @@ const preservedAgents = [
     teamSlug: "research",
     tools: "Traffic/review sources, research docs",
     mcp: "browser/web research, optional analytics read",
-    secrets: ["OPENAI_API_KEY", "APIFY_TOKEN"],
+    secrets: ["APIFY_TOKEN"],
     restrictions: ["No pricing decisions alone", "No queue promotion without evidence"],
     postImport: "Pause after import until demand evidence template is wired.",
   },
@@ -157,7 +157,7 @@ const preservedAgents = [
     teamSlug: "research",
     tools: "Pricing and payment proof sources",
     mcp: "browser/web research, optional payment metadata read",
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: ["No payment acceptance decision", "Must state assumptions explicitly"],
     postImport: "Pause after import until pricing and payment evidence surfaces are wired.",
   },
@@ -232,7 +232,7 @@ const generatedAgents = [
       "channel plan",
       "launch measurement plan",
     ],
-    secrets: ["OPENAI_API_KEY", "PAYMENT_PROVIDER_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["PAYMENT_PROVIDER_API_KEY", "ANALYTICS_API_KEY"],
     restrictions: [
       "Does not approve board-only exceptions",
       "Does not self-execute engineering work",
@@ -305,7 +305,7 @@ const generatedAgents = [
       "scope boundaries",
       "open assumptions list",
     ],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No vague ICP or offer language",
       "No release authority",
@@ -362,7 +362,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Feedback docs", "journey maps", "persona artifacts", "meeting summaries"],
     evidenceSurfaces: ["persona doc", "journey map", "observed friction list"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No speculative personas without evidence",
       "No pixel decisions without user-flow rationale",
@@ -418,7 +418,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Flow maps", "story docs", "UX architecture notes"],
     evidenceSurfaces: ["screen inventory", "flow map", "acceptance notes"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No visual-system work without flow justification",
       "No hidden edge cases in handoff diagrams",
@@ -473,7 +473,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Design notes", "screen annotations", "launch brief"],
     evidenceSurfaces: ["annotated states", "handoff notes", "state coverage checklist"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No decorative drift away from product promise",
       "No hidden states or omitted errors in design handoff",
@@ -532,7 +532,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Pricing docs", "competitor pricing pages", "launch brief"],
     evidenceSurfaces: ["pricing table", "experiment plan", "payment plausibility memo"],
-    secrets: ["OPENAI_API_KEY", "PAYMENT_PROVIDER_API_KEY"],
+    secrets: ["PAYMENT_PROVIDER_API_KEY"],
     restrictions: [
       "No unsupported price claims",
       "No hidden discounting logic in launch packet",
@@ -589,7 +589,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Paperclip tasks", "timeline docs", "stakeholder map", "readiness checklists"],
     evidenceSurfaces: ["dependency board", "timeline", "handoff status"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No comments-only handoffs",
       "No claiming readiness without artifact links",
@@ -656,7 +656,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Paperclip tasks", "marketing briefs", "analytics dashboards", "browser research"],
     evidenceSurfaces: ["channel plan", "message map", "metrics dashboard"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No campaign launch without measurement",
       "No promise that product/support cannot sustain",
@@ -716,7 +716,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Analytics dashboards", "channel docs", "campaign experiment trackers"],
     evidenceSurfaces: ["funnel report", "experiment log", "North Star metric view"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No channel scaling without measured signal",
       "No price or promise changes without cross-team review",
@@ -774,7 +774,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Positioning docs", "battlecards", "campaign briefs"],
     evidenceSurfaces: ["message matrix", "battlecard", "campaign brief"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No abstract brand language detached from the offer",
       "No copying competitor positioning without differentiation",
@@ -829,7 +829,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Content drafts", "search-intent research", "metrics dashboard"],
     evidenceSurfaces: ["intent map", "optimization checklist", "organic baseline"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No keyword plans without product-message fit",
       "No unsupported SEO claims or fabricated rankings",
@@ -885,7 +885,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Copy docs", "release notes", "message assets"],
     evidenceSurfaces: ["copy deck", "content calendar", "release notes draft"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No promise beyond approved scope",
       "No generic launch copy divorced from the ICP",
@@ -940,7 +940,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Paid experiment docs", "analytics dashboards", "creative briefs"],
     evidenceSurfaces: ["test plan", "budget memo", "paid metrics readout"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No budget scaling without signal",
       "No opaque attribution assumptions",
@@ -997,7 +997,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Analytics dashboards", "event definitions", "measurement docs"],
     evidenceSurfaces: ["dashboard", "metric dictionary", "gap list"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No claiming attribution certainty when instrumentation is weak",
       "No metric definitions hidden in chat threads",
@@ -1052,7 +1052,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Community notes", "feedback summaries", "launch message pack"],
     evidenceSurfaces: ["engagement plan", "sentiment summary", "community report"],
-    secrets: ["OPENAI_API_KEY"],
+    secrets: [],
     restrictions: [
       "No astroturfing or fabricated endorsements",
       "No community claims without direct evidence",
@@ -1107,7 +1107,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Content inventory", "AI-discovery research notes", "metrics docs"],
     evidenceSurfaces: ["visibility memo", "opportunity map", "experiment notes"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No fabricated citations or manipulated references",
       "No recommendation claims without observable source support",
@@ -1174,7 +1174,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Paperclip tasks", "repo and worktree access", "CI and deploy notes"],
     evidenceSurfaces: ["execution plan", "architecture notes", "review and QA artifacts"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No bypass of review and QA gates",
       "No hidden scope expansion beyond approved handoff",
@@ -1229,7 +1229,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Repo read/write", "planning docs", "architecture notes"],
     evidenceSurfaces: ["architecture note", "risk memo", "component map"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No pseudo-architecture detached from the actual repo",
       "No release approval authority",
@@ -1284,7 +1284,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Repo and tests", "backend docs", "performance notes"],
     evidenceSurfaces: ["API notes", "migration checklist", "performance memo"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No speculative infrastructure work beyond approved scope",
       "No silent schema or contract changes",
@@ -1341,7 +1341,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Repo/worktree", "tests", "browser if needed", "review package"],
     evidenceSurfaces: ["test output", "screens or notes", "review package"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No skipping verification",
       "No self-approval of review or release",
@@ -1397,7 +1397,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Repo/worktree", "tests", "evaluation docs"],
     evidenceSurfaces: ["evaluation notes", "benchmark evidence", "test output"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No opaque model behavior claims without tests or evidence",
       "No scope drift into speculative AI features",
@@ -1456,7 +1456,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Repo/worktree", "tests", "review package"],
     evidenceSurfaces: ["diff summary", "test output", "review request"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No bypass of review and QA boundaries",
       "No completion claims without fresh evidence",
@@ -1513,7 +1513,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["CI/CD", "deploy notes", "runtime configs", "release docs"],
     evidenceSurfaces: ["deploy checklist", "rollout plan", "release documentation"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No undocumented infra changes",
       "No release without rollback or rollout notes",
@@ -1569,7 +1569,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Observability notes", "runtime diagnostics", "release and canary plans"],
     evidenceSurfaces: ["reliability checklist", "runtime risk summary", "canary notes"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No reliability claims without signals or checks",
       "No incident readiness based on assumptions alone",
@@ -1625,7 +1625,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Diffs", "review notes", "runtime risk docs"],
     evidenceSurfaces: ["security memo", "hardening checklist", "risk log"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No vague security theater",
       "No approval of release without explicit risk framing",
@@ -1682,7 +1682,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Diffs", "tests", "acceptance docs", "review notes"],
     evidenceSurfaces: ["review verdict", "blocking issues", "approval packet"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No self-release authority",
       "No pass verdict without evidence",
@@ -1738,7 +1738,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["QA reports", "test scenarios", "release notes"],
     evidenceSurfaces: ["coverage matrix", "QA verdict", "defect memo"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No fuzzy QA sign-off",
       "No skipping critical-path risk coverage",
@@ -1794,7 +1794,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Tests", "QA reports", "release evidence"],
     evidenceSurfaces: ["execution report", "defect reports", "regression notes"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No approving fixes without rerunning evidence",
       "No collapsing QA findings into vague summaries",
@@ -1851,7 +1851,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Git and release tooling", "CI status", "release docs"],
     evidenceSurfaces: ["release checklist", "rollout plan", "verification note"],
-    secrets: ["OPENAI_API_KEY", "GITHUB_TOKEN"],
+    secrets: ["GITHUB_TOKEN"],
     restrictions: [
       "No self-approval of unreviewed code",
       "No release without rollback and verification steps",
@@ -1910,7 +1910,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Support logs", "feedback docs", "metrics dashboards", "Paperclip tasks"],
     evidenceSurfaces: ["support checklist", "escalation map", "weekly support packet"],
-    secrets: ["OPENAI_API_KEY", "PAYMENT_PROVIDER_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["PAYMENT_PROVIDER_API_KEY", "ANALYTICS_API_KEY"],
     restrictions: [
       "No support readiness claims without escalation owners",
       "No payment ambiguity resolved without policy",
@@ -1963,7 +1963,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Support queue", "response templates", "policy docs"],
     evidenceSurfaces: ["ticket summary", "escalation note", "sentiment note"],
-    secrets: ["OPENAI_API_KEY", "PAYMENT_PROVIDER_API_KEY"],
+    secrets: ["PAYMENT_PROVIDER_API_KEY"],
     restrictions: [
       "No ad-hoc promises outside policy",
       "No unresolved critical issue closed without owner",
@@ -2019,7 +2019,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Knowledge docs", "support summaries", "feedback datasets"],
     evidenceSurfaces: ["synthesis report", "theme map", "triage memo"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No collapsing feedback into vague anecdotes",
       "No backlog recommendations without evidence clusters",
@@ -2074,7 +2074,7 @@ const generatedAgents = [
     ],
     toolSurfaces: ["Analytics dashboards", "cohort tables", "portfolio review docs"],
     evidenceSurfaces: ["operating report", "cohort summary", "KPI readout"],
-    secrets: ["OPENAI_API_KEY", "ANALYTICS_API_KEY"],
+    secrets: ["ANALYTICS_API_KEY"],
     restrictions: [
       "No executive summaries detached from source metrics",
       "No metric certainty claims when instrumentation is weak",
@@ -2371,10 +2371,35 @@ const teams = [
 ];
 
 const docIncludes = [
+  "docs/decisions/0004-secret-and-credential-architecture.md",
+  "docs/decisions/0005-factory-default-stack-and-mcp.md",
+  "docs/factory-default-stack.md",
+  "docs/operating-spec.md",
+  "docs/operating-cadence.md",
   "docs/skill-policy.md",
   "docs/team-skill-matrix.md",
   "docs/mcp-access-matrix.md",
+  "docs/automation/queue-to-venture-machine.md",
+  "docs/delegation/manager-delegation-contracts.md",
+  "docs/observability/factory-health-metrics.md",
+  "docs/observability/org-hygiene-checklist.md",
+  "docs/runbooks/engineering-substrate.md",
   "docs/atlas/org-map.md",
+  "docs/templates/engineering/build-env-contract.md",
+  "docs/templates/engineering/release-readiness-pack.md",
+  "docs/templates/engineering/repo-attach-record.md",
+  "docs/templates/operations/blocked-work-packet.md",
+  "docs/templates/operations/factory-health-report.md",
+  "docs/templates/operations/org-hygiene-report.md",
+  "docs/templates/operations/reroute-note.md",
+  "docs/templates/queue/gate-a-decision.md",
+  "docs/templates/queue/queue-winner-record.md",
+  "docs/templates/venture/feedback-log.md",
+  "docs/templates/venture/handoff-dossier.md",
+  "docs/templates/venture/launch-brief.md",
+  "docs/templates/venture/payment-events.md",
+  "docs/templates/venture/phase-transition-log.md",
+  "docs/templates/venture/venture-manifest.md",
   "docs/playbooks/research-playbook.md",
   "docs/playbooks/queue-gate-a-playbook.md",
   "docs/playbooks/venture-definition-playbook.md",
@@ -2397,6 +2422,24 @@ const docIncludes = [
   "docs/migration/v1-5-import-upgrade.md",
 ];
 
+const taskIncludes = [
+  "tasks/bootstrap-company/TASK.md",
+  "tasks/daily-ceo-operating-review/TASK.md",
+  "tasks/daily-chief-of-staff-blocked-work-review/TASK.md",
+  "tasks/daily-research-lead-queue-refresh/TASK.md",
+  "tasks/daily-launch-lead-readiness-review/TASK.md",
+  "tasks/daily-vp-engineering-substrate-review/TASK.md",
+  "tasks/daily-support-lead-signal-review/TASK.md",
+  "tasks/daily-agent-mechanic-runtime-audit/TASK.md",
+  "tasks/promote-queued-venture/TASK.md",
+  "tasks/substrate-readiness-review/TASK.md",
+  "tasks/delegation-contract-audit/TASK.md",
+  "tasks/weekly-board-review/TASK.md",
+  "tasks/portfolio-health-review/TASK.md",
+  "tasks/weekly-factory-health-review/TASK.md",
+  "tasks/weekly-org-hygiene-review/TASK.md",
+];
+
 function abs(relPath) {
   return path.join(root, relPath);
 }
@@ -2416,6 +2459,18 @@ function remove(relPath) {
 
 function unique(items) {
   return [...new Set(items)];
+}
+
+function normalizedSecrets(secrets = []) {
+  return unique(secrets.filter((secret) => secret !== "OPENAI_API_KEY"));
+}
+
+function runtimeSecretLabels(agent) {
+  const secrets = normalizedSecrets(agent.secrets);
+  if (secrets.length === 0) {
+    return ["host-managed model auth"];
+  }
+  return secrets.map((secret) => `\`${secret}\``);
 }
 
 function relAgentPath(slug) {
@@ -2657,7 +2712,7 @@ ${mdList(agent.evidenceSurfaces)}
 
 Secrets usually wired after import:
 
-${mdList(agent.secrets.map((secret) => `\`${secret}\``))}
+${mdList(runtimeSecretLabels(agent))}
 
 Restrictions:
 
@@ -2741,9 +2796,7 @@ function renderCompany() {
     ...agentIncludes,
     "projects/hypothesis-funnel/PROJECT.md",
     "projects/studio-os/PROJECT.md",
-    "tasks/bootstrap-company/TASK.md",
-    "tasks/weekly-board-review/TASK.md",
-    "tasks/portfolio-health-review/TASK.md",
+    ...taskIncludes,
     ...teamIncludes,
     ...skillIncludes,
     ...docIncludes,
@@ -2859,7 +2912,7 @@ function renderPaperclipYaml() {
     lines.push(`      canCreateAgents: ${agent.canCreateAgents ? "true" : "false"}`);
     lines.push("    inputs:");
     lines.push("      env:");
-    for (const secret of unique(agent.secrets)) {
+    for (const secret of normalizedSecrets(agent.secrets)) {
       lines.push(`        ${secret}:`);
       lines.push("          kind: secret");
       lines.push("          requirement: optional");
@@ -3051,7 +3104,7 @@ function renderMcpAccessMatrix() {
   const rows = allAgents
     .map(
       (agent) =>
-        `| ${agent.name} | ${agentTools(agent)} | ${agentMcp(agent)} | ${agent.secrets.map((secret) => `\`${secret}\``).join(", ")} | ${agent.restrictions.join("; ")} | ${agent.postImport} |`
+        `| ${agent.name} | ${agentTools(agent)} | ${agentMcp(agent)} | ${runtimeSecretLabels(agent).join(", ")} | ${agent.restrictions.join("; ")} | ${agent.postImport} |`
     )
     .join("\n");
   return `# NoHum v1.5 Detailed-Core MCP and Tool Access Matrix
@@ -3213,7 +3266,7 @@ function renderServerChecklist() {
 
 ## 4. Tooling and Secrets Check
 
-- wire \`OPENAI_API_KEY\` for all codex-local roles
+- keep model auth host-managed for \`codex_local\`; do not add a company-wide \`OPENAI_API_KEY\` baseline
 - wire \`GITHUB_TOKEN\` for engineering and ops roles that need repo or release access
 - wire \`ANALYTICS_API_KEY\` for measurement, marketing, and analytics roles
 - wire \`PAYMENT_PROVIDER_API_KEY\` only for roles that need payment-signal context

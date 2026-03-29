@@ -67,7 +67,6 @@
 
 Company-wide agent/runtime secrets:
 
-- `OPENAI_API_KEY`
 - `GITHUB_TOKEN`
 - `BRAVE_API_KEY`
 - `RAILWAY_TOKEN`
@@ -95,14 +94,15 @@ Per-venture app secrets:
 - `R2_SECRET_ACCESS_KEY`
 - `R2_BUCKET`
 - `R2_ENDPOINT`
+- optional `OPENROUTER_API_KEY` only for venture apps that ship LLM functionality
 
 ### 4.3 Agent Runtime Wiring
 
+- keep model auth host-managed for `codex_local`; do not create a company-wide `OPENAI_API_KEY` baseline
 - bind agent-facing aliases through `Company Secrets`:
   - `PAYMENT_PROVIDER_API_KEY` -> Lava.top
   - `ANALYTICS_API_KEY` -> Plausible
   - `DEPLOY_PROVIDER_TOKEN` -> Railway
-- wire `OPENAI_API_KEY` for all codex-local roles
 - wire `GITHUB_TOKEN` for engineering and ops roles that need repo, review, or release access
 - wire `BRAVE_API_KEY` for research roles using Brave Search MCP
 - wire `DEPLOY_PROVIDER_TOKEN` to Railway-facing engineering roles
@@ -115,7 +115,7 @@ Per-venture app secrets:
 ### 4.4 Venture App Runtime Copies
 
 - copy only the needed subset from `Company Secrets` into Railway env for the active venture
-- use provider-specific names in app env: `LAVA_API_KEY`, `PLAUSIBLE_API_KEY`, `RESEND_API_KEY`, `SENTRY_DSN`, `DATABASE_URL`, and `R2_*`
+- use provider-specific names in app env: `LAVA_API_KEY`, `PLAUSIBLE_API_KEY`, `RESEND_API_KEY`, `SENTRY_DSN`, `DATABASE_URL`, `R2_*`, and optional `OPENROUTER_API_KEY` for LLM ventures
 - when rotating a secret, update `Company Secrets` first and then update the Railway copies for affected ventures
 
 ## 5. Instruction Bundle Check
@@ -125,8 +125,8 @@ Per-venture app secrets:
 
 ## 6. Smoke Tests
 
-- Research: produce a queue-evidence artifact
-- Product Launch: update a Gate B packet
-- Marketing: produce a measured channel brief
-- Engineering: create a review or QA artifact
-- Support: produce a structured feedback synthesis
+- Research: produce or refresh a queue winner artifact; pass when owner, freshness, and evidence links are explicit; approver `Research Lead`
+- Product Launch: update a Gate B packet or launch brief; pass when the next owner can act from the artifact alone; approver `Launch Lead`
+- Marketing: produce a measured channel brief; pass when metric, audience, and offer are explicit; approver `CMO`
+- Engineering: create a substrate, review, or QA artifact; pass when verdict and verification evidence are explicit; approver `VP of Engineering`
+- Support: produce a structured feedback or escalation synthesis; pass when severity, owner, and next decision are explicit; approver `Support Lead`

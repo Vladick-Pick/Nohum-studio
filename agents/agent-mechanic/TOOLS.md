@@ -17,7 +17,6 @@
 
 ## Secrets Usually Wired After Import
 
-- `OPENAI_API_KEY`
 - `GITHUB_TOKEN`
 - `SENTRY_AUTH_TOKEN`
 

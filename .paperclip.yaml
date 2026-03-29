@@ -20,10 +20,7 @@ agents:
     permissions:
       canCreateAgents: true
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - Verify control-plane approvals and governance docs are wired.
       - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
@@ -42,10 +39,7 @@ agents:
     permissions:
       canCreateAgents: true
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - Keep wake-on-demand available and wire cadence dashboards after import.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -65,9 +59,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -93,9 +84,6 @@ agents:
       canCreateAgents: true
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         BRAVE_API_KEY:
           kind: secret
           requirement: optional
@@ -117,10 +105,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - Pause after import until research templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -140,9 +125,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         BRAVE_API_KEY:
           kind: secret
           requirement: optional
@@ -165,9 +147,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         BRAVE_API_KEY:
           kind: secret
           requirement: optional
@@ -190,9 +169,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         BRAVE_API_KEY:
           kind: secret
           requirement: optional
@@ -218,9 +194,6 @@ agents:
       canCreateAgents: true
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         PAYMENT_PROVIDER_API_KEY:
           kind: secret
           requirement: optional
@@ -245,10 +218,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Keep paused until Gate B artifacts and templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -267,10 +237,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Activate only after feedback and research surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -289,10 +256,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Keep paused until design and engineering handoff surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -311,10 +275,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Keep paused until design handoff paths are available.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -334,9 +295,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         PAYMENT_PROVIDER_API_KEY:
           kind: secret
           requirement: optional
@@ -358,10 +316,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Activate only after team-level checklists are imported.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -381,9 +336,6 @@ agents:
       canCreateAgents: true
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -406,9 +358,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -430,10 +379,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Activate once positioning and message surfaces are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -453,9 +399,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -477,10 +420,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Activate once content destinations and templates are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -500,9 +440,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -525,9 +462,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -549,10 +483,7 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
       - New specialist. Activate once community surfaces and summaries are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
@@ -572,9 +503,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -597,9 +525,6 @@ agents:
       canCreateAgents: true
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -625,9 +550,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -653,9 +575,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -684,9 +603,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -712,9 +628,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -737,9 +650,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -762,9 +672,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -787,9 +694,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -812,9 +716,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -837,9 +738,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -862,9 +760,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -887,9 +782,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -912,9 +804,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         GITHUB_TOKEN:
           kind: secret
           requirement: optional
@@ -937,9 +826,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         PAYMENT_PROVIDER_API_KEY:
           kind: secret
           requirement: optional
@@ -965,9 +851,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         PAYMENT_PROVIDER_API_KEY:
           kind: secret
           requirement: optional
@@ -990,9 +873,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional
@@ -1015,9 +895,6 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        OPENAI_API_KEY:
-          kind: secret
-          requirement: optional
         ANALYTICS_API_KEY:
           kind: secret
           requirement: optional

@@ -16,7 +16,6 @@ Required evidence surfaces:
 
 Secrets usually wired after import:
 
-- `OPENAI_API_KEY`
 - `PAYMENT_PROVIDER_API_KEY`
 - `ANALYTICS_API_KEY`
 

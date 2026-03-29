@@ -52,8 +52,20 @@ includes:
   - projects/hypothesis-funnel/PROJECT.md
   - projects/studio-os/PROJECT.md
   - tasks/bootstrap-company/TASK.md
+  - tasks/daily-ceo-operating-review/TASK.md
+  - tasks/daily-chief-of-staff-blocked-work-review/TASK.md
+  - tasks/daily-research-lead-queue-refresh/TASK.md
+  - tasks/daily-launch-lead-readiness-review/TASK.md
+  - tasks/daily-vp-engineering-substrate-review/TASK.md
+  - tasks/daily-support-lead-signal-review/TASK.md
+  - tasks/daily-agent-mechanic-runtime-audit/TASK.md
+  - tasks/promote-queued-venture/TASK.md
+  - tasks/substrate-readiness-review/TASK.md
+  - tasks/delegation-contract-audit/TASK.md
   - tasks/weekly-board-review/TASK.md
   - tasks/portfolio-health-review/TASK.md
+  - tasks/weekly-factory-health-review/TASK.md
+  - tasks/weekly-org-hygiene-review/TASK.md
   - teams/research/TEAM.md
   - teams/product-launch/TEAM.md
   - teams/marketing/TEAM.md
@@ -129,10 +141,35 @@ includes:
   - skills/verification-before-completion/SKILL.md
   - skills/writing-plans/SKILL.md
   - skills/writing-skills/SKILL.md
+  - docs/decisions/0004-secret-and-credential-architecture.md
+  - docs/decisions/0005-factory-default-stack-and-mcp.md
+  - docs/factory-default-stack.md
+  - docs/operating-spec.md
+  - docs/operating-cadence.md
   - docs/skill-policy.md
   - docs/team-skill-matrix.md
   - docs/mcp-access-matrix.md
+  - docs/automation/queue-to-venture-machine.md
+  - docs/delegation/manager-delegation-contracts.md
+  - docs/observability/factory-health-metrics.md
+  - docs/observability/org-hygiene-checklist.md
+  - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
+  - docs/templates/engineering/build-env-contract.md
+  - docs/templates/engineering/release-readiness-pack.md
+  - docs/templates/engineering/repo-attach-record.md
+  - docs/templates/operations/blocked-work-packet.md
+  - docs/templates/operations/factory-health-report.md
+  - docs/templates/operations/org-hygiene-report.md
+  - docs/templates/operations/reroute-note.md
+  - docs/templates/queue/gate-a-decision.md
+  - docs/templates/queue/queue-winner-record.md
+  - docs/templates/venture/feedback-log.md
+  - docs/templates/venture/handoff-dossier.md
+  - docs/templates/venture/launch-brief.md
+  - docs/templates/venture/payment-events.md
+  - docs/templates/venture/phase-transition-log.md
+  - docs/templates/venture/venture-manifest.md
   - docs/playbooks/research-playbook.md
   - docs/playbooks/queue-gate-a-playbook.md
   - docs/playbooks/venture-definition-playbook.md

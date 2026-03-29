@@ -51,6 +51,9 @@ Rules:
 - secret CRUD is board-only
 - raw values never live in prompts, docs, or repository files
 - agents receive only scoped runtime env via `secret_ref`
+- model auth for `codex_local` is host-managed and outside company secret scope
+- `OPENAI_API_KEY` is not part of the NoHum company-wide baseline secret set
+- `OPENROUTER_API_KEY` is optional and belongs only to venture app runtime when a shipped product actually uses LLM features
 - Railway app env vars are manual runtime copies, not the canonical origin
 - agent and policy wiring use layered aliases such as `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY`, and `DEPLOY_PROVIDER_TOKEN`
 
@@ -115,3 +118,7 @@ If preview shows rename or duplicate behavior for any preexisting slug, stop the
 - `docs/factory-default-stack.md`: operational stack contract for default ventures
 - `docs/import-runbook.md`: package-driven import sequence
 - `docs/server-post-import-checklist.md`: server-side validation checklist
+- `docs/operating-cadence.md`: recurring manager operating cycle
+- `docs/automation/`: queue and venture transition surfaces
+- `docs/observability/`: factory health and hygiene rules
+- `docs/templates/`: canonical artifact templates for queue, venture, engineering, and operations
