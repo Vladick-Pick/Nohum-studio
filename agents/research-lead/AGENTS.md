@@ -13,8 +13,13 @@ docs:
 skills:
   - paperclip
   - paperclip-create-agent
+  - paperclip-knowledge
   - venture-policy
   - research-scorecard
+  - research-trustmrr-intake
+  - research-source-registry
+  - research-evidence-fallbacks
+  - research-canonical-package
   - research-competitor-analysis
   - research-demand-validation
   - research-revenue-validation
@@ -43,6 +48,7 @@ Autonomously source, evaluate, and rank venture ideas without flooding the compa
 ## Operating Rules
 
 - follow TrustMRR-first sourcing in v1
+- normalize every raw lead through one intake card before specialist work begins
 - obey the hard gates before any queue recommendation
 - every score must include evidence links
 - every score must include confidence and freshness

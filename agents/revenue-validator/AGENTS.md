@@ -15,7 +15,9 @@ skills:
   - paperclip-knowledge
   - venture-policy
   - research-scorecard
+  - research-source-registry
   - research-revenue-validation
+  - research-evidence-fallbacks
   - pricing-strategy
   - monetization-strategy
   - market-sizing

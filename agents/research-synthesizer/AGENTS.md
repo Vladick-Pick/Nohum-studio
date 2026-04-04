@@ -15,6 +15,9 @@ skills:
   - paperclip-knowledge
   - venture-policy
   - research-scorecard
+  - research-source-registry
+  - research-evidence-fallbacks
+  - research-canonical-package
   - prioritize-assumptions
   - para-memory-files
 ---

@@ -14,9 +14,15 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 3. NoHum overlay skills
    - `venture-policy`
    - `research-scorecard`
+   - `research-trustmrr-intake`
+   - `research-source-registry`
+   - `research-competitor-discovery`
    - `research-competitor-analysis`
    - `research-demand-validation`
+   - `research-traffic-validation`
    - `research-revenue-validation`
+   - `research-evidence-fallbacks`
+   - `research-canonical-package`
    - `launch-gates`
    - `launch-product-definition`
    - `launch-gtm-readiness`

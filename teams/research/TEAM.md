@@ -11,9 +11,15 @@ includes:
   - ../../agents/revenue-validator/AGENTS.md
   - ../../skills/venture-policy/SKILL.md
   - ../../skills/research-scorecard/SKILL.md
+  - ../../skills/research-trustmrr-intake/SKILL.md
+  - ../../skills/research-source-registry/SKILL.md
+  - ../../skills/research-competitor-discovery/SKILL.md
   - ../../skills/research-competitor-analysis/SKILL.md
   - ../../skills/research-demand-validation/SKILL.md
+  - ../../skills/research-traffic-validation/SKILL.md
   - ../../skills/research-revenue-validation/SKILL.md
+  - ../../skills/research-evidence-fallbacks/SKILL.md
+  - ../../skills/research-canonical-package/SKILL.md
   - ../../skills/competitor-analysis/SKILL.md
   - ../../skills/market-sizing/SKILL.md
   - ../../skills/pricing-strategy/SKILL.md
@@ -46,9 +52,15 @@ Runtime base skills:
 Vendored local skills:
 - `venture-policy`
 - `research-scorecard`
+- `research-trustmrr-intake`
+- `research-source-registry`
+- `research-competitor-discovery`
 - `research-competitor-analysis`
 - `research-demand-validation`
+- `research-traffic-validation`
 - `research-revenue-validation`
+- `research-evidence-fallbacks`
+- `research-canonical-package`
 - `competitor-analysis`
 - `market-sizing`
 - `pricing-strategy`

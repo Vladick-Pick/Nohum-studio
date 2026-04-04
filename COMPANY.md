@@ -119,9 +119,15 @@ includes:
   - skills/release-notes/SKILL.md
   - skills/requesting-code-review/SKILL.md
   - skills/research-competitor-analysis/SKILL.md
+  - skills/research-competitor-discovery/SKILL.md
+  - skills/research-canonical-package/SKILL.md
   - skills/research-demand-validation/SKILL.md
+  - skills/research-evidence-fallbacks/SKILL.md
   - skills/research-revenue-validation/SKILL.md
   - skills/research-scorecard/SKILL.md
+  - skills/research-source-registry/SKILL.md
+  - skills/research-traffic-validation/SKILL.md
+  - skills/research-trustmrr-intake/SKILL.md
   - skills/review/SKILL.md
   - skills/sentiment-analysis/SKILL.md
   - skills/ship/SKILL.md
@@ -155,6 +161,10 @@ includes:
   - docs/observability/org-hygiene-checklist.md
   - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
+  - docs/research/source-registry.md
+  - docs/research/traffic-interpretation-bands.md
+  - docs/research/evidence-fallback-matrix.md
+  - docs/research/research-execution-system.md
   - docs/templates/engineering/build-env-contract.md
   - docs/templates/engineering/release-readiness-pack.md
   - docs/templates/engineering/repo-attach-record.md
@@ -164,6 +174,10 @@ includes:
   - docs/templates/operations/reroute-note.md
   - docs/templates/queue/gate-a-decision.md
   - docs/templates/queue/queue-winner-record.md
+  - docs/templates/research/competitor-evidence-card.md
+  - docs/templates/research/evidence-gap-log.md
+  - docs/templates/research/traffic-validation-sheet.md
+  - docs/templates/research/trustmrr-intake-card.md
   - docs/templates/venture/feedback-log.md
   - docs/templates/venture/handoff-dossier.md
   - docs/templates/venture/launch-brief.md

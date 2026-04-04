@@ -43,9 +43,15 @@ Runtime base skills:
 Mandatory local skills:
 - `venture-policy`
 - `research-scorecard`
+- `research-trustmrr-intake`
+- `research-source-registry`
+- `research-competitor-discovery`
 - `research-competitor-analysis`
 - `research-demand-validation`
+- `research-traffic-validation`
 - `research-revenue-validation`
+- `research-evidence-fallbacks`
+- `research-canonical-package`
 - `competitor-analysis`
 - `market-sizing`
 - `pricing-strategy`

@@ -5,6 +5,7 @@ Preferred evidence surfaces:
 - official competitor product pages
 - official competitor pricing pages
 - trusted public benchmark pages for category context
+- `Competitor Evidence Card`
 
 Tooling:
 
@@ -12,9 +13,13 @@ Tooling:
 - `paperclip-knowledge` for durable competitor packets
 - web research and source citation workflow
 
+Reference layer:
+
+- `docs/research/source-registry.md`
+- `docs/templates/research/competitor-evidence-card.md`
+
 Disallowed behavior:
 
 - treating old cached snapshots as current pricing
 - passing indirect competitors as direct alternatives
 - inventing pricing when pricing is hidden
-

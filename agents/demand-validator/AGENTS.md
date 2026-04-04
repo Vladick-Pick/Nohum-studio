@@ -15,7 +15,10 @@ skills:
   - paperclip-knowledge
   - venture-policy
   - research-scorecard
+  - research-source-registry
   - research-demand-validation
+  - research-traffic-validation
+  - research-evidence-fallbacks
   - identify-assumptions-new
   - prioritize-assumptions
   - para-memory-files

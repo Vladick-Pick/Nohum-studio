@@ -15,6 +15,8 @@ skills:
   - paperclip-knowledge
   - venture-policy
   - research-scorecard
+  - research-source-registry
+  - research-competitor-discovery
   - research-competitor-analysis
   - competitor-analysis
   - market-sizing

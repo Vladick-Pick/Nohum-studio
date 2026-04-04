@@ -7,6 +7,11 @@ description: Validate direct competitors, visible pricing, category shape, and d
 
 Prove the category is real before a venture earns queue consideration.
 
+Use together with:
+
+- `research-source-registry`
+- `research-competitor-discovery`
+
 ## Required Output
 
 - at least 3 direct competitors
@@ -20,3 +25,4 @@ Prove the category is real before a venture earns queue consideration.
 - distinguish direct competitors from adjacent substitutes
 - do not claim a live competitor without a working product surface or recent evidence
 - route all conclusions into canonical `market-evidence`
+- normalize each retained competitor into one evidence card

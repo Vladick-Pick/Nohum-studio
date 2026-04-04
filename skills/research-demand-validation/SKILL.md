@@ -11,6 +11,12 @@ Prove at least 2 of 3 demand signal classes:
 - competitor traffic or usage
 - community, review, or payment evidence
 
+Use together with:
+
+- `research-source-registry`
+- `research-traffic-validation`
+- `research-evidence-fallbacks`
+
 ## Required Output
 
 - signal class coverage
@@ -23,3 +29,4 @@ Prove at least 2 of 3 demand signal classes:
 - do not merge weak signals into one fake class
 - separate demand proof from monetization proof
 - when demand is ambiguous, say so explicitly and block queue promotion
+- `unknown` does not count as a passed demand class

@@ -8,6 +8,7 @@ Active roles:
 - research specialists when present
 
 Canonical outputs:
+- `trustmrr intake card`
 - `hypothesis`
 - `market-evidence`
 - `scorecard`
@@ -24,4 +25,5 @@ Blockers:
 - missing funnel surface
 - missing evidence links
 - hard-gates failure
+- unresolved evidence gaps
 - stale or weak queue package
