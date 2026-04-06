@@ -52,10 +52,13 @@ For each candidate, produce:
 - direct competitor set (minimum three if possible)
 - pricing visibility proof
 - competitive openness notes (switching and differentiation surface)
+- normalized positioning, workflow, and offer summary from competitor sites
 - evidence links with freshness tags
 - explicit uncertainty where data is weak
 - update the `Competition` section inside the candidate's canonical idea card
 - create one linked `Competitor Evidence Card` per retained direct competitor
+- separate artifact quality from content meaning using `PASS | RETRY | ESCALATE` and `positive | negative | inconclusive`
+- make directness defensible from official-site evidence, not only discovery output
 
 ## Handoff Targets
 

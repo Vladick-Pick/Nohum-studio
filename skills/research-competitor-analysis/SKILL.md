@@ -26,3 +26,8 @@ Use together with:
 - do not claim a live competitor without a working product surface or recent evidence
 - route all conclusions into canonical `market-evidence`
 - normalize each retained competitor into one evidence card
+- promote a normalized positioning and workflow summary into the main `Competition` section, not only into appendices
+- mark artifact quality separately from market meaning
+- a complete competition artifact should support `PASS | RETRY | ESCALATE`
+- a market conclusion should support `positive | negative | inconclusive`
+- if directness, pricing, or market-shape proof is weak, prefer `RETRY` over overclaiming certainty

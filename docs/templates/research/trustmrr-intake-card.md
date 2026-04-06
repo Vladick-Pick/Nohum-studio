@@ -58,18 +58,40 @@
 ## Competition Section
 
 - owner: `Competitor Scout`
-- direct competitors found:
-- retained competitor evidence cards:
-- excluded lookalikes:
-- live competitor count:
-- pricing visibility:
-- pricing reality summary:
-- traffic market summary:
-- customer voice summary:
-- evidence index:
-- switching friction notes:
-- category shape:
-- contradictions:
+- `Competition Verdict`
+  - direct competitor count:
+  - hard-gate status: `pass` / `fail` / `inconclusive`
+  - one-line verdict:
+- `Retained Direct Competitors`
+  - retained competitor evidence cards:
+  - direct competitors found:
+- `Excluded Lookalikes`
+  - excluded lookalikes:
+- `Positioning And Product Summary`
+  - target buyer summary:
+  - value prop summary:
+  - problem and jtbd summary:
+  - product type summary:
+  - workflow summary:
+  - offer and cta summary:
+  - proof and trust summary:
+  - notable positioning differences:
+- `Category And Openness`
+  - category definition:
+  - what counts as direct:
+  - switching friction notes:
+  - strongest competitor risk:
+- `Pricing Reality`
+  - pricing visible count:
+  - pricing hidden count:
+  - pricing reality summary:
+- `Traffic And VOC Summary`
+  - traffic market summary:
+  - customer voice summary:
+- `Evidence Quality`
+  - evidence index:
+  - contradictions:
+  - unresolved items:
 - freshness:
 - confidence:
 - artifact verdict: `PASS` / `RETRY` / `ESCALATE`

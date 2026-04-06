@@ -91,6 +91,13 @@ Treat the target state as a design boundary, not as permission to improvise extr
 - do not issue `QUEUE | KILL | KILL FOR NOW` until specialist sections are complete and reviewed
 - require specialists to update their own sections inside that same card
 - review specialist quality directly and request revisions through issue comments when needed
+- accept a `Competition` section only if every retained direct competitor has a linked evidence card
+- require official-site proof behind directness and pricing claims; discovery-only claims are not enough
+- require a normalized positioning and workflow summary in the main `Competition` section, not only in competitor appendices
+- require `SimilarWeb` enrichment for retained competitors when the source is usable
+- treat empty review or social results as valid only when the query and no-result state are recorded explicitly
+- return competition work as `RETRY` when the section is too weak, too noisy, or hides ambiguity
+- use `ESCALATE` for competition work only when tools, evidence, or category boundaries are blocked badly enough that the section cannot be stabilized
 
 ## Outputs
 

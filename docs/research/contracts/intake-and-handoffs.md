@@ -67,6 +67,91 @@ Draft specialist sections:
 - `Monetization`
 - `Final Decision`
 
+## Competition Section Contract
+
+The `Competition` section is the normalized decision-grade output owned by `Competitor Scout`.
+
+It must answer:
+
+- whether at least `3` live direct competitors were proven
+- whether those competitors are truly direct rather than adjacent
+- whether public pricing reality is visible enough to reason about market monetization
+- whether the market looks open enough to enter
+- whether the section is complete enough for `Research Lead` review
+
+Required normalized blocks:
+
+- `Competition Verdict`
+- `Retained Direct Competitors`
+- `Excluded Lookalikes`
+- `Positioning And Product Summary`
+- `Category And Openness`
+- `Pricing Reality`
+- `Traffic And VOC Summary`
+- `Evidence Quality`
+
+Minimum normalized fields:
+
+- `direct_competitor_count`
+- `hard_gate_status: pass | fail | inconclusive`
+- `one_line_verdict`
+- `retained_competitor_evidence_cards`
+- `excluded_lookalikes`
+- `target_buyer_summary`
+- `value_prop_summary`
+- `problem_and_jtbd_summary`
+- `product_type_summary`
+- `workflow_summary`
+- `offer_and_cta_summary`
+- `proof_and_trust_summary`
+- `notable_positioning_differences`
+- `category_definition`
+- `what_counts_as_direct`
+- `pricing_visible_count`
+- `pricing_hidden_count`
+- `pricing_reality_summary`
+- `traffic_market_summary`
+- `customer_voice_summary`
+- `switching_friction_notes`
+- `strongest_competitor_risk`
+- `contradictions`
+- `unresolved_items`
+- `freshness`
+- `confidence`
+- `artifact_verdict: PASS | RETRY | ESCALATE`
+- `content_result: positive | negative | inconclusive`
+
+Competition-section rules:
+
+- every retained direct competitor must have one linked `Competitor Evidence Card`
+- directness claims must be supported by official-site evidence, not only discovery output
+- the main card must contain a normalized positioning and workflow summary derived from official-site analysis
+- `SimilarWeb` should be used for retained competitors whenever the source returns usable data
+- review and social sources may be empty, but empty results must be recorded honestly
+- excluded lookalikes should be explained briefly, not ignored silently
+- contradictions and unresolved items are mandatory when evidence does not align
+
+Competition review rules for `Research Lead`:
+
+- `PASS` means the competition artifact is complete enough to use
+- `PASS` does not mean the competition content is favorable
+- `RETRY` means the section is too weak, too noisy, or too incomplete to use
+- `ESCALATE` means the specialist cannot stabilize the section because tools, evidence, or category boundaries are blocked
+
+Return the section with `RETRY` when:
+
+- direct competitors are asserted without evidence
+- retained competitors are obviously adjacent, too broad, or not clearly live
+- pricing claims lack official pricing proof or an explicit `pricing hidden` note
+- traffic or VOC claims are narrative-only
+- ambiguity is being hidden instead of recorded
+
+Use `ESCALATE` when:
+
+- required tools or sources are blocked repeatedly
+- evidence remains contradictory after bounded verification
+- category boundaries cannot be resolved without a higher-level market decision
+
 Stage-discipline rule:
 
 - `intake_verdict` is the only decision field allowed before specialist work

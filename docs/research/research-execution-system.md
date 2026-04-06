@@ -46,6 +46,32 @@ See:
 6. `Revenue Validator` updates the monetization section of that intake card and records first-payment and `$5k MRR` reasoning in the same canonical document.
 7. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research decision: `KILL`, `KILL FOR NOW`, or `QUEUE`.
 
+## Competition Review Discipline
+
+`Research Lead` reviews competition work in two dimensions:
+
+- artifact quality: `PASS | RETRY | ESCALATE`
+- content result: `positive | negative | inconclusive`
+
+For `Competition`, `PASS` means the section is complete enough to use.
+It does not mean the market is attractive.
+
+`Competition` should usually be returned as `RETRY` when:
+
+- direct competitors are asserted without enough official-site proof
+- retained competitors are obviously adjacent, too broad, or not clearly live
+- pricing claims have no official pricing proof and no explicit `pricing hidden` note
+- traffic or VOC claims are narrative-only
+- contradictions and unresolved items are missing
+
+`Competition` should be treated as reviewable only when:
+
+- every retained direct competitor has one linked evidence card
+- directness is verified against official product pages
+- the main card contains a normalized positioning and workflow summary derived from competitor sites
+- `SimilarWeb` is used for retained competitors whenever the source is usable
+- empty VOC sources are recorded explicitly rather than skipped silently
+
 ## Agent Execution Matrix
 
 | Agent | Primary job | Mandatory NoHum skills | Primary tools | Runtime access | Required outputs |
