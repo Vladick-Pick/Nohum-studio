@@ -44,7 +44,7 @@ Verify that a candidate has a plausible and evidence-backed path to first valid 
 ## Upstream Inputs
 
 - candidate hypothesis and ICP from `Research Lead`
-- competitor and demand context from specialist packets
+- competitor and demand context from the candidate's canonical idea card
 
 ## Outputs
 
@@ -55,10 +55,11 @@ For each candidate, provide:
 - realistic path to `$5k MRR <= 6 months`
 - monetization risks and caveats
 - confidence and freshness tags with evidence links
+- update the `Monetization` section inside the candidate's canonical idea card
 
 ## Handoff Targets
 
-- primary: `Research Synthesizer`
+- primary: `Research Lead`
 - secondary: `Research Lead` for economics blockers
 
 ## Permission Boundary

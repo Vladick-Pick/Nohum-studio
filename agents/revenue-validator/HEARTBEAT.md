@@ -25,6 +25,5 @@ Then apply this monetization checklist.
 ## 4. Publish economics packet
 
 - include links, confidence, freshness, and caveats
-- hand off to `Research Synthesizer`
+- update the `Monetization` section in the canonical idea card
 - escalate blockers to `Research Lead`
-

@@ -86,25 +86,6 @@ const preservedAgents = [
     postImport: "Existing live core slug should upgrade in place.",
   },
   {
-    slug: "research-synthesizer",
-    name: "Research Synthesizer",
-    title: "Research Synthesis Specialist",
-    role: "researcher",
-    icon: "brain",
-    reportsToSlug: "research-lead",
-    path: "agents/research-synthesizer/AGENTS.md",
-    capabilities:
-      "Turns raw research into canonical queue packages, assumption maps, and decision-ready summaries.",
-    budgetMonthlyCents: 12000,
-    canCreateAgents: false,
-    teamSlug: "research",
-    tools: "Knowledge docs, scorecards, queue artifacts",
-    mcp: "paperclip-knowledge, optional memory",
-    secrets: [],
-    restrictions: ["No decision override outside Research Lead"],
-    postImport: "Pause after import until research templates are wired.",
-  },
-  {
     slug: "competitor-scout",
     name: "Competitor Scout",
     title: "Competitive Intelligence Specialist",
@@ -2121,12 +2102,12 @@ const teams = [
     slug: "research",
     name: "Research",
     managerSlug: "research-lead",
-    memberSlugs: ["research-synthesizer", "competitor-scout", "demand-validator", "revenue-validator"],
+    memberSlugs: ["idea-scout", "competitor-scout", "demand-validator", "revenue-validator"],
     mission:
-      "Source venture candidates, prove direct evidence, and hand off only decision-grade queue packages.",
+      "Source venture candidates, normalize one canonical idea card per selected lead, and hand off only decision-grade research decisions.",
     outputs: [
-      "queue package",
-      "competitor, demand, and monetization evidence",
+      "one canonical idea card per selected candidate",
+      "competition, demand, and monetization sections in that card",
       "assumption map",
       "QUEUE / KILL / KILL FOR NOW recommendation",
     ],
@@ -2828,7 +2809,7 @@ The package is intentionally layered:
 ## Detailed-Core Org Scope
 
 - Control plane: \`CEO\`, \`Chief of Staff\`, \`Agent Mechanic\`
-- Research: \`Research Lead\`, \`Research Synthesizer\`, \`Competitor Scout\`, \`Demand Validator\`, \`Revenue Validator\`
+- Research: \`Idea Scout\`, \`Research Lead\`, \`Competitor Scout\`, \`Demand Validator\`, \`Revenue Validator\`
 - Product Launch: \`Launch Lead\`, \`Product Definer\`, \`UX Researcher\`, \`UX Architect\`, \`UI Designer\`, \`Pricing Strategist\`, \`Launch Program Manager\`
 - Marketing: \`CMO\`, \`Growth Lead\`, \`Marketing Strategist\`, \`SEO Specialist\`, \`Content Creator\`, \`Paid Media Strategist\`, \`Tracking & Measurement Specialist\`, \`Community Builder\`, \`AI Citation Strategist\`
 - Engineering: \`VP of Engineering\`, \`Software Architect\`, \`Backend Architect\`, \`Frontend Developer\`, \`AI Engineer\`, \`Senior Developer\`, \`DevOps Automator\`, \`SRE\`, \`Security Engineer\`, \`Code Reviewer\`, \`QA Director\`, \`QA Engineer\`, \`Release Engineer\`
@@ -3091,7 +3072,7 @@ ${sections.join("\n")}
 ## Role-to-Team Assignment
 
 - Control plane: \`CEO\`, \`Chief of Staff\`, \`Agent Mechanic\`
-- Research: \`Research Lead\`, \`Research Synthesizer\`, \`Competitor Scout\`, \`Demand Validator\`, \`Revenue Validator\`
+- Research: \`Idea Scout\`, \`Research Lead\`, \`Competitor Scout\`, \`Demand Validator\`, \`Revenue Validator\`
 - Product Launch: \`Launch Lead\`, \`Product Definer\`, \`UX Researcher\`, \`UX Architect\`, \`UI Designer\`, \`Pricing Strategist\`, \`Launch Program Manager\`
 - Marketing: \`CMO\`, \`Growth Lead\`, \`Marketing Strategist\`, \`SEO Specialist\`, \`Content Creator\`, \`Paid Media Strategist\`, \`Tracking & Measurement Specialist\`, \`Community Builder\`, \`AI Citation Strategist\`
 - Engineering: \`VP of Engineering\`, \`Software Architect\`, \`Backend Architect\`, \`Frontend Developer\`, \`AI Engineer\`, \`Senior Developer\`, \`DevOps Automator\`, \`SRE\`, \`Security Engineer\`, \`Code Reviewer\`, \`QA Director\`, \`QA Engineer\`, \`Release Engineer\`
@@ -3152,7 +3133,7 @@ graph TD
   CEO --> SL
   COS --> AM
 
-  RL --> RS["Research Synthesizer"]
+  RL --> IS["Idea Scout"]
   RL --> CS["Competitor Scout"]
   RL --> DV["Demand Validator"]
   RL --> RV["Revenue Validator"]

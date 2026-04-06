@@ -13,7 +13,7 @@ The design is intentionally influenced by the best parts of `agency-agents`:
 - separate specialists by deliverable
 - explicit handoffs
 - memory-backed transfer of outputs
-- synthesis as a distinct role, not an accidental side effect
+- one canonical document per idea instead of comments-only coordination
 
 ## Outputs
 
@@ -27,15 +27,18 @@ The research machine is allowed to end with only:
 
 ```mermaid
 flowchart LR
-  IN["Raw Idea Intake<br/>LIVE"] --> IS["Intake Scout<br/>TARGET"]
-  IS --> CS["Competitor Scout<br/>TARGET"]
-  IS --> DV["Demand Validator<br/>TARGET"]
-  IS --> RV["Revenue Validator<br/>TARGET"]
-  CS --> SYN["Research Synthesizer<br/>TARGET"]
-  DV --> SYN
-  RV --> SYN
-  SYN --> PKG["Canonical Queue Package<br/>LIVE / PARTIAL"]
-  PKG --> DEC{"Research Lead Decision"}
+  IN["CEO asks for a candidate<br/>LIVE"] --> RL["Research Lead<br/>LIVE"]
+  RL --> IS["Idea Scout<br/>TARGET"]
+  IS --> BATCH["TrustMRR Sourcing Batch<br/>TARGET"]
+  BATCH --> RL
+  RL --> CARD["One Idea Card per selected candidate<br/>TARGET"]
+  CARD --> CS["Competitor Scout<br/>TARGET"]
+  CARD --> DV["Demand Validator<br/>TARGET"]
+  CARD --> RV["Revenue Validator<br/>TARGET"]
+  CS --> CARD
+  DV --> CARD
+  RV --> CARD
+  CARD --> DEC{"Research Lead Decision"}
   DEC -->|"KILL"| K["Kill Log"]
   DEC -->|"KILL FOR NOW"| KF["Revisit Pool"]
   DEC -->|"QUEUE"| Q["Single Queue Slot"]
@@ -56,15 +59,14 @@ Research should explicitly pull from these classes:
 
 Outputs should be stored as:
 
-- raw evidence
-- market evidence
+- preserved scout raw data
+- intake normalization
+- specialist sections
 - scorecard
 - economics
 - decision log
-- canonical queue package
+- final decision block in the same idea card
 
 ## Current Gap
 
-Today most of this is still compressed into `Research Lead`.
-
-That is good enough for calibration, but not enough for a finished machine.
+Today the critical next step is making `Research Lead` the clean owner of one canonical idea card per selected candidate.

@@ -43,7 +43,7 @@ Prove the market is real and open enough by producing strong competitor and pric
 ## Upstream Inputs
 
 - scoped hypothesis and candidate list from `Research Lead`
-- research context from `Research Synthesizer` when needed
+- canonical idea card from `Research Lead`
 
 ## Outputs
 
@@ -54,10 +54,12 @@ For each candidate, produce:
 - competitive openness notes (switching and differentiation surface)
 - evidence links with freshness tags
 - explicit uncertainty where data is weak
+- update the `Competition` section inside the candidate's canonical idea card
+- create one linked `Competitor Evidence Card` per retained direct competitor
 
 ## Handoff Targets
 
-- primary: `Research Synthesizer`
+- primary: `Research Lead`
 - secondary: `Research Lead` for blocker escalation
 
 ## Permission Boundary

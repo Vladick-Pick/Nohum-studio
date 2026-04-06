@@ -25,6 +25,5 @@ Then apply this demand checklist.
 ## 4. Deliver demand packet
 
 - provide a class-by-class verdict with links
-- hand off to `Research Synthesizer`
+- update the `Demand` section in the canonical idea card
 - escalate major ambiguity to `Research Lead`
-

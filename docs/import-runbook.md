@@ -16,7 +16,6 @@ Existing live `NoHum Studio` company.
 - Non-core slugs that must be checked individually:
 - `chief-of-staff`
 - `agent-mechanic`
-- `research-synthesizer`
 - `competitor-scout`
 - `demand-validator`
 - `revenue-validator`

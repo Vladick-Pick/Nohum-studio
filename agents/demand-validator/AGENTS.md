@@ -54,10 +54,11 @@ For each candidate, provide:
 - confidence and freshness tags for each class
 - demand-quality caveats and uncertainty notes
 - pass/fail recommendation for the demand component of hard gates
+- update the `Demand` section inside the candidate's canonical idea card
 
 ## Handoff Targets
 
-- primary: `Research Synthesizer`
+- primary: `Research Lead`
 - secondary: `Research Lead` for unresolved demand ambiguity
 
 ## Permission Boundary
