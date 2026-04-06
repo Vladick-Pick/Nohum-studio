@@ -63,6 +63,15 @@ Fallback mode:
 
 - browser-rendered extraction only if HTML-first leaves pricing, CTA path, workflow, or value proposition unresolved
 
+Runnable local tool:
+
+- `python3 scripts/competitor_site_analysis.py <competitor-homepage-url> --pretty`
+
+Browser prerequisite for fallback mode:
+
+- `python3 -m pip install --user playwright`
+- `python3 -m playwright install chromium`
+
 Required outputs:
 
 - `value_proposition`
@@ -100,6 +109,14 @@ Structured HTML extraction should prefer:
 
 Do not turn this layer into a visual design audit.
 Capture offer structure and conversion path, not aesthetics.
+
+Expected script behavior:
+
+- `html_first.fields` contains the first-pass structured extraction
+- `html_first.unresolved_fields` lists the exact fields still missing
+- `browser_fallback.used` tells whether browser recovery actually ran
+- `browser_fallback.fields` contains only the recovery layer
+- `final.fields` is the merged output that should feed the `Competitor Evidence Card`
 
 ## OpenRouter Discovery Surface
 

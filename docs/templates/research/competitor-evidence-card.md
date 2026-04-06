@@ -51,6 +51,9 @@
 
 ## Site Analysis Appendix
 
+- extraction command:
+- fallback mode: `not-needed` / `used` / `failed`
+- fallback trigger fields:
 - homepage snippets:
 - pricing page snippets:
 - product or workflow page snippets:

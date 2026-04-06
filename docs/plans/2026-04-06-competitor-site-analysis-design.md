@@ -68,3 +68,13 @@ For each retained competitor, the site-analysis layer must produce:
 - normalized site-analysis conclusions live in the `Competitor Evidence Card`
 - the main `Idea Card` only carries the summarized competition conclusions
 - raw page captures or extracted page snippets may be linked from the evidence card when needed
+
+## Runtime Note
+
+The browser fallback is implemented as a runnable local script:
+
+```bash
+python3 scripts/competitor_site_analysis.py <homepage-url> --pretty
+```
+
+The script runs HTML-first extraction by default and only invokes browser rendering when required fields remain unresolved, unless fallback is forced explicitly.

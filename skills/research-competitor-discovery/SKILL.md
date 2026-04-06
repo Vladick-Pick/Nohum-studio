@@ -171,6 +171,25 @@ Required extraction fields:
 - `faq_or_objection_handling`
 - `page_structure_notes`
 
+Runnable command:
+
+```bash
+python3 scripts/competitor_site_analysis.py https://lockedinai.com --pretty
+```
+
+Browser prerequisite:
+
+```bash
+python3 -m pip install --user playwright
+python3 -m playwright install chromium
+```
+
+Interpretation rule:
+
+- use `final.fields` as the merged site-analysis output
+- use `html_first.unresolved_fields` to explain why fallback was needed
+- if fallback fails, record the exact error in the `Site Analysis Appendix`
+
 HTML-first extraction should try to recover these from:
 
 - `title`
