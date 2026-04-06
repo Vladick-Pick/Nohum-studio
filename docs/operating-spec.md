@@ -138,7 +138,7 @@ CEO must not do deep research, build products, or run launch execution directly 
 
 Research Lead owns:
 
-- sourcing
+- sourcing strategy and shortlist control
 - market evidence
 - scorecards
 - economics

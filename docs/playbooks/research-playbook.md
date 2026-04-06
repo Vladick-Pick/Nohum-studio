@@ -5,9 +5,11 @@ Trigger: queue slot is free and research capacity exists.
 Active roles:
 - `CEO`
 - `Research Lead`
+- `Idea Scout`
 - research specialists when present
 
 Canonical outputs:
+- `trustmrr sourcing batch`
 - `trustmrr intake card`
 - `hypothesis`
 - `market-evidence`

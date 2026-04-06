@@ -5,11 +5,11 @@ description: Use when turning specialist research packets into the final NoHum q
 
 # Research Canonical Package
 
-Use this skill inside `Research Synthesizer` and `Research Lead` before a queue recommendation is considered complete.
+Use this skill inside `Research Lead` before a queue recommendation is considered complete.
 
 ## Purpose
 
-Normalize research into one decision-grade package.
+Normalize one candidate's canonical idea card into a decision-grade final section and queue recommendation.
 
 ## Required Sections
 

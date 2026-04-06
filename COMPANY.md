@@ -12,7 +12,7 @@ includes:
   - agents/chief-of-staff/AGENTS.md
   - agents/agent-mechanic/AGENTS.md
   - agents/research-lead/AGENTS.md
-  - agents/research-synthesizer/AGENTS.md
+  - agents/idea-scout/AGENTS.md
   - agents/competitor-scout/AGENTS.md
   - agents/demand-validator/AGENTS.md
   - agents/revenue-validator/AGENTS.md
@@ -126,6 +126,7 @@ includes:
   - skills/research-revenue-validation/SKILL.md
   - skills/research-scorecard/SKILL.md
   - skills/research-source-registry/SKILL.md
+  - skills/research-trustmrr-sourcing/SKILL.md
   - skills/research-traffic-validation/SKILL.md
   - skills/research-trustmrr-intake/SKILL.md
   - skills/review/SKILL.md
@@ -161,9 +162,16 @@ includes:
   - docs/observability/org-hygiene-checklist.md
   - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
+  - docs/research/README.md
   - docs/research/source-registry.md
   - docs/research/traffic-interpretation-bands.md
   - docs/research/evidence-fallback-matrix.md
+  - docs/research/contracts/intake-and-handoffs.md
+  - docs/research/contracts/shared-adapters.md
+  - docs/research/decisions/0001-research-foundation-v1.md
+  - docs/research/decisions/0002-idea-scout-sourcing-only.md
+  - docs/research/decisions/0003-one-idea-one-card-no-synthesizer.md
+  - docs/research/copyable-product-thesis.md
   - docs/research/research-execution-system.md
   - docs/templates/engineering/build-env-contract.md
   - docs/templates/engineering/release-readiness-pack.md
@@ -177,6 +185,7 @@ includes:
   - docs/templates/research/competitor-evidence-card.md
   - docs/templates/research/evidence-gap-log.md
   - docs/templates/research/traffic-validation-sheet.md
+  - docs/templates/research/trustmrr-sourcing-batch.md
   - docs/templates/research/trustmrr-intake-card.md
   - docs/templates/venture/feedback-log.md
   - docs/templates/venture/handoff-dossier.md
@@ -220,7 +229,7 @@ The package is intentionally layered:
 ## Detailed-Core Org Scope
 
 - Control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
-- Research: `Research Lead`, `Research Synthesizer`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
+- Research: `Idea Scout`, `Research Lead`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
 - Product Launch: `Launch Lead`, `Product Definer`, `UX Researcher`, `UX Architect`, `UI Designer`, `Pricing Strategist`, `Launch Program Manager`
 - Marketing: `CMO`, `Growth Lead`, `Marketing Strategist`, `SEO Specialist`, `Content Creator`, `Paid Media Strategist`, `Tracking & Measurement Specialist`, `Community Builder`, `AI Citation Strategist`
 - Engineering: `VP of Engineering`, `Software Architect`, `Backend Architect`, `Frontend Developer`, `AI Engineer`, `Senior Developer`, `DevOps Automator`, `SRE`, `Security Engineer`, `Code Reviewer`, `QA Director`, `QA Engineer`, `Release Engineer`

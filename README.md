@@ -4,6 +4,47 @@ Public source package for upgrading the live NoHum Studio company inside Papercl
 
 This repository is not the live runtime source of truth. It is the import-safe package and richer bootstrap layer used to evolve the current live company without rebuilding it from zero.
 
+## Research System v1
+
+Research is now packaged as a staged, GitHub-importable workflow rather than a loose collection of prompts.
+
+Current research flow:
+
+1. `Idea Scout` sources revenue-visible candidates from `TrustMRR`.
+2. `Idea Scout` enriches traffic through `SimilarWeb`.
+3. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical intake card per selected idea.
+4. Specialists update sections inside that same shared idea card:
+   - `Competitor Scout`
+   - `Demand Validator`
+   - `Revenue Validator`
+5. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research verdict.
+
+Key design rules:
+
+- one selected idea = one shared canonical idea card
+- `Idea Scout` is sourcing-only, not a final decision-maker
+- `Research Lead` owns intake quality and stage discipline
+- final verdicts (`QUEUE | KILL | KILL FOR NOW`) are not allowed at intake time
+- raw scout and competitor-source evidence is preserved in linked evidence artifacts, not dumped into the main card
+
+Research source hierarchy in v1:
+
+- `TrustMRR` is primary for revenue, subscriptions, and startup-level business signals
+- `SimilarWeb` is primary for traffic, channel, country, and keyword interpretation
+- `OpenRouter -> perplexity/sonar-pro-search` is used for competitor discovery only
+- official competitor sites and pricing pages are the source of truth for product and pricing claims
+- `Trustpilot`, `Reddit`, and `X` are bounded voice-of-customer layers
+
+See:
+
+- `docs/research/README.md`
+- `docs/research/copyable-product-thesis.md`
+- `docs/research/research-execution-system.md`
+- `docs/research/contracts/intake-and-handoffs.md`
+- `docs/templates/research/trustmrr-sourcing-batch.md`
+- `docs/templates/research/trustmrr-intake-card.md`
+- `docs/templates/research/competitor-evidence-card.md`
+
 ## Package Contract
 
 Import-safe layer:
@@ -111,6 +152,7 @@ If preview shows rename or duplicate behavior for any preexisting slug, stop the
 - `agents/`: four-file bundle per role
 - `teams/`: team responsibility maps
 - `skills/`: vendored local skills plus NoHum overlays
+- `docs/research/`: research-module contracts, decisions, execution model, and thesis
 - `docs/team-skill-matrix.md`: team-level runtime and vendored skill policy
 - `docs/mcp-access-matrix.md`: tool, MCP, and secret policy by role
 - `docs/decisions/0004-secret-and-credential-architecture.md`: canonical secret and credential model

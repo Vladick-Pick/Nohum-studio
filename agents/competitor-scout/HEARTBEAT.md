@@ -25,6 +25,5 @@ Then apply this competitor checklist.
 ## 4. Deliver evidence packet
 
 - publish links, short rationale, freshness, confidence
-- hand off to `Research Synthesizer`
+- update the `Competition` section in the canonical idea card
 - escalate blockers to `Research Lead`
-

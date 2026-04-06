@@ -11,7 +11,7 @@
 - `Chief of Staff -> CEO`
 - `Agent Mechanic -> Chief of Staff`
 - `Research Lead -> CEO`
-- `Research Synthesizer -> Research Lead`
+- `Idea Scout -> Research Lead`
 - `Competitor Scout -> Research Lead`
 - `Demand Validator -> Research Lead`
 - `Revenue Validator -> Research Lead`

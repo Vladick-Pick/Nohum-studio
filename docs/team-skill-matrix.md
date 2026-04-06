@@ -34,7 +34,7 @@ Teams do not reopen framework, payment, analytics, or deploy choices per venture
 ## Research Team
 
 Manager: `Research Lead`
-Members: `Research Synthesizer`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
+Members: `Idea Scout`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
 
 Runtime base skills:
 - `paperclip`
@@ -64,7 +64,7 @@ Optional local skills:
 - `sentiment-analysis`
 
 Why:
-- Source venture candidates, prove direct evidence, and hand off only decision-grade queue packages.
+- Source venture candidates, build one canonical idea card per selected lead, and prove direct evidence before the final research decision.
 
 ## Product Launch Team
 
@@ -220,7 +220,7 @@ Why:
 ## Role-to-Team Assignment
 
 - Control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
-- Research: `Research Lead`, `Research Synthesizer`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
+- Research: `Idea Scout`, `Research Lead`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
 - Product Launch: `Launch Lead`, `Product Definer`, `UX Researcher`, `UX Architect`, `UI Designer`, `Pricing Strategist`, `Launch Program Manager`
 - Marketing: `CMO`, `Growth Lead`, `Marketing Strategist`, `SEO Specialist`, `Content Creator`, `Paid Media Strategist`, `Tracking & Measurement Specialist`, `Community Builder`, `AI Citation Strategist`
 - Engineering: `VP of Engineering`, `Software Architect`, `Backend Architect`, `Frontend Developer`, `AI Engineer`, `Senior Developer`, `DevOps Automator`, `SRE`, `Security Engineer`, `Code Reviewer`, `QA Director`, `QA Engineer`, `Release Engineer`

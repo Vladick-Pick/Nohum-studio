@@ -19,7 +19,7 @@ graph TD
   CEO --> SL
   COS --> AM
 
-  RL --> RS["Research Synthesizer"]
+  RL --> IS["Idea Scout"]
   RL --> CS["Competitor Scout"]
   RL --> DV["Demand Validator"]
   RL --> RV["Revenue Validator"]

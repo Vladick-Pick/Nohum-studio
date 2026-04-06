@@ -90,10 +90,10 @@ agents:
     notes:
       - Existing live core slug should upgrade in place.
       - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
-  research-synthesizer:
+  idea-scout:
     role: "researcher"
-    icon: "brain"
-    capabilities: "Turns raw research into canonical queue packages, assumption maps, and decision-ready summaries."
+    icon: "binoculars"
+    capabilities: "Finds TrustMRR-sourced candidate batches, screens obvious non-fit leads, and returns shortlist inputs to Research Lead."
     reportsTo: "research-lead"
     adapter:
       type: codex_local
@@ -101,13 +101,13 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: true
-    budgetMonthlyCents: 12000
+    budgetMonthlyCents: 10000
     permissions:
       canCreateAgents: false
     inputs:
       env: {}
     notes:
-      - Pause after import until research templates are wired.
+      - Pause after import until TrustMRR batch output and reporting loop are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
   competitor-scout:
     role: "researcher"

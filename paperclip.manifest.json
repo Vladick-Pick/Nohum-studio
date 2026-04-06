@@ -78,6 +78,27 @@
       "metadata": null
     },
     {
+      "slug": "idea-scout",
+      "name": "Idea Scout",
+      "path": "agents/idea-scout/AGENTS.md",
+      "role": "researcher",
+      "title": "TrustMRR Sourcing Scout",
+      "icon": "binoculars",
+      "capabilities": "Finds TrustMRR-sourced candidate batches, screens obvious non-fit leads, and returns shortlist inputs to Research Lead.",
+      "reportsToSlug": "research-lead",
+      "adapterType": "codex_local",
+      "adapterConfig": {
+        "model": "gpt-5.4",
+        "modelReasoningEffort": "high"
+      },
+      "runtimeConfig": {},
+      "permissions": {
+        "canCreateAgents": false
+      },
+      "budgetMonthlyCents": 10000,
+      "metadata": null
+    },
+    {
       "slug": "research-lead",
       "name": "Research Lead",
       "path": "agents/research-lead/AGENTS.md",
@@ -96,27 +117,6 @@
         "canCreateAgents": true
       },
       "budgetMonthlyCents": 18000,
-      "metadata": null
-    },
-    {
-      "slug": "research-synthesizer",
-      "name": "Research Synthesizer",
-      "path": "agents/research-synthesizer/AGENTS.md",
-      "role": "researcher",
-      "title": "Research Synthesis Specialist",
-      "icon": "brain",
-      "capabilities": "Turns raw research into canonical queue packages, assumption maps, and decision-ready summaries.",
-      "reportsToSlug": "research-lead",
-      "adapterType": "codex_local",
-      "adapterConfig": {
-        "model": "gpt-5.4",
-        "modelReasoningEffort": "high"
-      },
-      "runtimeConfig": {},
-      "permissions": {
-        "canCreateAgents": false
-      },
-      "budgetMonthlyCents": 12000,
       "metadata": null
     },
     {
