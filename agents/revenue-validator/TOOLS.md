@@ -20,6 +20,7 @@ Reuse-first rule:
 - read preserved scout data and specialist sections before opening new sources
 - do not recollect competitor traffic in v1
 - do not rebuild competition or demand claims that already exist in the `Idea Card`
+- if upstream `SimilarWeb` is absent, `TrustMRR` traffic-like fields may be used only as secondary corroboration with capped confidence
 
 Reference layer:
 

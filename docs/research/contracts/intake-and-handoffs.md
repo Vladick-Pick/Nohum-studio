@@ -298,6 +298,7 @@ Minimum normalized fields:
 Monetization-section rules:
 
 - reuse preserved `TrustMRR` and upstream `SimilarWeb` in the `Idea Card`
+- if upstream `SimilarWeb` is absent, `TrustMRR` traffic-like fields may be used only as secondary corroboration and must cap confidence
 - reuse competition pricing context before collecting new market references
 - public pricing and billing surfaces are the primary truth for monetization claims
 - clearly label values as `observed`, `inferred`, or `assumed`

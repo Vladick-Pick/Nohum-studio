@@ -32,6 +32,7 @@ Read from the candidate `Idea Card` first:
 - `Demand` section demand-quality context
 
 Do not recollect traffic or demand layers just because the numbers are inconvenient.
+If upstream `SimilarWeb` is missing, you may use `TrustMRR` traffic-like fields only as secondary corroboration and must cap confidence accordingly.
 
 ## Source Stack
 
@@ -102,4 +103,5 @@ The section must answer:
 - do not present churn or conversion as observed facts unless the source actually measures them
 - do not hide scenario assumptions in prose; write them explicitly
 - do not rerun `SimilarWeb` by default; reuse upstream evidence
+- if only `TrustMRR` traffic-like fields are available, mark them as secondary corroboration rather than source of truth
 - do not claim `$5k MRR` plausibility without connecting pricing, payment path, and retained-subscription logic
