@@ -15,15 +15,18 @@ Then apply this monetization checklist.
 - collect live pricing anchors from direct competitors
 - separate public evidence from inferred assumptions
 - note plan structure relevant to first payment
+- compare public price bands against current implied ARPS
 
 ## 3. Validate payment and MRR path
 
 - test first-payment plausibility narrative against real workflow
-- compute plausible paths to `$5k MRR <= 6 months`
+- compute scenario-based paths to `$5k MRR <= 6 months`
+- label baseline metrics as observed, inferred, or assumed
+- expose churn and conversion assumptions explicitly
 - mark key risks and fragile assumptions
 
 ## 4. Publish economics packet
 
-- include links, confidence, freshness, and caveats
+- include links, confidence, freshness, scenario assumptions, and caveats
 - update the `Monetization` section in the canonical idea card
 - escalate blockers to `Research Lead`

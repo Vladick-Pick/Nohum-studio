@@ -50,9 +50,11 @@ Verify that a candidate has a plausible and evidence-backed path to first valid 
 
 For each candidate, provide:
 
+- monetization verdict with explicit confidence and freshness
+- current baseline snapshot from preserved source metrics
 - pricing reality snapshot from direct market references
 - first-payment plausibility assessment
-- realistic path to `$5k MRR <= 6 months`
+- scenario-based path to `$5k MRR <= 6 months`
 - monetization risks and caveats
 - confidence and freshness tags with evidence links
 - update the `Monetization` section inside the candidate's canonical idea card

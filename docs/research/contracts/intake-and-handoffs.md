@@ -233,6 +233,100 @@ Use `ESCALATE` when:
 - a paid layer actor is unusable due runtime or account limits and the decision really depends on paid evidence
 - the category is too ambiguous to form stable problem/category queries
 
+## Monetization Section Contract
+
+The `Monetization` section is the normalized decision-grade output owned by `Revenue Validator`.
+
+It must answer:
+
+- whether public pricing reality is visible enough to reason about monetization
+- whether the first-payment path is plausible for a v1 venture
+- whether the path to `$5k MRR <= 6 months` looks plausible, already achieved, or too fragile
+- whether the monetization artifact is complete enough for `Research Lead` review
+
+Required normalized blocks:
+
+- `Monetization Verdict`
+- `Current Baseline Snapshot`
+- `Market Pricing Reality`
+- `Path To First Payment`
+- `Scenario Model`
+- `Path To $5k MRR`
+- `Economics Risks And Caveats`
+- `Evidence Quality`
+
+Minimum normalized fields:
+
+- `hard_gate_status: pass | fail | inconclusive`
+- `one_line_verdict`
+- `reported_mrr`
+- `reported_last30_revenue`
+- `active_subscriptions`
+- `customers`
+- `profit_margin_last30d`
+- `growth30d`
+- `growth_mrr_30d`
+- `similarweb_visits_latest`
+- `rough_arps`
+- `rough_revenue_per_visit`
+- `reference_price_band`
+- `reference_plan_shapes`
+- `pricing_model_summary`
+- `recommended_v1_monetization_model`
+- `pricing_fit_notes`
+- `path_to_first_payment`
+- `first_payment_friction`
+- `first_payment_verdict`
+- `conservative_case_notes`
+- `base_case_notes`
+- `aggressive_case_notes`
+- `current_gap_to_5k`
+- `active_paid_required_to_hit_5k`
+- `required_net_new_paid_per_month`
+- `zero_growth_break_churn_threshold`
+- `path_to_5k_verdict`
+- `time_to_5k_estimate`
+- `assumption_sensitivity`
+- `contradictions`
+- `unknowns`
+- `false_precision_risks`
+- `freshness`
+- `confidence`
+- `artifact_verdict: PASS | RETRY | ESCALATE`
+- `content_result: positive | negative | inconclusive`
+
+Monetization-section rules:
+
+- reuse preserved `TrustMRR` and upstream `SimilarWeb` in the `Idea Card`
+- reuse competition pricing context before collecting new market references
+- public pricing and billing surfaces are the primary truth for monetization claims
+- clearly label values as `observed`, `inferred`, or `assumed`
+- churn and conversion should be expressed as assumptions or ranges unless directly observed
+- scenario modeling must not collapse into one fake-precise forecast
+- a venture already above `$5k MRR` should still show its safety margin and deterioration risk
+- do not invent CAC, LTV, or precise retention curves without sourced evidence
+
+Monetization review rules for `Research Lead`:
+
+- `PASS` means the monetization artifact is complete enough to use
+- `PASS` does not mean the monetization content is favorable
+- `RETRY` means the section is too weak, too assumption-heavy, or too incomplete to use
+- `ESCALATE` means the specialist cannot stabilize the section because the core pricing or baseline evidence is blocked or contradictory
+
+Return the section with `RETRY` when:
+
+- pricing claims are made without direct public pricing proof or an explicit `pricing hidden` note
+- scenario math hides churn or conversion assumptions
+- assumed churn or conversion is presented as observed fact
+- the section claims a plausible `$5k MRR` path without tying it to ARPS, payment path, and retained subscription logic
+- baseline metrics are used without stating whether they are observed or inferred
+
+Use `ESCALATE` when:
+
+- public pricing is blocked or contradictory across the retained market set
+- preserved source metrics are missing or materially contradictory
+- the first-payment path cannot be stabilized without a higher-level product or GTM decision
+
 Stage-discipline rule:
 
 - `intake_verdict` is the only decision field allowed before specialist work

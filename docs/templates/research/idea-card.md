@@ -137,11 +137,67 @@
 ## Monetization Section
 
 - owner: `Revenue Validator`
-- pricing reality:
-- path to first payment:
-- path to `$5k MRR`:
-- economics caveats:
-- contradictions:
+- `Monetization Verdict`
+  - hard-gate status: `pass` / `fail` / `inconclusive`
+  - one-line verdict:
+- `Current Baseline Snapshot`
+  - reported mrr:
+  - reported last30 revenue:
+  - active subscriptions:
+  - customers:
+  - profit margin last30d:
+  - growth30d:
+  - growth mrr 30d:
+  - similarweb visits latest:
+  - rough arps:
+  - rough revenue per visit:
+- `Market Pricing Reality`
+  - reference price band:
+  - reference plan shapes:
+  - pricing model summary:
+  - recommended v1 monetization model:
+  - pricing fit notes:
+- `Path To First Payment`
+  - path to first payment:
+  - first payment friction:
+  - first payment verdict:
+- `Scenario Model`
+  - `Conservative`
+    - effective arps:
+    - visitor to new paid assumption:
+    - monthly churn assumption:
+    - gross new paid / month:
+    - month-1 net new paid:
+    - six-month active paid projection:
+    - six-month mrr projection:
+  - `Base`
+    - effective arps:
+    - visitor to new paid assumption:
+    - monthly churn assumption:
+    - gross new paid / month:
+    - month-1 net new paid:
+    - six-month active paid projection:
+    - six-month mrr projection:
+  - `Aggressive`
+    - effective arps:
+    - visitor to new paid assumption:
+    - monthly churn assumption:
+    - gross new paid / month:
+    - month-1 net new paid:
+    - six-month active paid projection:
+    - six-month mrr projection:
+- `Path To $5k MRR`
+  - current gap to $5k:
+  - active paid required to hit $5k:
+  - required net new paid / month:
+  - zero-growth break churn threshold:
+  - path to $5k verdict:
+  - time to $5k estimate:
+- `Economics Risks And Caveats`
+  - assumption sensitivity:
+  - contradictions:
+  - unknowns:
+  - false precision risks:
 - freshness:
 - confidence:
 - artifact verdict: `PASS` / `RETRY` / `ESCALATE`

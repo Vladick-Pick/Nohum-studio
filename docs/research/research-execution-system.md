@@ -98,6 +98,32 @@ It does not mean the market is attractive.
 - contradictions and unresolved items are explicit
 - the hard-gate decision is grounded in at least `2` demand classes, with one from `Search Demand` or `Observed Usage Demand`
 
+## Monetization Review Discipline
+
+`Research Lead` reviews monetization work in two dimensions:
+
+- artifact quality: `PASS | RETRY | ESCALATE`
+- content result: `positive | negative | inconclusive`
+
+For `Monetization`, `PASS` means the section is complete enough to use.
+It does not mean the business is attractive.
+
+`Monetization` should usually be returned as `RETRY` when:
+
+- pricing claims lack public pricing proof or an explicit `pricing hidden` note
+- scenario math hides churn or conversion assumptions
+- assumed churn or conversion is presented as observed fact
+- the section claims `$5k MRR` plausibility without connecting ARPS, first payment, and subscription-retention logic
+- baseline metrics are used without marking whether they are observed or inferred
+
+`Monetization` should be treated as reviewable only when:
+
+- preserved `TrustMRR` baseline is cited explicitly
+- reused upstream `SimilarWeb` is identified when traffic is used in the model
+- public competitor pricing anchors are shown
+- first-payment friction is explained
+- contradictions, unknowns, and false-precision risks are explicit
+
 ## Agent Execution Matrix
 
 | Agent | Primary job | Mandatory NoHum skills | Primary tools | Runtime access | Required outputs |
