@@ -45,6 +45,7 @@ Validate that demand is real enough to justify the single queue slot by producin
 
 - candidate hypothesis and ICP from `Research Lead`
 - competitor context from `Competitor Scout`
+- canonical idea card with preserved scout data
 
 ## Outputs
 
@@ -55,6 +56,11 @@ For each candidate, provide:
 - demand-quality caveats and uncertainty notes
 - pass/fail recommendation for the demand component of hard gates
 - update the `Demand` section inside the candidate's canonical idea card
+- reuse competitor traffic and competitor brand/domain chatter from `Competitor Scout` instead of recollecting them
+- collect only demand-specific layers that are still missing:
+  - problem/category SERP
+  - problem/category conversation
+  - optional paid-acquisition proof
 
 ## Handoff Targets
 
@@ -66,3 +72,4 @@ For each candidate, provide:
 - you may classify signals as insufficient
 - you may not set final queue decision or board-level approvals
 - you may not bypass missing evidence by narrative claims
+- you may not rerun competitor `SimilarWeb`; treat the competition packet as the source of truth for competitor traffic in v1

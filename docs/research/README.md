@@ -13,8 +13,8 @@ Research exists to turn revenue-visible raw leads into decision-grade queue pack
 Research v1 uses a staged shared-document flow.
 
 1. `Idea Scout` produces a `TrustMRR Sourcing Batch`.
-2. `Research Lead` reviews the batch and either asks for a new batch or creates one canonical intake card per selected candidate.
-3. The intake card preserves scout raw data blocks:
+2. `Research Lead` reviews the batch and either asks for a new batch or creates one canonical `Idea Card` per selected candidate.
+3. The `Idea Card` preserves scout raw data blocks:
    - `Scout Summary`
    - `Full TrustMRR Snapshot`
    - `SimilarWeb Enrichment`
@@ -36,8 +36,8 @@ Stage-discipline rule:
 ### Current State
 
 - `Idea Scout` sources new TrustMRR batches for `Research Lead`.
-- `Research Lead` still performs the canonical intake card on shortlisted leads.
-- specialists update the selected candidate's canonical idea card under `Research Lead` review.
+- `Research Lead` still performs the canonical `Idea Card` step on shortlisted leads.
+- specialists update the selected candidate's canonical `Idea Card` under `Research Lead` review.
 
 ### Target State
 
@@ -58,7 +58,7 @@ Stage-discipline rule:
 - [Decision 0002: Idea Scout Is Sourcing-Only](./decisions/0002-idea-scout-sourcing-only.md)
 - [Decision 0003: One Idea, One Card, No Research Synthesizer](./decisions/0003-one-idea-one-card-no-synthesizer.md)
 - [TrustMRR Sourcing Batch Template](../templates/research/trustmrr-sourcing-batch.md)
-- [TrustMRR Intake Card Template](../templates/research/trustmrr-intake-card.md)
+- [Idea Card Template](../templates/research/idea-card.md)
 - [Competitor Evidence Card Template](../templates/research/competitor-evidence-card.md)
 
 ## Shared Selection Filter

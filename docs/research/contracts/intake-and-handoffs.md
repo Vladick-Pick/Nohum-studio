@@ -4,9 +4,9 @@ This document narrows the generic company handoff language for the research modu
 
 Inside research, artifact quality and research meaning are separate concepts. Do not overload one field to carry both.
 
-## TrustMRR Intake Card
+## Idea Card
 
-The canonical per-idea research artifact for revenue-visible raw leads is the `TrustMRR Intake Card`.
+The canonical per-idea research artifact for revenue-visible raw leads is the `Idea Card`.
 
 It is not just an intake stub. In Research v1 it is the shared document that survives from shortlist selection through final research decision.
 
@@ -152,6 +152,87 @@ Use `ESCALATE` when:
 - evidence remains contradictory after bounded verification
 - category boundaries cannot be resolved without a higher-level market decision
 
+## Demand Section Contract
+
+The `Demand` section is the normalized decision-grade output owned by `Demand Validator`.
+
+It must answer:
+
+- whether at least `2` demand classes passed
+- whether demand is visible beyond brand-specific competitor chatter
+- whether the category shows real usage, search intent, or both
+- whether the demand artifact is complete enough for `Research Lead` review
+
+Required normalized blocks:
+
+- `Demand Verdict`
+- `Search Demand`
+- `Observed Usage Demand`
+- `Problem Conversation Demand`
+- `Paid Acquisition Reality`
+- `Demand Risks And Contradictions`
+- `Evidence Quality`
+
+Minimum normalized fields:
+
+- `passed_demand_classes_count`
+- `hard_gate_status: pass | fail | inconclusive`
+- `one_line_verdict`
+- `search_demand_summary`
+- `problem_search_queries`
+- `category_search_queries`
+- `serp_intent_notes`
+- `trends_notes`
+- `search_signal_strength`
+- `usage_demand_summary`
+- `reused_competitor_evidence`
+- `traffic_validation_sheets`
+- `usage_signal_strength`
+- `problem_reddit_query_notes`
+- `problem_x_query_notes`
+- `noise_and_promo_notes`
+- `conversation_signal_strength`
+- `google_ads_notes`
+- `facebook_ads_notes`
+- `paid_signal_strength`
+- `contradictions`
+- `unresolved_items`
+- `false_positive_risks`
+- `freshness`
+- `confidence`
+- `artifact_verdict: PASS | RETRY | ESCALATE`
+- `content_result: positive | negative | inconclusive`
+
+Demand-section rules:
+
+- competitor `SimilarWeb` must be reused from the competition packet in v1
+- competitor brand/domain chatter must be reused from the competition packet in v1
+- new collection should focus on problem/category SERP and problem/category discussion
+- `Search Demand` uses SERP structure and trend corroboration, not exact search volume
+- `Paid Acquisition Reality` is supportive and optional in v1
+- demand cannot pass on chatter alone
+
+Demand review rules for `Research Lead`:
+
+- `PASS` means the demand artifact is complete enough to use
+- `PASS` does not mean the demand content is favorable
+- `RETRY` means the section is too weak, too noisy, or too incomplete to use
+- `ESCALATE` means the specialist cannot stabilize the section because tools or evidence are blocked
+
+Return the section with `RETRY` when:
+
+- multiple demand classes are collapsed into one weak source
+- search claims rely on volume language without supporting search-volume evidence
+- competitor traffic was recollected instead of being reused from the competition packet
+- problem/category chatter is mostly promo noise and that noise is not called out
+- the section claims demand pass without either `Search Demand` or `Observed Usage Demand`
+
+Use `ESCALATE` when:
+
+- required sources are blocked repeatedly
+- a paid layer actor is unusable due runtime or account limits and the decision really depends on paid evidence
+- the category is too ambiguous to form stable problem/category queries
+
 Stage-discipline rule:
 
 - `intake_verdict` is the only decision field allowed before specialist work
@@ -162,7 +243,7 @@ Stage-discipline rule:
 
 Shared-document rule:
 
-- one selected idea gets one canonical intake card
+- one selected idea gets one canonical `Idea Card`
 - specialists update their own section inside that same document
 - supporting evidence cards may exist, but they do not replace the shared idea card
 - for competition work, each retained direct competitor may have one linked `Competitor Evidence Card`
@@ -176,7 +257,7 @@ Drafting rule:
 
 ## TrustMRR Sourcing Batch
 
-The scouting artifact upstream of the intake card is the `TrustMRR Sourcing Batch`.
+The scouting artifact upstream of the `Idea Card` is the `TrustMRR Sourcing Batch`.
 
 Required metadata:
 
@@ -277,8 +358,8 @@ Each candidate row must include:
 Rule:
 
 - the sourcing batch is for shortlist review only
-- it does not replace the canonical intake card
-- `Research Lead` decides which row becomes an intake card
+- it does not replace the canonical `Idea Card`
+- `Research Lead` decides which row becomes an `Idea Card`
 - if no candidate survives shortlist review, `Research Lead` requests a new sourcing batch
 - all useful raw fields returned by the TrustMRR detail endpoint must be preserved in the sourcing batch
 - SimilarWeb enrichment is a bounded normalized subset, not a raw actor dump
@@ -425,4 +506,4 @@ Within research:
 - negative findings are acceptable when the artifact is strong
 - retry is for weak artifacts, not for disliked conclusions
 - if the next owner cannot act from the artifact alone, the handoff is incomplete
-- in Research v1, the canonical artifact is the per-idea intake card, not a separate synthesizer package
+- in Research v1, the canonical artifact is the per-idea `Idea Card`, not a separate synthesizer package

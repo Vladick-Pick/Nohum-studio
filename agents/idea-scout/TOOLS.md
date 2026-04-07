@@ -63,4 +63,4 @@ Disallowed behavior:
 - dropping SimilarWeb in favor of weaker TrustMRR traffic when SimilarWeb is available
 - dumping raw SimilarWeb blobs into the batch
 - silently dropping suspected duplicates
-- writing the canonical intake card instead of the sourcing batch
+- writing the canonical `Idea Card` instead of the sourcing batch

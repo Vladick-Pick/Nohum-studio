@@ -7,7 +7,7 @@ description: Use when converting TrustMRR raw leads into normalized NoHum resear
 
 Use this skill after `Research Lead` has picked a raw lead from a sourcing batch and before competitor, demand, or revenue validation starts.
 
-In v1, TrustMRR is the only sourcing universe for new candidate discovery, but this skill is still for the canonical intake card, not for sourcing batches.
+In v1, TrustMRR is the only sourcing universe for new candidate discovery, but this skill is still for the canonical `Idea Card`, not for sourcing batches.
 
 ## Purpose
 
@@ -20,7 +20,7 @@ Use `docs/research/copyable-product-thesis.md` as the shared intake decision fra
 1. Verify the lead is a real product candidate, not just an interesting story.
 2. Extract the minimum normalized fields.
 3. Reject obvious non-fit cases early.
-4. Publish one intake card with links, freshness, and open questions.
+4. Publish one `Idea Card` with links, freshness, and open questions.
 
 At this stage the practical decision is:
 
@@ -89,7 +89,7 @@ Use `HOLD` only when the lead looks promising but key proof is still missing.
 
 ## Output Contract
 
-The intake card must end with:
+The `Idea Card` must end with:
 
 - why this lead deserves specialist time
 - what must be proven next

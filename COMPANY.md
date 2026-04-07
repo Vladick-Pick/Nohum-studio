@@ -186,7 +186,7 @@ includes:
   - docs/templates/research/evidence-gap-log.md
   - docs/templates/research/traffic-validation-sheet.md
   - docs/templates/research/trustmrr-sourcing-batch.md
-  - docs/templates/research/trustmrr-intake-card.md
+  - docs/templates/research/idea-card.md
   - docs/templates/venture/feedback-log.md
   - docs/templates/venture/handoff-dossier.md
   - docs/templates/venture/launch-brief.md

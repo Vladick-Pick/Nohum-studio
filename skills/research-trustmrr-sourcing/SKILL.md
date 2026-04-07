@@ -17,7 +17,7 @@ The sourcing goal is not "interesting startups". The sourcing goal is candidates
 
 In v1, TrustMRR is the only sourcing universe for this role.
 
-This skill does not replace the canonical `TrustMRR Intake Card`. It only produces a scouting batch for shortlist review.
+This skill does not replace the canonical `Idea Card`. It only produces a scouting batch for shortlist review.
 
 `SimilarWeb` enrichment through Apify is allowed only as a bounded strengthening layer for shortlisted candidates with a live website.
 

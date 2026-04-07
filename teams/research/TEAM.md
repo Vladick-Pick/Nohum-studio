@@ -79,7 +79,7 @@ Source venture candidates, prove direct evidence, and hand off only decision-gra
 ### Current State
 
 - `Idea Scout` sources new TrustMRR batches for `Research Lead`
-- `Research Lead` still performs the canonical intake card on shortlisted leads
+- `Research Lead` still performs the canonical `Idea Card` step on shortlisted leads
 - specialists update the same idea card under `Research Lead` review
 
 ### Target State

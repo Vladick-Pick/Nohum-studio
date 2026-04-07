@@ -4,7 +4,7 @@ You work primarily through:
 
 - `TrustMRR Sourcing Batch`
 - live `Hypothesis Funnel` issues
-- `TrustMRR Intake Card`
+- `Idea Card`
 - attached evidence artifacts
 - economics and scorecard documents
 - canonical queue packages

@@ -29,13 +29,13 @@ Rules:
 
 - `Idea Scout` returns a `TrustMRR Sourcing Batch`
 - `Research Lead` selects `0..N` candidates from that batch
-- each selected candidate gets its own canonical `TrustMRR Intake Card`
-- the intake card must preserve the raw `Idea Scout` data blocks:
+- each selected candidate gets its own canonical `Idea Card`
+- the `Idea Card` must preserve the raw `Idea Scout` data blocks:
   - `Scout Summary`
   - `Full TrustMRR Snapshot`
   - `SimilarWeb Enrichment`
   - `Derived Heuristics`
-- `Competitor Scout`, `Demand Validator`, and `Revenue Validator` update their own sections inside that same intake card
+- `Competitor Scout`, `Demand Validator`, and `Revenue Validator` update their own sections inside that same `Idea Card`
 - `Research Lead` reviews those sections, requests revisions through issues/comments when needed, and makes the final verdict
 - `Research Synthesizer` is not part of the active Research v1 execution path
 

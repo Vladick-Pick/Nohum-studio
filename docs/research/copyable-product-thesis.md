@@ -66,7 +66,7 @@ Question answered by the scout:
 
 `Research Lead` uses this thesis as the `intake decision framework`.
 
-At the intake boundary, the lead should decide whether a candidate deserves a canonical intake card and specialist time.
+At the intake boundary, the lead should decide whether a candidate deserves a canonical `Idea Card` and specialist time.
 
 The lead should use the thesis to answer:
 
@@ -81,7 +81,7 @@ The lead should use the thesis to answer:
 
 Question answered by the lead:
 
-`Does this candidate deserve canonical intake and specialist research as a potential copyable NoHum product?`
+`Does this candidate deserve a canonical Idea Card and specialist research as a potential copyable NoHum product?`
 
 ## Role Split
 

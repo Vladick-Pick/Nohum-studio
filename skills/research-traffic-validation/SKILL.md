@@ -11,6 +11,12 @@ Use this skill only for the `competitor traffic or usage` demand class.
 
 Decide whether competitor discovery and public usage proof are strong enough to count as real demand.
 
+In Research v1, this class is reuse-first:
+
+- start from the existing competition packet
+- use retained competitor `SimilarWeb`, reviews, installs, rankings, and usage clues already gathered by `Competitor Scout`
+- do not rerun competitor traffic collection by default
+
 ## Validation Order
 
 1. Look for direct usage proof:
@@ -61,3 +67,4 @@ Default heuristics:
 - low traffic is not fatal when the niche is narrow and conversion intent is obvious
 - zero visible traffic plus zero usage proof fails this class
 - if traffic is unavailable, use the fallback matrix rather than inventing certainty
+- low reused traffic is a legitimate weak signal; do not rerun `SimilarWeb` just to look for a different answer

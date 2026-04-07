@@ -12,7 +12,7 @@ Current research flow:
 
 1. `Idea Scout` sources revenue-visible candidates from `TrustMRR`.
 2. `Idea Scout` enriches traffic through `SimilarWeb`.
-3. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical intake card per selected idea.
+3. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical `Idea Card` per selected idea.
 4. Specialists update sections inside that same shared idea card:
    - `Competitor Scout`
    - `Demand Validator`
@@ -42,7 +42,7 @@ See:
 - `docs/research/research-execution-system.md`
 - `docs/research/contracts/intake-and-handoffs.md`
 - `docs/templates/research/trustmrr-sourcing-batch.md`
-- `docs/templates/research/trustmrr-intake-card.md`
+- `docs/templates/research/idea-card.md`
 - `docs/templates/research/competitor-evidence-card.md`
 
 ## Package Contract

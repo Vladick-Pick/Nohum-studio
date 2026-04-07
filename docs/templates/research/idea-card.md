@@ -1,4 +1,4 @@
-# TrustMRR Intake Card
+# Idea Card
 
 > Working draft: this template already reflects the active `one idea -> one shared document` workflow, but the exact specialist section structure should be revised later when each research agent is finalized.
 
@@ -100,10 +100,35 @@
 ## Demand Section
 
 - owner: `Demand Validator`
-- recurring job hypothesis:
-- demand classes checked:
-- acquisition surfaces observed:
-- contradictions:
+- `Demand Verdict`
+  - passed demand classes count:
+  - hard-gate status: `pass` / `fail` / `inconclusive`
+  - one-line verdict:
+- `Search Demand`
+  - search demand summary:
+  - problem search queries:
+  - category search queries:
+  - serp intent notes:
+  - trends notes:
+  - search signal strength: `strong` / `medium` / `weak` / `unknown`
+- `Observed Usage Demand`
+  - usage demand summary:
+  - reused competitor evidence:
+  - traffic validation sheets:
+  - usage signal strength: `strong` / `medium` / `weak` / `unknown`
+- `Problem Conversation Demand`
+  - problem reddit query notes:
+  - problem x query notes:
+  - noise and promo notes:
+  - conversation signal strength: `strong` / `medium` / `weak` / `unknown`
+- `Paid Acquisition Reality`
+  - google ads notes:
+  - facebook ads notes:
+  - paid signal strength: `strong` / `medium` / `weak` / `unknown`
+- `Demand Risks And Contradictions`
+  - contradictions:
+  - unresolved items:
+  - false positive risks:
 - freshness:
 - confidence:
 - artifact verdict: `PASS` / `RETRY` / `ESCALATE`

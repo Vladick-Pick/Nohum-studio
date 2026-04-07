@@ -64,7 +64,7 @@ For each sourcing run, produce:
 ## Permission Boundary
 
 - you may reject obvious non-fit leads inside the sourcing batch
-- you may not create the canonical `TrustMRR Intake Card`
+- you may not create the canonical `Idea Card`
 - you may not start specialist research directly
 - you may not decide `QUEUE`, `KILL`, or `KILL FOR NOW`
 - you may use SimilarWeb only as bounded enrichment for shortlisted candidates with a real website

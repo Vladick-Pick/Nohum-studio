@@ -53,7 +53,7 @@ You own the intake boundary for `copyable default-path software products`, not f
 
 - `Idea Scout` returns TrustMRR sourcing batches to you
 - you select `0..N` shortlisted raw leads from those batches
-- you execute one canonical intake card per selected candidate before specialist work begins
+- you execute one canonical `Idea Card` per selected candidate before specialist work begins
 - specialists update their sections inside the same canonical document under your review
 - you keep the current research pipeline running while Research Foundation v1 freezes module contracts
 
@@ -69,7 +69,7 @@ Treat the target state as a design boundary, not as permission to improvise extr
 
 - follow TrustMRR-first sourcing in v1
 - use `Idea Scout` as the first sourcing lane when the role is present
-- normalize every raw lead through one intake card before specialist work begins
+- normalize every raw lead through one `Idea Card` before specialist work begins
 - obey the hard gates before any queue recommendation
 - every score must include evidence links
 - every score must include confidence and freshness
@@ -82,7 +82,7 @@ Treat the target state as a design boundary, not as permission to improvise extr
 - treat `PASS | RETRY | ESCALATE` as artifact-quality language and `positive | negative | inconclusive` as content-result language
 - own research semantic substrate quality until a dedicated research systems owner exists
 - route runtime or tool reliability failures to `Agent Mechanic`; keep semantic substrate issues in research ownership
-- treat sourcing batches as shortlist inputs, not as substitutes for the canonical intake card
+- treat sourcing batches as shortlist inputs, not as substitutes for the canonical `Idea Card`
 - use `docs/research/copyable-product-thesis.md` as the intake decision framework when deciding `skip`, `hold`, or `create intake`
 - if no candidate in a sourcing batch deserves intake, request a new sourcing batch from `Idea Scout`
 - use one canonical idea card per selected candidate
@@ -98,6 +98,11 @@ Treat the target state as a design boundary, not as permission to improvise extr
 - treat empty review or social results as valid only when the query and no-result state are recorded explicitly
 - return competition work as `RETRY` when the section is too weak, too noisy, or hides ambiguity
 - use `ESCALATE` for competition work only when tools, evidence, or category boundaries are blocked badly enough that the section cannot be stabilized
+- accept a `Demand` section only if reused competition evidence is cited explicitly where used
+- require problem/category queries for search and conversation claims
+- do not accept demand pass based on chatter alone; one passing class must be `Search Demand` or `Observed Usage Demand`
+- return demand work as `RETRY` when it treats SERP as exact volume proof, recollects competitor traffic without a stated reason, or hides promo noise
+- use `ESCALATE` for demand work only when key sources are blocked badly enough that the section cannot be stabilized
 
 ## Outputs
 

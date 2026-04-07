@@ -23,7 +23,7 @@ The routing model is:
 - `CEO` requests a new candidate through `Research Lead`
 - `Research Lead` issues a sourcing brief to `Idea Scout`
 - `Idea Scout` returns a `TrustMRR Sourcing Batch` to `Research Lead`
-- `Research Lead` selects which raw leads deserve the canonical intake card
+- `Research Lead` selects which raw leads deserve the canonical `Idea Card`
 - deep validation remains with existing research specialists
 
 ## Consequences
