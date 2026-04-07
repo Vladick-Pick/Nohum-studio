@@ -4,7 +4,7 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 
 ## Skill Layers
 
-1. Base operating skills vendored in this repo
+1. Base operating skills provided by the live Paperclip runtime
    - `paperclip`
    - `paperclip-create-agent`
    - `paperclip-knowledge`
@@ -41,7 +41,8 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 
 - No core team should rely on prompt prose alone for its operating behavior.
 - Team docs must reference actual local skill directories when a behavior is part of the package contract.
-- Base operating skills are part of the package contract and must exist locally under `skills/`, even when they depend on post-import runtime wiring.
+- Base operating skills are part of the package contract, but they must resolve from the live Paperclip runtime rather than from vendored local copies.
+- Do not vendor local skills with the same names as runtime-provided base skills; that creates import-time shadow copies and binds agents to the wrong skill records.
 - If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.

@@ -4,7 +4,7 @@ This matrix defines team-level skill bundles for the detailed-core package.
 
 Rules:
 - Base operating skills are listed separately from team-specific local skills.
-- Base operating skills must also exist locally in `skills/` so agent references resolve during import preview.
+- Base operating skills must resolve from the live Paperclip runtime, not from vendored local copies in this repository.
 - Mandatory local skills must exist in `skills/`.
 - Optional skills are still local to this repository when listed here.
 - No role should rely on prompt prose only for core behavior.

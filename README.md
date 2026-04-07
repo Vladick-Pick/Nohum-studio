@@ -100,7 +100,7 @@ This package now vendors selected local skills from four sources:
 - `superpowers` for engineering execution discipline
 - `gstack` for engineering review, QA, release, and security pipeline
 
-The base operating skills `paperclip`, `paperclip-create-agent`, `paperclip-knowledge`, and `para-memory-files` are vendored in this repository so import-time skill references resolve inside the package. They still require live runtime wiring after import: Paperclip API env vars for the control-plane skills, and a writable adapter memory path for `para-memory-files`. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
+The base operating skills `paperclip`, `paperclip-create-agent`, `paperclip-knowledge`, and `para-memory-files` are runtime-provided and must resolve from the live Paperclip environment after import. They are intentionally not vendored in this repository, because name-matched local copies create import-time shadow skills and bind agents to the wrong runtime surface. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
 
 ## Secret And Credential Model
 
