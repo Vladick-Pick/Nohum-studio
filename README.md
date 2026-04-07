@@ -10,14 +10,33 @@ Research is now packaged as a staged, GitHub-importable workflow rather than a l
 
 Current research flow:
 
-1. `Idea Scout` sources revenue-visible candidates from `TrustMRR`.
-2. `Idea Scout` enriches traffic through `SimilarWeb`.
-3. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical `Idea Card` per selected idea.
-4. Specialists update sections inside that same shared idea card:
+1. `Idea Scout` sources revenue-visible candidates from `TrustMRR` and enriches shortlisted domains through `Apify SimilarWeb`.
+2. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical `Idea Card` per selected idea.
+3. Specialists update sections inside that same shared `Idea Card`:
    - `Competitor Scout`
    - `Demand Validator`
    - `Revenue Validator`
-5. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research verdict.
+4. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research verdict.
+
+Current research team by role:
+
+- `Idea Scout`
+  - source layer: `TrustMRR API`
+  - traffic layer: `Apify SimilarWeb`
+  - output: `TrustMRR Sourcing Batch`
+- `Research Lead`
+  - owner of shortlist selection, `Idea Card` creation, section review, and final verdict
+- `Competitor Scout`
+  - discovery: `OpenRouter -> perplexity/sonar-pro-search`
+  - verification: `Apify SimilarWeb`, `Apify Trustpilot`, `Apify Reddit`, `Apify X`, official sites and pricing pages
+  - output: `Competition` section plus linked `Competitor Evidence Cards`
+- `Demand Validator`
+  - reuse-first on competitor packet
+  - new demand proof: `Apify Google Search`, `Apify Google Trends`, `Apify Reddit`, `Apify X`, optional `Apify Google Ads`, optional `Apify Facebook Ads`
+  - output: `Demand` section inside the same `Idea Card`
+- `Revenue Validator`
+  - public pricing, checkout, and monetization reasoning
+  - output: `Monetization` section inside the same `Idea Card`
 
 Key design rules:
 
@@ -94,7 +113,8 @@ Rules:
 - agents receive only scoped runtime env via `secret_ref`
 - model auth for `codex_local` is host-managed and outside company secret scope
 - `OPENAI_API_KEY` is not part of the NoHum company-wide baseline secret set
-- `OPENROUTER_API_KEY` is optional and belongs only to venture app runtime when a shipped product actually uses LLM features
+- `OPENROUTER_API_KEY` is not required for `codex_local`, but it is allowed as a company secret for research roles that explicitly use OpenRouter-backed discovery
+- a shipped venture may also use `OPENROUTER_API_KEY` in app runtime if the product itself uses LLM functionality
 - Railway app env vars are manual runtime copies, not the canonical origin
 - agent and policy wiring use layered aliases such as `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY`, and `DEPLOY_PROVIDER_TOKEN`
 
@@ -147,6 +167,23 @@ Safe migration path:
 
 If preview shows rename or duplicate behavior for any preexisting slug, stop the bulk import and switch to manual package-driven migration.
 
+## First Mandatory Post-Import Task
+
+Immediately after import, the CEO must run:
+
+- `tasks/bootstrap-company-access-and-secrets/TASK.md`
+
+This task exists so the imported roles can actually use the services already designed into the research stack.
+
+Day-1 research bring-up must wire:
+
+- `TRUSTMRR_API_KEY`
+- `APIFY_TOKEN`
+- `OPENROUTER_API_KEY`
+- `BRAVE_API_KEY`
+
+Do not start the first sourcing cycle until those services are wired to the roles that need them.
+
 ## Repository Map
 
 - `agents/`: four-file bundle per role
@@ -159,6 +196,7 @@ If preview shows rename or duplicate behavior for any preexisting slug, stop the
 - `docs/decisions/0005-factory-default-stack-and-mcp.md`: canonical product stack and MCP decision
 - `docs/factory-default-stack.md`: operational stack contract for default ventures
 - `docs/import-runbook.md`: package-driven import sequence
+- `docs/runbooks/company-access-and-secrets-bring-up.md`: how to wire imported roles to the services they already use
 - `docs/server-post-import-checklist.md`: server-side validation checklist
 - `docs/operating-cadence.md`: recurring manager operating cycle
 - `docs/automation/`: queue and venture transition surfaces

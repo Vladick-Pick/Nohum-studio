@@ -20,6 +20,9 @@ Important:
 Provider-specific secrets:
 
 - `GITHUB_TOKEN`
+- `TRUSTMRR_API_KEY`
+- `APIFY_TOKEN`
+- `OPENROUTER_API_KEY`
 - `BRAVE_API_KEY`
 - `RAILWAY_TOKEN`
 - `SENTRY_AUTH_TOKEN`
@@ -34,7 +37,7 @@ Provider-specific secrets:
 - `R2_SECRET_ACCESS_KEY`
 - `R2_BUCKET`
 - `R2_ENDPOINT`
-- `OPENROUTER_API_KEY` only for venture apps that ship LLM features
+- `OPENROUTER_API_KEY` for research roles that explicitly use OpenRouter-backed workflows and for venture apps that ship LLM features
 
 Canonical aliases for the agent and policy layer:
 
@@ -60,6 +63,12 @@ Company-wide agent/runtime secrets:
 - `PAYMENT_PROVIDER_API_KEY`
 - `ANALYTICS_API_KEY`
 
+Day-1 research secret set:
+
+- `TRUSTMRR_API_KEY`
+- `APIFY_TOKEN`
+- `OPENROUTER_API_KEY`
+
 Mapped provider-level secrets:
 
 - `LAVA_API_KEY`
@@ -80,7 +89,7 @@ Per-venture app secrets:
 - `R2_SECRET_ACCESS_KEY`
 - `R2_BUCKET`
 - `R2_ENDPOINT`
-- optional `OPENROUTER_API_KEY` only if the shipped venture uses LLM functionality
+- optional `OPENROUTER_API_KEY` at venture app runtime if the shipped venture uses LLM functionality; separately allowed as a company secret for research workflows that depend on OpenRouter
 
 ## MCP Credential Policy
 
@@ -119,10 +128,10 @@ Anything outside this set is an exception path. `Context7` is allowed as optiona
 | CEO | Paperclip API, governance docs, portfolio reviews | paperclip, paperclip-knowledge, optional GitHub read | host-managed model auth | No board credentials in runtime; No direct code shipping | Verify control-plane approvals and governance docs are wired. |
 | Chief of Staff | Paperclip API, task/project monitoring, org docs | paperclip, paperclip-knowledge, optional GitHub read | host-managed model auth | No production release actions; No board-only overrides | Keep wake-on-demand available and wire cadence dashboards after import. |
 | Agent Mechanic | Paperclip API, runtime logs, repo inspection, health checks | paperclip, paperclip-knowledge, optional GitHub plus browser diagnostics, optional Sentry diagnostics | `GITHUB_TOKEN`, `SENTRY_AUTH_TOKEN` | No gate approvals; No strategy overrides | Grant diagnostic-only access to runtime paths, tool health scripts, and Sentry diagnostics if wired. |
-| Research Lead | Hypothesis Funnel issues, TrustMRR intake cards, queue package, evidence registry | paperclip, paperclip-knowledge, browser research, optional memory | `BRAVE_API_KEY` | No build or release writes; No bypass of Gate A evidence | Existing live core slug should upgrade in place. |
+| Research Lead | Hypothesis Funnel issues, Idea Cards, queue package, evidence registry | paperclip, paperclip-knowledge, browser research, optional memory | `BRAVE_API_KEY` | No build or release writes; No bypass of Gate A evidence | Existing live core slug should upgrade in place. |
 | Idea Scout | TrustMRR sourcing batches, TrustMRR API, SimilarWeb enrichment, shortlist notes | paperclip, paperclip-knowledge, TrustMRR API, Apify SimilarWeb | `TRUSTMRR_API_KEY`, `APIFY_TOKEN` | No intake creation; No specialist launch; No final research verdict | Pause after import until TrustMRR and SimilarWeb secrets are wired. |
-| Competitor Scout | Browser research, official product/pricing pages, competitor evidence cards | browser/web research, paperclip-knowledge, optional memory | `BRAVE_API_KEY` | No stage transitions; Citations required on all claims | Pause after import until browser access and evidence templates are wired. |
-| Demand Validator | Traffic, review, search, and usage sources; research docs | browser/web research, paperclip-knowledge, optional analytics read when a concrete datasource exists | `BRAVE_API_KEY` | No pricing decisions alone; No queue promotion without evidence | Pause after import until demand evidence template is wired. |
+| Competitor Scout | Competitor discovery, official product/pricing pages, competitor evidence cards, Apify verification lanes | browser/web research, paperclip-knowledge, optional memory | `OPENROUTER_API_KEY`, `APIFY_TOKEN` | No stage transitions; Citations required on all claims | Pause after import until OpenRouter, Apify, and evidence templates are wired. |
+| Demand Validator | Search, trends, conversation, and paid-demand sources; research docs | browser/web research, paperclip-knowledge, optional analytics read when a concrete datasource exists | `APIFY_TOKEN`, optional `BRAVE_API_KEY` | No pricing decisions alone; No queue promotion without evidence | Pause after import until Apify demand sources and evidence template are wired. |
 | Revenue Validator | Pricing and payment-proof sources, economics packets | browser/web research, paperclip-knowledge, optional memory | `BRAVE_API_KEY` | No payment acceptance decision; Must state assumptions explicitly | Pause after import until pricing and payment evidence surfaces are wired. |
 | Launch Lead | Paperclip issues and knowledge, launch brief and handoff dossier, pricing and launch readiness docs, browser research for unresolved market or channel questions | paperclip, paperclip-knowledge, optional browser research | `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY` | Does not approve board-only exceptions; Does not self-execute engineering work; Does not launch without payment capture and measurement | Existing live core slug should upgrade in place and be rebound as head of Product Launch. |
 | Product Definer | Paperclip knowledge docs, PRD and acceptance criteria artifacts, customer journey and ICP docs | paperclip, paperclip-knowledge, optional browser research | host-managed model auth | No vague ICP or offer language; No release authority; No hidden assumptions in handoff artifacts | New specialist. Keep paused until Gate B artifacts and templates are wired. |

@@ -52,6 +52,7 @@ includes:
   - projects/hypothesis-funnel/PROJECT.md
   - projects/studio-os/PROJECT.md
   - tasks/bootstrap-company/TASK.md
+  - tasks/bootstrap-company-access-and-secrets/TASK.md
   - tasks/daily-ceo-operating-review/TASK.md
   - tasks/daily-chief-of-staff-blocked-work-review/TASK.md
   - tasks/daily-research-lead-queue-refresh/TASK.md

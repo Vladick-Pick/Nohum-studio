@@ -11,7 +11,8 @@ The operating contract is:
 - raw secret values never live in prompts, docs, or repository files
 - `codex_local` model auth is host-managed and outside company secret scope
 - `OPENAI_API_KEY` is not a company-wide baseline secret for NoHum
-- `OPENROUTER_API_KEY` is optional and exists only at venture app runtime when the product itself uses LLM functionality
+- `OPENROUTER_API_KEY` is not required to run `codex_local`, but it is allowed as a company secret for agent-side research workflows that explicitly depend on OpenRouter
+- venture apps may also use `OPENROUTER_API_KEY` when the shipped product itself uses LLM functionality
 - Railway app env vars are runtime copies, not the canonical origin
 - agent and policy wiring use layered aliases where that reduces vendor coupling
 
@@ -34,7 +35,8 @@ Model-auth baseline:
 
 - do not create a company-wide `OPENAI_API_KEY` just to run `codex_local`
 - keep model auth managed at the host/runtime layer, not in company secrets
-- if a venture product ships LLM features, add `OPENROUTER_API_KEY` only to that venture's app env contract
+- if a research role explicitly uses OpenRouter-backed discovery, store `OPENROUTER_API_KEY` in `Company Secrets` and inject it only to the agents that require it
+- if a venture product ships LLM features, add `OPENROUTER_API_KEY` to that venture's app env contract as a downstream runtime copy
 
 Treat these aliases as part of the org contract:
 

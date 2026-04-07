@@ -72,3 +72,14 @@ Existing live `NoHum Studio` company.
 ## Mandatory Follow-Up
 
 After import, run the checklist in `docs/server-post-import-checklist.md` before resuming new roles.
+
+Before `Bootstrap Company` begins, create and run the CEO-owned access task:
+
+- `tasks/bootstrap-company-access-and-secrets/TASK.md`
+
+The research lane should remain paused until this access task confirms:
+
+- `TRUSTMRR_API_KEY`
+- `APIFY_TOKEN`
+- `OPENROUTER_API_KEY`
+- `BRAVE_API_KEY`

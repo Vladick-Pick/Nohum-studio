@@ -74,6 +74,12 @@ Company-wide agent/runtime secrets:
 - `PAYMENT_PROVIDER_API_KEY`
 - `ANALYTICS_API_KEY`
 
+Day-1 research secret set:
+
+- `TRUSTMRR_API_KEY`
+- `APIFY_TOKEN`
+- `OPENROUTER_API_KEY`
+
 Mapped provider-level secrets:
 
 - `LAVA_API_KEY`
@@ -94,7 +100,7 @@ Per-venture app secrets:
 - `R2_SECRET_ACCESS_KEY`
 - `R2_BUCKET`
 - `R2_ENDPOINT`
-- optional `OPENROUTER_API_KEY` only for venture apps that ship LLM functionality
+- optional `OPENROUTER_API_KEY` for venture app runtime when a shipped product uses LLM functionality; also allowed as a company secret for research roles that depend on OpenRouter-backed discovery
 
 ### 4.3 Agent Runtime Wiring
 
@@ -105,12 +111,20 @@ Per-venture app secrets:
   - `DEPLOY_PROVIDER_TOKEN` -> Railway
 - wire `GITHUB_TOKEN` for engineering and ops roles that need repo, review, or release access
 - wire `BRAVE_API_KEY` for research roles using Brave Search MCP
+- wire `TRUSTMRR_API_KEY` and `APIFY_TOKEN` for `Idea Scout`
+- wire `OPENROUTER_API_KEY` and `APIFY_TOKEN` for `Competitor Scout`
+- wire `APIFY_TOKEN` for `Demand Validator`
 - wire `DEPLOY_PROVIDER_TOKEN` to Railway-facing engineering roles
 - wire `SENTRY_AUTH_TOKEN` only to reliability roles that need observability diagnostics
 - wire `ANALYTICS_API_KEY` for measurement, marketing, and analytics roles
 - wire `PAYMENT_PROVIDER_API_KEY` only for roles that need payment-signal context
 - verify live agent config stores `secret_ref`, not plaintext values
 - keep runtime secret refs on `"version": "latest"`
+
+Research-lane bring-up rule:
+
+- do not start the first sourcing cycle until `TRUSTMRR_API_KEY`, `APIFY_TOKEN`, `OPENROUTER_API_KEY`, and `BRAVE_API_KEY` are all wired where required
+- if a research role depends on an already-designed service stack, do not substitute a weaker manual path just because the secret is missing
 
 ### 4.4 Venture App Runtime Copies
 
