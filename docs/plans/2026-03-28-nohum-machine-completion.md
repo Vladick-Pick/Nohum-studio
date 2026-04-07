@@ -55,7 +55,6 @@ Tomorrow’s discussion should decide:
   - `Competitor Scout`
   - `Demand Validator`
   - `Revenue Validator`
-  - `Research Synthesizer`
 
 **Step 4: Decide the source registry**
 

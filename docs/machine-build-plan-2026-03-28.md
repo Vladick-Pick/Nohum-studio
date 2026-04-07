@@ -59,7 +59,6 @@ Keep `Research Lead` as the manager. Under it, later add specialized workers suc
 - `Competitor Scout`
 - `Demand Validator`
 - `Revenue Validator`
-- `Research Synthesizer`
 
 The first version can still run with fewer agents, but the responsibilities must be split explicitly even if they are temporarily grouped.
 

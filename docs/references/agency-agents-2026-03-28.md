@@ -194,7 +194,7 @@ We should keep our venture lifecycle, but each major phase should have a short p
 
 We should adopt formal handoff templates for:
 
-- Research specialist -> Research Synthesizer
+- Research specialist -> Research Lead via the canonical idea card
 - Research Lead -> Launch Lead
 - Product Definition -> Build team
 - Launch -> Support / Feedback

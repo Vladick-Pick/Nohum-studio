@@ -80,15 +80,14 @@ Do not hire all at once.
 
 Hire in this order:
 
-1. `Research Synthesizer`
-2. `Competitor Scout`
-3. `Demand Validator`
-4. `Revenue Validator`
+1. `Competitor Scout`
+2. `Demand Validator`
+3. `Revenue Validator`
 
 Why this order:
 
-- first fix the output quality and handoff quality
-- then split the evidence gathering functions
+- first fix the direct market-proof lane
+- then split the remaining evidence gathering functions
 
 ### D. Tighten runtime profiles per role
 

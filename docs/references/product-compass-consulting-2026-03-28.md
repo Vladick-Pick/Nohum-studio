@@ -228,7 +228,6 @@ This package is a strong argument for roles like:
 - `Competitor Scout`
 - `Demand Validator`
 - `Revenue Validator`
-- `Research Synthesizer`
 - `Product Definer`
 - `Release Owner`
 

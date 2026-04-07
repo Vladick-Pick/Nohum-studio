@@ -109,7 +109,6 @@ Verdict:
 - `Competitor Scout`
 - `Demand Validator`
 - `Revenue Validator`
-- `Research Synthesizer`
 
 ### Under Launch Lead
 
@@ -155,7 +154,6 @@ flowchart TD
   RL --> RCS["Competitor Scout"]
   RL --> RDV["Demand Validator"]
   RL --> RRV["Revenue Validator"]
-  RL --> RSY["Research Synthesizer"]
 
   LL --> PD["Product Definer"]
   LL --> DL["Dev Lead"]
@@ -207,7 +205,6 @@ flowchart LR
   - `Competitor Scout`
   - `Demand Validator`
   - `Revenue Validator`
-  - `Research Synthesizer`
   - `Research Lead`
 - `Gate A`
   - `CEO`

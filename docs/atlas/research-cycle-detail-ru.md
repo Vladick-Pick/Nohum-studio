@@ -42,7 +42,7 @@ flowchart LR
 Владелец: CEO
 Выход: активный research batch"] --> B["Пробуждение research-исполнителей
 LIVE: Research Lead
-TARGET: Intake Scout + validators + synthesizer"]
+TARGET: Intake Scout + validators"]
 
   B --> C["Сбор и проверка
 competitors
@@ -60,7 +60,7 @@ decision-log
 raw evidence"]
 
   D --> E["Сборка canonical queue package
-Владелец: Research Synthesizer или Research Lead"]
+Владелец: Research Lead"]
 
   E --> F{"Решение Research Lead"}
 
@@ -101,8 +101,6 @@ raw evidence"]
   - доказывает спрос через search / traffic / reviews / adoption
 - `Revenue Validator`
   - доказывает monetization reality, price bands и путь к first payment
-- `Research Synthesizer`
-  - собирает канонический queue package
 
 ## 4. Как часто это запускается
 
@@ -187,15 +185,7 @@ Research-контур должен складывать данные в `Hypothe
   - путь к `$5k MRR`
   - ограничения и риски
 
-5. `Research Synthesizer`
-- собирает:
-  - hard-gates matrix
-  - weighted score
-  - economics summary
-  - strongest runner-up comparison
-  - final recommendation
-
-6. `Research Lead`
+5. `Research Lead`
 - выносит финальный вердикт:
   - `KILL`
   - `KILL FOR NOW`
