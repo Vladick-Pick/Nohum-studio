@@ -41,6 +41,18 @@ It must appear in:
 - feedback logs
 - product repo naming
 
+Every research case also uses an immutable ID:
+
+- `research_case_id`
+
+It is assigned when the canonical `Idea Card` opens and must appear in:
+
+- the canonical `Idea Card`
+- `Research Registry`
+- `Decision Memory`
+- `Eval Dataset`
+- duplicate links and revisit references
+
 ## State Model
 
 ### Venture stage
@@ -139,6 +151,8 @@ CEO must not do deep research, build products, or run launch execution directly 
 Research Lead owns:
 
 - sourcing strategy and shortlist control
+- canonical `Idea Card` discipline
+- `Research Registry` and `Decision Memory` integrity
 - market evidence
 - scorecards
 - economics
@@ -157,6 +171,37 @@ Launch Lead owns:
 - feedback intake and first post-launch synthesis
 
 ## Research Contract
+
+### Shared venture-selection doctrine
+
+Canonical doctrine source:
+
+- `docs/research/copyable-product-thesis.md`
+
+Runtime purpose:
+
+- keep one shared venture-selection shape across sourcing, research verdicts, queue readiness, and Gate A-facing allocation decisions
+- prevent manager-level drift where different roles optimize for different product shapes
+
+Doctrine completion policy:
+
+- research is not complete unless the canonical `Idea Card` contains a completed doctrine assessment with evidence-backed status for each doctrine criterion
+- queue readiness is not complete unless the queue package carries the doctrine assessment summary and resolved contradictions
+- doctrine assessment must include structured `value delta` evaluation, not prose-only claims
+
+Structured value-delta requirement:
+
+- current status-quo workflow and workaround
+- with-product workflow
+- current status-quo costs across time, money, risk, cognitive load, and emotional load when evidence allows
+- expected delta and confidence level
+- weaknesses or edge cases where delta may collapse
+
+Conversion-story requirement:
+
+- use `plausible conversion story` language, not a universal hard numeric threshold
+- label conversion inputs as `observed`, `inferred`, or `assumed`
+- reject fake precision and hidden assumptions
 
 ### Hard gates
 
@@ -199,6 +244,15 @@ Freshness rule:
 - `stale = 31-90 days`
 - `old > 90 days`
 
+### Research history layer
+
+- one canonical `Idea Card` per `research_case_id`
+- `Research Registry`, `Decision Memory`, and `Eval Dataset` are derived surfaces only
+- duplicate lookup must happen before opening a new canonical card
+- final research verdict requires machine-readable reason codes plus revisit metadata when applicable
+- after final verdict, derived history surfaces are synced from the canonical card
+- if derived history drifts from the card, the card wins and derived layers are regenerated
+
 ## WIP Policy
 
 Hard limits:
@@ -228,6 +282,9 @@ Queue decay:
 - entry: hard gates passed
 - entry: score >= 70 or explicit override
 - entry: economics summary exists
+- entry: doctrine assessment is complete in the canonical `Idea Card`
+- entry: structured `value delta` block is complete and evidence-linked
+- entry: conversion story is explicit and all conversion assumptions are labeled
 - exit: final scorecard and recommendation
 - approver: Research Lead
 - guard: `queued < 1`
@@ -235,6 +292,7 @@ Queue decay:
 #### `queued -> venture` (Gate A)
 
 - entry: queue package complete
+- entry: queue package includes doctrine summary and value-delta rationale fit for board review
 - exit: venture project + docs + root issues
 - approver: board
 

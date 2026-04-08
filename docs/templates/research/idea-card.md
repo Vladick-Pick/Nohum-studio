@@ -2,17 +2,20 @@
 
 > Working draft: this template already reflects the active `one idea -> one shared document` workflow, but the exact specialist section structure should be revised later when each research agent is finalized.
 
-> Stage rule: `intake_verdict` is the only decision field that may be set before specialist work. The `Final Decision` block stays pending until specialist sections are complete and reviewed.
+> Stage rule: `intake_verdict` is the only decision field that may be set before specialist work. The `Final Decision` block stays pending until specialist sections and the `Selection Doctrine` assessment are complete enough to review.
 
 ## Intake Normalization
 
 - `venture_id`:
+- `research_case_id`:
 - `source_url`:
 - `capture_date`:
 - `source_platform`:
 - `product_name`:
 - `product_url`:
 - `site_domain`:
+- `normalized_domain`:
+- `normalized_category`:
 - `reported_revenue_or_mrr`:
 - `one_line_problem`:
 - `likely_icp`:
@@ -22,7 +25,10 @@
 - `monetization_hint`:
 - `demand_hint`:
 - `default_path_fit_concerns`:
+- `candidate_fingerprint`:
 - `duplicate_check`:
+- `duplicate_of_case_id`:
+- `duplicate_confidence`: `high` / `medium` / `low`
 - `strongest_direct_source`:
 - `corroborating_sources`:
 - `open_questions_for_specialists`:
@@ -203,14 +209,164 @@
 - artifact verdict: `PASS` / `RETRY` / `ESCALATE`
 - content result: `positive` / `negative` / `inconclusive`
 
+## Selection Doctrine
+
+- owner: `Research Lead`
+- stage status: `pending until Competition + Demand + Monetization are reviewable`
+- `Doctrine Basis`
+  - doctrine source: `docs/research/copyable-product-thesis.md`
+  - doctrine version or date:
+  - doctrine assessment owner:
+- `Status Quo And Value Delta`
+  - current status quo workflow:
+  - current workaround summary:
+  - current time costs:
+  - current money costs:
+  - current risk costs:
+  - current cognitive costs:
+  - current emotional costs:
+  - with-product workflow:
+  - expected time delta:
+  - expected money delta:
+  - expected risk delta:
+  - expected cognitive delta:
+  - expected emotional delta:
+  - expected delta summary:
+  - delta confidence: `high` / `medium` / `low`
+  - delta weaknesses:
+- `Selection Doctrine Assessment`
+  - `1 Clear Primary Audience`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `2 Clear Problem And JTBD`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `3 Recurring Problem For Subscription Or Repeat Payment`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `4 At Least 3 Live Direct Competitors`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `5 Plausible Path To $5k MRR`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `6 Paying Audience Exists`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `7 Explicit Value Delta Versus Status Quo`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `8 Reachable Audience Without Expensive Acquisition`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `9 Plausible Conversion Story`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `10 Fast Build With Default-Path Stack`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - `11 Switching Friction Is Not Fatally High`
+    - status: `pass` / `fail` / `inconclusive`
+    - evidence refs:
+    - rationale:
+  - doctrine checklist pass count:
+  - doctrine checklist fail count:
+  - doctrine checklist inconclusive count:
+  - doctrine completion: `complete` / `partial` / `insufficient`
+  - doctrine verdict: `PASS` / `RETRY` / `ESCALATE`
+- `Doctrine Risks And Contradictions`
+  - contradictions:
+  - unresolved items:
+  - false-positive risks:
+- `Evidence Quality`
+  - evidence index:
+  - freshness:
+  - confidence:
+
 ## Final Decision
 
 - owner: `Research Lead`
-- stage status: `pending until Competition + Demand + Monetization are reviewed`
+- stage status: `pending until Competition + Demand + Monetization are reviewed and Selection Doctrine is complete enough`
 - specialist sections complete:
+- selection doctrine complete:
+- selection doctrine blocking items:
 - revision requests closed:
 - hard-gates summary:
 - weighted score:
 - final verdict: `pending` / `QUEUE` / `KILL` / `KILL FOR NOW`
+- `final_verdict_date`:
+- `decision_owner`:
+- `decision_confidence`: `high` / `medium` / `low`
+- `evidence_completeness`: `complete` / `partial` / `insufficient`
+- `major_unknowns_count`:
+- `contradiction_count`:
+- `primary_decision_reason`:
+- `secondary_decision_reasons`:
+- `revisit_policy`: `none` / `timebox` / `triggered`
+- `revisit_after`:
+- `reopen_conditions`:
 - why:
 - open risks:
+
+## Decision Reason Codes (Controlled)
+
+Use only these codes for `primary_decision_reason` and `secondary_decision_reasons`:
+
+- `strong_thesis_fit`
+- `weak_demand`
+- `sufficient_competitor_density`
+- `insufficient_competitor_count`
+- `pricing_visible`
+- `pricing_hidden`
+- `open_market`
+- `closed_market`
+- `clear_first_payment_path`
+- `unclear_first_payment_path`
+- `default_path_fit`
+- `bad_default_path_fit`
+- `economics_sound`
+- `economics_fragile`
+- `too_enterprise`
+- `too_services_like`
+- `duplicate_existing_case`
+- `evidence_stale`
+- `too_many_unknowns`
+- `evidence_incomplete`
+- `timing_not_now`
+
+Primary reason rules:
+
+- if `final verdict = QUEUE`, `primary_decision_reason` must be one of:
+  - `strong_thesis_fit`
+  - `sufficient_competitor_density`
+  - `pricing_visible`
+  - `open_market`
+  - `clear_first_payment_path`
+  - `default_path_fit`
+  - `economics_sound`
+- if `final verdict = KILL` or `KILL FOR NOW`, `primary_decision_reason` must be one of:
+  - `weak_demand`
+  - `insufficient_competitor_count`
+  - `pricing_hidden`
+  - `closed_market`
+  - `unclear_first_payment_path`
+  - `bad_default_path_fit`
+  - `economics_fragile`
+  - `too_enterprise`
+  - `too_services_like`
+  - `duplicate_existing_case`
+  - `evidence_stale`
+  - `too_many_unknowns`
+  - `evidence_incomplete`
+  - `timing_not_now`
+- `secondary_decision_reasons` may add context, but must not contradict the chosen final verdict

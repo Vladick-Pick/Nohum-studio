@@ -21,17 +21,21 @@ Structure:
 1. intake normalization
 2. preserved scout data blocks
 3. specialist sections
-4. final research decision
+4. selection doctrine assessment
+5. final research decision
 
 Required fields:
 
 - `venture_id`
+- `research_case_id`
 - `source_url`
 - `capture_date`
 - `source_platform`
 - `product_name`
 - `product_url`
 - `site_domain`
+- `normalized_domain`
+- `normalized_category`
 - `reported_revenue_or_mrr`
 - `one_line_problem`
 - `likely_icp`
@@ -41,17 +45,137 @@ Required fields:
 - `monetization_hint`
 - `demand_hint`
 - `default_path_fit_concerns`
+- `candidate_fingerprint`
 - `duplicate_check`
+- `duplicate_of_case_id`
+- `duplicate_confidence`
 - `strongest_direct_source`
 - `corroborating_sources`
 - `open_questions_for_specialists`
 - `intake_verdict: REJECT | RESEARCH | HOLD`
+- `doctrine_source`
+- `doctrine_version_or_date`
+- `doctrine_assessment_owner`
+- `current_status_quo_workflow`
+- `current_workaround_summary`
+- `current_time_costs`
+- `current_money_costs`
+- `current_risk_costs`
+- `current_cognitive_costs`
+- `current_emotional_costs`
+- `with_product_workflow`
+- `expected_time_delta`
+- `expected_money_delta`
+- `expected_risk_delta`
+- `expected_cognitive_delta`
+- `expected_emotional_delta`
+- `expected_delta_summary`
+- `delta_confidence`
+- `delta_weaknesses`
+- `doctrine_checklist_pass_count`
+- `doctrine_checklist_fail_count`
+- `doctrine_checklist_inconclusive_count`
+- `doctrine_completion`
+- `doctrine_verdict`
+- `doctrine_contradictions`
+- `doctrine_unresolved_items`
+- `doctrine_false_positive_risks`
 
 Notes:
 
 - `reported_revenue_or_mrr` stores the source-reported value exactly as observed. Do not silently normalize away uncertainty.
 - `pricing_visibility` is one of `visible`, `hidden`, or `fallback-derived`.
 - `duplicate_check` must make clear whether this lead matches an existing candidate under another name or URL.
+- `research_case_id` is the stable canonical case id for this card and must not be recycled across different ideas.
+- `normalized_domain` is the canonical hostname used for dedupe and history indexing; it should remove protocol, path, query, and `www`.
+- `normalized_category` is the research-normalized category label used for cross-card grouping.
+- `candidate_fingerprint` is a deterministic fingerprint for duplicate detection and should be stable across recaptures of the same idea.
+- `duplicate_of_case_id` links to the canonical `research_case_id` when this card is a duplicate candidate.
+- `duplicate_confidence` is `high | medium | low` and is required when `duplicate_of_case_id` is populated.
+- `decision_confidence` uses `high | medium | low`.
+- `evidence_completeness` uses `complete | partial | insufficient`.
+- `revisit_policy` uses `none | timebox | triggered`.
+- `reopen_conditions` is the machine-readable trigger list for reopening a case after `KILL FOR NOW`.
+- `doctrine_completion` uses `complete | partial | insufficient`.
+- `doctrine_verdict` uses `PASS | RETRY | ESCALATE`.
+- `delta_confidence` uses `high | medium | low`.
+
+Research history layer required fields:
+
+- `decision_owner`
+- `decision_confidence`
+- `evidence_completeness`
+- `major_unknowns_count`
+- `contradiction_count`
+- `final_verdict_date`
+- `primary_decision_reason`
+- `secondary_decision_reasons`
+- `revisit_policy`
+- `revisit_after`
+- `reopen_conditions`
+
+Research history layer rules:
+
+- the `Idea Card` is the only primary truth for a candidate case
+- derived layers (indexes, reports, rollups, or dashboards) are secondary and must be reproducible from the card
+- if a derived layer conflicts with the card, the card wins and the derived layer is corrected
+- history fields may be present as `pending` before final decision, but they must be completed before closing the case
+
+Controlled decision reason-code taxonomy:
+
+Allowed reason codes:
+
+- `strong_thesis_fit`
+- `weak_demand`
+- `sufficient_competitor_density`
+- `insufficient_competitor_count`
+- `pricing_visible`
+- `pricing_hidden`
+- `open_market`
+- `closed_market`
+- `clear_first_payment_path`
+- `unclear_first_payment_path`
+- `default_path_fit`
+- `bad_default_path_fit`
+- `economics_sound`
+- `economics_fragile`
+- `too_enterprise`
+- `too_services_like`
+- `duplicate_existing_case`
+- `evidence_stale`
+- `too_many_unknowns`
+- `evidence_incomplete`
+- `timing_not_now`
+
+Reason-code usage rules:
+
+- `primary_decision_reason` must contain exactly one code from the allowed list
+- if `final_verdict = QUEUE`, `primary_decision_reason` must be one of:
+  - `strong_thesis_fit`
+  - `sufficient_competitor_density`
+  - `pricing_visible`
+  - `open_market`
+  - `clear_first_payment_path`
+  - `default_path_fit`
+  - `economics_sound`
+- if `final_verdict = KILL` or `KILL FOR NOW`, `primary_decision_reason` must be one of:
+  - `weak_demand`
+  - `insufficient_competitor_count`
+  - `pricing_hidden`
+  - `closed_market`
+  - `unclear_first_payment_path`
+  - `bad_default_path_fit`
+  - `economics_fragile`
+  - `too_enterprise`
+  - `too_services_like`
+  - `duplicate_existing_case`
+  - `evidence_stale`
+  - `too_many_unknowns`
+  - `evidence_incomplete`
+  - `timing_not_now`
+- `secondary_decision_reasons` may contain zero or more additional codes from the allowed list
+- `secondary_decision_reasons` may add context, but must not contradict the chosen `final_verdict`
+- do not invent free-text reason codes; free-text explanation belongs in narrative `why` fields
 
 Required preserved scout blocks:
 
@@ -65,6 +189,7 @@ Draft specialist sections:
 - `Competition`
 - `Demand`
 - `Monetization`
+- `Selection Doctrine`
 - `Final Decision`
 
 ## Competition Section Contract
@@ -328,18 +453,135 @@ Use `ESCALATE` when:
 - preserved source metrics are missing or materially contradictory
 - the first-payment path cannot be stabilized without a higher-level product or GTM decision
 
+## Selection Doctrine Section Contract
+
+The `Selection Doctrine` section is the normalized decision-grade synthesis owned by `Research Lead`.
+
+It must convert the shared doctrine from `docs/research/copyable-product-thesis.md` into an explicit per-idea assessment, including structured value-delta analysis.
+
+It must answer:
+
+- whether the candidate passes the shared 11-point venture-selection doctrine
+- whether value delta versus status quo is explicit and structured
+- whether doctrine-level evidence is complete enough for final research decision
+- whether remaining doctrine ambiguity should force `RETRY`, `ESCALATE`, or conservative verdicting
+
+Required normalized blocks:
+
+- `Doctrine Basis`
+- `Status Quo And Value Delta`
+- `Selection Doctrine Assessment`
+- `Doctrine Risks And Contradictions`
+- `Evidence Quality`
+
+Minimum normalized fields:
+
+- `doctrine_source`
+- `doctrine_version_or_date`
+- `doctrine_assessment_owner`
+- `current_status_quo_workflow`
+- `current_workaround_summary`
+- `current_time_costs`
+- `current_money_costs`
+- `current_risk_costs`
+- `current_cognitive_costs`
+- `current_emotional_costs`
+- `with_product_workflow`
+- `expected_time_delta`
+- `expected_money_delta`
+- `expected_risk_delta`
+- `expected_cognitive_delta`
+- `expected_emotional_delta`
+- `expected_delta_summary`
+- `delta_confidence`
+- `delta_weaknesses`
+- `criterion_1_clear_primary_audience_status: pass | fail | inconclusive`
+- `criterion_2_clear_problem_and_jtbd_status: pass | fail | inconclusive`
+- `criterion_3_recurring_problem_for_subscription_status: pass | fail | inconclusive`
+- `criterion_4_three_live_direct_competitors_status: pass | fail | inconclusive`
+- `criterion_5_path_to_5k_mrr_status: pass | fail | inconclusive`
+- `criterion_6_paying_audience_exists_status: pass | fail | inconclusive`
+- `criterion_7_explicit_value_delta_status: pass | fail | inconclusive`
+- `criterion_8_reachable_audience_status: pass | fail | inconclusive`
+- `criterion_9_plausible_conversion_story_status: pass | fail | inconclusive`
+- `criterion_10_fast_default_path_build_status: pass | fail | inconclusive`
+- `criterion_11_non_fatal_switching_friction_status: pass | fail | inconclusive`
+- `criterion_1_evidence_refs`
+- `criterion_2_evidence_refs`
+- `criterion_3_evidence_refs`
+- `criterion_4_evidence_refs`
+- `criterion_5_evidence_refs`
+- `criterion_6_evidence_refs`
+- `criterion_7_evidence_refs`
+- `criterion_8_evidence_refs`
+- `criterion_9_evidence_refs`
+- `criterion_10_evidence_refs`
+- `criterion_11_evidence_refs`
+- `criterion_1_rationale`
+- `criterion_2_rationale`
+- `criterion_3_rationale`
+- `criterion_4_rationale`
+- `criterion_5_rationale`
+- `criterion_6_rationale`
+- `criterion_7_rationale`
+- `criterion_8_rationale`
+- `criterion_9_rationale`
+- `criterion_10_rationale`
+- `criterion_11_rationale`
+- `doctrine_checklist_pass_count`
+- `doctrine_checklist_fail_count`
+- `doctrine_checklist_inconclusive_count`
+- `doctrine_completion: complete | partial | insufficient`
+- `doctrine_verdict: PASS | RETRY | ESCALATE`
+- `doctrine_contradictions`
+- `doctrine_unresolved_items`
+- `doctrine_false_positive_risks`
+- `evidence_index`
+- `freshness`
+- `confidence`
+
+Selection-doctrine rules:
+
+- criterion statuses must be explicit; do not collapse all doctrine conclusions into one prose paragraph
+- each doctrine criterion must include evidence references and short rationale
+- value delta must be structured as `status quo -> with-product workflow -> expected delta`; prose-only value claims are not acceptable
+- value delta should explicitly cover time, money, risk, cognitive load, and emotional load where evidence allows
+- conversion must be handled as a plausible conversion story with labeled assumptions and confidence; do not force one global numeric threshold
+- if evidence is missing, use `inconclusive` rather than silently treating the criterion as passed
+
+Selection-doctrine review rules for `Research Lead`:
+
+- `PASS` means doctrine assessment is complete enough for final decision use
+- `PASS` does not mean the final research verdict must be favorable
+- `RETRY` means the doctrine assessment is too incomplete, weak, or ambiguous to support final decision
+- `ESCALATE` means the doctrine cannot be stabilized without higher-level policy or market-boundary resolution
+
+Return the section with `RETRY` when:
+
+- value delta is narrative-only and lacks structured status quo versus with-product comparison
+- multiple doctrine criteria have no evidence refs or no rationale
+- conversion claims are asserted as facts without labeled assumptions
+- doctrine checklist counts and criterion statuses do not align
+
+Use `ESCALATE` when:
+
+- doctrine-level evidence is materially contradictory across sections and cannot be reconciled
+- policy-sensitive doctrine interpretation is required beyond research authority
+- core market definition is too unstable to score the doctrine honestly
+
 Stage-discipline rule:
 
 - `intake_verdict` is the only decision field allowed before specialist work
 - allowed intake values are `REJECT | HOLD | RESEARCH`
 - `QUEUE | KILL | KILL FOR NOW` are final research verdicts, not intake verdicts
-- final research verdicts may be written only after specialist sections are complete enough to review
+- final research verdicts may be written only after specialist sections and `Selection Doctrine` are complete enough to review
 - if specialist sections are incomplete, the final-decision block must stay explicitly pending
 
 Shared-document rule:
 
 - one selected idea gets one canonical `Idea Card`
 - specialists update their own section inside that same document
+- `Research Lead` owns and updates the `Selection Doctrine` section inside that same document
 - supporting evidence cards may exist, but they do not replace the shared idea card
 - for competition work, each retained direct competitor may have one linked `Competitor Evidence Card`
 - `Research Lead` reviews the sections and issues the final verdict from the same canonical artifact

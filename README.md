@@ -1,204 +1,175 @@
-# NoHum Studio v1.5 Detailed-Core
+# NoHum
 
-Public source package for upgrading the live NoHum Studio company inside Paperclip.
+> everyone talks about the coming one-person billion-dollar company
+> we’re interested in a different question
+> what if the real breakthrough is not one person running one giant product, but a minimal-human venture factory systematically operating many small products?
 
-This repository is not the live runtime source of truth. It is the import-safe package and richer bootstrap layer used to evolve the current live company without rebuilding it from zero.
+NoHum is an early open design project for that question.
 
-## Research System v1
+It is a repo-native operating system design for minimal-human companies: companies where most recurring work is executed by agents, while humans stay at the level of direction, architecture, boundaries, approvals, and system redesign.
 
-Research is now packaged as a staged, GitHub-importable workflow rather than a loose collection of prompts.
+**Not one founder, one product. One operating system, many products.**
 
-Current research flow:
+## What This Repo Is
 
-1. `Idea Scout` sources revenue-visible candidates from `TrustMRR` and enriches shortlisted domains through `Apify SimilarWeb`.
-2. `Research Lead` reviews the sourcing batch and either requests a new batch or creates one canonical `Idea Card` per selected idea.
-3. Specialists update sections inside that same shared `Idea Card`:
-   - `Competitor Scout`
-   - `Demand Validator`
-   - `Revenue Validator`
-4. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research verdict.
+- an early open design project for a minimal-human venture factory
+- a public working surface for company ontology, workflows, agent roles, skills, gates, evals, and governance
+- a repository of executable organizational modules designed around `Paperclip` as the target runtime
+- a place where contributors can improve prompts, templates, workflows, review rules, and company-building logic through pull requests
 
-Current research team by role:
+## What This Repo Is Not
 
-- `Idea Scout`
-  - source layer: `TrustMRR API`
-  - traffic layer: `Apify SimilarWeb`
-  - output: `TrustMRR Sourcing Batch`
-- `Research Lead`
-  - owner of shortlist selection, `Idea Card` creation, section review, and final verdict
-- `Competitor Scout`
-  - discovery: `OpenRouter -> perplexity/sonar-pro-search`
-  - verification: `Apify SimilarWeb`, `Apify Trustpilot`, `Apify Reddit`, `Apify X`, official sites and pricing pages
-  - output: `Competition` section plus linked `Competitor Evidence Cards`
-- `Demand Validator`
-  - reuse-first on competitor packet
-  - new demand proof: `Apify Google Search`, `Apify Google Trends`, `Apify Reddit`, `Apify X`, optional `Apify Google Ads`, optional `Apify Facebook Ads`
-  - output: `Demand` section inside the same `Idea Card`
-- `Revenue Validator`
-  - public pricing, checkout, and monetization reasoning
-  - output: `Monetization` section inside the same `Idea Card`
+- not the live runtime source of truth for the current NoHum company
+- not proof that fully autonomous companies already work
+- not a pile of prompts pretending to be an operating system
+- not a community-managed control plane for live venture, budget, or board decisions
 
-Key design rules:
+## Why This Exists
 
-- one selected idea = one shared canonical idea card
-- `Idea Scout` is sourcing-only, not a final decision-maker
-- `Research Lead` owns intake quality and stage discipline
-- final verdicts (`QUEUE | KILL | KILL FOR NOW`) are not allowed at intake time
-- raw scout and competitor-source evidence is preserved in linked evidence artifacts, not dumped into the main card
+Most AI-company discussion is still framed around one founder using agents to build one giant product.
 
-Research source hierarchy in v1:
+NoHum explores a different thesis: the interesting breakthrough may be a company that can systematically launch, evaluate, operate, and retire many small software products through a minimal-human operating system.
 
-- `TrustMRR` is primary for revenue, subscriptions, and startup-level business signals
-- `SimilarWeb` is primary for traffic, channel, country, and keyword interpretation
-- `OpenRouter -> perplexity/sonar-pro-search` is used for competitor discovery only
-- official competitor sites and pricing pages are the source of truth for product and pricing claims
-- `Trustpilot`, `Reddit`, and `X` are bounded voice-of-customer layers
+That means the real design problem is not just better agents.
+It is better:
 
-See:
+- ontology
+- workflows
+- role boundaries
+- tools and skills
+- quality gates
+- governance
+- observability
+- economics
 
-- `docs/research/README.md`
-- `docs/research/copyable-product-thesis.md`
-- `docs/research/research-execution-system.md`
-- `docs/research/contracts/intake-and-handoffs.md`
-- `docs/templates/research/trustmrr-sourcing-batch.md`
-- `docs/templates/research/idea-card.md`
-- `docs/templates/research/competitor-evidence-card.md`
+## Current State
 
-## Package Contract
+This repository should be read as an **early design project with uneven module maturity**.
 
-Import-safe layer:
+The strongest module today is `Research`.
+Other parts of the company are present, but less deeply worked through.
 
-- `COMPANY.md`
-- `paperclip.manifest.json`
-- `.paperclip.yaml`
-- stable agent identities in `agents/*/AGENTS.md`
+See the full maturity map in [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md).
 
-Richer bootstrap layer:
+## Current Strongest Module: Research
 
-- `agents/*/{SOUL,HEARTBEAT,TOOLS}.md`
-- `teams/*/TEAM.md`
-- vendored `skills/`
-- `docs/playbooks/`
-- `docs/readiness/`
-- `docs/handoffs/`
-- `docs/migration/`
+Research is the most developed reference module in the repo.
 
-## Detailed Org Scope
+It already has:
 
-- Product Launch is now separate from Marketing, Engineering, and Support.
-- Marketing has its own top-level manager: `CMO`.
-- Engineering has its own top-level manager: `VP of Engineering`.
-- Support is a standalone team under `Support Lead`.
-- Research and Studio Ops remain separate.
+- a shared `Idea Card` model
+- specialist role decomposition
+- source hierarchy and review discipline
+- machine-readable decision reasons
+- historical memory surfaces
+- an explicit venture-selection doctrine, including structured `value delta`
 
-## Vendored Skill Strategy
+Start here:
 
-This package now vendors selected local skills from four sources:
+- [Research Module](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
+- [Copyable Product Thesis](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/copyable-product-thesis.md)
+- [Research Execution System](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/research-execution-system.md)
+- [Idea Card Template](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates/research/idea-card.md)
 
-- `agency-agents` for role topology and deliverable-first prompt shape
-- `pm-skills` for PM, GTM, marketing, research, and support frameworks
-- `superpowers` for engineering execution discipline
-- `gstack` for engineering review, QA, release, and security pipeline
+## Start Here
 
-The base operating skills `paperclip`, `paperclip-create-agent`, `paperclip-knowledge`, and `para-memory-files` are runtime-provided and must resolve from the live Paperclip environment after import. They are intentionally not vendored in this repository, because name-matched local copies create import-time shadow skills and bind agents to the wrong runtime surface. For gstack-derived engineering skills, the local `SKILL.md` files in this repo are the source of truth; upstream templates remain lineage only.
+If you are a founder, operator, or venture-studio person:
 
-## Secret And Credential Model
+- [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md)
+- [Operating Spec](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/operating-spec.md)
+- [Research Module](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
 
-`Paperclip Company Secrets` are the canonical source of truth for NoHum credentials.
+If you are a builder or contributor:
 
-Rules:
+- [CONTRIBUTING.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CONTRIBUTING.md)
+- [GOVERNANCE.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/GOVERNANCE.md)
+- [CODE_OF_CONDUCT.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CODE_OF_CONDUCT.md)
 
-- secret CRUD is board-only
-- raw values never live in prompts, docs, or repository files
-- agents receive only scoped runtime env via `secret_ref`
-- model auth for `codex_local` is host-managed and outside company secret scope
-- `OPENAI_API_KEY` is not part of the NoHum company-wide baseline secret set
-- `OPENROUTER_API_KEY` is not required for `codex_local`, but it is allowed as a company secret for research roles that explicitly use OpenRouter-backed discovery
-- a shipped venture may also use `OPENROUTER_API_KEY` in app runtime if the product itself uses LLM functionality
-- Railway app env vars are manual runtime copies, not the canonical origin
-- agent and policy wiring use layered aliases such as `PAYMENT_PROVIDER_API_KEY`, `ANALYTICS_API_KEY`, and `DEPLOY_PROVIDER_TOKEN`
+If you want the detailed package/runtime layer:
 
-See:
+- [COMPANY.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/COMPANY.md)
+- [Import Runbook](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/import-runbook.md)
+- [Paperclip Manifest](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/paperclip.manifest.json)
 
-- `docs/decisions/0004-secret-and-credential-architecture.md`
-- `docs/mcp-access-matrix.md`
-- `docs/server-post-import-checklist.md`
+## Contribution Model
 
-## Factory Default Stack
+The right way to contribute to NoHum is the same way you would contribute to open software:
 
-NoHum does not choose a fresh tech stack per venture. The default path is fixed to:
+- improve module contracts
+- tighten workflows
+- clarify ontology
+- improve templates and task surfaces
+- strengthen prompts and role boundaries
+- add evals, observability, and review rules
+- reduce ambiguity and hidden tribal knowledge
 
-- `Next.js 16`
-- `React 19.2`
-- `TypeScript`
-- `Tailwind CSS`
-- `Better Auth`
-- `PostgreSQL`
-- `Prisma`
-- `Railway`
-- `Lava.top`
-- `Plausible`
-- `Resend`
-- `pg-boss`
-- `Cloudflare R2`
-- `Sentry`
+The wrong way to contribute:
 
-When a subsystem is needed, the provider choice is fixed. A venture may diverge only through an explicit board exception before Gate B.
+- generic “super-agent” ideas
+- autonomy claims without ontology
+- vibes-only prompt tweaks
+- changes that blur governance boundaries
+- proposals that silently assume access to live runtime data, approvals, or secrets
 
-See:
+See [CONTRIBUTING.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CONTRIBUTING.md) for the contribution rules.
 
-- `docs/decisions/0005-factory-default-stack-and-mcp.md`
-- `docs/factory-default-stack.md`
-- `docs/mcp-access-matrix.md`
+## Public Collaboration Boundary
 
-## Import Policy
+This repository is for improving **how the company should work**.
 
-Default target is the existing live `NoHum Studio` company.
+It is not a place where the public directly governs:
 
-Safe migration path:
+- live venture selection
+- budget allocation
+- board approvals
+- production secrets
+- customer or payment operations
 
-1. replace only the exact-parity core agents:
-   - `ceo`
-   - `research-lead`
-   - `launch-lead`
-2. preview every non-core slug against the live company before import
-3. if a non-core slug already exists live, reconcile or update it in place instead of creating a duplicate
-4. import only absent non-core roles as new records and keep them paused until secrets, tools, and runtime instructions are wired
-
-If preview shows rename or duplicate behavior for any preexisting slug, stop the bulk import and switch to manual package-driven migration.
-
-## First Mandatory Post-Import Task
-
-Immediately after import, the CEO must run:
-
-- `tasks/bootstrap-company-access-and-secrets/TASK.md`
-
-This task exists so the imported roles can actually use the services already designed into the research stack.
-
-Day-1 research bring-up must wire:
-
-- `TRUSTMRR_API_KEY`
-- `APIFY_TOKEN`
-- `OPENROUTER_API_KEY`
-- `BRAVE_API_KEY`
-
-Do not start the first sourcing cycle until those services are wired to the roles that need them.
+Those boundaries are documented in [GOVERNANCE.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/GOVERNANCE.md).
 
 ## Repository Map
 
-- `agents/`: four-file bundle per role
-- `teams/`: team responsibility maps
-- `skills/`: vendored local skills plus NoHum overlays
-- `docs/research/`: research-module contracts, decisions, execution model, and thesis
-- `docs/team-skill-matrix.md`: team-level runtime and vendored skill policy
-- `docs/mcp-access-matrix.md`: tool, MCP, and secret policy by role
-- `docs/decisions/0004-secret-and-credential-architecture.md`: canonical secret and credential model
-- `docs/decisions/0005-factory-default-stack-and-mcp.md`: canonical product stack and MCP decision
-- `docs/factory-default-stack.md`: operational stack contract for default ventures
-- `docs/import-runbook.md`: package-driven import sequence
-- `docs/runbooks/company-access-and-secrets-bring-up.md`: how to wire imported roles to the services they already use
-- `docs/server-post-import-checklist.md`: server-side validation checklist
-- `docs/operating-cadence.md`: recurring manager operating cycle
-- `docs/automation/`: queue and venture transition surfaces
-- `docs/observability/`: factory health and hygiene rules
-- `docs/templates/`: canonical artifact templates for queue, venture, engineering, and operations
+- [agents/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/agents): role specs and manager prompts
+- [teams/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/teams): team structure
+- [tasks/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/tasks): runnable workflow units
+- [skills/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/skills): operational skills
+- [docs/research/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research): deepest current module
+- [docs/templates/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates): canonical artifacts
+- [docs/observability/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/observability): health, eval, and hygiene surfaces
+- [docs/automation/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/automation): transition-machine design
+
+## Runtime Target
+
+The current implementation target is `Paperclip`.
+
+This repo is designed to help shape:
+
+- company structure
+- agent roles
+- tasks
+- knowledge artifacts
+- governance surfaces
+- workflow execution logic
+
+inside a minimal-human company runtime.
+
+## Status
+
+NoHum is best understood today as:
+
+- early
+- ambitious
+- uneven
+- strongest in research
+- still opening the downstream company modules in public
+
+That is intentional.
+
+The goal is not to pretend the company is already solved.
+The goal is to build the operating system in public.
+
+## License
+
+This repository is licensed under the Apache License, Version 2.0.
+
+See [LICENSE](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/LICENSE).

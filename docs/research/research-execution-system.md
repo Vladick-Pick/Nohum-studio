@@ -44,7 +44,8 @@ See:
 4. `Competitor Scout` updates the competition section of that `Idea Card` and may attach supporting competitor evidence cards.
 5. `Demand Validator` updates the demand section of that `Idea Card` and may attach supporting traffic validation sheets or evidence-gap logs.
 6. `Revenue Validator` updates the monetization section of that `Idea Card` and records first-payment and `$5k MRR` reasoning in the same canonical document.
-7. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research decision: `KILL`, `KILL FOR NOW`, or `QUEUE`.
+7. `Research Lead` writes the `Selection Doctrine` section in the same canonical `Idea Card`, including the structured value-delta assessment and the explicit 11-point doctrine check.
+8. `Research Lead` reviews section quality, requests revisions when needed, and only then issues the final research decision: `KILL`, `KILL FOR NOW`, or `QUEUE`.
 
 ## Competition Review Discipline
 
@@ -124,12 +125,33 @@ It does not mean the business is attractive.
 - first-payment friction is explained
 - contradictions, unknowns, and false-precision risks are explicit
 
+## Selection Doctrine Review Discipline
+
+`Research Lead` reviews the `Selection Doctrine` section as a decision-grade synthesis layer.
+
+For `Selection Doctrine`, `PASS` means the doctrine assessment is complete enough to support the final research verdict.
+It does not mean the final verdict must be favorable.
+
+`Selection Doctrine` should usually be returned as `RETRY` when:
+
+- value delta is narrative-only and lacks a structured `status quo -> with-product workflow -> expected delta` comparison
+- doctrine criteria are marked without evidence refs or short rationale
+- conversion claims are stated as facts without clear `observed`, `inferred`, or `assumed` labeling
+- doctrine checklist counts do not match criterion statuses
+
+`Selection Doctrine` should be treated as reviewable only when:
+
+- the shared 11-point doctrine is assessed explicitly inside the canonical `Idea Card`
+- the value-delta block covers time, money, risk, cognitive load, and emotional load where evidence allows
+- unresolved doctrine contradictions are called out explicitly
+- missing doctrine evidence is marked as `inconclusive` rather than silently passed
+
 ## Agent Execution Matrix
 
 | Agent | Primary job | Mandatory NoHum skills | Primary tools | Runtime access | Required outputs |
 |---|---|---|---|---|---|
 | `Idea Scout` | TrustMRR sourcing batches and rough first-pass screening | `venture-policy`, `research-source-registry`, `research-trustmrr-sourcing` | `paperclip`, `paperclip-knowledge`, browser research | `TRUSTMRR_API_KEY`, `APIFY_TOKEN`, host-managed model auth | TrustMRR sourcing batch, duplicate notes, shortlist-ready candidate rows |
-| `Research Lead` | intake, specialist review, queue quality, final verdict | `venture-policy`, `research-scorecard`, `research-trustmrr-intake`, `research-source-registry`, `research-evidence-fallbacks`, `research-canonical-package`, `research-competitor-analysis`, `research-demand-validation`, `research-revenue-validation` | `paperclip`, `paperclip-knowledge`, browser research, optional memory | `BRAVE_API_KEY`, host-managed model auth | per-idea `Idea Card`, research routing notes, section review comments, scorecard, decision log, queue recommendation |
+| `Research Lead` | intake, specialist review, doctrine assessment, queue quality, final verdict | `venture-policy`, `research-scorecard`, `research-trustmrr-intake`, `research-source-registry`, `research-evidence-fallbacks`, `research-canonical-package`, `research-competitor-analysis`, `research-demand-validation`, `research-revenue-validation` | `paperclip`, `paperclip-knowledge`, browser research, optional memory | `BRAVE_API_KEY`, host-managed model auth | per-idea `Idea Card`, doctrine assessment, research routing notes, section review comments, scorecard, decision log, queue recommendation |
 | `Competitor Scout` | direct competitor discovery and category proof | `venture-policy`, `research-scorecard`, `research-source-registry`, `research-competitor-discovery`, `research-competitor-analysis`, `competitor-analysis` | browser research, `paperclip`, `paperclip-knowledge` | `OPENROUTER_API_KEY`, `APIFY_TOKEN`, optional `BRAVE_API_KEY` | competition section updates inside the `Idea Card`, supporting competitor evidence cards when needed |
 | `Demand Validator` | demand-class proof and ambiguity control | `venture-policy`, `research-scorecard`, `research-source-registry`, `research-demand-validation`, `research-traffic-validation`, `research-evidence-fallbacks` | browser research, `paperclip`, `paperclip-knowledge`, optional analytics read when a concrete datasource exists | `APIFY_TOKEN`, optional `BRAVE_API_KEY` | demand section updates inside the `Idea Card`, supporting traffic validation or ambiguity notes when needed |
 | `Revenue Validator` | monetization reality and first-payment path | `venture-policy`, `research-scorecard`, `research-source-registry`, `research-revenue-validation`, `research-evidence-fallbacks`, `pricing-strategy`, `monetization-strategy` | browser research, `paperclip`, `paperclip-knowledge` | `BRAVE_API_KEY` | monetization section updates inside the `Idea Card`, supporting pricing and economics notes when needed |
@@ -157,7 +179,8 @@ Research must move through these artifacts in order:
 3. specialist section updates inside that `Idea Card`
 4. supporting evidence cards or validation sheets when needed
 5. evidence gap log when proof is incomplete
-6. final decision block inside the same `Idea Card`, populated only after specialist review
+6. `Selection Doctrine` section inside the same `Idea Card`
+7. final decision block inside the same `Idea Card`, populated only after specialist review and doctrine review
 
 If the next owner cannot act from the artifact alone, the handoff is incomplete.
 

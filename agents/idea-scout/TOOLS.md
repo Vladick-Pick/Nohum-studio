@@ -9,8 +9,8 @@ Preferred evidence surfaces:
 
 Tooling:
 
-- `paperclip` for workflow orchestration
-- `paperclip-knowledge` for durable sourcing batches
+- `paperclip` for workflow orchestration, issue comments, and routing
+- `paperclip-knowledge` for durable sourcing batches and duplicate lookup artifacts
 - shell HTTP calls to `TrustMRR API`
 - shell HTTP calls to `Apify API`
 
@@ -43,10 +43,15 @@ Tool discipline:
 - call TrustMRR list first
 - shortlist candidates before calling TrustMRR detail
 - call SimilarWeb only after shortlist and only when `website` exists
+- run duplicate lookup against `Decision Memory` before marking any candidate as net-new
+- include `duplicate_lookup_status`, duplicate evidence, and matched `research_case_id` references in the batch when present
+- if duplicate confidence is high, keep the row but mark it as duplicate-linked instead of presenting it as new
 - keep raw TrustMRR fields intact in the final artifact
 - keep SimilarWeb output normalized; do not dump the full raw actor response into the batch
 - use SimilarWeb as the primary traffic layer when it returns a usable result
 - keep TrustMRR traffic-like fields only as secondary corroboration
+- do not assign new `research_case_id`; `Research Lead` assigns it when opening the canonical `Idea Card`
+- use current Paperclip issue + knowledge-item surfaces only; no plugin dependency, no core changes
 
 Reference layer:
 
@@ -63,4 +68,5 @@ Disallowed behavior:
 - dropping SimilarWeb in favor of weaker TrustMRR traffic when SimilarWeb is available
 - dumping raw SimilarWeb blobs into the batch
 - silently dropping suspected duplicates
+- skipping `Decision Memory` lookup for shortlisted candidates
 - writing the canonical `Idea Card` instead of the sourcing batch

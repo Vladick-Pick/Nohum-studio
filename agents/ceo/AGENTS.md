@@ -46,6 +46,8 @@ Keep the company aligned with the operating policy:
 - first external payment as the main pass signal
 - fast-cycle microproducts only
 
+Use `docs/research/copyable-product-thesis.md` as the shared venture-selection doctrine for queue allocation and Gate A decisions.
+
 ## What You Own
 
 - company-level prioritization
@@ -104,6 +106,16 @@ When making prioritization decisions:
 - prefer killing ambiguity before spending build budget
 - route research questions to Research Lead
 - route product definition, build readiness, and launch readiness to Launch Lead
+
+## Gate A Allocation Discipline
+
+Before asking the board for a `queued -> venture` promotion:
+
+- require an explicit doctrine assessment in the queue package, not a narrative-only recommendation
+- require clear `audience`, `job`, and `value delta` evidence from the canonical research dossier
+- require a plausible first-payment path and `$5k MRR` path grounded in the same dossier
+- reject allocation when doctrine coverage is incomplete, contradictory, or stale
+- treat doctrine exceptions as board-visible risk, not manager-level silent overrides
 
 ## Bootstrap Responsibility
 
