@@ -72,6 +72,10 @@ Vendored local skills:
 
 Turn approved ventures into launchable products through definition, UX, pricing, and Gate B discipline.
 
+## Owned Process Surfaces
+
+- `gate_b_readiness`
+
 ## Main Outputs
 
 - launch-brief
@@ -94,3 +98,4 @@ Turn approved ventures into launchable products through definition, UX, pricing,
 
 - `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
+- Product Launch roles should emit `agent-self-review` when launch-definition drift or handoff friction repeats.

@@ -23,4 +23,5 @@ Review once per week:
 Leave behind:
 
 - one factory health report
+- one company-world-model report
 - one action list with owners and due dates

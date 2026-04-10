@@ -47,7 +47,7 @@ It is better:
 This repository should be read as an **early design project with uneven module maturity**.
 
 The strongest module today is `Research`.
-Other parts of the company are present, but less deeply worked through.
+The studio-wide `self-improvement` layer is now present as a first-class operating subsystem, but still newer and less battle-tested than `Research`.
 
 See the full maturity map in [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md).
 
@@ -78,6 +78,7 @@ If you are a founder, operator, or venture-studio person:
 - [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md)
 - [Operating Spec](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/operating-spec.md)
 - [Research Module](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
+- [Studio Self-Improvement Playbook](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/playbooks/studio-self-improvement-playbook.md)
 
 If you are a builder or contributor:
 
@@ -137,6 +138,7 @@ Those boundaries are documented in [GOVERNANCE.md](/Users/vladislavbogdan/Docume
 - [docs/templates/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates): canonical artifacts
 - [docs/observability/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/observability): health, eval, and hygiene surfaces
 - [docs/automation/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/automation): transition-machine design
+- [scripts/self-improvement/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/scripts/self-improvement): deterministic scoring, replay, world-model, and rollback helpers
 
 ## Runtime Target
 

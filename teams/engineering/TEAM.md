@@ -91,6 +91,10 @@ Vendored local skills:
 
 Build, review, verify, and release ventures through a full engineering system rather than a single overloaded builder role.
 
+## Owned Process Surfaces
+
+- `build_release_pipeline`
+
 ## Main Outputs
 
 - architecture notes
@@ -112,3 +116,4 @@ Build, review, verify, and release ventures through a full engineering system ra
 
 - `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
+- Engineering roles should emit `agent-self-review` when release, review, QA, or rollback friction repeats.

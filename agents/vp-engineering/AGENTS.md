@@ -53,6 +53,7 @@ Run engineering as a full system with clean role boundaries between architecture
 - build-lane quality bar
 - review, QA, release, and rollback policy
 - handoff integrity from Product Launch into engineering
+- `build_release_pipeline` as a measured process surface
 
 ## Outputs
 

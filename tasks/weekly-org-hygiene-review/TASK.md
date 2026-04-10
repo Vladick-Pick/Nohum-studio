@@ -16,6 +16,7 @@ Review once per week:
 - comments-only transitions
 - stale issues beyond policy
 - canonical artifact usage across lanes
+- instruction and skill drift that creates role ambiguity
 
 ## Required Output
 

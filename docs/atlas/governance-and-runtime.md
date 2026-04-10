@@ -24,13 +24,16 @@ flowchart TD
   CEO["CEO"] --> WIP["WIP Discipline"]
   CEO --> HIRE["Hiring Requests"]
   CEO --> PRI["Company Prioritization"]
+  CEO --> XSF["Cross-Surface Approvals"]
 
   COS["Chief of Staff"] --> ORG["Org Health"]
   COS --> ESC["Escalation Routing"]
   COS --> CAD["Operating Cadence"]
+  COS --> IMP["Improvement Backlog"]
 
   AM["Agent Mechanic"] --> REL["Reliability Failures"]
   AM --> CFG["Prompt / Runtime / Workspace Fixes"]
+  AM --> MUT["Approved Mutations / Rollbacks"]
 ```
 
 ## Runtime Rule
@@ -55,8 +58,8 @@ Every mature agent should eventually have:
   - `LIVE`
   - full four-file bundle present
 - `Agent Mechanic`
-  - `LIVE / PARTIAL`
-  - only `AGENTS.md` present today
+  - `LIVE`
+  - full four-file bundle present
 - `Research Lead`
   - `LIVE`
   - full four-file bundle expected
@@ -72,3 +75,5 @@ Every mature agent should eventually have:
 - payment ambiguity never guessed
 - no major hidden state
 - no agent should depend on a single monolithic prompt forever
+- direct production self-editing by agents is not a default runtime permission
+- self-improvement promotion uses AI-by-default routing with human boundaries only on governance-sensitive cases

@@ -1,5 +1,5 @@
 schema: paperclip/v1
-description: Bootstrap runtime defaults for NoHum Studio v1.5 detailed-core org package.
+description: Bootstrap runtime defaults for NoHum Studio v1.6 detailed-core org package.
 
 company:
   budgetMonthlyCents: 650000
@@ -8,7 +8,7 @@ agents:
   ceo:
     role: "ceo"
     icon: "crown"
-    capabilities: "Owns venture factory policy, WIP, budget headroom, gate approvals, and executive manager coordination."
+    capabilities: "Owns venture factory policy, WIP, budget headroom, gate approvals, executive manager coordination, and governance-sensitive self-improvement approvals."
     reportsTo: null
     adapter:
       type: codex_local
@@ -27,7 +27,7 @@ agents:
   chief-of-staff:
     role: "pm"
     icon: "target"
-    capabilities: "Owns cadence, blocked-work triage, cross-team sequencing, and operating review preparation."
+    capabilities: "Owns cadence, blocked-work triage, cross-team sequencing, company world model synthesis, and fleet-level self-improvement ranking."
     reportsTo: "ceo"
     adapter:
       type: codex_local
@@ -46,7 +46,7 @@ agents:
   agent-mechanic:
     role: "devops"
     icon: "wrench"
-    capabilities: "Owns runtime, prompt, tool, and workspace reliability failures plus preventive fixes."
+    capabilities: "Owns runtime, prompt, tool, and workspace reliability failures plus preventive fixes, approved mutations, and rollback execution."
     reportsTo: "chief-of-staff"
     adapter:
       type: codex_local

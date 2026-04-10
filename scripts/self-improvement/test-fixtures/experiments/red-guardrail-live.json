@@ -1,0 +1,27 @@
+{
+  "baseline_version": "research-routing-v1",
+  "candidate_version": "research-routing-v3",
+  "company_world_model_conflict": false,
+  "customer_world_model_conflict": false,
+  "experiment_id": "exp-002",
+  "guardrails": [
+    {
+      "name": "customer_harm_rate",
+      "status": "red"
+    }
+  ],
+  "primary_metric": {
+    "baseline": 0.54,
+    "candidate": 0.71,
+    "higher_is_better": true,
+    "improvement_min": 0.01,
+    "name": "queue_quality_score"
+  },
+  "promoted_artifact_targets": [
+    "agents/research-lead/AGENTS.md"
+  ],
+  "requires_human_boundary": false,
+  "ring": "limited_live",
+  "risk_class": "medium",
+  "surface_id": "research_queue_quality"
+}

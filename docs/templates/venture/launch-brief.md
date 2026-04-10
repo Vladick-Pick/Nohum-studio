@@ -9,3 +9,6 @@
 - payment flow
 - measurement plan
 - support expectations
+- initial customer-world-model hypotheses
+- primary launch surface
+- launch guardrails

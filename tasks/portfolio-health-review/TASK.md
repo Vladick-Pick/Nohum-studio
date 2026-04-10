@@ -16,3 +16,4 @@ For each portfolio asset, review:
 - support burden
 - incidents
 - next decision: keep, grow, or retire
+- customer-world-model delta

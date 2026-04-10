@@ -74,6 +74,10 @@ Vendored local skills:
 
 Source venture candidates, prove direct evidence, and hand off only decision-grade queue packages.
 
+## Owned Process Surfaces
+
+- `research_queue_quality`
+
 ## Operating State
 
 ### Current State
@@ -111,3 +115,4 @@ Source venture candidates, prove direct evidence, and hand off only decision-gra
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
 - Research-local contracts override generic handoff language where needed. Use `docs/research/contracts/intake-and-handoffs.md` for research semantics.
 - Shared substrate and research contracts are mandatory for all research roles, including `Idea Scout`.
+- Research roles should emit `agent-self-review` when evidence quality, queue freshness, or routing repeatedly degrade.

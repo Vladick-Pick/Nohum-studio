@@ -11,6 +11,7 @@ Each delegation must define:
 - required output artifact
 - SLA or expected timing
 - escalation owner
+- target `process_surface` when the work is an improvement or mutation
 
 ## Contracts
 
@@ -24,6 +25,18 @@ Each delegation must define:
 | `VP of Engineering` | Gate B packet approved and repo/build lane should open | engineering and QA specialists | implementation plan, review verdict, QA verdict, release readiness pack | same operating day once substrate is ready | `Launch Lead` and `CEO` when build substrate is not ready |
 | `Support Lead` | release candidate approaches launch or live support load changes materially | support responders and feedback specialists | support readiness map, escalation packet, weekly support report | within 24 hours before launch traffic ramps; same day for critical escalations | `CEO` when support burden threatens portfolio quality |
 | `Agent Mechanic` | repeated runtime failure, failing recurring task, or config drift is detected | relevant failing role owner or infra specialist | runtime audit note, remediation packet, reroute note | within 4 hours for blocking runtime failures, same day otherwise | `Chief of Staff` for sequencing issues, `CEO` for policy or budget changes |
+
+## Self-Improvement Delegation
+
+Experiments are first-class delegation units.
+
+When a manager delegates a process mutation or evaluation run, the required artifact is:
+
+- `docs/templates/operations/process-experiment-record.md`
+
+When an agent proposes a change to its own harness, the required artifact is:
+
+- `docs/templates/operations/agent-self-review.md`
 
 ## Rule
 

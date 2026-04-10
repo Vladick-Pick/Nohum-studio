@@ -7,5 +7,8 @@
 - comments-only transition incidents
 - stale issues beyond policy
 - canonical artifact drift
+- instruction drift
+- skill drift
+- candidate process surfaces
 - actions opened
 - escalation owner

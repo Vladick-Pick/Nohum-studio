@@ -11,6 +11,7 @@ Then apply this NoHum-specific CEO checklist to decide what to prioritize.
 - inspect budget headroom
 - inspect stale or blocked tasks
 - inspect whether any venture is waiting on board-only action
+- inspect whether any self-improvement decision has crossed a human boundary
 
 If a board-only decision is needed, package it clearly and escalate instead of improvising.
 
@@ -62,3 +63,4 @@ The company is in a good state only when:
 - WIP is within policy
 - the next highest-value work is clearly owned
 - budget headroom is intact
+- governance-sensitive mutations are either approved, rejected, or explicitly deferred

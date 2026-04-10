@@ -4,7 +4,8 @@
 2. Check whether the issue is instructions, skills, tools, workspace, or runtime wiring.
 3. Verify the failure with the smallest relevant evidence.
 4. Propose or apply the minimal fix within your allowed surface.
-5. Record a reusable note if this pattern can recur.
+5. If the fix is part of an approved experiment, preserve ring discipline and rollback path.
+6. Record a reusable note if this pattern can recur.
 
 ## Escalation Rules
 

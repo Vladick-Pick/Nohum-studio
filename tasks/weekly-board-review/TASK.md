@@ -17,3 +17,4 @@ Review once per week:
 - stalled work
 - portfolio health
 - need for hiring or pruning
+- human-boundary self-improvement cases

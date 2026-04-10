@@ -43,6 +43,12 @@ Vendored local skills:
 
 Protect operating cadence, runtime reliability, migration safety, and instruction quality while the org evolves.
 
+## Owned Process Surfaces
+
+- `agent_harness_quality`
+- `skill_instruction_quality`
+- `runtime_reliability`
+
 ## Main Outputs
 
 - operating reviews
@@ -63,3 +69,4 @@ Protect operating cadence, runtime reliability, migration safety, and instructio
 
 - `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
+- Every active role in the company may emit `agent-self-review`; Studio Ops owns intake, ranking, and implementation for those changes.

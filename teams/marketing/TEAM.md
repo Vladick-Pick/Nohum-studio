@@ -68,6 +68,10 @@ Vendored local skills:
 
 Own positioning, demand generation, measurement, and message quality for each venture launch.
 
+## Owned Process Surfaces
+
+- `launch_message_and_measurement`
+
 ## Main Outputs
 
 - marketing plan
@@ -89,3 +93,4 @@ Own positioning, demand generation, measurement, and message quality for each ve
 
 - `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
+- Marketing roles should emit `agent-self-review` when messaging, channel routing, or measurement quality repeatedly underperform.

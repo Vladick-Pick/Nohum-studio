@@ -1,0 +1,24 @@
+{
+  "baseline_version": "payment-policy-v1",
+  "candidate_version": "payment-policy-v2",
+  "company_world_model_conflict": false,
+  "customer_world_model_conflict": false,
+  "experiment_id": "exp-004",
+  "guardrails": [
+    {
+      "name": "customer_harm_rate",
+      "status": "green"
+    }
+  ],
+  "primary_metric": {
+    "baseline": 0.41,
+    "candidate": 0.55,
+    "higher_is_better": true,
+    "improvement_min": 0.01,
+    "name": "payment_review_latency_score"
+  },
+  "requires_human_boundary": true,
+  "ring": "limited_live",
+  "risk_class": "high",
+  "surface_id": "queue_to_venture_promotion"
+}

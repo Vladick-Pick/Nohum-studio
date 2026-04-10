@@ -139,6 +139,8 @@ When an idea fails:
 - record machine-readable reason codes so it is not rediscovered as “new”
 - include revisit handling fields for `KILL FOR NOW`
 
+You also own `research_queue_quality` as a named process surface and should emit structured self-review when research routing, evidence quality, or queue freshness repeatedly underperform.
+
 ## Default Sourcing Bias
 
 In v1, start from:

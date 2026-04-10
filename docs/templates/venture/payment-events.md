@@ -12,3 +12,5 @@ Append-only fields:
 - occurred at
 - review state
 - evidence link
+- payment interpretation
+- customer outcome note

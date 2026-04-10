@@ -46,6 +46,8 @@ NoHum skill policy is now explicit: role ownership lives in the org structure, r
 - If an upstream skill conflicts with local runtime reality, adapt or quarantine it before calling it package-ready.
 - If a local skill becomes outdated, either refresh it from source lineage or remove it from the team matrix. Do not leave dead references.
 - Cross-team handoffs must point to canonical artifacts generated under these skill contracts.
+- skill and instruction changes are part of the studio self-improvement loop and must be tied to a named `process_surface`, experiment record, and promotion decision
+- self-review is encouraged for every active agent, but direct production self-editing is not part of the default contract
 
 ## Factory Stack Coupling
 

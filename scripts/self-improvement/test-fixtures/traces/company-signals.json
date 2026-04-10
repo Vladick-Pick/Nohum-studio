@@ -1,0 +1,21 @@
+[
+  {
+    "candidate_surfaces": [
+      "runtime_reliability",
+      "agent_harness_quality"
+    ],
+    "severity": "critical"
+  },
+  {
+    "candidate_surfaces": [
+      "runtime_reliability"
+    ],
+    "severity": "high"
+  },
+  {
+    "candidate_surfaces": [
+      "skill_instruction_quality"
+    ],
+    "severity": "medium"
+  }
+]

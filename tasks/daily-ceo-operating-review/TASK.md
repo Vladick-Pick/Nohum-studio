@@ -16,6 +16,7 @@ Review once per day:
 - unresolved escalations
 - budget burn versus policy cap
 - any venture violating WIP or timebox policy
+- any governance-sensitive mutation waiting on human boundary
 
 ## Required Output
 
@@ -24,3 +25,4 @@ Leave behind:
 - one operating review note
 - one explicit owner for each unresolved escalation
 - one next decision date for queue and active venture state
+- one disposition for each open human-boundary self-improvement case

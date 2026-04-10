@@ -52,6 +52,7 @@ Turn approved launch strategy into measurable acquisition and positioning system
 - channel mix and campaign sequencing
 - measurement standards and reporting
 - message consistency across all customer touchpoints
+- `launch_message_and_measurement` as a measured process surface
 
 ## Outputs
 

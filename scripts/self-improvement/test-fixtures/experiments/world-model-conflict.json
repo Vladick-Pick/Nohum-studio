@@ -1,0 +1,24 @@
+{
+  "baseline_version": "support-routing-v1",
+  "candidate_version": "support-routing-v2",
+  "company_world_model_conflict": false,
+  "customer_world_model_conflict": true,
+  "experiment_id": "exp-003",
+  "guardrails": [
+    {
+      "name": "customer_harm_rate",
+      "status": "green"
+    }
+  ],
+  "primary_metric": {
+    "baseline": 0.38,
+    "candidate": 0.47,
+    "higher_is_better": true,
+    "improvement_min": 0.01,
+    "name": "support_signal_latency_score"
+  },
+  "requires_human_boundary": false,
+  "ring": "limited_live",
+  "risk_class": "medium",
+  "surface_id": "support_triage_and_feedback"
+}

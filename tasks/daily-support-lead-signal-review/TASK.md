@@ -22,3 +22,4 @@ Leave behind:
 
 - one support signal summary
 - one escalation packet for each unresolved critical issue
+- one customer-world-model delta for support surfaces

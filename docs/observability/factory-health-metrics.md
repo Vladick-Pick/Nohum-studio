@@ -26,11 +26,23 @@ NoHum needs factory observability in addition to venture observability.
 | support burden | critical support escalations, unresolved incidents, or unclear owner state | no critical item may cross the day boundary without owner | `Support Lead` | `tasks/daily-support-lead-signal-review/TASK.md` |
 | budget burn versus cap | monthly spend against factory cap | must remain within policy unless board override exists | `CEO` | `tasks/weekly-board-review/TASK.md` |
 | org hygiene drift | reporting-line drift, duplicate roles, or comments-only transitions | any critical drift becomes weekly action item | `Chief of Staff` | `tasks/weekly-org-hygiene-review/TASK.md` |
+| `time_to_first_valid_payment` | elapsed time from queue or build start to the first `valid` external payment | primary studio control metric | `CEO` | `tasks/weekly-board-review/TASK.md` |
+| `cost_per_valid_payment` | studio spend divided by valid payments created during the same review window | rising trend triggers allocation review | `CEO` | `tasks/weekly-board-review/TASK.md` |
+| `rollback_rate` | share of limited-live process experiments ending in `revert` | `> 0.25` over rolling `4w` triggers mutation-space review | `Chief of Staff` | `tasks/weekly-self-improvement-review/TASK.md` |
+| `customer_harm_rate` | share of experiments that tripped customer-facing red guardrails | any weekly spike triggers boundary review | `Chief of Staff` | `tasks/weekly-self-improvement-review/TASK.md` |
+| `human_boundary_invocations` | count of experiments routed to human-only approval | rising without clear cause triggers policy review | `CEO` | `tasks/weekly-board-review/TASK.md` |
+| `runtime_drift` | confirmed drift between package intent and live runtime configuration | any critical drift triggers remediation | `Agent Mechanic` | `tasks/daily-agent-mechanic-runtime-audit/TASK.md` |
+| `agent_self_review_coverage` | share of active agents with a recent self-review or explicit no-change note | `< 0.90` over rolling `14d` triggers cadence correction | `Chief of Staff` | `tasks/weekly-self-improvement-review/TASK.md` |
+| `experiment_memory_write_rate` | share of completed experiments written to registry with a final decision | must stay `= 1.0` | `Agent Mechanic` | `tasks/weekly-self-improvement-failed-experiment-audit/TASK.md` |
 
 ## Report Surfaces
 
 - `docs/templates/operations/factory-health-report.md`
 - `docs/templates/operations/org-hygiene-report.md`
+- `docs/templates/operations/company-world-model-report.md`
+- `docs/templates/operations/customer-world-model-report.md`
+- `docs/templates/operations/process-experiment-record.md`
+- `docs/templates/operations/promotion-decision.md`
 
 ## Rule
 

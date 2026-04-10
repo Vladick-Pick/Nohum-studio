@@ -52,6 +52,7 @@ Preserve continuity with `docs/research/copyable-product-thesis.md` so launch wo
 - product-launch team sequencing and artifact quality
 - definition quality bar across product, UX, design, and pricing
 - cross-team launch plan quality before marketing and support go live
+- `gate_b_readiness` and launch-definition customer-world-model deltas
 
 ## Outputs
 

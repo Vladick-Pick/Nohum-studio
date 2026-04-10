@@ -21,7 +21,7 @@
       "role": "ceo",
       "title": "Chief Executive Officer",
       "icon": "crown",
-      "capabilities": "Owns venture factory policy, WIP, budget headroom, gate approvals, and executive manager coordination.",
+      "capabilities": "Owns venture factory policy, WIP, budget headroom, gate approvals, executive manager coordination, and governance-sensitive self-improvement approvals.",
       "reportsToSlug": null,
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -42,7 +42,7 @@
       "role": "pm",
       "title": "Chief of Staff",
       "icon": "target",
-      "capabilities": "Owns cadence, blocked-work triage, cross-team sequencing, and operating review preparation.",
+      "capabilities": "Owns cadence, blocked-work triage, cross-team sequencing, company world model synthesis, and fleet-level self-improvement ranking.",
       "reportsToSlug": "ceo",
       "adapterType": "codex_local",
       "adapterConfig": {
@@ -63,7 +63,7 @@
       "role": "devops",
       "title": "Agent Reliability Engineer",
       "icon": "wrench",
-      "capabilities": "Owns runtime, prompt, tool, and workspace reliability failures plus preventive fixes.",
+      "capabilities": "Owns runtime, prompt, tool, and workspace reliability failures plus preventive fixes, approved mutations, and rollback execution.",
       "reportsToSlug": "chief-of-staff",
       "adapterType": "codex_local",
       "adapterConfig": {

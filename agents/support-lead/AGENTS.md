@@ -45,6 +45,7 @@ Convert post-launch customer contact into structured operating signal instead of
 - support readiness before launch
 - cross-team feedback loop quality
 - support load visibility after launch
+- `support_triage_and_feedback` as a measured process surface
 
 ## Outputs
 

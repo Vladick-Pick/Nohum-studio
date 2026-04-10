@@ -11,4 +11,6 @@
 - substrate readiness debt
 - support burden summary
 - budget burn summary
+- company-world-model delta
+- candidate process surfaces
 - actions opened

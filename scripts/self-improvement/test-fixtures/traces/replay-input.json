@@ -1,0 +1,20 @@
+[
+  {
+    "occurred_at": "2026-04-01T10:00:00Z",
+    "status": "failed",
+    "surface_id": "research_queue_quality",
+    "trace_id": "trace-001"
+  },
+  {
+    "occurred_at": "2026-04-01T11:00:00Z",
+    "status": "passed",
+    "surface_id": "research_queue_quality",
+    "trace_id": "trace-002"
+  },
+  {
+    "occurred_at": "2026-04-01T12:00:00Z",
+    "status": "passed",
+    "surface_id": "support_triage_and_feedback",
+    "trace_id": "trace-003"
+  }
+]

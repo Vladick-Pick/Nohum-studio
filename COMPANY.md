@@ -4,7 +4,7 @@ name: NoHum Studio
 description: AI-only venture factory import package for upgrading the live NoHum Studio runtime
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.5.0
+version: 1.6.0
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
@@ -67,6 +67,9 @@ includes:
   - tasks/portfolio-health-review/TASK.md
   - tasks/weekly-factory-health-review/TASK.md
   - tasks/weekly-org-hygiene-review/TASK.md
+  - tasks/weekly-self-improvement-review/TASK.md
+  - tasks/weekly-self-improvement-failed-experiment-audit/TASK.md
+  - tasks/weekly-skill-instruction-drift-review/TASK.md
   - teams/research/TEAM.md
   - teams/product-launch/TEAM.md
   - teams/marketing/TEAM.md
@@ -147,6 +150,7 @@ includes:
   - skills/writing-skills/SKILL.md
   - docs/decisions/0004-secret-and-credential-architecture.md
   - docs/decisions/0005-factory-default-stack-and-mcp.md
+  - docs/decisions/0006-studio-self-improvement-system.md
   - docs/factory-default-stack.md
   - docs/operating-spec.md
   - docs/operating-cadence.md
@@ -156,9 +160,14 @@ includes:
   - docs/automation/queue-to-venture-machine.md
   - docs/delegation/manager-delegation-contracts.md
   - docs/observability/factory-health-metrics.md
+  - docs/observability/process-surface-catalog.md
+  - docs/observability/self-improvement-metrics.md
+  - docs/observability/company-world-model.md
+  - docs/observability/customer-world-model.md
   - docs/observability/org-hygiene-checklist.md
   - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
+  - docs/atlas/self-improvement-machine.md
   - docs/research/README.md
   - docs/research/source-registry.md
   - docs/research/traffic-interpretation-bands.md
@@ -174,6 +183,12 @@ includes:
   - docs/templates/engineering/release-readiness-pack.md
   - docs/templates/engineering/repo-attach-record.md
   - docs/templates/operations/blocked-work-packet.md
+  - docs/templates/operations/process-surface-spec.md
+  - docs/templates/operations/process-experiment-record.md
+  - docs/templates/operations/agent-self-review.md
+  - docs/templates/operations/company-world-model-report.md
+  - docs/templates/operations/customer-world-model-report.md
+  - docs/templates/operations/promotion-decision.md
   - docs/templates/operations/factory-health-report.md
   - docs/templates/operations/org-hygiene-report.md
   - docs/templates/operations/reroute-note.md
@@ -197,6 +212,7 @@ includes:
   - docs/playbooks/build-playbook.md
   - docs/playbooks/launch-playbook.md
   - docs/playbooks/operate-feedback-playbook.md
+  - docs/playbooks/studio-self-improvement-playbook.md
   - docs/readiness/research-readiness.md
   - docs/readiness/gate-a-readiness.md
   - docs/readiness/gate-b-readiness.md
@@ -209,6 +225,7 @@ includes:
   - docs/handoffs/retry-fail-escalation.md
   - docs/import-runbook.md
   - docs/server-post-import-checklist.md
+  - docs/doctrine/obsidian-to-repo-map.md
   - docs/migration/v1-5-import-upgrade.md
 requirements:
   secrets: []

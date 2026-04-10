@@ -25,3 +25,4 @@ Leave behind:
 - one queue winner record update
 - one refresh, keep, or return recommendation
 - one registry-memory drift note with any required reconcile action
+- one customer-world-model delta for research surfaces

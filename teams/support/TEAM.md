@@ -48,6 +48,10 @@ Vendored local skills:
 
 Convert post-launch tickets, incidents, and customer contact into structured feedback and operating signal.
 
+## Owned Process Surfaces
+
+- `support_triage_and_feedback`
+
 ## Main Outputs
 
 - support readiness checklist
@@ -68,3 +72,4 @@ Convert post-launch tickets, incidents, and customer contact into structured fee
 
 - `teams/` remains a bootstrap/package layer; live runtime behavior must still be represented through reporting lines, artifacts, and skills.
 - Every cross-team handoff must point to a canonical artifact, never comments-only status.
+- Support roles should emit `agent-self-review` when escalation routing, synthesis quality, or feedback capture repeatedly degrade.

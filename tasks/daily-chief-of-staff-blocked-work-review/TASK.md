@@ -15,6 +15,7 @@ Review once per day:
 - ownerless cross-team work
 - missing receiving owner on handoffs
 - repeated sequencing failures
+- agent self-review signals that indicate coordination rather than reliability failure
 
 ## Required Output
 
@@ -22,3 +23,4 @@ Leave behind:
 
 - one blocked-work packet or reroute note per unresolved blocker
 - one escalation owner for anything not resolved the same day
+- one company-world-model delta

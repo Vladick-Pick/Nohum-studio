@@ -1,0 +1,32 @@
+{
+  "baseline_version": "research-routing-v1",
+  "candidate_version": "research-routing-v2",
+  "company_world_model_conflict": false,
+  "customer_world_model_conflict": false,
+  "experiment_id": "exp-001",
+  "guardrails": [
+    {
+      "name": "customer_harm_rate",
+      "status": "green"
+    },
+    {
+      "name": "runtime_drift",
+      "status": "green"
+    }
+  ],
+  "primary_metric": {
+    "baseline": 0.54,
+    "candidate": 0.68,
+    "higher_is_better": true,
+    "improvement_min": 0.01,
+    "name": "queue_quality_score"
+  },
+  "promoted_artifact_targets": [
+    "agents/research-lead/AGENTS.md",
+    "docs/research/contracts/intake-and-handoffs.md"
+  ],
+  "requires_human_boundary": false,
+  "ring": "limited_live",
+  "risk_class": "low",
+  "surface_id": "research_queue_quality"
+}

@@ -91,6 +91,36 @@ It is assigned when the canonical `Idea Card` opens and must appear in:
 - board participates 15-20 minutes daily
 - company budget hard cap: $1k per month with board override only
 
+## Studio Self-Improvement Policy
+
+Default rule:
+
+- `AI agents` perform recurring judgment and coordination work
+- deterministic scripts perform replay, scoring, registry updates, world-model snapshots, and rollback preparation
+- humans participate only on hard governance boundaries
+
+Studio control metric:
+
+- `time_to_first_valid_payment`
+
+Strategic north-star:
+
+- `time_from_queued_venture_to_stable_$5k_MRR`
+
+Studio guardrails:
+
+- `cost_per_valid_payment`
+- `rollback_rate`
+- `customer_harm_rate`
+- `human_boundary_invocations`
+- `runtime_drift`
+
+The self-improvement topology is:
+
+- `agent -> agent_self_review -> Chief of Staff selection -> Agent Mechanic mutation -> eval rings -> AI promotion or revert`
+
+Routine production self-editing by agents is not allowed.
+
 ## Canonical Product Stack
 
 Default-path ventures use:
@@ -143,6 +173,7 @@ CEO responsibilities:
 - coordinate Gate A and Gate B
 - wake and direct Research Lead and Launch Lead
 - escalate blocked decisions to board
+- approve cross-surface or governance-sensitive self-improvement changes
 
 CEO must not do deep research, build products, or run launch execution directly unless the company is degraded and board decides to run in emergency mode.
 
@@ -169,6 +200,76 @@ Launch Lead owns:
 - Gate B preparation
 - build and launch orchestration
 - feedback intake and first post-launch synthesis
+
+### Chief of Staff
+
+Chief of Staff owns:
+
+- company world model synthesis
+- improvement backlog ranking across teams
+- selection of low and medium risk process experiments
+- operating cadence for self-improvement
+- promotion decisions that do not cross human boundaries
+
+### Agent Mechanic
+
+Agent Mechanic owns:
+
+- runtime reliability
+- skill and instruction drift repair
+- implementation of approved process mutations
+- replay, rollback preparation, and experiment-memory write-back
+- reusable prevention notes for recurring failure patterns
+
+### Customer and Company World Models
+
+The studio keeps two derived world models:
+
+- `company_world_model`
+  - internal operating reality, blockers, capability gaps, debt, drift, and budget posture
+- `customer_world_model`
+  - market, launch, payment, activation, retention, and support reality
+
+They are derived from canonical artifacts. They do not replace canonical sources of truth.
+
+## Self-Improvement Contract
+
+### Canonical objects
+
+- `process_surface`
+- `process_experiment_record`
+- `agent_self_review`
+- `company_world_model`
+- `customer_world_model`
+- `promotion_decision`
+
+### Eval rings
+
+- `replay`
+- `shadow`
+- `limited_live`
+- `canonical`
+
+### Promotion decisions
+
+- `roll_out`
+- `continue_limited`
+- `discuss`
+- `do_not_roll_out`
+- `revert`
+
+### Human boundary rules
+
+Human approval is still required for:
+
+- legal changes
+- financial policy changes
+- credential or secret policy changes
+- irreversible external actions
+- company-policy changes
+- high-reputation or board-sensitive changes
+
+Governance-sensitive experiments may complete replay and live evaluation, but they may not promote themselves past the human boundary.
 
 ## Research Contract
 
