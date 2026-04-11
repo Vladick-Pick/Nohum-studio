@@ -1,0 +1,10 @@
+{
+  "decision": "roll_out",
+  "experiment_id": "exp-001-skill-instruction-quality",
+  "guardrail_interpretation": "all guardrails green",
+  "human_boundary_required": false,
+  "primary_metric_delta": 1,
+  "primary_metric_interpretation": "skill_reference_validation_accuracy moved from invalid baseline to correct candidate behavior",
+  "rollback_action": "not_required",
+  "surface_id": "skill_instruction_quality"
+}

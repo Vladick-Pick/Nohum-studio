@@ -172,6 +172,19 @@ export function buildRollbackPlan(decision, experiment) {
   };
 }
 
+export function runPilot(experiment, companySignals = []) {
+  const decision = decidePromotion(experiment);
+  const companyWorldModel = snapshotWorldModel("company", companySignals);
+  const rollback = buildRollbackPlan(decision, experiment);
+
+  return {
+    experiment,
+    decision,
+    company_world_model: companyWorldModel,
+    rollback,
+  };
+}
+
 export function ensureParentDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }

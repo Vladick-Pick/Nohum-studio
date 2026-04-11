@@ -1,0 +1,36 @@
+{
+  "baseline_version": "check-agent-skills-v1",
+  "candidate_version": "check-agent-skills-v2-runtime-allowlist",
+  "company_world_model_conflict": false,
+  "customer_world_model_conflict": false,
+  "experiment_id": "exp-001-skill-instruction-quality",
+  "guardrails": [
+    {
+      "name": "no_dead_local_skill_references_pass",
+      "status": "green"
+    },
+    {
+      "name": "runtime_base_skills_are_not_vendored",
+      "status": "green"
+    },
+    {
+      "name": "validator_remains_deterministic",
+      "status": "green"
+    }
+  ],
+  "primary_metric": {
+    "baseline": 0,
+    "candidate": 1,
+    "higher_is_better": true,
+    "improvement_min": 0,
+    "name": "skill_reference_validation_accuracy"
+  },
+  "promoted_artifact_targets": [
+    "scripts/check-agent-skills.mjs",
+    "docs/skill-policy.md"
+  ],
+  "requires_human_boundary": false,
+  "ring": "limited_live",
+  "risk_class": "low",
+  "surface_id": "skill_instruction_quality"
+}

@@ -168,6 +168,9 @@ includes:
   - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
   - docs/atlas/self-improvement-machine.md
+  - docs/experiments/self-improvement/exp-001-skill-instruction-quality.md
+  - docs/experiments/self-improvement/exp-001-promotion-decision.json
+  - docs/experiments/self-improvement/exp-001-company-world-model-delta.md
   - docs/research/README.md
   - docs/research/source-registry.md
   - docs/research/traffic-interpretation-bands.md

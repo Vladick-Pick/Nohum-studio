@@ -137,6 +137,7 @@ Those boundaries are documented in [GOVERNANCE.md](/Users/vladislavbogdan/Docume
 - [docs/research/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research): deepest current module
 - [docs/templates/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates): canonical artifacts
 - [docs/observability/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/observability): health, eval, and hygiene surfaces
+- [docs/experiments/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/experiments): self-improvement experiment memory
 - [docs/automation/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/automation): transition-machine design
 - [scripts/self-improvement/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/scripts/self-improvement): deterministic scoring, replay, world-model, and rollback helpers
 
