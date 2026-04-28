@@ -1,0 +1,33 @@
+---
+kind: task
+name: Run Market Proof Lite Batch
+description: Automated proof-lite checks for market-signal batches
+schema: agentcompanies/v1
+assignee: market-proof-analyst
+project: hypothesis-funnel
+---
+
+## Purpose
+
+Check whether market signals have enough buyer, competitor, pricing, channel,
+legal, and buildability evidence to become product bets.
+
+## Inputs
+
+- market-signal batch
+- source snapshots
+- Copyable Product Thesis
+
+## Steps
+
+1. Review each signal for buyer and job clarity.
+2. Run competitor and pricing scan.
+3. Run channel reality scan.
+4. Run legal/commercial boundary scan.
+5. Return proof status and confidence.
+
+## Required Output
+
+- market-proof-lite records
+- proof blockers
+- evidence refs

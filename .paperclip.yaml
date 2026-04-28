@@ -109,6 +109,138 @@ agents:
     notes:
       - Pause after import until TrustMRR batch output and reporting loop are wired.
       - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+  market-signal-scout:
+    role: "researcher"
+    icon: "radar"
+    capabilities: "Collects configured market-signal batches, normalizes them, and reports source access blockers for Product Bet Factory v0."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env:
+        TRUSTMRR_API_KEY:
+          kind: secret
+          requirement: optional
+        PRODUCT_HUNT_TOKEN:
+          kind: secret
+          requirement: optional
+        GITHUB_TOKEN:
+          kind: secret
+          requirement: optional
+        FIRECRAWL_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - Must return MISSING_ACCESS, APPROVAL_REQUIRED, or BLOCKED_BY_POLICY instead of asking humans to fill templates manually.
+  market-proof-analyst:
+    role: "researcher"
+    icon: "scan-search"
+    capabilities: "Runs bounded proof-lite checks for competitors, pricing, channel, legal boundaries, and buildability hints."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env:
+        BRAVE_API_KEY:
+          kind: secret
+          requirement: optional
+        FIRECRAWL_API_KEY:
+          kind: secret
+          requirement: optional
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - Cannot create product bets directly or approve Gate A, Gate B, build, launch, spend, outreach, or payment.
+  product-bet-compiler:
+    role: "pm"
+    icon: "file-check-2"
+    capabilities: "Compiles proof-backed signals into product bet cards, assumption maps, and interval EV bands."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env: {}
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - GATE_A_CANDIDATE remains a recommendation for existing Gate A governance review, not build approval.
+  pre-market-autoreasoner:
+    role: "researcher"
+    icon: "brain-circuit"
+    capabilities: "Hardens product bets through critique, variants, synthesis, and RAT-readiness judgment without external actions."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env: {}
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - Pre-market autoreason is hypothesis hardening, not market proof.
+  rat-designer:
+    role: "pm"
+    icon: "flask-conical"
+    capabilities: "Designs cheapest decision-changing RATs, scores payment proximity, and classifies execution readiness."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env: {}
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - Cannot send outreach, spend money, publish pages, or collect payment without explicit approval and configured access.
+  evidence-router:
+    role: "pm"
+    icon: "route"
+    capabilities: "Writes evidence events, routes product bet decisions, and produces Product Bet Factory learning reports."
+    reportsTo: "research-lead"
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.4
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+    budgetMonthlyCents: 5000
+    permissions:
+      canCreateAgents: false
+    inputs:
+      env: {}
+    notes:
+      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
+      - Keeps business outcomes separate from execution states and cannot approve Gate A, Gate B, build, launch, spend, outreach, or payment.
   competitor-scout:
     role: "researcher"
     icon: "telescope"
