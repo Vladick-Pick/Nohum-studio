@@ -5,6 +5,11 @@ description: Use when app, plugin, extension, template, or tool marketplaces are
 
 # Marketplace Market Signal Source
 
+## Purpose
+
+Collect marketplace, app, plugin, extension, or template listing signals when
+source terms and access allow it.
+
 ## Source Contract
 
 - `source_name`: `marketplace`
@@ -29,3 +34,12 @@ Preserve:
 
 Marketplace signals are demand and distribution hints, not proof of NoHum's
 ability to win the channel.
+
+## Readiness Contract
+
+- `inputs`: cycle context plus the upstream artifact named by this skill.
+- `outputs`: the artifact or execution state named by this skill.
+- `permission_boundary`: no spend, outreach send, public deploy, payment
+  collection, Gate A approval, Gate B approval, or build approval.
+- `checks`: required refs are present, blocked states are machine-readable, and
+  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.

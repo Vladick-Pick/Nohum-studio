@@ -5,6 +5,10 @@ description: Use when executing a safe competitor/pricing RAT for Product Bet Fa
 
 # Competitor Pricing RAT
 
+## Purpose
+
+Run a read-only competitor and pricing RAT when source access and policy allow.
+
 ## Allowed Action
 
 Read public competitor and pricing pages and record evidence snapshots.
@@ -21,3 +25,21 @@ Return `BLOCKED_BY_POLICY` when source terms prohibit automated access.
 - evidence event draft
 - pricing delta notes
 - confidence and freshness
+
+## Execution Status
+
+Return exactly one of:
+
+- `READY`
+- `MISSING_ACCESS`
+- `APPROVAL_REQUIRED`
+- `BLOCKED_BY_POLICY`
+
+## Readiness Contract
+
+- `inputs`: cycle context plus the upstream artifact named by this skill.
+- `outputs`: the artifact or execution state named by this skill.
+- `permission_boundary`: no spend, outreach send, public deploy, payment
+  collection, Gate A approval, Gate B approval, or build approval.
+- `checks`: required refs are present, blocked states are machine-readable, and
+  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.

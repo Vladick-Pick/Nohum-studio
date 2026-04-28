@@ -20,6 +20,11 @@ Summarize automated-cycle learning and blockers.
 - evidence events
 - decision updates
 
+## Preconditions
+
+- At least one cycle artifact or blocker report exists.
+- Decision updates or skipped-stage reasons are available.
+
 ## Required Output
 
 One learning report with:
@@ -33,3 +38,21 @@ One learning report with:
 - weakest or misleading evidence
 - recurring kill reasons
 - next-cycle changes
+
+## Idempotency
+
+Use one learning report per cycle ID. If rerun, append a correction note or
+write a superseding report.
+
+## Failure Modes
+
+- no artifacts and no blockers -> `RETRY`
+- missing stage summary -> include explicit gap
+- access blockers dominate cycle -> route to human governance for access decision
+
+## Acceptance Criteria
+
+- report includes source coverage, blockers, RAT execution states, decisions,
+  and next-cycle changes
+- report separates missing access from market evidence
+- report judges learning velocity, not artifact count

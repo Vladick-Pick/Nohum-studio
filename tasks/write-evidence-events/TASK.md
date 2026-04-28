@@ -19,6 +19,12 @@ states.
 - RAT execution results
 - blocked execution report
 
+## Preconditions
+
+- Proof, RAT, or blocked execution result exists.
+- Each result has source refs or blocker refs.
+- Evidence template exists.
+
 ## Steps
 
 1. Normalize each result with the evidence-event template.
@@ -29,3 +35,20 @@ states.
 ## Required Output
 
 - evidence events
+
+## Idempotency
+
+Use stable `evidence_event_id` values tied to cycle ID and source event. If
+rerun, append corrections as new evidence events.
+
+## Failure Modes
+
+- missing source ref -> `RETRY`
+- blocked execution without blocker reason -> `RETRY`
+- ambiguous payment signal -> escalate to CEO or board
+
+## Acceptance Criteria
+
+- every evidence event has source, metric, threshold, confidence, cost, and limitation
+- blocked execution states are not counted as market validation
+- every evidence event links back to a product bet or source blocker

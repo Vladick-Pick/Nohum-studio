@@ -17,6 +17,21 @@ tests, record evidence, route decisions, and write learning reports.
 
 Humans remain responsible for secrets, approvals, Gate A review, and override.
 
+## Inputs
+
+- cycle config
+- source adapter registry
+- tool access matrix
+- RAT execution boundaries
+- Product Bet Pilot templates
+
+## Preconditions
+
+- PR #3 Product Bet Pilot kernel is present.
+- Source adapter registry and tool access matrix are available.
+- New agents are imported or assigned by the Paperclip runtime.
+- New agents remain approval-bounded and cannot create agents.
+
 ## Cycle Config
 
 ```yaml
@@ -72,3 +87,22 @@ cycle_config:
 - evidence events
 - decision updates
 - learning report
+
+## Idempotency
+
+Use one cycle ID for the full graph. Each subtask must append new artifacts or
+superseding records rather than mutating prior cycle evidence.
+
+## Failure Modes
+
+- missing secrets -> source-specific `MISSING_ACCESS`
+- approval-gated action -> `APPROVAL_REQUIRED`
+- policy-blocked source or RAT -> `BLOCKED_BY_POLICY`
+- no executable sources -> write dry-run or blocked-cycle learning report
+
+## Acceptance Criteria
+
+- every subtask produces output or explicit skipped/blocker reason
+- no customer-facing or spend action happens without approval
+- evidence events and decision updates are generated when inputs exist
+- learning report states what access is needed to run live

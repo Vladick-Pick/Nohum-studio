@@ -5,6 +5,11 @@ description: Use when community, forum, SEO, or search results are Product Bet F
 
 # Community Search Market Signal Source
 
+## Purpose
+
+Collect pain, workaround, and buyer-language signals from approved community or
+search surfaces without external posting.
+
 ## Source Contract
 
 - `source_name`: `community_search`
@@ -30,3 +35,12 @@ Preserve:
 - timestamp or freshness
 
 Treat community signals as pain evidence, not payment evidence.
+
+## Readiness Contract
+
+- `inputs`: cycle context plus the upstream artifact named by this skill.
+- `outputs`: the artifact or execution state named by this skill.
+- `permission_boundary`: no spend, outreach send, public deploy, payment
+  collection, Gate A approval, Gate B approval, or build approval.
+- `checks`: required refs are present, blocked states are machine-readable, and
+  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.

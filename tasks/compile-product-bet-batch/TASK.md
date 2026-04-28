@@ -18,6 +18,12 @@ signals.
 - market-proof-lite records
 - product-bet templates
 
+## Preconditions
+
+- At least one proof-lite record is `plausible` or `strong`.
+- Product bet templates exist.
+- Gate A/Gate B boundaries remain unchanged.
+
 ## Steps
 
 1. Select eligible proof-backed signals.
@@ -31,3 +37,20 @@ signals.
 - product bet cards
 - assumption maps
 - initial EV bands
+
+## Idempotency
+
+Use stable `product_bet_id` values derived from cycle date and signal slug. If
+rerun, append revision notes rather than overwriting previous cards.
+
+## Failure Modes
+
+- no eligible proof records -> skip with explicit reason
+- missing first payment path -> route to `REVISE` or `RESEARCH_REQUIRED`
+- non-canonical stack requirement -> record stack-fit risk
+
+## Acceptance Criteria
+
+- every product bet has buyer, pain, first value, first payment path, and EV bands
+- every product bet has an assumption map
+- no product bet is treated as Gate A approval

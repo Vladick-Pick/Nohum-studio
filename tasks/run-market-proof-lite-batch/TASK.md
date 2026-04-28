@@ -18,6 +18,12 @@ legal, and buildability evidence to become product bets.
 - source snapshots
 - Copyable Product Thesis
 
+## Preconditions
+
+- Market-signal batch exists or the task records a skipped state.
+- Source refs are present for every signal being checked.
+- Proof checks remain read-only.
+
 ## Steps
 
 1. Review each signal for buyer and job clarity.
@@ -31,3 +37,20 @@ legal, and buildability evidence to become product bets.
 - market-proof-lite records
 - proof blockers
 - evidence refs
+
+## Idempotency
+
+Use the source `market_signal_id` as the proof key. If rerun, write a new proof
+record version rather than mutating prior evidence.
+
+## Failure Modes
+
+- missing source refs -> `RETRY`
+- blocked source -> preserve upstream execution state
+- legal/commercial blocker -> `BLOCKED_BY_POLICY`
+
+## Acceptance Criteria
+
+- every proof record has status, confidence, and evidence refs
+- competitor, pricing, channel, legal, and buildability checks are addressed
+- no product bet is compiled inside this task

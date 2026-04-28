@@ -5,6 +5,11 @@ description: Use when GitHub or open-source repositories are Product Bet Factory
 
 # GitHub Market Signal Source
 
+## Purpose
+
+Collect developer-interest and product-pattern signals from GitHub without
+treating stars or forks as payment proof.
+
 ## Source Contract
 
 - `source_name`: `GitHub`
@@ -31,3 +36,12 @@ Preserve:
 
 GitHub evidence is a developer-interest or product-pattern signal. It is not
 payment proof.
+
+## Readiness Contract
+
+- `inputs`: cycle context plus the upstream artifact named by this skill.
+- `outputs`: the artifact or execution state named by this skill.
+- `permission_boundary`: no spend, outreach send, public deploy, payment
+  collection, Gate A approval, Gate B approval, or build approval.
+- `checks`: required refs are present, blocked states are machine-readable, and
+  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
