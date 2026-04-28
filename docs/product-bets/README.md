@@ -2,7 +2,8 @@
 
 Product Bet Pilot is a lightweight pre-Gate-A decision kernel for NoHum.
 
-It turns market signals into evidence-backed decisions before the studio allocates a scarce venture slot.
+It turns market signals into evidence-backed decisions before the studio
+allocates a scarce venture slot.
 
 ## Implementation Doctrine
 
@@ -22,7 +23,8 @@ Product Bet Pilot may route product bets to:
 - `RESEARCH_REQUIRED`
 - `GATE_A_CANDIDATE`
 
-It does not replace Research. It does not approve build. It does not create a new venture lifecycle. It does not create new agents or teams.
+It does not replace Research. It does not approve build. It does not create a
+new venture lifecycle. It does not create new agents or teams.
 
 `GATE_A_CANDIDATE` is a recommendation for existing Gate A review.
 
@@ -53,7 +55,9 @@ market_signal
 -> decision_update
 ```
 
-The pilot may run before full Research, on top of existing research evidence, or between Research and Gate A. It must not bypass the Research module or Gate A/Gate B governance.
+The pilot may run before full Research, on top of existing research evidence,
+or between Research and Gate A. It must not bypass the Research module or Gate
+A/Gate B governance.
 
 ## Phase 0 Scope
 

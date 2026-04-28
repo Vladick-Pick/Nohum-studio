@@ -2,7 +2,8 @@
 
 ## Decision
 
-The NoHum Product Factory architecture is approved as north-star doctrine, not as immediate implementation scope.
+The NoHum Product Factory architecture is approved as north-star doctrine,
+not as immediate implementation scope.
 
 Immediate implementation is restricted to:
 
@@ -33,7 +34,8 @@ It may route product bets to:
 
 It does not replace Research. It does not approve build. It does not create a new venture lifecycle.
 
-`GATE_A_CANDIDATE` is a recommendation for existing Gate A governance review. It is not Gate B, and it is not build approval.
+`GATE_A_CANDIDATE` is a recommendation for existing Gate A governance
+review. It is not Gate B, and it is not build approval.
 
 Phase `0` uses interval EV bands rather than precise Bayesian probabilities.
 
@@ -45,16 +47,23 @@ Canonical state rule:
 - `GATE_A_CANDIDATE` is a recommendation/projection
 - `venture_id`, Gate A, and Gate B remain canonical after allocation
 
-Product substrate changes are deferred to Phase `5`. No SaaS starter, payment rail, analytics provider, or canonical stack change is allowed in Phase `0`.
+Product substrate changes are deferred to Phase `5`. No SaaS starter,
+payment rail, analytics provider, or canonical stack change is allowed in
+Phase `0`.
 
 ## Why
 
-NoHum already has a mature Research module, existing Gate A and Gate B governance, and a canonical stack. The factory should learn from real product-bet decisions before adding more agents, state machines, tools, or substrate complexity.
+NoHum already has a mature Research module, existing Gate A and Gate B
+governance, and a canonical stack. The factory should learn from real
+product-bet decisions before adding more agents, state machines, tools, or
+substrate complexity.
 
-The first implementation goal is to improve kill, revise, research, test, and Gate A recommendation quality. It is not to build the full Product Factory.
+The first implementation goal is to improve kill, revise, research, test, and
+Gate A recommendation quality. It is not to build the full Product Factory.
 
 ## Implication
 
 - Phase `0` artifacts must preserve the existing Research and Gate A/Gate B boundaries.
 - `BUILD_CANDIDATE` must not be used as a Phase `0` outcome.
-- New Product Factory modules require a later decision after the pilot demonstrates learning velocity.
+- New Product Factory modules require a later decision after the pilot
+  demonstrates learning velocity.

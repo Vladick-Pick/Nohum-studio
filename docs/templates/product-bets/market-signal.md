@@ -3,7 +3,8 @@
 - `market_signal_id`: `ms-YYYYMMDD-slug`
 - `captured_at`:
 - `captured_by`:
-- `source`: `trustmrr` / `product_hunt_manual` / `marketplace` / `github` / `community` / `competitor_site` / `search` / `other`
+- `source`: `trustmrr` / `product_hunt_manual` / `marketplace` / `github` /
+  `community` / `competitor_site` / `search` / `other`
 - `source_url`:
 - `source_allowed`: `yes` / `no` / `unclear`
 - `source_confidence_tier`: `A` / `B` / `C` / `D`

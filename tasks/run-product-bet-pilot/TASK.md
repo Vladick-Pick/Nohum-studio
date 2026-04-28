@@ -12,7 +12,8 @@ recurring: false
 
 Run the Phase `0` Product Bet Pilot kernel for one weekly cycle.
 
-The task goal is better pre-Gate-A decision quality, not build approval and not full factory automation.
+The task goal is better pre-Gate-A decision quality, not build approval and
+not full factory automation.
 
 ## Owner
 
@@ -65,7 +66,8 @@ Review owners:
 - `RESEARCH_REQUIRED`
 - `GATE_A_CANDIDATE`
 
-`GATE_A_CANDIDATE` is only a recommendation for existing Gate A governance review. It is not Gate B and it is not build approval.
+`GATE_A_CANDIDATE` is only a recommendation for existing Gate A governance
+review. It is not Gate B and it is not build approval.
 
 ## Outputs
 
@@ -88,7 +90,8 @@ Use stable IDs for every artifact:
 - `ee-YYYYMMDD-slug` for evidence events
 - `du-YYYYMMDD-slug` for decision updates
 
-If the task reruns, append corrections as new decision updates rather than overwriting prior evidence.
+If the task reruns, append corrections as new decision updates rather than
+overwriting prior evidence.
 
 ## Failure Modes
 
@@ -117,16 +120,22 @@ Escalate when:
 - No Phase `0` artifact uses the legacy build-candidate outcome.
 - Every decision update includes evidence refs and interval EV bands.
 - Every RAT plan includes payment proximity, thresholds, max cost, and max time.
-- No new agents, teams, manifest entries, Autolab runners, substrate changes, or GTM automation are introduced.
+- No new agents, teams, manifest entries, Autolab runners, substrate changes,
+  or GTM automation are introduced.
 
 ## Checks To Run
 
 Run:
 
 ```bash
-legacy_outcome="BUILD""_CANDIDATE"; rg -n "$legacy_outcome" docs/product-bets docs/playbooks/product-bet-pilot-playbook.md docs/templates/product-bets tasks/run-product-bet-pilot || true
-rg -n "GATE_A_CANDIDATE" docs/product-bets docs/playbooks/product-bet-pilot-playbook.md docs/templates/product-bets tasks/run-product-bet-pilot
-rg -n "dangerouslyBypassApprovalsAndSandbox: true|budgetMonthlyCents: 650000|limit=100" .paperclip.yaml skills/research-trustmrr-sourcing/SKILL.md
+phase0_paths="docs/product-bets docs/playbooks/product-bet-pilot-playbook.md"
+phase0_paths="$phase0_paths docs/templates/product-bets tasks/run-product-bet-pilot"
+legacy_outcome="BUILD""_CANDIDATE"
+
+rg -n "$legacy_outcome" $phase0_paths || true
+rg -n "GATE_A_CANDIDATE" $phase0_paths
+rg -n "dangerouslyBypassApprovalsAndSandbox: true|budgetMonthlyCents: 650000|limit=100" \
+  .paperclip.yaml skills/research-trustmrr-sourcing/SKILL.md
 ```
 
 Expected:

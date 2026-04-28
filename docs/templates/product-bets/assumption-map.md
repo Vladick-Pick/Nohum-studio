@@ -7,9 +7,16 @@
 
 ## Assumptions
 
-| assumption_id | type | statement | risk_level | evidence_status | evidence_refs | notes |
-|---|---|---|---|---|---|---|
-| `as-001` | `buyer` / `pain` / `payment` / `channel` / `activation` / `retention` / `build` / `legal` / `economics` |  | `low` / `medium` / `high` / `existential` | `untested` / `weak` / `supported` / `contradicted` |  |  |
+Repeat this block for each assumption:
+
+- `assumption_id`: `as-001`
+- `type`: `buyer` / `pain` / `payment` / `channel` / `activation` /
+  `retention` / `build` / `legal` / `economics`
+- `statement`:
+- `risk_level`: `low` / `medium` / `high` / `existential`
+- `evidence_status`: `untested` / `weak` / `supported` / `contradicted`
+- `evidence_refs`:
+- `notes`:
 
 ## Riskiest Assumption
 

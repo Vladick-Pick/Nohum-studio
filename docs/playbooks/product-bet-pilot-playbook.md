@@ -25,7 +25,8 @@ Allowed outcomes:
 - `RESEARCH_REQUIRED`
 - `GATE_A_CANDIDATE`
 
-`GATE_A_CANDIDATE` only means candidate for existing Gate A governance review. It is not Gate B and it is not build approval.
+`GATE_A_CANDIDATE` only means candidate for existing Gate A governance review.
+It is not Gate B and it is not build approval.
 
 ## Inputs
 
@@ -77,7 +78,8 @@ Stronger signals include:
 - reply with explicit willingness to pay
 - real external payment
 
-If a RAT is not close to payment, it cannot by itself produce `GATE_A_CANDIDATE` unless other strong evidence exists.
+If a RAT is not close to payment, it cannot by itself produce
+`GATE_A_CANDIDATE` unless other strong evidence exists.
 
 ## Required Outputs
 
@@ -124,4 +126,5 @@ Escalate when:
 - Every decision update has evidence references and reason codes.
 - Every RAT plan has success and failure thresholds.
 - Every RAT plan records payment proximity.
-- No new agents, teams, manifest entries, Autolab runners, substrate changes, or GTM automation are introduced.
+- No new agents, teams, manifest entries, Autolab runners, substrate changes,
+  or GTM automation are introduced.

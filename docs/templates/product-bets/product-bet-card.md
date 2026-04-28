@@ -9,7 +9,8 @@
 
 ## One-Line Bet
 
-If NoHum offers `product_shape` to `buyer`, they will pay because `painful_job` is urgent, recurring, and poorly solved by `current_workaround`.
+If NoHum offers `product_shape` to `buyer`, they will pay because
+`painful_job` is urgent, recurring, and poorly solved by `current_workaround`.
 
 ## Buyer And Job
 
@@ -56,9 +57,11 @@ If NoHum offers `product_shape` to `buyer`, they will pay because `painful_job` 
 
 - `riskiest_assumption_id`:
 - `why_this_is_riskiest`:
-- `recommended_next_step`: `KILL` / `REVISE` / `FORK` / `TEST_MORE` / `RESEARCH_REQUIRED` / `GATE_A_CANDIDATE`
+- `recommended_next_step`: `KILL` / `REVISE` / `FORK` / `TEST_MORE` /
+  `RESEARCH_REQUIRED` / `GATE_A_CANDIDATE`
 - `decision_notes`:
 
 ## Governance Boundary
 
-`GATE_A_CANDIDATE` is not Gate B and is not build approval. It only means the bet may be prepared for existing Gate A governance review.
+`GATE_A_CANDIDATE` is not Gate B and is not build approval. It only means the
+bet may be prepared for existing Gate A governance review.

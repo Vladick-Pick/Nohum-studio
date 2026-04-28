@@ -9,7 +9,9 @@
 
 ## Source
 
-- `source`: `internal_judge` / `research` / `live_market` / `analytics` / `cold_outreach` / `pricing_intent` / `checkout_intent` / `customer_reply` / `payment` / `retention` / `other`
+- `source`: `internal_judge` / `research` / `live_market` / `analytics` /
+  `cold_outreach` / `pricing_intent` / `checkout_intent` /
+  `customer_reply` / `payment` / `retention` / `other`
 - `source_url_or_ref`:
 - `source_snapshot_ref`:
 - `source_allowed`: `yes` / `no` / `unclear`
