@@ -131,10 +131,11 @@ Run:
 phase0_paths="docs/product-bets docs/playbooks/product-bet-pilot-playbook.md"
 phase0_paths="$phase0_paths docs/templates/product-bets tasks/run-product-bet-pilot"
 legacy_outcome="BUILD""_CANDIDATE"
+legacy_bypass="dangerouslyBypassApprovalsAndSandbox:"" true"
 
 rg -n "$legacy_outcome" $phase0_paths || true
 rg -n "GATE_A_CANDIDATE" $phase0_paths
-rg -n "dangerouslyBypassApprovalsAndSandbox: true|budgetMonthlyCents: 650000|limit=100" \
+rg -n "$legacy_bypass|budgetMonthlyCents: 650000|limit=100" \
   .paperclip.yaml skills/research-trustmrr-sourcing/SKILL.md
 ```
 
