@@ -60,7 +60,7 @@ Example list call:
 ```bash
 curl -sS \
   -H "Authorization: Bearer $TRUSTMRR_API_KEY" \
-  "https://trustmrr.com/api/v1/startups?page=1&limit=100"
+  "https://trustmrr.com/api/v1/startups?page=1&limit=50"
 ```
 
 Example detail call:
