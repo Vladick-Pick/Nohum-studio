@@ -122,9 +122,12 @@ Minimum useful live run:
 - keep outreach, paid ads, public deploys, and payment collection disabled
   unless explicit approval exists
 
-## Readiness Verdict
+## Readiness Verdicts
 
-`BLOCKED_BY_MISSING_ACCESS`
+```yaml
+surface_readiness: READY_FOR_DRY_RUN
+live_execution_readiness: BLOCKED_BY_MISSING_ACCESS
+```
 
 The automation surface is importable and can represent blocked states, but a
 live market-signal batch is blocked until at least one source is configured or
