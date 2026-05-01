@@ -1,6 +1,6 @@
 ---
 name: pre-market-autoreason-lite
-description: Use when hardening Product Bet Pilot cards before external RAT planning.
+description: Use when hardening Product Bet Definition cards before external red hypothesis test planning.
 ---
 
 # Pre-Market Autoreason Lite
@@ -15,16 +15,16 @@ Improve or kill product bets before market exposure. This is not market proof.
 2. Run critique.
 3. Generate up to two blind variants.
 4. Synthesize the strongest revision.
-5. Judge RAT readiness.
+5. Judge red hypothesis test readiness.
 
 ## Output
 
 ```yaml
 autoreason_result:
-  decision: proceed_to_rat | revise | research_required | kill
+  decision: proceed_to_test | revise | test_more | kill
   scorecard_ref:
   best_revision_ref:
-  recommended_rat_direction:
+  recommended_test_direction:
 ```
 
 No external actions are allowed.
@@ -36,4 +36,4 @@ No external actions are allowed.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

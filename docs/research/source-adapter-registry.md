@@ -1,6 +1,9 @@
-# Product Bet Source Adapter Registry
+# Research Source Adapter Registry
 
-Source adapters define how Product Bet Factory v0 may collect market signals.
+Source adapters define how Research may collect market signals before Gate A.
+
+The outputs of these adapters feed sourcing batches and `Idea Card` intake. They
+do not create product bets directly.
 
 ## TrustMRR
 
@@ -10,6 +13,7 @@ Source adapters define how Product Bet Factory v0 may collect market signals.
 - `mode`: automated API if access exists
 - `blocked_state`: `MISSING_ACCESS`
 - `confidence`: revenue-backed Tier A source
+- `owner`: `Idea Scout`
 
 ## Product Hunt
 
@@ -21,6 +25,7 @@ Source adapters define how Product Bet Factory v0 may collect market signals.
 - `fallback`: URL intake for explicitly provided URLs
 - `blocked_state`: `MISSING_ACCESS` or `APPROVAL_REQUIRED`
 - `confidence`: attention-backed Tier B source
+- `owner`: `Idea Scout` or `Research Lead`
 
 ## GitHub
 
@@ -30,6 +35,7 @@ Source adapters define how Product Bet Factory v0 may collect market signals.
 - `mode`: public search, API, provided URL
 - `blocked_state`: `MISSING_ACCESS` when rate limits block useful collection
 - `confidence`: developer-interest and product-pattern signal
+- `owner`: `Idea Scout` or `Research Lead`
 
 ## Marketplaces
 
@@ -38,6 +44,7 @@ Source adapters define how Product Bet Factory v0 may collect market signals.
 - `access`: source-specific
 - `mode`: provided URL, search, browser, extract
 - `blocked_state`: `BLOCKED_BY_POLICY` when source terms disallow automation
+- `owner`: `Idea Scout` or `Research Lead`
 
 ## Community Search
 
@@ -46,3 +53,4 @@ Source adapters define how Product Bet Factory v0 may collect market signals.
 - `access`: optional search/browser tooling
 - `mode`: search, provided URL, browser
 - `blocked_state`: `BLOCKED_BY_POLICY` when community rules disallow automation
+- `owner`: `Demand Validator` or `Research Lead`

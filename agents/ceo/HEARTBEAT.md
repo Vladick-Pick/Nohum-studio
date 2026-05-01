@@ -15,6 +15,30 @@ Then apply this NoHum-specific CEO checklist to decide what to prioritize.
 
 If a board-only decision is needed, package it clearly and escalate instead of improvising.
 
+## 1.5. Start the factory after bootstrap
+
+Bootstrap is only a readiness check. It does not equal a running factory.
+
+If both bootstrap tasks are complete, no Research cycle is active, and the
+research lane is ready, create exactly one next task:
+
+- name: `Start First Research Cycle`
+- assignee: `Research Lead`
+- project: `Hypothesis Funnel`
+
+The task must include:
+
+- day-1 access readiness
+- first sourcing brief
+- allowed source boundaries
+- research budget cap
+- Russian board-facing communication rule
+- explicit stop condition for Product Bet, Build, GTM, Support, spend, outreach,
+  deploy, and payment work
+
+Do not directly assign `Idea Scout` from the CEO heartbeat. `Research Lead`
+owns that handoff after the ignition task starts.
+
 ## 2. Enforce factory shape
 
 Confirm:
@@ -44,6 +68,9 @@ Do not do their work for them.
 
 - send sourcing, evidence, economics, and queue work to Research Lead
 - send product definition, build readiness, launch readiness, and feedback synthesis to Launch Lead
+
+Manager handoffs must create or update the next task from the previous artifact.
+Do not rely on agents noticing ambient context.
 
 ## 5. Keep the board payload small and sharp
 

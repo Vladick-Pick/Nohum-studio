@@ -1,96 +1,126 @@
-# Product Bets
+# Product Bet Definition
 
-Product Bet Pilot is a lightweight pre-Gate-A decision kernel for NoHum.
+Product Bet Definition is the post-Gate-A product-shaping layer for NoHum.
 
-It turns market signals into evidence-backed decisions before the studio
-allocates a scarce venture slot.
+It starts only after an `Idea Card` passes Gate A. It turns an approved market
+opportunity into a concrete product image, offer, feature scope, red
+hypotheses, test GTM program, evidence packet, and Gate B recommendation.
 
-## Implementation Doctrine
+This module is not part of the root day-1 import package. It is an optional
+post-Gate-A activation surface.
 
-The NoHum Product Factory architecture is approved as north-star doctrine.
+## Doctrine
 
-Immediate implementation is restricted to:
+```text
+Idea Card owns market truth.
+Gate A opens product definition, not build.
+Product Bet owns product shape after Gate A.
+Gate B owns build permission.
+```
 
-1. Phase `-1`: safety and package hygiene
-2. Phase `0`: Product Bet Pilot kernel
+Before Gate A, Research owns sourcing, market proof, doctrine fit, and the
+canonical `Idea Card`.
 
-Product Bet Pilot may route product bets to:
+After Gate A, Product Bet Definition owns product shape, positioning, offer,
+red hypotheses, test GTM, and the recommendation for Gate B.
 
-- `KILL`
-- `REVISE`
-- `FORK`
-- `TEST_MORE`
-- `RESEARCH_REQUIRED`
-- `GATE_A_CANDIDATE`
+## Boundary
 
-It does not replace Research. It does not approve build. It does not create a
-new venture lifecycle. It does not create new agents or teams.
+Product Bet Definition does not replace Research.
 
-`GATE_A_CANDIDATE` is a recommendation for existing Gate A review.
+Product Bet Definition does not approve build.
 
-`GATE_A_CANDIDATE` is not Gate B.
+Product Bet Definition does not create a venture before Gate A.
 
-`GATE_A_CANDIDATE` is not build approval.
-
-Phase `0` uses interval EV bands, not precise Bayesian probabilities.
-
-Canonical state rule:
-
-- `product_bet` is the canonical pre-Gate-A decision unit
-- `evidence_event` is an evidence/audit log
-- `decision_update` is a decision/audit log
-- `GATE_A_CANDIDATE` is a recommendation/projection
-- `venture_id` and Gate A/Gate B remain canonical after allocation
-
-Success is judged by decision quality and learning velocity, not artifact count.
+Gate B remains the build approval boundary.
 
 ## Flow
 
 ```text
-market_signal
--> product_bet_card
--> assumption_map
--> rat_plan
--> evidence_event
--> decision_update
+Gate A approved Idea Card
+-> Product Bet Definition Sprint
+-> Competitor Deep Dive
+-> Product Identity / ICP / USP / Offer
+-> Feature Scope / MVP / Non-goals
+-> Red Hypotheses
+-> Autoreason / Synthetic Audience
+-> Test GTM Program
+-> Landing / Surface Pack
+-> Approved External Tests
+-> Evidence Packet
+-> Gate B Recommendation
+-> Gate B
 ```
 
-The pilot may run before full Research, on top of existing research evidence,
-or between Research and Gate A. It must not bypass the Research module or Gate
-A/Gate B governance.
+## Canonical State Rule
 
-## Phase 0 Scope
+- `Idea Card` is the canonical pre-Gate-A market truth artifact
+- `gate_a_decision` opens product definition, not build
+- `product_bet` is the canonical post-Gate-A product definition artifact
+- `red_hypotheses` is the killer-risk inventory for the product bet
+- `evidence_packet` is the pre-Gate-B evidence and audit package
+- `gate_b_recommendation` is a recommendation, not board approval
+- `venture_id`, Gate A, and Gate B remain canonical governance boundaries
 
-Weekly target:
+## Product Bet Definition Outputs
 
-- `20-30` market signals
-- `10` product bets
-- `5` RAT plans
-- `2-3` evidence events
-- `5` decision updates
-- `1` weekly learning report
-- `0-1` `GATE_A_CANDIDATE`
+Each approved Gate A candidate should produce:
 
-No-goals:
+- product identity and one-line product promise
+- ICP, buyer, user, payer, and excluded segments
+- competitor deep dive with copyable patterns and differentiation gaps
+- USP, offer angle, pricing hypothesis, packaging, and objections
+- MVP features, non-MVP features, non-goals, integrations, and outputs
+- red hypotheses with risk class and test method
+- internal autoreason and synthetic audience findings
+- test GTM program with assets, channels, metrics, and thresholds
+- evidence packet with internal and external findings
+- Gate B recommendation: `build`, `revise`, `test_more`, or `kill`
 
-- no new agents
-- no new teams
-- no manifest update
-- no Product Hunt automation
-- no Autolab runner
-- no numeric Bayesian router
-- no product substrate change
-- no GTM automation
-- no paid ads by default
-- no build approval
+## Research Relationship
+
+Research output is not a product bet.
+
+Research output is a Gate A packet:
+
+```yaml
+gate_a_packet:
+  idea_card_ref:
+  research_case_id:
+  final_research_verdict: QUEUE
+  doctrine_summary:
+  hard_gate_summary:
+  strongest_evidence_refs:
+  unresolved_risks:
+  why_this_deserves_product_definition:
+  gate_a_recommendation: approve_product_bet_definition
+```
+
+Gate A decision:
+
+```yaml
+gate_a_decision:
+  input: idea_card
+  action: approve_product_bet_definition | reject | hold | request_more_research
+  approved_direction:
+    market:
+    buyer_segment:
+    competitor_pattern:
+    product_category:
+  constraints:
+    max_definition_time:
+    max_test_budget:
+    forbidden_claims:
+    legal_platform_risks:
+  next_owner: launch_lead
+```
 
 ## Files
 
-- [Product Bet Pilot Playbook](../playbooks/product-bet-pilot-playbook.md)
-- [Market Signal Template](../templates/product-bets/market-signal.md)
-- [Product Bet Card Template](../templates/product-bets/product-bet-card.md)
-- [Assumption Map Template](../templates/product-bets/assumption-map.md)
-- [RAT Plan Template](../templates/product-bets/rat-plan.md)
+- [Product Bet Definition Playbook](../playbooks/product-bet-definition-playbook.md)
+- [Product Bet Definition Template](../templates/product-bets/product-bet-card.md)
+- [Red Hypothesis Map Template](../templates/product-bets/assumption-map.md)
+- [Red Hypothesis Test Plan Template](../templates/product-bets/rat-plan.md)
 - [Evidence Event Template](../templates/product-bets/evidence-event.md)
-- [Decision Update Template](../templates/product-bets/decision-update.md)
-- [Run Product Bet Pilot Task](../../tasks/run-product-bet-pilot/TASK.md)
+- [Gate B Recommendation Template](../templates/product-bets/decision-update.md)
+- [Automation Map](automation-map.md)

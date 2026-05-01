@@ -1,4 +1,4 @@
-# Market Signal
+# Research Market Signal
 
 - `market_signal_id`: `ms-YYYYMMDD-slug`
 - `captured_at`:
@@ -36,8 +36,8 @@
 - `duplicate_status`: `new` / `duplicate` / `possible_duplicate`
 - `duplicate_refs`:
 
-## Product Bet Routing
+## Research Routing
 
-- `recommended_action`: `IGNORE` / `WATCH` / `PRODUCT_BET_CANDIDATE` / `RESEARCH_REQUIRED`
+- `recommended_action`: `IGNORE` / `WATCH` / `OPEN_IDEA_CARD` / `RESEARCH_REQUIRED`
 - `reason`:
 - `open_questions`:

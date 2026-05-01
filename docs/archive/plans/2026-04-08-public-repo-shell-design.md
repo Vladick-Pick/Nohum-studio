@@ -8,8 +8,8 @@ Reframe `Nohum-studio` from an internal import package README into a public-faci
 
 Primary opening:
 
-> everyone talks about the coming one-person billion-dollar company  
-> we’re interested in a different question  
+> everyone talks about the coming one-person billion-dollar company
+> we’re interested in a different question
 > what if the real breakthrough is not one person running one giant product, but a minimal-human venture factory systematically operating many small products?
 
 Project framing:

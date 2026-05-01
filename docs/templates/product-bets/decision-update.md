@@ -1,20 +1,24 @@
-# Decision Update
+# Gate B Recommendation
 
-- `decision_update_id`: `du-YYYYMMDD-slug`
+- `gate_b_recommendation_id`: `gbr-YYYYMMDD-slug`
 - `product_bet_id`:
+- `venture_id`:
 - `created_at`:
 - `owner`:
 
-## Decision
+## Recommendation
 
-- `action`: `KILL` / `REVISE` / `FORK` / `TEST_MORE` / `RESEARCH_REQUIRED` / `GATE_A_CANDIDATE`
+- `action`: `build` / `revise` / `test_more` / `kill`
 - `reason_codes`:
-  - `no_clear_buyer`
-  - `weak_payment_path`
-  - `channel_unclear`
-  - `promising_but_needs_research`
-  - `checkout_intent_strong`
-  - `paid_pilot_signal`
+  - `positioning_clear`
+  - `positioning_weak`
+  - `USP_clear`
+  - `USP_weak`
+  - `payment_intent_strong`
+  - `payment_intent_weak`
+  - `channel_signal_strong`
+  - `channel_signal_weak`
+  - `activation_unclear`
   - `build_too_complex`
   - `support_load_risk`
   - `price_not_plausible`
@@ -28,6 +32,7 @@
 ```yaml
 ev_band_before:
   payment_probability: low | medium | high
+  retention_probability: unknown | low | medium | high
   contribution_potential: low | medium | high
   cost_risk: low | medium | high
   support_risk: low | medium | high
@@ -39,18 +44,22 @@ ev_band_before:
 ```yaml
 ev_band_after:
   payment_probability: low | medium | high
+  retention_probability: unknown | low | medium | high
   contribution_potential: low | medium | high
   cost_risk: low | medium | high
   support_risk: low | medium | high
   confidence: low | medium | high
 ```
 
-## Decision Logic
+## Build Boundary
 
-- `next_step_expected_value`: `negative` / `unclear` / `positive`
-- `why_now`:
-- `what_would_change_the_decision`:
-- `cost_or_risk_notes`:
+- `approved_build_scope`:
+- `forbidden_scope`:
+- `required_assets`:
+- `required_tracking`:
+- `accepted_risks`:
+- `unresolved_red_hypotheses`:
+- `budget_cap`:
 
 ## Next Step
 
@@ -62,8 +71,6 @@ ev_band_after:
 
 ## Governance Boundary
 
-`GATE_A_CANDIDATE` means candidate for existing Gate A governance review.
+This is a recommendation for Gate B review.
 
-`GATE_A_CANDIDATE` is not Gate B.
-
-`GATE_A_CANDIDATE` is not build approval.
+It is not Gate B approval and it is not build approval.

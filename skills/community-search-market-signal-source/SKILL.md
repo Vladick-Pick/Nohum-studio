@@ -1,6 +1,6 @@
 ---
 name: community-search-market-signal-source
-description: Use when community, forum, SEO, or search results are Product Bet Factory market-signal sources.
+description: Use when community, forum, SEO, or search results are Research market-signal sources.
 ---
 
 # Community Search Market Signal Source
@@ -43,4 +43,4 @@ Treat community signals as pain evidence, not payment evidence.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

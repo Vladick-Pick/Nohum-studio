@@ -1,6 +1,6 @@
 ---
 name: github-market-signal-source
-description: Use when GitHub or open-source repositories are Product Bet Factory market-signal sources.
+description: Use when GitHub or open-source repositories are Research market-signal sources.
 ---
 
 # GitHub Market Signal Source
@@ -44,4 +44,4 @@ payment proof.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

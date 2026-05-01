@@ -1,17 +1,19 @@
-# RAT Plan
+# Red Hypothesis Test Plan
 
-- `rat_plan_id`: `rat-YYYYMMDD-slug`
+- `test_plan_id`: `rt-YYYYMMDD-slug`
 - `product_bet_id`:
-- `assumption_id`:
+- `venture_id`:
+- `red_hypothesis_id`:
 - `created_at`:
 - `created_by`:
-- `test_type`: `competitor_delta` / `landing_fake_door` /
-  `cold_outreach` / `pricing_intent` / `checkout_intent` /
-  `concierge_demo` / `paid_pilot_ask` / `community_test`
+- `test_type`: `internal_autoreason` / `synthetic_audience` /
+  `competitor_delta` / `landing_fake_door` / `pricing_intent` /
+  `checkout_intent` / `community_test` / `directory_test` /
+  `concierge_demo` / `paid_pilot_ask` / `build_spike`
 
 ## Purpose
 
-- `assumption_statement`:
+- `hypothesis_statement`:
 - `why_this_test`:
 - `expected_decision_impact`:
 - `decision_after_result`:
@@ -24,8 +26,7 @@ payment_proximity:
   explanation:
 ```
 
-Rule: if a RAT is not close to payment, it cannot by itself produce
-`GATE_A_CANDIDATE` unless other strong evidence exists.
+Rule: internal or weak evidence cannot by itself justify Gate B build approval.
 
 ## Thresholds
 
@@ -53,6 +54,6 @@ Rule: if a RAT is not close to payment, it cannot by itself produce
 
 ## Result Routing
 
-- `on_success`: `TEST_MORE` / `RESEARCH_REQUIRED` / `GATE_A_CANDIDATE`
-- `on_failure`: `KILL` / `REVISE` / `FORK`
-- `on_inconclusive`: `REVISE` / `TEST_MORE` / `RESEARCH_REQUIRED`
+- `on_success`: `gate_b_ready` / `test_more` / `revise`
+- `on_failure`: `kill` / `revise` / `fork`
+- `on_inconclusive`: `revise` / `test_more`

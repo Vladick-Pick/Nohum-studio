@@ -1,23 +1,21 @@
 ---
 name: decision-routing-lite
-description: Use when routing Product Bet Pilot decisions from evidence events and EV bands.
+description: Use when routing Product Bet Definition evidence into Gate B recommendations.
 ---
 
-# Decision Routing Lite
+# Gate B Recommendation Routing
 
 ## Purpose
 
-Route product bets from evidence events and EV bands while preserving
-governance boundaries.
+Route post-Gate-A product bets from evidence events and EV bands into Gate B
+recommendations while preserving governance boundaries.
 
-## Business Outcomes
+## Recommendation Outcomes
 
-- `KILL`
-- `REVISE`
-- `FORK`
-- `TEST_MORE`
-- `RESEARCH_REQUIRED`
-- `GATE_A_CANDIDATE`
+- `build`
+- `revise`
+- `test_more`
+- `kill`
 
 ## Execution States
 
@@ -28,8 +26,8 @@ governance boundaries.
 ## Rules
 
 - Keep business outcome separate from execution state.
-- `GATE_A_CANDIDATE` is not Gate B and not build approval.
-- Weak payment proximity cannot create Gate A candidacy by itself.
+- Gate B recommendation is not Gate B approval and not build approval.
+- Weak payment proximity cannot create a build recommendation by itself.
 - Every decision must cite evidence refs and EV bands.
 
 ## Readiness Contract
@@ -39,4 +37,4 @@ governance boundaries.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

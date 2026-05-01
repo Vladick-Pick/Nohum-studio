@@ -1,14 +1,14 @@
 ---
 name: market-proof-lite
-description: Use when doing a bounded proof check on normalized Product Bet Factory market signals.
+description: Use when doing a bounded Research intake proof check on normalized market signals.
 ---
 
 # Market Proof Lite
 
 ## Purpose
 
-Check whether a market signal is strong enough to become a product bet or to
-route into full Research.
+Check whether a market signal is strong enough for Research Lead to open an
+`Idea Card`, reject, hold, or request specialist research.
 
 ## Required Checks
 
@@ -38,4 +38,4 @@ Do not approve Gate A, Gate B, build, launch, spend, outreach, or payment.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

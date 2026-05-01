@@ -1,26 +1,26 @@
 ---
 name: weekly-learning-report
-description: Use when writing Product Bet Factory v0 weekly learning reports.
+description: Use when writing Product Bet Definition weekly learning reports.
 ---
 
 # Weekly Learning Report
 
 ## Purpose
 
-Summarize Product Bet Factory v0 cycle learning, blockers, outcomes, and
+Summarize Product Bet Definition cycle learning, blockers, outcomes, and
 next-cycle changes.
 
 ## Required Sections
 
 - cycle ID
-- source coverage
-- blocked source report
+- Gate A decision ref
 - product bets created
-- RAT plans created
-- RAT execution states
+- red hypotheses identified
+- internal findings
+- test plans created
+- test execution states
 - evidence events
-- decision updates
-- decisions by outcome
+- Gate B recommendation
 - strongest evidence
 - weakest or misleading evidence
 - recurring kill reasons
@@ -28,7 +28,7 @@ next-cycle changes.
 
 ## Rule
 
-Judge the cycle by decision quality and learning velocity, not by artifact
+Judge the cycle by definition quality and learning velocity, not by artifact
 count.
 
 ## Readiness Contract
@@ -38,4 +38,4 @@ count.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

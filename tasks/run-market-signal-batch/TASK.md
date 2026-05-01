@@ -1,26 +1,27 @@
 ---
 kind: task
-name: Run Market Signal Batch
-description: Automated source intake for Product Bet Factory v0
+name: Run Research Source Batch
+description: Research source intake for Idea Card candidate discovery
 schema: agentcompanies/v1
-assignee: market-signal-scout
+assignee: idea-scout
 project: hypothesis-funnel
 ---
 
 ## Purpose
 
-Collect and normalize a bounded market-signal batch from configured sources.
+Collect and normalize a bounded source batch for Research Lead intake.
+
+This task feeds `Idea Card` decisions. It does not create product bets.
 
 ## Inputs
 
-- cycle config
 - source adapter registry
 - tool access matrix
 - approved source list
+- Decision Memory snapshot when available
 
 ## Preconditions
 
-- Product Bet Pilot templates are available.
 - Source access matrix has been reviewed for the cycle.
 - No external action beyond read-only source intake is approved by default.
 
@@ -31,13 +32,15 @@ Collect and normalize a bounded market-signal batch from configured sources.
 3. Mark unavailable sources as `MISSING_ACCESS`, `APPROVAL_REQUIRED`, or
    `BLOCKED_BY_POLICY`.
 4. Normalize captured signals with the market-signal template.
-5. Write source access and blocked-source reports.
+5. Deduplicate obvious repeats against Decision Memory.
+6. Write source access and blocked-source reports for Research Lead.
 
 ## Required Output
 
-- market-signal batch
+- research source batch
 - source access report
 - blocked source report
+- shortlist notes for Research Lead
 
 ## Idempotency
 
@@ -55,4 +58,5 @@ report instead of overwriting prior blocked-source evidence.
 - every configured source has `READY`, `MISSING_ACCESS`, `APPROVAL_REQUIRED`,
   or `BLOCKED_BY_POLICY`
 - every captured signal has a source ref
+- no product bet is created
 - no external posting, spend, outreach, or payment action occurred

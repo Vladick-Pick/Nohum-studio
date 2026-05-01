@@ -2,8 +2,9 @@
 
 - `evidence_event_id`: `ee-YYYYMMDD-slug`
 - `product_bet_id`:
+- `venture_id`:
 - `assumption_id`:
-- `rat_plan_id`:
+- `test_plan_id`:
 - `created_at`:
 - `created_by`:
 
@@ -32,7 +33,7 @@
 
 - `what_changed`:
 - `what_did_not_change`:
-- `decision_impact`:
+- `gate_b_decision_impact`:
 - `limitations`:
 - `follow_up_needed`:
 

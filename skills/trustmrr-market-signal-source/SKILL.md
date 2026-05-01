@@ -1,6 +1,6 @@
 ---
 name: trustmrr-market-signal-source
-description: Use when TrustMRR is a configured Product Bet Factory market-signal source.
+description: Use when TrustMRR is a configured Research market-signal source.
 ---
 
 # TrustMRR Market Signal Source
@@ -49,4 +49,4 @@ or retention path.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

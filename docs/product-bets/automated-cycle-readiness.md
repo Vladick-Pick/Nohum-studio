@@ -1,42 +1,43 @@
-# Automated Product Bet Cycle Readiness
+# Product Bet Definition Readiness
 
-Use this checklist before running `tasks/run-automated-product-bet-cycle/TASK.md`.
+Use this checklist before running `tasks/run-automated-product-bet-cycle/TASK.md`
+or `tasks/run-product-bet-definition-sprint/TASK.md`.
 
 ## Required
 
-- Product Bet Pilot kernel exists.
-- Source adapter registry is current.
-- Tool access matrix is current.
-- RAT execution boundaries are current.
-- Product-bet templates are available.
-- Gate A and Gate B boundaries remain canonical.
+- Gate A decision is `approve_product_bet_definition`.
+- Approved `Idea Card` snapshot is available.
+- Gate A constraints are explicit.
+- Product Bet Definition templates are available.
+- Test GTM and red hypothesis test boundaries are current.
+- Gate B policy is loaded.
 
 ## Access Readiness
 
-- `TRUSTMRR_API_KEY`: present or source marked `MISSING_ACCESS`
-- `PRODUCT_HUNT_TOKEN`: present with commercial-use approval or blocked
-- `GITHUB_TOKEN`: present or public search fallback accepted
-- `FIRECRAWL_API_KEY`: present or web extraction marked unavailable
+- `BRAVE_API_KEY`: present for bounded browser/search work or marked unavailable
+- `FIRECRAWL_API_KEY`: present for allowed extraction or marked unavailable
+- `ANALYTICS_API_KEY`: present before interpreting live test metrics
 - outreach account: approval required before send
-- payment provider: approval required before use
+- landing deploy access: approval required before public deploy
+- payment provider: approval required before payment collection
 
 ## Success Criteria
 
-- agents collect market signals
-- agents compile product bets
-- agents map assumptions
-- agents run pre-market autoreason lite
-- agents create RAT plans
-- agents execute only allowed RATs
+- agents compile a post-Gate-A product bet
+- agents identify red hypotheses
+- agents run internal autoreason without claiming market proof
+- agents create test plans with thresholds
+- agents execute only approved external tests
 - agents record blocked states when needed
 - agents write evidence events
-- agents route decisions
-- agents write learning report
+- agents write a Gate B recommendation
+- agents write a learning report
 
 ## Non-Goals
 
-- no build substrate
-- no GTM automation beyond RAT scaffolds
-- no payment collection
-- no paid ads
+- no pre-Gate-A product bet work
+- no build approval
+- no product repo attachment
+- no payment collection without explicit approval
+- no paid ads without explicit approval
 - no automatic outreach sends

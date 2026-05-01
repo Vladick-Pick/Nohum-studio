@@ -1,7 +1,7 @@
 ---
 kind: task
-name: Write Product Bet Learning Report
-description: Automated weekly learning report for Product Bet Factory v0
+name: Write Product Bet Definition Learning Report
+description: Automated learning report for post-Gate-A Product Bet Definition
 schema: agentcompanies/v1
 assignee: evidence-router
 project: hypothesis-funnel
@@ -9,35 +9,36 @@ project: hypothesis-funnel
 
 ## Purpose
 
-Summarize automated-cycle learning and blockers.
+Summarize product definition learning, blockers, and recommendation quality.
 
 ## Inputs
 
-- source access report
-- market proof records
-- product bets
-- RAT plans
+- Product Bet Definition packet
+- red hypothesis map
+- test plans
 - evidence events
-- decision updates
+- Gate B recommendation
+- blocked execution report
 
 ## Preconditions
 
-- At least one cycle artifact or blocker report exists.
-- Decision updates or skipped-stage reasons are available.
+- At least one sprint artifact or blocker report exists.
+- Gate B recommendation or skipped-stage reasons are available.
 
 ## Required Output
 
 One learning report with:
 
-- source coverage
-- blocked source report
-- product bets created
-- RAT execution states
-- decisions by outcome
+- Gate A decision ref
+- product bet created
+- red hypotheses identified
+- internal findings
+- external tests run
+- blocked execution states
 - strongest evidence
 - weakest or misleading evidence
-- recurring kill reasons
-- next-cycle changes
+- recommendation outcome
+- next-sprint changes
 
 ## Idempotency
 
@@ -52,7 +53,7 @@ write a superseding report.
 
 ## Acceptance Criteria
 
-- report includes source coverage, blockers, RAT execution states, decisions,
-  and next-cycle changes
+- report includes Gate A ref, red hypotheses, tests, blockers, evidence, and
+  recommendation
 - report separates missing access from market evidence
-- report judges learning velocity, not artifact count
+- report judges definition quality and learning velocity, not artifact count

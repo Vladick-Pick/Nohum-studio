@@ -1,5 +1,5 @@
 schema: paperclip/v1
-description: Bootstrap runtime defaults for NoHum Studio v1.6 detailed-core org package.
+description: Bootstrap runtime defaults for NoHum Studio v1.7 day-1 core and research import package.
 
 company:
   budgetMonthlyCents: 100000
@@ -16,14 +16,14 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 25000
+    budgetMonthlyCents: 20000
     permissions:
       canCreateAgents: true
     inputs:
       env: {}
     notes:
-      - Verify control-plane approvals and governance docs are wired.
-      - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
+      - Day-1 core slug. Upgrade in place and validate reporting lines after import.
+      - Owns bootstrap, company budget cap, Gate A/Gate B governance, and activation of optional packs.
   chief-of-staff:
     role: "pm"
     icon: "target"
@@ -35,14 +35,13 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 18000
+    budgetMonthlyCents: 5000
     permissions:
       canCreateAgents: true
     inputs:
       env: {}
     notes:
-      - Keep wake-on-demand available and wire cadence dashboards after import.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 ops support. Keep work narrow until bootstrap and research lane are stable.
   agent-mechanic:
     role: "devops"
     icon: "wrench"
@@ -54,7 +53,7 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
+    budgetMonthlyCents: 4000
     permissions:
       canCreateAgents: false
     inputs:
@@ -66,8 +65,7 @@ agents:
           kind: secret
           requirement: optional
     notes:
-      - Grant diagnostic-only access to runtime paths and tool health scripts.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 diagnostic support only. Do not mutate secrets, budgets, or approvals.
   research-lead:
     role: "researcher"
     icon: "search"
@@ -79,7 +77,7 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 18000
+    budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: true
     inputs:
@@ -88,12 +86,12 @@ agents:
           kind: secret
           requirement: optional
     notes:
-      - Existing live core slug should upgrade in place.
-      - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
+      - Day-1 research core slug. Upgrade in place and validate reporting line after import.
+      - Research owns pre-Gate-A market truth through canonical Idea Cards.
   idea-scout:
     role: "researcher"
     icon: "binoculars"
-    capabilities: "Finds TrustMRR-sourced candidate batches, screens obvious non-fit leads, and returns shortlist inputs to Research Lead."
+    capabilities: "Finds approved source candidates, screens obvious non-fit leads, normalizes source signals, and returns shortlist inputs to Research Lead."
     reportsTo: "research-lead"
     adapter:
       type: codex_local
@@ -101,26 +99,7 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 10000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - Pause after import until TrustMRR batch output and reporting loop are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  market-signal-scout:
-    role: "researcher"
-    icon: "radar"
-    capabilities: "Collects configured market-signal batches, normalizes them, and reports source access blockers for Product Bet Factory v0."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
+    budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
     inputs:
@@ -128,119 +107,11 @@ agents:
         TRUSTMRR_API_KEY:
           kind: secret
           requirement: optional
-        PRODUCT_HUNT_TOKEN:
-          kind: secret
-          requirement: optional
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-        FIRECRAWL_API_KEY:
+        APIFY_TOKEN:
           kind: secret
           requirement: optional
     notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - Must return MISSING_ACCESS, APPROVAL_REQUIRED, or BLOCKED_BY_POLICY instead of asking humans to fill templates manually.
-  market-proof-analyst:
-    role: "researcher"
-    icon: "scan-search"
-    capabilities: "Runs bounded proof-lite checks for competitors, pricing, channel, legal boundaries, and buildability hints."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        BRAVE_API_KEY:
-          kind: secret
-          requirement: optional
-        FIRECRAWL_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - Cannot create product bets directly or approve Gate A, Gate B, build, launch, spend, outreach, or payment.
-  product-bet-compiler:
-    role: "pm"
-    icon: "file-check-2"
-    capabilities: "Compiles proof-backed signals into product bet cards, assumption maps, and interval EV bands."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - GATE_A_CANDIDATE remains a recommendation for existing Gate A governance review, not build approval.
-  pre-market-autoreasoner:
-    role: "researcher"
-    icon: "brain-circuit"
-    capabilities: "Hardens product bets through critique, variants, synthesis, and RAT-readiness judgment without external actions."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - Pre-market autoreason is hypothesis hardening, not market proof.
-  rat-designer:
-    role: "pm"
-    icon: "flask-conical"
-    capabilities: "Designs cheapest decision-changing RATs, scores payment proximity, and classifies execution readiness."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - Cannot send outreach, spend money, publish pages, or collect payment without explicit approval and configured access.
-  evidence-router:
-    role: "pm"
-    icon: "route"
-    capabilities: "Writes evidence events, routes product bet decisions, and produces Product Bet Factory learning reports."
-    reportsTo: "research-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 5000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New Product Bet Factory v0 agent. Keep paused until the automated cycle is explicitly approved for runtime import.
-      - Keeps business outcomes separate from execution states and cannot approve Gate A, Gate B, build, launch, spend, outreach, or payment.
+      - Day-1 research source intake. Keep read-only and blocked-state aware.
   competitor-scout:
     role: "researcher"
     icon: "telescope"
@@ -257,16 +128,18 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        BRAVE_API_KEY:
+        APIFY_TOKEN:
+          kind: secret
+          requirement: optional
+        OPENROUTER_API_KEY:
           kind: secret
           requirement: optional
     notes:
-      - Pause after import until browser access and evidence templates are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 Research specialist. Writes only into canonical Idea Card competition evidence.
   demand-validator:
     role: "researcher"
-    icon: "radar"
-    capabilities: "Validates search, traffic, usage, review, and community signals before queue promotion."
+    icon: "activity"
+    capabilities: "Validates demand evidence through search, traffic, communities, and observable buyer behavior while labeling evidence strength."
     reportsTo: "research-lead"
     adapter:
       type: codex_local
@@ -279,16 +152,15 @@ agents:
       canCreateAgents: false
     inputs:
       env:
-        BRAVE_API_KEY:
+        APIFY_TOKEN:
           kind: secret
           requirement: optional
     notes:
-      - Pause after import until demand evidence template is wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 Research specialist. Writes only into canonical Idea Card demand evidence.
   revenue-validator:
     role: "researcher"
-    icon: "gem"
-    capabilities: "Validates pricing reality, payment plausibility, packaging, and the path to five-thousand MRR."
+    icon: "badge-dollar-sign"
+    capabilities: "Validates pricing, payment paths, MRR plausibility, and monetization risks before an idea can queue for Gate A."
     reportsTo: "research-lead"
     adapter:
       type: codex_local
@@ -300,20 +172,13 @@ agents:
     permissions:
       canCreateAgents: false
     inputs:
-      env:
-        BRAVE_API_KEY:
-          kind: secret
-          requirement: optional
-        PAYMENT_PROVIDER_API_KEY:
-          kind: secret
-          requirement: optional
+      env: {}
     notes:
-      - Pause after import until pricing and payment evidence surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 Research specialist. Writes only into canonical Idea Card monetization evidence.
   launch-lead:
     role: "pm"
     icon: "rocket"
-    capabilities: "Owns product-launch doctrine, Gate B readiness, launch coordination, and cross-team launch packets."
+    capabilities: "Owns Product Bet activation after Gate A, Gate B readiness doctrine, and launch coordination boundaries."
     reportsTo: "ceo"
     adapter:
       type: codex_local
@@ -321,715 +186,11 @@ agents:
         model: gpt-5.4
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 22000
-    permissions:
-      canCreateAgents: true
-    inputs:
-      env:
-        PAYMENT_PROVIDER_API_KEY:
-          kind: secret
-          requirement: optional
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing live core slug should upgrade in place and be rebound as head of Product Launch.
-      - Exact-parity core slug. Upgrade in place and validate reporting lines after import.
-  product-definer:
-    role: "pm"
-    icon: "lightbulb"
-    capabilities: "Turns a promoted venture into a buildable product definition with explicit ICP, JTBD, offer, pricing, and MVP boundaries."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
+    budgetMonthlyCents: 8000
     permissions:
       canCreateAgents: false
     inputs:
       env: {}
     notes:
-      - New specialist. Keep paused until Gate B artifacts and templates are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  ux-researcher:
-    role: "designer"
-    icon: "search-code"
-    capabilities: "Translates customer evidence into user workflows, friction maps, and clarity on what must be true for first-time activation."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Activate only after feedback and research surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  ux-architect:
-    role: "designer"
-    icon: "layout-template"
-    capabilities: "Turns research and definition into coherent flows, IA, states, and implementation-ready UX guidance."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Keep paused until design and engineering handoff surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  ui-designer:
-    role: "designer"
-    icon: "palette"
-    capabilities: "Turns approved flows into launch-ready visual interfaces, states, and component direction aligned to the product promise."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Keep paused until design handoff paths are available.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  pricing-strategist:
-    role: "pm"
-    icon: "badge-dollar-sign"
-    capabilities: "Owns launch pricing structure, packaging logic, and first-payment plausibility before the venture ships."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 16000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        PAYMENT_PROVIDER_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Keep paused until pricing and payment evidence surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  launch-program-manager:
-    role: "pm"
-    icon: "clipboard-list"
-    capabilities: "Coordinates the cross-team launch calendar, dependencies, and canonical artifact flow across product, marketing, engineering, and support."
-    reportsTo: "launch-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Activate only after team-level checklists are imported.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  cmo:
-    role: "cmo"
-    icon: "megaphone"
-    capabilities: "Owns positioning, channel strategy, demand generation, measurement discipline, and marketing readiness for each launch."
-    reportsTo: "ceo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 22000
-    permissions:
-      canCreateAgents: true
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New top-level manager. Keep paused until analytics and campaign destinations are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  growth-lead:
-    role: "cmo"
-    icon: "trending-up"
-    capabilities: "Owns launch acquisition strategy, experiment cadence, and early funnel learning for each active venture."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing package role moves under CMO; keep paused until analytics destinations are confirmed.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  marketing-strategist:
-    role: "cmo"
-    icon: "compass"
-    capabilities: "Builds market-facing positioning, campaign architecture, and audience-specific storylines from the launch brief."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Activate once positioning and message surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  seo-specialist:
-    role: "cmo"
-    icon: "search"
-    capabilities: "Owns search-intent capture, organic discoverability, and keyword-to-message alignment for the venture launch surface."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 14000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once content and analytics surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  content-creator:
-    role: "cmo"
-    icon: "pen-square"
-    capabilities: "Creates launch content, lifecycle copy, and customer-facing narratives aligned to the offer, segment, and channel plan."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 14500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Activate once content destinations and templates are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  paid-media-strategist:
-    role: "cmo"
-    icon: "badge-percent"
-    capabilities: "Designs paid acquisition experiments, budget use, and channel-specific offers for early launch learning."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Keep paused until analytics destinations and campaign surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  tracking-measurement-specialist:
-    role: "cmo"
-    icon: "activity"
-    capabilities: "Owns event definitions, launch measurement wiring, dashboard quality, and attribution sanity for marketing and product-launch teams."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Keep paused until analytics destinations and dashboards are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  community-builder:
-    role: "cmo"
-    icon: "messages-square"
-    capabilities: "Builds owned and borrowed audience loops through authentic community participation, feedback collection, and launch amplification."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 14000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env: {}
-    notes:
-      - New specialist. Activate once community surfaces and summaries are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  ai-citation-strategist:
-    role: "cmo"
-    icon: "sparkles"
-    capabilities: "Optimizes brand and product visibility in AI-assisted discovery systems through citation, mention, and source-quality strategy."
-    reportsTo: "cmo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once content inventory and measurement surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  vp-engineering:
-    role: "cto"
-    icon: "cpu"
-    capabilities: "Owns the engineering system for venture delivery, review, QA, release, reliability, and architectural coherence."
-    reportsTo: "ceo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 23000
-    permissions:
-      canCreateAgents: true
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-        DEPLOY_PROVIDER_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New top-level manager. Keep paused until repo and release tooling are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  software-architect:
-    role: "engineer"
-    icon: "blocks"
-    capabilities: "Owns system shape, major trade-offs, and architectural decisions needed to implement the approved venture scope cleanly."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 19000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-        DEPLOY_PROVIDER_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once engineering worktree access is wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  backend-architect:
-    role: "engineer"
-    icon: "database"
-    capabilities: "Owns backend service shape, data contracts, persistence choices, and server-side performance or reliability trade-offs."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 18000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-        DEPLOY_PROVIDER_TOKEN:
-          kind: secret
-          requirement: optional
-        SENTRY_AUTH_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once backend repo access and CI are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  frontend-developer:
-    role: "engineer"
-    icon: "monitor-smartphone"
-    capabilities: "Implements the launch-facing product surface with clean state handling, verified UI behavior, and fidelity to the approved UX and copy."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-        DEPLOY_PROVIDER_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once repo access and test tooling are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  ai-engineer:
-    role: "engineer"
-    icon: "bot"
-    capabilities: "Implements AI-specific product behavior, model integrations, and evaluation paths while staying inside the approved scope and reliability bar."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 18000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once repo access and evaluation tooling are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  senior-developer:
-    role: "engineer"
-    icon: "hammer"
-    capabilities: "Executes substantial implementation slices, resolves cross-cutting defects, and converts approved plans into shippable code with evidence."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 18000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once repo and test access are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  devops-automator:
-    role: "devops"
-    icon: "workflow"
-    capabilities: "Owns build, deploy, CI/CD, and environment automation required to ship and operate the venture safely."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once deploy tooling and secrets are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  sre:
-    role: "devops"
-    icon: "shield-check"
-    capabilities: "Owns service reliability, observability, incident-readiness, and operational risk posture for the shipped venture."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once observability surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  security-engineer:
-    role: "devops"
-    icon: "lock"
-    capabilities: "Owns security review, threat assumptions, and hardening guidance across the launch-bound product surface and release path."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once repo and runtime review surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  code-reviewer:
-    role: "qa"
-    icon: "scan-eye"
-    capabilities: "Acts as the independent code-quality gate between implementation and QA or release."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing package role moves under VP Engineering; keep paused until repo access is wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  qa-director:
-    role: "qa"
-    icon: "clipboard-check"
-    capabilities: "Owns QA strategy, risk-based test coverage, and launch-go quality framing across the venture release train."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 16000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once QA tooling and test environments are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  qa-engineer:
-    role: "qa"
-    icon: "bug"
-    capabilities: "Executes test scenarios, reproduces defects, validates fixes, and creates release-quality evidence for venture launches."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 14500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once QA tooling and test environments are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  release-engineer:
-    role: "devops"
-    icon: "package-check"
-    capabilities: "Owns final merge, release mechanics, rollout, rollback preparation, and final release communication quality."
-    reportsTo: "vp-engineering"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 15500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        GITHUB_TOKEN:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing package role moves under VP Engineering; keep paused until release tooling is wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  support-lead:
-    role: "pm"
-    icon: "life-buoy"
-    capabilities: "Owns support readiness, feedback capture, incident routing, and support-to-product signal quality after launch."
-    reportsTo: "ceo"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 17000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        PAYMENT_PROVIDER_API_KEY:
-          kind: secret
-          requirement: optional
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing package role becomes a top-level manager; keep paused until support tooling and escalation templates are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  support-responder:
-    role: "general"
-    icon: "message-circle-reply"
-    capabilities: "Handles first-line support responses, triage, and canonical ticket capture without losing signal quality."
-    reportsTo: "support-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 13000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        PAYMENT_PROVIDER_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once support queue tooling is wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  feedback-synthesizer:
-    role: "researcher"
-    icon: "notebook-tabs"
-    capabilities: "Turns qualitative support and launch feedback into structured themes, product implications, and escalation-ready evidence."
-    reportsTo: "support-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 13500
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - Existing package role moves under Support Lead; keep paused until support and analytics surfaces are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
-  analytics-reporter:
-    role: "researcher"
-    icon: "bar-chart-3"
-    capabilities: "Combines product, support, and marketing metrics into readable post-launch operating reports."
-    reportsTo: "support-lead"
-    adapter:
-      type: codex_local
-      config:
-        model: gpt-5.4
-        modelReasoningEffort: high
-        dangerouslyBypassApprovalsAndSandbox: false
-    budgetMonthlyCents: 14000
-    permissions:
-      canCreateAgents: false
-    inputs:
-      env:
-        ANALYTICS_API_KEY:
-          kind: secret
-          requirement: optional
-    notes:
-      - New specialist. Activate once analytics surfaces and report templates are wired.
-      - Non-core slug. Preview first: if the slug already exists live, reconcile or update it in place; if it is absent, import it as new and keep it paused until runtime wiring is complete.
+      - Day-1 boundary owner only. Product Bet, Build, GTM, and Support packs stay unimported until Gate A/activation.
+      - Gate B recommendation remains a recommendation, not build approval.

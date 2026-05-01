@@ -1,7 +1,7 @@
 ---
 kind: task
-name: Run Safe RAT Batch
-description: Execute only ready and policy-allowed Product Bet Factory v0 RATs
+name: Run Safe Red Hypothesis Tests
+description: Execute only ready and policy-allowed post-Gate-A tests
 schema: agentcompanies/v1
 assignee: rat-designer
 project: hypothesis-funnel
@@ -9,23 +9,24 @@ project: hypothesis-funnel
 
 ## Purpose
 
-Run safe RATs or record explicit blockers.
+Run safe red hypothesis tests or record explicit blockers.
 
 ## Inputs
 
-- RAT plans
+- red hypothesis test plans
 - access matrix
-- RAT execution boundaries
+- red hypothesis test boundaries
 
 ## Preconditions
 
-- RAT plan has thresholds, max cost, max time, and execution state.
-- Only `READY` RATs may execute.
-- External spend, outreach, launch, and payment actions require approval.
+- Test plan has thresholds, max cost, max time, and execution state.
+- Only `READY` tests may execute.
+- External spend, outreach, public deploy, launch, and payment actions require
+  approval.
 
 ## Steps
 
-1. Execute only RATs with `READY` state.
+1. Execute only tests with `READY` state.
 2. Do not send outreach, spend money, publish, or collect payment without
    approval.
 3. Record `MISSING_ACCESS`, `APPROVAL_REQUIRED`, and `BLOCKED_BY_POLICY`
@@ -34,12 +35,12 @@ Run safe RATs or record explicit blockers.
 
 ## Required Output
 
-- RAT execution results
+- test execution results
 - blocked execution report
 
 ## Idempotency
 
-Use RAT plan IDs and execution attempt numbers. If rerun, append a new attempt
+Use test plan IDs and execution attempt numbers. If rerun, append a new attempt
 record rather than overwriting execution history.
 
 ## Failure Modes
@@ -47,10 +48,10 @@ record rather than overwriting execution history.
 - missing access -> `MISSING_ACCESS`
 - approval required -> `APPROVAL_REQUIRED`
 - policy blocked -> `BLOCKED_BY_POLICY`
-- no ready RATs -> skip with explicit reason
+- no ready tests -> skip with explicit reason
 
 ## Acceptance Criteria
 
-- only `READY` and policy-allowed RATs execute
-- blocked RATs are reported machine-readably
+- only `READY` and policy-allowed tests execute
+- blocked tests are reported machine-readably
 - no outreach, paid ads, public deploy, or payment collection occurred without approval

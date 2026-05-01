@@ -1,4 +1,4 @@
-# Automated Product Bet Cycle Dry Run 000
+# Legacy Automated Cycle Dry Run 000
 
 - `cycle_id`: `automated-cycle-dry-run-000`
 - `mode`: `dry_run`
@@ -11,10 +11,11 @@
 
 ## Purpose
 
-Verify that Automated Product Bet Factory v0 is importable and runnable as a
-Paperclip automation surface without requiring live source access.
+Verify that the older automated cycle could represent blocked states without
+requiring live source access.
 
-This dry run does not create real product bets and does not claim market
+This historical dry run is superseded by the post-Gate-A Product Bet Definition
+doctrine. It does not create real product bets and does not claim market
 evidence.
 
 ## Configured Sources

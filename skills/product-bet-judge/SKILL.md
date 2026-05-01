@@ -1,14 +1,14 @@
 ---
 name: product-bet-judge
-description: Use when judging product-bet revisions and RAT readiness.
+description: Use when judging product-bet revisions and red hypothesis test readiness.
 ---
 
 # Product Bet Judge
 
 ## Purpose
 
-Judge product-bet revisions for RAT readiness using a bounded pass/warn/fail
-scorecard.
+Judge product-bet revisions for red hypothesis test readiness using a bounded
+pass/warn/fail scorecard.
 
 ## Scorecard
 
@@ -25,7 +25,7 @@ scorecard.
 
 ## Routing
 
-Route to `proceed_to_rat`, `revise`, `research_required`, or `kill`.
+Route to `proceed_to_test`, `revise`, `test_more`, or `kill`.
 
 ## Readiness Contract
 
@@ -34,4 +34,4 @@ Route to `proceed_to_rat`, `revise`, `research_required`, or `kill`.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

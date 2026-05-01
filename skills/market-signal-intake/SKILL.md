@@ -1,6 +1,6 @@
 ---
 name: market-signal-intake
-description: Use when collecting and normalizing market signals for Product Bet Factory v0.
+description: Use when collecting and normalizing market signals for Research intake.
 ---
 
 # Market Signal Intake
@@ -8,7 +8,7 @@ description: Use when collecting and normalizing market signals for Product Bet 
 ## Purpose
 
 Create normalized `market_signal` records from approved sources without turning
-source collection into product-bet approval.
+source collection into Product Bet Definition or Gate A approval.
 
 ## Required Inputs
 
@@ -19,7 +19,7 @@ source collection into product-bet approval.
 
 ## Output
 
-Use `docs/templates/product-bets/market-signal.md`.
+Use `docs/templates/research/market-signal.md`.
 
 Also emit:
 
@@ -39,6 +39,7 @@ Also emit:
 - Preserve source snapshots or stable source refs.
 - Assign confidence tier by source type and evidence quality.
 - Do not create product bets directly.
+- Route promising signals to Research Lead for `Idea Card` intake.
 - Do not post, spend, message customers, or collect payment.
 
 ## Readiness Contract
@@ -48,4 +49,4 @@ Also emit:
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

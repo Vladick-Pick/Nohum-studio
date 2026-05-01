@@ -49,7 +49,7 @@ This repository should be read as an **early design project with uneven module m
 The strongest module today is `Research`.
 The studio-wide `self-improvement` layer is now present as a first-class operating subsystem, but still newer and less battle-tested than `Research`.
 
-See the full maturity map in [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md).
+See the full maturity map in [MODULES.md](MODULES.md).
 
 ## Current Strongest Module: Research
 
@@ -66,31 +66,34 @@ It already has:
 
 Start here:
 
-- [Research Module](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
-- [Copyable Product Thesis](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/copyable-product-thesis.md)
-- [Research Execution System](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/research-execution-system.md)
-- [Idea Card Template](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates/research/idea-card.md)
+- [Research Module](docs/research/README.md)
+- [Copyable Product Thesis](docs/research/copyable-product-thesis.md)
+- [Research Execution System](docs/research/research-execution-system.md)
+- [Idea Card Template](docs/templates/research/idea-card.md)
 
 ## Start Here
 
 If you are a founder, operator, or venture-studio person:
 
-- [MODULES.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/MODULES.md)
-- [Operating Spec](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/operating-spec.md)
-- [Research Module](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
-- [Studio Self-Improvement Playbook](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/playbooks/studio-self-improvement-playbook.md)
+- [MODULES.md](MODULES.md)
+- [Operating Spec](docs/operating-spec.md)
+- [Research Module](docs/research/README.md)
+- [Studio Self-Improvement Playbook](docs/playbooks/studio-self-improvement-playbook.md)
 
 If you are a builder or contributor:
 
-- [CONTRIBUTING.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CONTRIBUTING.md)
-- [GOVERNANCE.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/GOVERNANCE.md)
-- [CODE_OF_CONDUCT.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CODE_OF_CONDUCT.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [GOVERNANCE.md](GOVERNANCE.md)
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 If you want the detailed package/runtime layer:
 
-- [COMPANY.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/COMPANY.md)
-- [Import Runbook](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/import-runbook.md)
-- [Paperclip Manifest](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/paperclip.manifest.json)
+- [COMPANY.md](COMPANY.md)
+- [Import Runbook](docs/import-runbook.md)
+
+The root `COMPANY.md` is intentionally a day-1 core and Research import package.
+Downstream Product Bet, Build, GTM, and Support roles live in the repository as
+optional library surfaces until a separate activation package is created.
 
 ## Contribution Model
 
@@ -112,7 +115,7 @@ The wrong way to contribute:
 - changes that blur governance boundaries
 - proposals that silently assume access to live runtime data, approvals, or secrets
 
-See [CONTRIBUTING.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/CONTRIBUTING.md) for the contribution rules.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution rules.
 
 ## Public Collaboration Boundary
 
@@ -126,20 +129,20 @@ It is not a place where the public directly governs:
 - production secrets
 - customer or payment operations
 
-Those boundaries are documented in [GOVERNANCE.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/GOVERNANCE.md).
+Those boundaries are documented in [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Repository Map
 
-- [agents/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/agents): role specs and manager prompts
-- [teams/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/teams): team structure
-- [tasks/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/tasks): runnable workflow units
-- [skills/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/skills): operational skills
-- [docs/research/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research): deepest current module
-- [docs/templates/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates): canonical artifacts
-- [docs/observability/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/observability): health, eval, and hygiene surfaces
-- [docs/experiments/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/experiments): self-improvement experiment memory
-- [docs/automation/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/automation): transition-machine design
-- [scripts/self-improvement/](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/scripts/self-improvement): deterministic scoring, replay, world-model, and rollback helpers
+- [agents/](agents): role specs and manager prompts
+- [teams/](teams): team structure
+- [tasks/](tasks): runnable workflow units
+- [skills/](skills): operational skills
+- [docs/research/](docs/research): deepest current module
+- [docs/templates/](docs/templates): canonical artifacts
+- [docs/observability/](docs/observability): health, eval, and hygiene surfaces
+- [docs/experiments/](docs/experiments): self-improvement experiment memory
+- [docs/automation/](docs/automation): transition-machine design
+- [scripts/self-improvement/](scripts/self-improvement): deterministic scoring, replay, world-model, and rollback helpers
 
 ## Runtime Target
 
@@ -175,4 +178,4 @@ The goal is to build the operating system in public.
 
 This repository is licensed under the Apache License, Version 2.0.
 
-See [LICENSE](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/LICENSE).
+See [LICENSE](LICENSE).

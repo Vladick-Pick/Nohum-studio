@@ -1,7 +1,7 @@
 ---
 kind: task
-name: Compile Product Bet Batch
-description: Automated compilation of proof-backed signals into product bets
+name: Compile Product Bet Definition
+description: Compile a Gate-A-approved Idea Card into a Product Bet Definition packet
 schema: agentcompanies/v1
 assignee: product-bet-compiler
 project: hypothesis-funnel
@@ -9,48 +9,53 @@ project: hypothesis-funnel
 
 ## Purpose
 
-Create product bet cards, assumption maps, and EV bands from proof-backed
-signals.
+Create a Product Bet Definition packet from an approved `Idea Card` and Gate A
+decision.
 
 ## Inputs
 
-- market-signal batch
-- market-proof-lite records
-- product-bet templates
+- Gate A approved `Idea Card`
+- Gate A decision and constraints
+- Product Bet Definition template
+- current Gate B policy
 
 ## Preconditions
 
-- At least one proof-lite record is `plausible` or `strong`.
-- Product bet templates exist.
-- Gate A/Gate B boundaries remain unchanged.
+- Gate A decision is `approve_product_bet_definition`.
+- Product Bet Definition template exists.
+- Gate B boundary remains unchanged.
 
 ## Steps
 
-1. Select eligible proof-backed signals.
-2. Compile product bet cards.
-3. Map assumptions.
-4. Select the riskiest assumption.
-5. Estimate EV bands.
+1. Freeze source `Idea Card` and Gate A decision refs.
+2. Compile product identity, audience, problem, product shape, offer, and
+   economics.
+3. Add competitor deep-dive fields from existing Research evidence and any
+   approved post-Gate-A competitor review.
+4. Draft test GTM program.
+5. Identify initial red hypotheses.
+6. Estimate EV bands.
 
 ## Required Output
 
-- product bet cards
-- assumption maps
+- Product Bet Definition packet
+- initial red hypothesis list
 - initial EV bands
 
 ## Idempotency
 
-Use stable `product_bet_id` values derived from cycle date and signal slug. If
-rerun, append revision notes rather than overwriting previous cards.
+Use stable `product_bet_id` values derived from venture ID and slug. If rerun,
+append revision notes rather than overwriting previous cards.
 
 ## Failure Modes
 
-- no eligible proof records -> skip with explicit reason
-- missing first payment path -> route to `REVISE` or `RESEARCH_REQUIRED`
+- missing Gate A decision -> `RETRY`
+- missing first payment path -> route to `revise` or `test_more`
 - non-canonical stack requirement -> record stack-fit risk
 
 ## Acceptance Criteria
 
-- every product bet has buyer, pain, first value, first payment path, and EV bands
-- every product bet has an assumption map
-- no product bet is treated as Gate A approval
+- product bet links to `source_idea_card_ref` and `gate_a_decision_ref`
+- product bet has ICP, pain, product shape, offer, first value, payment path,
+  test GTM program, and EV bands
+- no product bet is treated as Gate B approval

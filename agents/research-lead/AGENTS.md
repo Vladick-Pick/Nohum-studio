@@ -20,6 +20,8 @@ skills:
   - research-source-registry
   - research-evidence-fallbacks
   - research-canonical-package
+  - market-signal-intake
+  - market-proof-lite
   - research-competitor-analysis
   - research-demand-validation
   - research-revenue-validation

@@ -1,17 +1,17 @@
 ---
 name: rat-planning
-description: Use when creating Product Bet Pilot riskiest-assumption test plans.
+description: Use when creating Product Bet Definition red hypothesis test plans.
 ---
 
-# RAT Planning
+# Red Hypothesis Test Planning
 
 ## Purpose
 
-Choose the cheapest decision-changing test for the riskiest assumption.
+Choose the cheapest decision-changing test for the selected red hypothesis.
 
 ## Required Fields
 
-- assumption ID
+- red hypothesis ID
 - test type
 - why this test
 - expected decision impact
@@ -34,4 +34,4 @@ Use `docs/templates/product-bets/rat-plan.md`.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

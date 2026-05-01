@@ -37,8 +37,10 @@ This document defines the deterministic transition from one queued winner into o
 1. Research hands off exactly one queue package.
 2. CEO requests Gate A decision against that package.
 3. If Gate A fails, the candidate returns to research with explicit reason.
-4. If Gate A passes, Launch Lead creates the venture bootstrap packet.
-5. The new venture may not start build until Gate B passes and repo substrate is ready.
+4. If Gate A passes, Launch Lead creates the venture bootstrap packet and opens
+   Product Bet Definition.
+5. Gate A opens product definition, not build.
+6. The new venture may not start build until Gate B passes and repo substrate is ready.
 
 ## Idempotency Rule
 

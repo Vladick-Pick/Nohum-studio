@@ -1,67 +1,140 @@
-# Product Bet Card
+# Product Bet Definition
 
 - `product_bet_id`: `pb-YYYYMMDD-slug`
+- `venture_id`:
+- `source_idea_card_ref`:
+- `gate_a_decision_ref`:
 - `created_at`:
 - `created_by`:
-- `origin_market_signals`:
-- `research_case_refs`:
-- `status`: `drafted` / `testing` / `revised` / `killed` / `gate_a_candidate`
+- `status`: `drafted` / `hardening` / `testing` / `revised` /
+  `gate_b_ready` / `killed`
 
-## One-Line Bet
+## Product Identity
 
-If NoHum offers `product_shape` to `buyer`, they will pay because
-`painful_job` is urgent, recurring, and poorly solved by `current_workaround`.
+- `name`:
+- `one_liner`:
+- `short_description`:
+- `category`:
+- `positioning_statement`:
 
-## Buyer And Job
+## Audience
 
+- `ICP`:
 - `buyer`:
+- `user`:
+- `payer`:
+- `segment_variants`:
+- `excluded_segments`:
+
+## Problem
+
 - `painful_job`:
 - `current_workaround`:
+- `urgency`:
+- `recurrence`:
 - `switching_trigger`:
-- `frequency_or_recurrence`:
-- `paying_audience_evidence`:
+
+## Competitor Deep Dive
+
+Repeat this block for each retained competitor:
+
+- `name`:
+- `url`:
+- `homepage_headline`:
+- `subheadline`:
+- `main_promise`:
+- `target_segment`:
+- `feature_list`:
+- `pricing`:
+- `CTA`:
+- `onboarding_flow`:
+- `trust_proofs`:
+- `content_strategy`:
+- `SEO_pages`:
+- `directories`:
+- `communities`:
+- `sales_motion`:
+- `weaknesses`:
+- `copyable_patterns`:
+- `differentiation_gap`:
 
 ## Product Shape
 
 - `proposed_solution`:
-- `product_shape`:
+- `core_workflow`:
 - `first_value_moment`:
 - `activation_path`:
-- `first_payment_path`:
-- `pricing_hypothesis`:
-- `channel_wedge`:
-- `reusable_engine_or_pattern`:
+- `MVP_features`:
+- `non_MVP_features`:
+- `later_features`:
+- `non_goals`:
+- `required_integrations`:
+- `data_inputs`:
+- `user_outputs`:
 - `default_stack_fit`: `pass` / `warn` / `fail`
 - `support_load_estimate`: `low` / `medium` / `high`
 
-## Market Grounding
+## Offer
 
-- `direct_competitors`:
-- `pricing_evidence`:
-- `demand_evidence`:
-- `channel_evidence`:
-- `legal_or_commercial_risks`:
-- `strongest_evidence_refs`:
-- `weakest_evidence_refs`:
+- `USP`:
+- `value_prop`:
+- `offer_angle`:
+- `pricing_hypothesis`:
+- `packaging`:
+- `trial_or_free_plan`:
+- `guarantee`:
+- `main_objections`:
+- `objection_responses`:
 
-## EV Band
+## Economics
 
-- `payment_probability`: `low` / `medium` / `high`
-- `retention_probability`: `unknown` / `low` / `medium` / `high`
-- `contribution_potential`: `low` / `medium` / `high`
-- `cost_risk`: `low` / `medium` / `high`
-- `support_risk`: `low` / `medium` / `high`
-- `confidence`: `low` / `medium` / `high`
+- `expected_price`:
+- `expected_conversion_path`:
+- `expected_gross_margin`:
+- `AI_API_costs`:
+- `hosting_costs`:
+- `support_load`:
+- `CAC_assumption`:
+- `payback_assumption`:
+- `contribution_potential`:
 
-## Riskiest Assumption
+## Test GTM Program
 
-- `riskiest_assumption_id`:
-- `why_this_is_riskiest`:
-- `recommended_next_step`: `KILL` / `REVISE` / `FORK` / `TEST_MORE` /
-  `RESEARCH_REQUIRED` / `GATE_A_CANDIDATE`
-- `decision_notes`:
+- `landing_page`:
+- `comparison_page`:
+- `alternative_pages`:
+- `directory_descriptions`:
+- `community_posts`:
+- `X_posts`:
+- `Reddit_posts`:
+- `HN_or_IndieHackers_posts`:
+- `SEO_intent_pages`:
+- `CTA_blocks`:
+- `pricing_blocks`:
+- `analytics_events`:
+- `success_thresholds`:
+- `failure_thresholds`:
+
+## Red Hypotheses
+
+- `red_hypotheses_ref`:
+- `top_existential_risks`:
+- `required_tests_before_gate_b`:
+- `accepted_risks`:
+
+## Gate B Recommendation
+
+- `action`: `build` / `revise` / `test_more` / `kill`
+- `rationale`:
+- `evidence_packet_ref`:
+- `approved_build_scope`:
+- `forbidden_scope`:
+- `unresolved_red_hypotheses`:
+- `budget_cap`:
+- `next_owner`:
 
 ## Governance Boundary
 
-`GATE_A_CANDIDATE` is not Gate B and is not build approval. It only means the
-bet may be prepared for existing Gate A governance review.
+This artifact is a recommendation package for Gate B.
+
+It is not Gate B approval and it is not build approval.

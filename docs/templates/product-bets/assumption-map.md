@@ -1,35 +1,40 @@
-# Assumption Map
+# Red Hypothesis Map
 
-- `assumption_map_id`: `am-YYYYMMDD-slug`
+- `red_hypothesis_map_id`: `rh-YYYYMMDD-slug`
 - `product_bet_id`:
+- `venture_id`:
 - `created_at`:
 - `created_by`:
 
-## Assumptions
+## Red Hypotheses
 
-Repeat this block for each assumption:
+Repeat this block for each red hypothesis:
 
-- `assumption_id`: `as-001`
-- `type`: `buyer` / `pain` / `payment` / `channel` / `activation` /
-  `retention` / `build` / `legal` / `economics`
+- `red_hypothesis_id`: `rh-001`
+- `type`: `segment` / `positioning` / `USP` / `channel` / `payment` /
+  `activation` / `build` / `cost` / `trust` / `retention` / `legal` /
+  `distribution_saturation`
 - `statement`:
+- `why_it_can_kill_the_product`:
 - `risk_level`: `low` / `medium` / `high` / `existential`
 - `evidence_status`: `untested` / `weak` / `supported` / `contradicted`
 - `evidence_refs`:
+- `test_method`:
+- `pass_threshold`:
+- `fail_threshold`:
 - `notes`:
 
-## Riskiest Assumption
+## Priority
 
-- `selected_assumption_id`:
+- `selected_red_hypothesis_id`:
 - `selection_reason`:
 - `what_would_support_it`:
 - `what_would_contradict_it`:
 - `cheapest_decision_changing_test`:
 
-## Decision Boundary
+## Gate B Boundary
 
-- `can_kill_without_external_test`: `yes` / `no`
-- `requires_research_delta`: `yes` / `no`
-- `requires_RAT`: `yes` / `no`
-- `can_be_gate_a_candidate_without_more_evidence`: `yes` / `no`
+- `must_test_before_gate_b`: `yes` / `no`
+- `can_accept_risk_without_test`: `yes` / `no`
+- `requires_human_or_board_review`: `yes` / `no`
 - `reason`:

@@ -1,13 +1,13 @@
 ---
 name: payment-proximity-scoring
-description: Use when scoring how close a RAT result is to real payment evidence.
+description: Use when scoring how close a red hypothesis test result is to real payment evidence.
 ---
 
 # Payment Proximity Scoring
 
 ## Purpose
 
-Score how close a RAT result is to real payment evidence.
+Score how close a red hypothesis test result is to real payment evidence.
 
 ## Levels
 
@@ -18,8 +18,8 @@ Score how close a RAT result is to real payment evidence.
 
 ## Rule
 
-A weak or medium RAT cannot by itself produce `GATE_A_CANDIDATE` unless other
-strong evidence already exists.
+A weak or medium result cannot by itself justify a build recommendation unless
+other strong evidence already exists.
 
 ## Readiness Contract
 
@@ -28,4 +28,4 @@ strong evidence already exists.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

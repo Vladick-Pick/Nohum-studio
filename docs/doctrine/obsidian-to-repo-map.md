@@ -8,10 +8,11 @@ The repository is the executable package layer.
 
 The live Paperclip runtime remains the runtime source of truth after import.
 
-## Current Local Vault
+## Vault Location
 
-- local vault path observed during implementation:
-  - `/Users/vladislavbogdan/Documents/База знаний Обсидиан`
+The Obsidian vault is local operator context and must not be encoded as a
+canonical package path. Keep machine-specific vault paths outside exported
+Paperclip package data.
 
 ## Mapping Rule
 

@@ -90,6 +90,8 @@ It is assigned when the canonical `Idea Card` opens and must appear in:
 - default ventures must fit the canonical NoHum stack without architecture churn
 - board participates 15-20 minutes daily
 - company budget hard cap: $1k per month with board override only
+- root import is day-1 core and Research only; downstream Product Bet, Build,
+  GTM, and Support packs require separate activation
 
 ## Studio Self-Improvement Policy
 
@@ -394,8 +396,18 @@ Queue decay:
 
 - entry: queue package complete
 - entry: queue package includes doctrine summary and value-delta rationale fit for board review
-- exit: venture project + docs + root issues
+- exit: venture project + docs + root issues for product definition
 - approver: board
+
+Gate A opens product definition, not product build.
+
+The canonical pre-Gate-A artifact is the `Idea Card`. It owns market truth,
+competitor proof, demand proof, monetization proof, selection doctrine, and the
+final `QUEUE` / `KILL` / `KILL FOR NOW` research verdict.
+
+Product Bet Definition starts only after Gate A. It owns product shape,
+positioning, offer, feature scope, red hypotheses, test GTM, evidence packet,
+and the recommendation for Gate B.
 
 #### `venture -> build` (Gate B)
 
@@ -506,6 +518,10 @@ When payer affiliation is unclear:
 Company hard cap:
 
 - `$1k/month`
+
+Root-import agent budgets in `.paperclip.yaml` must sum to no more than the
+company hard cap. Optional pack budgets are activation ceilings only and must
+not be represented as active day-1 runtime budget.
 
 Research circuit breaker:
 

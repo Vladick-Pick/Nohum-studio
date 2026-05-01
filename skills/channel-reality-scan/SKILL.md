@@ -7,8 +7,8 @@ description: Use when checking whether a product bet has a plausible reachable f
 
 ## Purpose
 
-Assess whether the buyer can be reached cheaply enough for an early RAT or
-pre-Gate-A recommendation.
+Assess whether the buyer can be reached cheaply enough for a Research verdict
+or post-Gate-A red hypothesis test.
 
 ## Checks
 
@@ -36,4 +36,4 @@ Do not send outreach or launch campaigns.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

@@ -1,14 +1,14 @@
 ---
 name: product-bet-critique
-description: Use when critiquing a Product Bet Pilot card for evidence grounding and test readiness.
+description: Use when critiquing a Product Bet Definition card for evidence grounding and red hypothesis test readiness.
 ---
 
 # Product Bet Critique
 
 ## Purpose
 
-Find evidence, buyer, payment, channel, and buildability weaknesses before a
-product bet reaches RAT planning.
+Find evidence, buyer, payment, channel, positioning, economics, and buildability
+weaknesses before a product bet reaches red hypothesis test planning.
 
 ## Checks
 
@@ -40,4 +40,4 @@ critique:
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

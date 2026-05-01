@@ -1,152 +1,58 @@
 ---
 kind: company
 name: NoHum Studio
-description: AI-only venture factory import package for upgrading the live NoHum Studio runtime
+description: Day-1 core and research import package for upgrading the live NoHum Studio runtime
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.6.0
+version: 1.7.0
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
   - agents/ceo/AGENTS.md
-  - agents/chief-of-staff/AGENTS.md
-  - agents/agent-mechanic/AGENTS.md
-  - agents/research-lead/AGENTS.md
-  - agents/idea-scout/AGENTS.md
-  - agents/competitor-scout/AGENTS.md
-  - agents/demand-validator/AGENTS.md
-  - agents/revenue-validator/AGENTS.md
   - agents/launch-lead/AGENTS.md
-  - agents/product-definer/AGENTS.md
-  - agents/ux-researcher/AGENTS.md
-  - agents/ux-architect/AGENTS.md
-  - agents/ui-designer/AGENTS.md
-  - agents/pricing-strategist/AGENTS.md
-  - agents/launch-program-manager/AGENTS.md
-  - agents/cmo/AGENTS.md
-  - agents/growth-lead/AGENTS.md
-  - agents/marketing-strategist/AGENTS.md
-  - agents/seo-specialist/AGENTS.md
-  - agents/content-creator/AGENTS.md
-  - agents/paid-media-strategist/AGENTS.md
-  - agents/tracking-measurement-specialist/AGENTS.md
-  - agents/community-builder/AGENTS.md
-  - agents/ai-citation-strategist/AGENTS.md
-  - agents/vp-engineering/AGENTS.md
-  - agents/software-architect/AGENTS.md
-  - agents/backend-architect/AGENTS.md
-  - agents/frontend-developer/AGENTS.md
-  - agents/ai-engineer/AGENTS.md
-  - agents/senior-developer/AGENTS.md
-  - agents/devops-automator/AGENTS.md
-  - agents/sre/AGENTS.md
-  - agents/security-engineer/AGENTS.md
-  - agents/code-reviewer/AGENTS.md
-  - agents/qa-director/AGENTS.md
-  - agents/qa-engineer/AGENTS.md
-  - agents/release-engineer/AGENTS.md
-  - agents/support-lead/AGENTS.md
-  - agents/support-responder/AGENTS.md
-  - agents/feedback-synthesizer/AGENTS.md
-  - agents/analytics-reporter/AGENTS.md
+  - teams/research/TEAM.md
+  - teams/studio-ops/TEAM.md
   - projects/hypothesis-funnel/PROJECT.md
   - projects/studio-os/PROJECT.md
-  - tasks/bootstrap-company/TASK.md
   - tasks/bootstrap-company-access-and-secrets/TASK.md
-  - tasks/daily-ceo-operating-review/TASK.md
-  - tasks/daily-chief-of-staff-blocked-work-review/TASK.md
-  - tasks/daily-research-lead-queue-refresh/TASK.md
-  - tasks/daily-launch-lead-readiness-review/TASK.md
-  - tasks/daily-vp-engineering-substrate-review/TASK.md
-  - tasks/daily-support-lead-signal-review/TASK.md
-  - tasks/daily-agent-mechanic-runtime-audit/TASK.md
-  - tasks/promote-queued-venture/TASK.md
-  - tasks/substrate-readiness-review/TASK.md
-  - tasks/delegation-contract-audit/TASK.md
-  - tasks/weekly-board-review/TASK.md
-  - tasks/portfolio-health-review/TASK.md
-  - tasks/weekly-factory-health-review/TASK.md
-  - tasks/weekly-org-hygiene-review/TASK.md
-  - tasks/weekly-self-improvement-review/TASK.md
-  - tasks/weekly-self-improvement-failed-experiment-audit/TASK.md
-  - tasks/weekly-skill-instruction-drift-review/TASK.md
-  - teams/research/TEAM.md
-  - teams/product-launch/TEAM.md
-  - teams/marketing/TEAM.md
-  - teams/engineering/TEAM.md
-  - teams/support/TEAM.md
-  - teams/studio-ops/TEAM.md
-  - skills/analyze-feature-requests/SKILL.md
-  - skills/beachhead-segment/SKILL.md
-  - skills/benchmark/SKILL.md
-  - skills/brainstorming/SKILL.md
-  - skills/canary/SKILL.md
-  - skills/cohort-analysis/SKILL.md
-  - skills/competitive-battlecard/SKILL.md
+  - tasks/bootstrap-company/TASK.md
+  - skills/community-search-market-signal-source/SKILL.md
   - skills/competitor-analysis/SKILL.md
   - skills/create-prd/SKILL.md
-  - skills/cso/SKILL.md
-  - skills/customer-journey-map/SKILL.md
-  - skills/dispatching-parallel-agents/SKILL.md
-  - skills/document-release/SKILL.md
-  - skills/executing-plans/SKILL.md
-  - skills/finishing-a-development-branch/SKILL.md
-  - skills/growth-loops/SKILL.md
-  - skills/gtm-motions/SKILL.md
+  - skills/github-market-signal-source/SKILL.md
   - skills/gtm-strategy/SKILL.md
-  - skills/ideal-customer-profile/SKILL.md
   - skills/identify-assumptions-new/SKILL.md
-  - skills/investigate/SKILL.md
-  - skills/land-and-deploy/SKILL.md
   - skills/launch-gates/SKILL.md
   - skills/launch-gtm-readiness/SKILL.md
   - skills/launch-product-definition/SKILL.md
+  - skills/market-proof-lite/SKILL.md
+  - skills/market-signal-intake/SKILL.md
   - skills/market-sizing/SKILL.md
-  - skills/marketing-ideas/SKILL.md
-  - skills/metrics-dashboard/SKILL.md
+  - skills/marketplace-market-signal-source/SKILL.md
   - skills/monetization-strategy/SKILL.md
-  - skills/north-star-metric/SKILL.md
   - skills/payment-signal-policy/SKILL.md
-  - skills/plan-eng-review/SKILL.md
   - skills/portfolio-review/SKILL.md
-  - skills/positioning-ideas/SKILL.md
   - skills/pre-mortem/SKILL.md
   - skills/pricing-strategy/SKILL.md
   - skills/prioritize-assumptions/SKILL.md
-  - skills/qa-only/SKILL.md
-  - skills/qa/SKILL.md
-  - skills/receiving-code-review/SKILL.md
+  - skills/product-hunt-market-signal-source/SKILL.md
   - skills/release-notes/SKILL.md
-  - skills/requesting-code-review/SKILL.md
+  - skills/research-canonical-package/SKILL.md
   - skills/research-competitor-analysis/SKILL.md
   - skills/research-competitor-discovery/SKILL.md
-  - skills/research-canonical-package/SKILL.md
   - skills/research-demand-validation/SKILL.md
   - skills/research-evidence-fallbacks/SKILL.md
   - skills/research-revenue-validation/SKILL.md
   - skills/research-scorecard/SKILL.md
   - skills/research-source-registry/SKILL.md
-  - skills/research-trustmrr-sourcing/SKILL.md
   - skills/research-traffic-validation/SKILL.md
   - skills/research-trustmrr-intake/SKILL.md
-  - skills/review/SKILL.md
-  - skills/sentiment-analysis/SKILL.md
-  - skills/ship/SKILL.md
-  - skills/stakeholder-map/SKILL.md
+  - skills/research-trustmrr-sourcing/SKILL.md
   - skills/studio-ops-agent-reliability/SKILL.md
-  - skills/subagent-driven-development/SKILL.md
-  - skills/summarize-meeting/SKILL.md
   - skills/systematic-debugging/SKILL.md
-  - skills/test-driven-development/SKILL.md
-  - skills/test-scenarios/SKILL.md
-  - skills/user-personas/SKILL.md
-  - skills/user-stories/SKILL.md
-  - skills/using-git-worktrees/SKILL.md
-  - skills/value-prop-statements/SKILL.md
-  - skills/value-proposition/SKILL.md
+  - skills/trustmrr-market-signal-source/SKILL.md
   - skills/venture-policy/SKILL.md
   - skills/verification-before-completion/SKILL.md
-  - skills/writing-plans/SKILL.md
   - skills/writing-skills/SKILL.md
   - docs/decisions/0004-secret-and-credential-architecture.md
   - docs/decisions/0005-factory-default-stack-and-mcp.md
@@ -155,24 +61,15 @@ includes:
   - docs/operating-spec.md
   - docs/operating-cadence.md
   - docs/skill-policy.md
-  - docs/team-skill-matrix.md
   - docs/mcp-access-matrix.md
   - docs/automation/queue-to-venture-machine.md
-  - docs/delegation/manager-delegation-contracts.md
-  - docs/observability/factory-health-metrics.md
   - docs/observability/process-surface-catalog.md
-  - docs/observability/self-improvement-metrics.md
   - docs/observability/company-world-model.md
-  - docs/observability/customer-world-model.md
   - docs/observability/org-hygiene-checklist.md
-  - docs/runbooks/engineering-substrate.md
   - docs/atlas/org-map.md
-  - docs/atlas/self-improvement-machine.md
-  - docs/experiments/self-improvement/exp-001-skill-instruction-quality.md
-  - docs/experiments/self-improvement/exp-001-promotion-decision.json
-  - docs/experiments/self-improvement/exp-001-company-world-model-delta.md
   - docs/research/README.md
   - docs/research/source-registry.md
+  - docs/research/source-adapter-registry.md
   - docs/research/traffic-interpretation-bands.md
   - docs/research/evidence-fallback-matrix.md
   - docs/research/contracts/intake-and-handoffs.md
@@ -180,82 +77,67 @@ includes:
   - docs/research/decisions/0001-research-foundation-v1.md
   - docs/research/decisions/0002-idea-scout-sourcing-only.md
   - docs/research/decisions/0003-one-idea-one-card-no-synthesizer.md
+  - docs/research/decisions/0004-research-history-layer-v1.md
   - docs/research/copyable-product-thesis.md
   - docs/research/research-execution-system.md
-  - docs/templates/engineering/build-env-contract.md
-  - docs/templates/engineering/release-readiness-pack.md
-  - docs/templates/engineering/repo-attach-record.md
   - docs/templates/operations/blocked-work-packet.md
-  - docs/templates/operations/process-surface-spec.md
-  - docs/templates/operations/process-experiment-record.md
   - docs/templates/operations/agent-self-review.md
   - docs/templates/operations/company-world-model-report.md
-  - docs/templates/operations/customer-world-model-report.md
-  - docs/templates/operations/promotion-decision.md
-  - docs/templates/operations/factory-health-report.md
   - docs/templates/operations/org-hygiene-report.md
   - docs/templates/operations/reroute-note.md
   - docs/templates/queue/gate-a-decision.md
   - docs/templates/queue/queue-winner-record.md
   - docs/templates/research/competitor-evidence-card.md
+  - docs/templates/research/decision-memory-index.md
   - docs/templates/research/evidence-gap-log.md
+  - docs/templates/research/eval-dataset-export.md
+  - docs/templates/research/idea-card.md
+  - docs/templates/research/market-signal.md
+  - docs/templates/research/research-registry.md
   - docs/templates/research/traffic-validation-sheet.md
   - docs/templates/research/trustmrr-sourcing-batch.md
-  - docs/templates/research/idea-card.md
-  - docs/templates/venture/feedback-log.md
-  - docs/templates/venture/handoff-dossier.md
-  - docs/templates/venture/launch-brief.md
-  - docs/templates/venture/payment-events.md
   - docs/templates/venture/phase-transition-log.md
   - docs/templates/venture/venture-manifest.md
   - docs/playbooks/research-playbook.md
   - docs/playbooks/queue-gate-a-playbook.md
-  - docs/playbooks/venture-definition-playbook.md
-  - docs/playbooks/gate-b-playbook.md
-  - docs/playbooks/build-playbook.md
-  - docs/playbooks/launch-playbook.md
-  - docs/playbooks/operate-feedback-playbook.md
-  - docs/playbooks/studio-self-improvement-playbook.md
   - docs/readiness/research-readiness.md
   - docs/readiness/gate-a-readiness.md
-  - docs/readiness/gate-b-readiness.md
-  - docs/readiness/launch-readiness.md
   - docs/handoffs/specialist-to-specialist.md
   - docs/handoffs/research-to-launch.md
-  - docs/handoffs/definition-to-build.md
-  - docs/handoffs/launch-to-support.md
-  - docs/handoffs/payment-ambiguity-to-board.md
   - docs/handoffs/retry-fail-escalation.md
   - docs/import-runbook.md
   - docs/server-post-import-checklist.md
   - docs/doctrine/obsidian-to-repo-map.md
-  - docs/migration/v1-5-import-upgrade.md
 requirements:
   secrets: []
 ---
 
 NoHum Studio is a venture factory, not a single-product company.
 
-This repository is the detailed-core v1.5 source package for upgrading the current live NoHum Studio company rather than creating a greenfield organization.
+This root package is the day-1 core and research import surface. It upgrades the
+live Paperclip company without importing the entire future org, Product Bet
+machine, build team, GTM team, support team, or historical design archive as
+runtime work.
 
 The package is intentionally layered:
 
-- import-safe layer: `COMPANY.md`, `paperclip.manifest.json`, `.paperclip.yaml`, and stable agent identities
-- richer bootstrap layer: team docs, playbooks, handoffs, readiness artifacts, vendored skills, and migration runbooks
+- day-1 import layer: `COMPANY.md`, `.paperclip.yaml`, core/research agents,
+  bootstrap tasks, and Research/Gate A artifacts
+- optional library layer: downstream Product Bet, Build, GTM, Support, archived
+  plans, references, and legacy dry runs that must not import as day-1 runtime
+  work
 
-## Detailed-Core Org Scope
+## Day-1 Import Scope
 
 - Control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
 - Research: `Idea Scout`, `Research Lead`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
-- Product Launch: `Launch Lead`, `Product Definer`, `UX Researcher`, `UX Architect`, `UI Designer`, `Pricing Strategist`, `Launch Program Manager`
-- Marketing: `CMO`, `Growth Lead`, `Marketing Strategist`, `SEO Specialist`, `Content Creator`, `Paid Media Strategist`, `Tracking & Measurement Specialist`, `Community Builder`, `AI Citation Strategist`
-- Engineering: `VP of Engineering`, `Software Architect`, `Backend Architect`, `Frontend Developer`, `AI Engineer`, `Senior Developer`, `DevOps Automator`, `SRE`, `Security Engineer`, `Code Reviewer`, `QA Director`, `QA Engineer`, `Release Engineer`
-- Support: `Support Lead`, `Support Responder`, `Feedback Synthesizer`, `Analytics Reporter`
+- Launch boundary owner: `Launch Lead`
 - Studio Ops remains a bootstrap/control layer through `Chief of Staff` and `Agent Mechanic`
 
 ## Live Upgrade Rules
 
 - existing live identities with exact parity are upgraded in place: `ceo`, `research-lead`, `launch-lead`
-- newly introduced managers and specialists are imported as new agents and remain paused until runtime wiring is complete
+- downstream Product Bet, Build, GTM, and Support roles are not imported from the root package
+- newly introduced non-core roles must arrive through a separate activation package and remain paused until runtime wiring is complete
 - `teams/` is a bootstrap/package layer and must also be represented through reporting lines, docs, and skills
 - cross-role phase transitions require canonical artifacts, never comments-only handoffs

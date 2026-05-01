@@ -1,15 +1,15 @@
 ---
 name: assumption-mapping
-description: Use when mapping risks and assumptions for a Product Bet Pilot card.
+description: Use when mapping red hypotheses for a Product Bet Definition card.
 ---
 
-# Assumption Mapping
+# Red Hypothesis Mapping
 
 ## Purpose
 
-Identify what must be true for a product bet to deserve the next step.
+Identify what could kill a post-Gate-A product bet before build.
 
-## Assumption Types
+## Red Hypothesis Types
 
 - `buyer`
 - `pain`
@@ -25,8 +25,8 @@ Identify what must be true for a product bet to deserve the next step.
 
 Use `docs/templates/product-bets/assumption-map.md`.
 
-Select one riskiest assumption and explain what evidence would support or
-contradict it.
+Select the highest-risk red hypothesis and explain what evidence would support
+or contradict it.
 
 ## Readiness Contract
 
@@ -35,4 +35,4 @@ contradict it.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

@@ -111,4 +111,4 @@ It is not the place to directly operate:
 - secrets
 - customer operations
 
-See [GOVERNANCE.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/GOVERNANCE.md) for the boundary.
+See [GOVERNANCE.md](GOVERNANCE.md) for the boundary.

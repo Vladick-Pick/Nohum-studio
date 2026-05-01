@@ -1,6 +1,6 @@
 ---
 name: marketplace-market-signal-source
-description: Use when app, plugin, extension, template, or tool marketplaces are Product Bet Factory sources.
+description: Use when app, plugin, extension, template, or tool marketplaces are Research sources.
 ---
 
 # Marketplace Market Signal Source
@@ -42,4 +42,4 @@ ability to win the channel.
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.

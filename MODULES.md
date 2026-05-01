@@ -14,24 +14,24 @@ Use this map to understand which modules are already useful as references and wh
 
 | Module | Maturity | What it currently gives you | Start here |
 |---|---|---|---|
-| Research | `Reference` | strongest current module; sourcing, evaluation, shared `Idea Card`, history layer, doctrine, review discipline | [docs/research/README.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md) |
-| Company Ontology and Operating Policy | `In Progress` | company shape, stage model, gates, budgets, top-level ownership | [docs/operating-spec.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/operating-spec.md), [COMPANY.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/COMPANY.md) |
-| Runtime / Paperclip Portability | `In Progress` | import package, agent structure, runtime target assumptions | [paperclip.manifest.json](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/paperclip.manifest.json), [docs/import-runbook.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/import-runbook.md) |
-| Launch / Venture Definition | `In Progress` | Gate B framing, launch handoffs, venture-definition surfaces | [docs/atlas/launch-machine.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/atlas/launch-machine.md), [docs/handoffs/research-to-launch.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/handoffs/research-to-launch.md) |
-| Engineering / Build | `Draft` | substrate assumptions, role shells, readiness surfaces | [docs/runbooks/engineering-substrate.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/runbooks/engineering-substrate.md), [docs/playbooks/build-playbook.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/playbooks/build-playbook.md) |
-| Marketing / GTM | `Draft` | role shells, launch-facing GTM dependencies, skill surfaces | [teams/marketing/TEAM.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/teams/marketing/TEAM.md), [agents/cmo/AGENTS.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/agents/cmo/AGENTS.md) |
-| Support / Feedback | `Draft` | support team shell, feedback handoffs, signal-review surfaces | [teams/support/TEAM.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/teams/support/TEAM.md), [docs/handoffs/launch-to-support.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/handoffs/launch-to-support.md) |
-| Finance / Payment Control | `Draft` | payment-event templates, policy hooks, escalation surfaces | [docs/templates/venture/payment-events.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/templates/venture/payment-events.md), [docs/handoffs/payment-ambiguity-to-board.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/handoffs/payment-ambiguity-to-board.md) |
-| Observability / Governance | `In Progress` | factory health, org hygiene, delegation contracts, control surfaces | [docs/observability/factory-health-metrics.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/observability/factory-health-metrics.md), [docs/delegation/manager-delegation-contracts.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/delegation/manager-delegation-contracts.md) |
+| Research | `Reference` | strongest current module; sourcing, evaluation, shared `Idea Card`, history layer, doctrine, review discipline | [docs/research/README.md](docs/research/README.md) |
+| Company Ontology and Operating Policy | `In Progress` | company shape, stage model, gates, budgets, top-level ownership | [docs/operating-spec.md](docs/operating-spec.md), [COMPANY.md](COMPANY.md) |
+| Runtime / Paperclip Portability | `In Progress` | day-1 import package, agent structure, runtime target assumptions | [COMPANY.md](COMPANY.md), [docs/import-runbook.md](docs/import-runbook.md) |
+| Launch / Venture Definition | `In Progress` | Gate B framing, launch handoffs, venture-definition surfaces | [docs/atlas/launch-machine.md](docs/atlas/launch-machine.md), [docs/handoffs/research-to-launch.md](docs/handoffs/research-to-launch.md) |
+| Engineering / Build | `Draft` | substrate assumptions, role shells, readiness surfaces | [docs/runbooks/engineering-substrate.md](docs/runbooks/engineering-substrate.md), [docs/playbooks/build-playbook.md](docs/playbooks/build-playbook.md) |
+| Marketing / GTM | `Draft` | role shells, launch-facing GTM dependencies, skill surfaces | [teams/marketing/TEAM.md](teams/marketing/TEAM.md), [agents/cmo/AGENTS.md](agents/cmo/AGENTS.md) |
+| Support / Feedback | `Draft` | support team shell, feedback handoffs, signal-review surfaces | [teams/support/TEAM.md](teams/support/TEAM.md), [docs/handoffs/launch-to-support.md](docs/handoffs/launch-to-support.md) |
+| Finance / Payment Control | `Draft` | payment-event templates, policy hooks, escalation surfaces | [docs/templates/venture/payment-events.md](docs/templates/venture/payment-events.md), [docs/handoffs/payment-ambiguity-to-board.md](docs/handoffs/payment-ambiguity-to-board.md) |
+| Observability / Governance | `In Progress` | factory health, org hygiene, delegation contracts, control surfaces | [docs/observability/factory-health-metrics.md](docs/observability/factory-health-metrics.md), [docs/delegation/manager-delegation-contracts.md](docs/delegation/manager-delegation-contracts.md) |
 
 ## Current Reading Order
 
 If you want to understand the project in the right order:
 
-1. [README.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/README.md)
-2. [docs/research/README.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/research/README.md)
-3. [docs/operating-spec.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/docs/operating-spec.md)
-4. [COMPANY.md](/Users/vladislavbogdan/Documents/Вайб-проекты/NoHum/Nohum-studio/COMPANY.md)
+1. [README.md](README.md)
+2. [docs/research/README.md](docs/research/README.md)
+3. [docs/operating-spec.md](docs/operating-spec.md)
+4. [COMPANY.md](COMPANY.md)
 
 ## Design Rule
 

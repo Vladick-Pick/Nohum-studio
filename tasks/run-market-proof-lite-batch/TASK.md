@@ -1,47 +1,54 @@
 ---
 kind: task
-name: Run Market Proof Lite Batch
-description: Automated proof-lite checks for market-signal batches
+name: Run Research Proof Review
+description: Research Lead review of source signals before Idea Card or specialist work
 schema: agentcompanies/v1
-assignee: market-proof-analyst
+assignee: research-lead
 project: hypothesis-funnel
 ---
 
 ## Purpose
 
-Check whether market signals have enough buyer, competitor, pricing, channel,
-legal, and buildability evidence to become product bets.
+Review source signals and decide whether to open an `Idea Card`, reject, hold,
+or request specialist research.
+
+This task is a compatibility wrapper for older proof-lite flows. In the target
+model, proof lives in the canonical `Idea Card` through Competition, Demand, and
+Monetization sections.
 
 ## Inputs
 
-- market-signal batch
+- research source batch
 - source snapshots
 - Copyable Product Thesis
+- Decision Memory
 
 ## Preconditions
 
-- Market-signal batch exists or the task records a skipped state.
 - Source refs are present for every signal being checked.
 - Proof checks remain read-only.
+- No Product Bet work starts before Gate A.
 
 ## Steps
 
 1. Review each signal for buyer and job clarity.
-2. Run competitor and pricing scan.
-3. Run channel reality scan.
-4. Run legal/commercial boundary scan.
-5. Return proof status and confidence.
+2. Check duplicate and revisit risk.
+3. Decide whether the signal deserves an `Idea Card`.
+4. If opened, assign specialist work to existing Research agents:
+   `Competitor Scout`, `Demand Validator`, and `Revenue Validator`.
+5. If rejected or held, write the decision reason and reopen condition.
 
 ## Required Output
 
-- market-proof-lite records
-- proof blockers
-- evidence refs
+- intake decision per signal
+- opened or rejected `Idea Card` refs
+- specialist handoff notes when work is opened
+- blocker refs when source access or policy prevents review
 
 ## Idempotency
 
-Use the source `market_signal_id` as the proof key. If rerun, write a new proof
-record version rather than mutating prior evidence.
+Use the source `market_signal_id` as the proof key. If rerun, append an intake
+decision version rather than mutating prior evidence.
 
 ## Failure Modes
 
@@ -51,6 +58,6 @@ record version rather than mutating prior evidence.
 
 ## Acceptance Criteria
 
-- every proof record has status, confidence, and evidence refs
-- competitor, pricing, channel, legal, and buildability checks are addressed
+- every reviewed signal has an intake decision and evidence refs
+- every opened candidate has one canonical `Idea Card`
 - no product bet is compiled inside this task

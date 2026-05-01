@@ -1,13 +1,18 @@
-# RAT Execution Boundaries
+# Red Hypothesis Test Boundaries
 
-RAT execution in Automated Product Bet Factory v0 is intentionally bounded.
+Red hypothesis tests run after Gate A inside Product Bet Definition.
+
+They test product-shape, positioning, offer, payment-intent, activation,
+channel, cost, trust, retention, legal, and distribution risks before Gate B.
 
 ## Allowed Without Additional Approval
 
 - competitor pricing scan
 - source snapshot capture from allowed sources
+- internal autoreason
+- synthetic audience review
 - landing spec generation
-- cold outreach draft only
+- outreach draft only
 - checkout intent plan only
 - concierge workflow plan only
 
@@ -15,6 +20,7 @@ RAT execution in Automated Product Bet Factory v0 is intentionally bounded.
 
 - sending outreach
 - public landing deploy
+- public community or social posting
 - paid traffic
 - payment collection
 - customer-facing concierge promise
@@ -23,12 +29,16 @@ RAT execution in Automated Product Bet Factory v0 is intentionally bounded.
 ## Blocked By Policy
 
 - misleading claims
+- fabricated proof, logos, users, or endorsements
 - collecting payment for an unavailable offer without approved policy
 - scraping or automating sources whose terms disallow it
 - uncapped paid spend
 - external actions without owner, threshold, and stop condition
 
 ## Evidence Rule
+
+Internal autoreason and synthetic audience findings are internal evidence only.
+They do not count as market validation.
 
 Blocked execution states are recorded as operational evidence. They do not count
 as market validation.

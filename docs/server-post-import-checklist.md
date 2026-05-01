@@ -1,10 +1,19 @@
 # Server Post-Import Checklist
 
-## 1. Core Identity Check
+## 1. Day-1 Identity Check
 
-- confirm `ceo`, `research-lead`, and `launch-lead` upgraded in place
-- confirm no duplicates were created for core slugs
-- confirm any non-core slug that already existed live was reconciled in place instead of duplicated
+- confirm exactly these root-import agent slugs are present or upgraded:
+  - `ceo`
+  - `chief-of-staff`
+  - `agent-mechanic`
+  - `research-lead`
+  - `idea-scout`
+  - `competitor-scout`
+  - `demand-validator`
+  - `revenue-validator`
+  - `launch-lead`
+- confirm no duplicates were created for day-1 slugs
+- confirm no Product Bet, Build, GTM, or Support specialist was imported from the root package
 
 ## 2. Reporting Line Check
 
@@ -16,44 +25,15 @@
 - `Demand Validator -> Research Lead`
 - `Revenue Validator -> Research Lead`
 - `Launch Lead -> CEO`
-- `Product Definer -> Launch Lead`
-- `UX Researcher -> Launch Lead`
-- `UX Architect -> Launch Lead`
-- `UI Designer -> Launch Lead`
-- `Pricing Strategist -> Launch Lead`
-- `Launch Program Manager -> Launch Lead`
-- `CMO -> CEO`
-- `Growth Lead -> CMO`
-- `Marketing Strategist -> CMO`
-- `SEO Specialist -> CMO`
-- `Content Creator -> CMO`
-- `Paid Media Strategist -> CMO`
-- `Tracking & Measurement Specialist -> CMO`
-- `Community Builder -> CMO`
-- `AI Citation Strategist -> CMO`
-- `VP of Engineering -> CEO`
-- `Software Architect -> VP of Engineering`
-- `Backend Architect -> VP of Engineering`
-- `Frontend Developer -> VP of Engineering`
-- `AI Engineer -> VP of Engineering`
-- `Senior Developer -> VP of Engineering`
-- `DevOps Automator -> VP of Engineering`
-- `SRE -> VP of Engineering`
-- `Security Engineer -> VP of Engineering`
-- `Code Reviewer -> VP of Engineering`
-- `QA Director -> VP of Engineering`
-- `QA Engineer -> VP of Engineering`
-- `Release Engineer -> VP of Engineering`
-- `Support Lead -> CEO`
-- `Support Responder -> Support Lead`
-- `Feedback Synthesizer -> Support Lead`
-- `Analytics Reporter -> Support Lead`
 
-## 3. Pause State Check
+## 3. Activation State Check
 
-- all non-core roles created by this import should remain paused until runtime wiring is complete
-- any non-core role reconciled from a previous package should keep the new reporting line and remain paused until its new tooling is wired
-- newly introduced top-level managers `cmo` and `vp-engineering` should stay paused until their tool and secret surfaces are ready
+- `CEO` may run bootstrap and governance tasks
+- `Research Lead` stays paused until access/secrets task is complete
+- `Idea Scout`, `Competitor Scout`, `Demand Validator`, and `Revenue Validator`
+  stay paused until Research Lead opens assigned work
+- `Launch Lead` stays in boundary-owner mode until Gate A opens Product Bet Definition
+- `Chief of Staff` and `Agent Mechanic` stay limited to bootstrap/support work
 
 ## 4. Company Secrets and Runtime Wiring Check
 
@@ -61,86 +41,54 @@
 
 - create and rotate secrets in `Paperclip Company Secrets`, not in the repo and not in comments
 - keep secret CRUD board-only
-- treat Railway env as a runtime copy, not the canonical origin
+- bind agent-facing values through `secret_ref`
+- treat provider env vars as runtime copies, not canonical origin
 
-### 4.2 Minimum Viable Core Set
+### 4.2 Day-1 Research Secret Set
 
-Company-wide agent/runtime secrets:
+- `Idea Scout` -> `TRUSTMRR_API_KEY`, `APIFY_TOKEN`
+- `Competitor Scout` -> `APIFY_TOKEN`, `OPENROUTER_API_KEY`
+- `Demand Validator` -> `APIFY_TOKEN`
+- `Research Lead` -> `BRAVE_API_KEY`
+
+### 4.3 Later Activation Blockers
+
+Record these as later blockers for optional packs instead of blocking day-1
+Research:
 
 - `GITHUB_TOKEN`
-- `BRAVE_API_KEY`
 - `RAILWAY_TOKEN`
 - `SENTRY_AUTH_TOKEN`
 - `PAYMENT_PROVIDER_API_KEY`
 - `ANALYTICS_API_KEY`
+- payment provider secrets
+- deploy provider secrets
+- per-venture app secrets
 
-Day-1 research secret set:
+## 5. Budget Check
 
-- `TRUSTMRR_API_KEY`
-- `APIFY_TOKEN`
-- `OPENROUTER_API_KEY`
+- company hard cap is `100000` cents per month
+- sum of root-import `.paperclip.yaml` agent budgets must not exceed that cap
+- optional pack budget ceilings must not be counted as active spend until the pack is imported and approved
 
-Mapped provider-level secrets:
+## 6. First Work Check
 
-- `LAVA_API_KEY`
-- `LAVA_WEBHOOK_SECRET`
-- `PLAUSIBLE_API_KEY`
-- `RESEND_API_KEY`
+Only this chain may start after import:
 
-Per-venture app secrets:
+```text
+Bootstrap Company Access And Secrets
+-> Bootstrap Company
+-> Start First Research Cycle
+-> Research Source Batch
+-> Research Proof Review
+-> canonical Idea Card
+-> Gate A packet
+```
 
-- `DATABASE_URL`
-- `BETTER_AUTH_SECRET`
-- `LAVA_API_KEY`
-- `LAVA_WEBHOOK_SECRET`
-- `PLAUSIBLE_API_KEY`
-- `RESEND_API_KEY`
-- `SENTRY_DSN`
-- `R2_ACCESS_KEY_ID`
-- `R2_SECRET_ACCESS_KEY`
-- `R2_BUCKET`
-- `R2_ENDPOINT`
-- optional `OPENROUTER_API_KEY` for venture app runtime when a shipped product uses LLM functionality; also allowed as a company secret for research roles that depend on OpenRouter-backed discovery
+No Product Bet, Build, GTM, Support, outreach, public deploy, spend, or payment
+collection should start from the root import.
 
-### 4.3 Agent Runtime Wiring
-
-- keep model auth host-managed for `codex_local`; do not create a company-wide `OPENAI_API_KEY` baseline
-- bind agent-facing aliases through `Company Secrets`:
-  - `PAYMENT_PROVIDER_API_KEY` -> Lava.top
-  - `ANALYTICS_API_KEY` -> Plausible
-  - `DEPLOY_PROVIDER_TOKEN` -> Railway
-- wire `GITHUB_TOKEN` for engineering and ops roles that need repo, review, or release access
-- wire `BRAVE_API_KEY` for research roles using Brave Search MCP
-- wire `TRUSTMRR_API_KEY` and `APIFY_TOKEN` for `Idea Scout`
-- wire `OPENROUTER_API_KEY` and `APIFY_TOKEN` for `Competitor Scout`
-- wire `APIFY_TOKEN` for `Demand Validator`
-- wire `DEPLOY_PROVIDER_TOKEN` to Railway-facing engineering roles
-- wire `SENTRY_AUTH_TOKEN` only to reliability roles that need observability diagnostics
-- wire `ANALYTICS_API_KEY` for measurement, marketing, and analytics roles
-- wire `PAYMENT_PROVIDER_API_KEY` only for roles that need payment-signal context
-- verify live agent config stores `secret_ref`, not plaintext values
-- keep runtime secret refs on `"version": "latest"`
-
-Research-lane bring-up rule:
-
-- do not start the first sourcing cycle until `TRUSTMRR_API_KEY`, `APIFY_TOKEN`, `OPENROUTER_API_KEY`, and `BRAVE_API_KEY` are all wired where required
-- if a research role depends on an already-designed service stack, do not substitute a weaker manual path just because the secret is missing
-
-### 4.4 Venture App Runtime Copies
-
-- copy only the needed subset from `Company Secrets` into Railway env for the active venture
-- use provider-specific names in app env: `LAVA_API_KEY`, `PLAUSIBLE_API_KEY`, `RESEND_API_KEY`, `SENTRY_DSN`, `DATABASE_URL`, `R2_*`, and optional `OPENROUTER_API_KEY` for LLM ventures
-- when rotating a secret, update `Company Secrets` first and then update the Railway copies for affected ventures
-
-## 5. Instruction Bundle Check
-
-- verify every generated role has `AGENTS.md`, `SOUL.md`, `HEARTBEAT.md`, and `TOOLS.md` attached
-- verify managers see the correct team bundle and downstream handoff docs
-
-## 6. Smoke Tests
-
-- Research: produce or refresh a queue winner artifact; pass when owner, freshness, and evidence links are explicit; approver `Research Lead`
-- Product Launch: update a Gate B packet or launch brief; pass when the next owner can act from the artifact alone; approver `Launch Lead`
-- Marketing: produce a measured channel brief; pass when metric, audience, and offer are explicit; approver `CMO`
-- Engineering: create a substrate, review, or QA artifact; pass when verdict and verification evidence are explicit; approver `VP of Engineering`
-- Support: produce a structured feedback or escalation synthesis; pass when severity, owner, and next decision are explicit; approver `Support Lead`
+Only the first two bootstrap tasks should exist immediately after root import.
+`Start First Research Cycle` is created by CEO only after bootstrap approval.
+Research Source Batch and Research Proof Review are created only inside that
+Research operating loop.

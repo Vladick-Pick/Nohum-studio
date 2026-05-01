@@ -1,6 +1,6 @@
 ---
 name: competitor-pricing-rat
-description: Use when executing a safe competitor/pricing RAT for Product Bet Factory v0.
+description: Use when executing a safe competitor/pricing RAT for Product Bet Definition.
 ---
 
 # Competitor Pricing RAT
@@ -42,4 +42,4 @@ Return exactly one of:
 - `permission_boundary`: no spend, outreach send, public deploy, payment
   collection, Gate A approval, Gate B approval, or build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
-  `GATE_A_CANDIDATE` is never treated as Gate B or build approval.
+  Gate B recommendation is never treated as Gate B approval or build approval.
