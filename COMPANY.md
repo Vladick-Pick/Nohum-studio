@@ -1,16 +1,20 @@
 ---
 kind: company
 name: NoHum Studio
-description: Day-1 core and research import package for upgrading the live NoHum Studio runtime
+description: Single-import company package for NoHum Studio with staged runtime activation
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.7.0
+version: 1.8.0
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
   - agents/ceo/AGENTS.md
-  - agents/launch-lead/AGENTS.md
   - teams/research/TEAM.md
+  - teams/product-bet-definition/TEAM.md
+  - teams/product-launch/TEAM.md
+  - teams/engineering/TEAM.md
+  - teams/marketing/TEAM.md
+  - teams/support/TEAM.md
   - teams/studio-ops/TEAM.md
   - projects/hypothesis-funnel/PROJECT.md
   - projects/studio-os/PROJECT.md
@@ -35,6 +39,7 @@ includes:
   - skills/pre-mortem/SKILL.md
   - skills/pricing-strategy/SKILL.md
   - skills/prioritize-assumptions/SKILL.md
+  - skills/product-bet-validation-loop/SKILL.md
   - skills/product-hunt-market-signal-source/SKILL.md
   - skills/release-notes/SKILL.md
   - skills/research-canonical-package/SKILL.md
@@ -53,6 +58,13 @@ includes:
   - skills/trustmrr-market-signal-source/SKILL.md
   - skills/venture-policy/SKILL.md
   - skills/verification-before-completion/SKILL.md
+  - skills/validation-surface-factory/SKILL.md
+  - skills/landing-cro-review/SKILL.md
+  - skills/anti-ai-slop-copy-review/SKILL.md
+  - skills/organic-distribution-testing/SKILL.md
+  - skills/community-prospecting/SKILL.md
+  - skills/engineering-as-marketing-wedge/SKILL.md
+  - skills/observation-window-evaluation/SKILL.md
   - skills/writing-skills/SKILL.md
   - docs/decisions/0004-secret-and-credential-architecture.md
   - docs/decisions/0005-factory-default-stack-and-mcp.md
@@ -80,6 +92,9 @@ includes:
   - docs/research/decisions/0004-research-history-layer-v1.md
   - docs/research/copyable-product-thesis.md
   - docs/research/research-execution-system.md
+  - docs/product-bets/README.md
+  - docs/product-bets/automation-map.md
+  - docs/product-bets/tool-access-matrix.md
   - docs/templates/operations/blocked-work-packet.md
   - docs/templates/operations/agent-self-review.md
   - docs/templates/operations/company-world-model-report.md
@@ -96,10 +111,75 @@ includes:
   - docs/templates/research/research-registry.md
   - docs/templates/research/traffic-validation-sheet.md
   - docs/templates/research/trustmrr-sourcing-batch.md
+  - docs/templates/product-bets/product-bet-card.md
+  - docs/templates/product-bets/competitor-deep-dive-pack.md
+  - docs/templates/product-bets/financial-model.md
+  - docs/templates/product-bets/offer-brief.md
+  - docs/templates/product-bets/organic-traffic-strategy.md
+  - docs/templates/product-bets/pain-language-map.md
+  - docs/templates/product-bets/search-intent-map.md
+  - docs/templates/product-bets/community-prospecting-map.md
+  - docs/templates/product-bets/thread-scorecard.md
+  - docs/templates/product-bets/free-value-wedge.md
+  - docs/templates/product-bets/organic-distribution-test-plan.md
+  - docs/templates/product-bets/concept-revision.md
+  - docs/templates/product-bets/fork-candidate.md
+  - docs/templates/product-bets/autoreason-report.md
+  - docs/templates/product-bets/landing-design.md
+  - docs/templates/product-bets/copy-variant-matrix.md
+  - docs/templates/product-bets/waitlist-form-spec.md
+  - docs/templates/product-bets/test-gtm-surface-pack.md
+  - docs/templates/product-bets/surface-version.md
+  - docs/templates/product-bets/surface-qa.md
+  - docs/templates/product-bets/anti-ai-slop-review.md
+  - docs/templates/product-bets/measurement-plan.md
+  - docs/templates/product-bets/traffic-attempt.md
+  - docs/templates/product-bets/traffic-source-report.md
+  - docs/templates/product-bets/observation-window.md
+  - docs/templates/product-bets/validation-cycle-report.md
+  - docs/templates/product-bets/validation-risk-map.md
+  - docs/templates/product-bets/validation-evidence-event.md
+  - docs/templates/product-bets/gate-b-recommendation.md
+  - docs/templates/product-bets/gate-b-decision.md
+  - docs/templates/product-bets/task-templates/run-product-bet-validation-sprint.md
+  - docs/templates/product-bets/task-templates/run-ai-hardening-loop.md
+  - docs/templates/product-bets/task-templates/build-validation-surface.md
+  - docs/templates/product-bets/task-templates/run-organic-distribution-test.md
+  - docs/templates/product-bets/task-templates/monitor-observation-window.md
+  - docs/templates/product-bets/task-templates/route-validation-result.md
+  - docs/templates/product-bets/task-templates/compile-initial-product-bet-card.md
+  - docs/templates/product-bets/task-templates/run-autoreason-council.md
+  - docs/templates/product-bets/task-templates/write-validation-evidence-events.md
+  - docs/templates/product-bets/task-templates/write-gate-b-recommendation.md
+  - docs/templates/product-bets/task-templates/write-validation-learning-report.md
+  - docs/templates/tasks/start-first-research-cycle.md
+  - docs/templates/tasks/run-market-signal-batch.md
+  - docs/templates/tasks/run-market-proof-lite-batch.md
+  - docs/templates/tasks/research-pre-intake-duplicate-check.md
+  - docs/templates/tasks/research-history-sync.md
+  - docs/templates/tasks/weekly-research-history-audit.md
+  - docs/templates/tasks/promote-queued-venture.md
+  - docs/templates/tasks/substrate-readiness-review.md
+  - docs/templates/tasks/daily-ceo-operating-review.md
+  - docs/templates/tasks/daily-chief-of-staff-blocked-work-review.md
+  - docs/templates/tasks/daily-research-lead-queue-refresh.md
+  - docs/templates/tasks/daily-launch-lead-readiness-review.md
+  - docs/templates/tasks/daily-vp-engineering-substrate-review.md
+  - docs/templates/tasks/daily-support-lead-signal-review.md
+  - docs/templates/tasks/daily-agent-mechanic-runtime-audit.md
+  - docs/templates/tasks/weekly-board-review.md
+  - docs/templates/tasks/portfolio-health-review.md
+  - docs/templates/tasks/weekly-factory-health-review.md
+  - docs/templates/tasks/weekly-org-hygiene-review.md
+  - docs/templates/tasks/weekly-self-improvement-review.md
+  - docs/templates/tasks/weekly-self-improvement-failed-experiment-audit.md
+  - docs/templates/tasks/weekly-skill-instruction-drift-review.md
+  - docs/templates/tasks/delegation-contract-audit.md
   - docs/templates/venture/phase-transition-log.md
   - docs/templates/venture/venture-manifest.md
   - docs/playbooks/research-playbook.md
   - docs/playbooks/queue-gate-a-playbook.md
+  - docs/playbooks/product-bet-definition-playbook.md
   - docs/readiness/research-readiness.md
   - docs/readiness/gate-a-readiness.md
   - docs/handoffs/specialist-to-specialist.md
@@ -114,30 +194,31 @@ requirements:
 
 NoHum Studio is a venture factory, not a single-product company.
 
-This root package is the day-1 core and research import surface. It upgrades the
-live Paperclip company without importing the entire future org, Product Bet
-machine, build team, GTM team, support team, or historical design archive as
-runtime work.
+This root package imports the company org library in one pass while keeping
+runtime work staged through manager-created tasks.
 
 The package is intentionally layered:
 
-- day-1 import layer: `COMPANY.md`, `.paperclip.yaml`, core/research agents,
-  bootstrap tasks, and Research/Gate A artifacts
-- optional library layer: downstream Product Bet, Build, GTM, Support, archived
-  plans, references, and legacy dry runs that must not import as day-1 runtime
-  work
+- org library layer: all current company teams, agents, skills, docs, and
+  canonical templates
+- runtime activation layer: only bootstrap tasks are imported as immediate work;
+  Research, Product Bet, Build, GTM, and Support work starts only when the
+  responsible manager creates the next task from the previous artifact
 
-## Day-1 Import Scope
+## Day-1 Active Work Scope
 
-- Control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
-- Research: `Idea Scout`, `Research Lead`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
-- Launch boundary owner: `Launch Lead`
-- Studio Ops remains a bootstrap/control layer through `Chief of Staff` and `Agent Mechanic`
+- immediate tasks: `Bootstrap Company Access And Secrets`, `Bootstrap Company`
+- control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
+- Research is dormant until CEO creates `Start First Research Cycle`
+- Product Bet Validation is dormant until Gate A and CEO-created sprint task
+- Build, GTM, and Support remain dormant until their gates and handoff artifacts
 
 ## Live Upgrade Rules
 
-- existing live identities with exact parity are upgraded in place: `ceo`, `research-lead`, `launch-lead`
-- downstream Product Bet, Build, GTM, and Support roles are not imported from the root package
-- newly introduced non-core roles must arrive through a separate activation package and remain paused until runtime wiring is complete
+- existing live identities with exact parity are upgraded in place
+- downstream Product Bet, Build, GTM, and Support roles may exist after import,
+  but must remain dormant until manager-created work activates them
+- newly introduced non-core roles must arrive as paused or activation-gated
+  records, not immediate backlog work
 - `teams/` is a bootstrap/package layer and must also be represented through reporting lines, docs, and skills
 - cross-role phase transitions require canonical artifacts, never comments-only handoffs

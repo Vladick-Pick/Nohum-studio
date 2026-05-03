@@ -1,5 +1,5 @@
 schema: paperclip/v1
-description: Bootstrap runtime defaults for NoHum Studio v1.7 day-1 core and research import package.
+description: Active day-1 runtime defaults for NoHum Studio v1.8 single-import company package.
 
 company:
   budgetMonthlyCents: 100000
@@ -23,7 +23,7 @@ agents:
       env: {}
     notes:
       - Day-1 core slug. Upgrade in place and validate reporting lines after import.
-      - Owns bootstrap, company budget cap, Gate A/Gate B governance, and activation of optional packs.
+      - Owns bootstrap, company budget cap, Gate A/Gate B governance, and staged activation of dormant teams.
   chief-of-staff:
     role: "pm"
     icon: "target"
@@ -192,5 +192,5 @@ agents:
     inputs:
       env: {}
     notes:
-      - Day-1 boundary owner only. Product Bet, Build, GTM, and Support packs stay unimported until Gate A/activation.
+      - Day-1 boundary owner only. Product Bet, Build, GTM, and Support agents may exist, but stay dormant until gate artifacts and manager-created tasks activate them.
       - Gate B recommendation remains a recommendation, not build approval.

@@ -1,6 +1,7 @@
-# NoHum v1.5 Detailed-Core Team Skill Matrix
+# NoHum v1.8 Single-Import Team Skill Matrix
 
-This matrix defines team-level skill bundles for the detailed-core package.
+This matrix defines team-level skill bundles for the single-import company
+package.
 
 Rules:
 - Base operating skills are listed separately from team-specific local skills.
@@ -100,6 +101,60 @@ Optional local skills:
 Why:
 - Turn approved ventures into launchable products through definition, UX, pricing, and Gate B discipline.
 
+## Product Bet Validation Team
+
+Manager: `Launch Lead`
+Members: `Product Bet Compiler`, `Competitor Deep Dive Analyst`, `Economics Modeler`, `Offer & Positioning Strategist`, `Organic Traffic Strategist`, `Pre-Market Autoreasoner`, `Landing Surface Builder`, `Product Bet Measurement Specialist`, `Evidence Router`
+
+Runtime base skills:
+- `paperclip`
+- `paperclip-knowledge`
+
+Mandatory local skills:
+- `product-bet-validation-loop`
+- `product-bet-compilation`
+- `validation-risk-mapping`
+- `ev-band-estimation`
+- `competitor-analysis`
+- `competitor-pricing-scan`
+- `channel-reality-scan`
+- `legal-commercial-boundary-scan`
+- `pricing-strategy`
+- `monetization-strategy`
+- `market-sizing`
+- `positioning-ideas`
+- `value-prop-statements`
+- `competitive-battlecard`
+- `organic-distribution-testing`
+- `community-prospecting`
+- `engineering-as-marketing-wedge`
+- `pre-market-autoreason-lite`
+- `product-bet-critique`
+- `blind-variant-generation`
+- `product-bet-judge`
+- `launch-gtm-readiness`
+- `validation-surface-factory`
+- `landing-cro-review`
+- `anti-ai-slop-copy-review`
+- `test-scenarios`
+- `metrics-dashboard`
+- `observation-window-evaluation`
+- `validation-evidence-writing`
+- `decision-routing-lite`
+- `weekly-learning-report`
+
+Optional local skills:
+- `browser-use`
+- `playwright-interactive`
+- `sentiment-analysis`
+
+Why:
+- After Gate A, turn a frozen Idea Card into a concrete Product Bet Card,
+  specialist-owned sections, revisions/forks, landing/waitlist surface,
+  organic traffic attempts, observation-window evidence, and Gate B
+  recommendation. This team is imported with the company but stays dormant
+  until CEO creates the sprint from a Gate A decision.
+
 ## Marketing Team
 
 Manager: `CMO`
@@ -114,7 +169,6 @@ Mandatory local skills:
 - `marketing-ideas`
 - `positioning-ideas`
 - `growth-loops`
-- `north-star-metric`
 - `metrics-dashboard`
 - `competitive-battlecard`
 - `beachhead-segment`
@@ -124,7 +178,6 @@ Mandatory local skills:
 
 Optional local skills:
 - `release-notes`
-- `cohort-analysis`
 - `sentiment-analysis`
 
 Why:
@@ -185,8 +238,6 @@ Mandatory local skills:
 - `analyze-feature-requests`
 
 Optional local skills:
-- `cohort-analysis`
-- `north-star-metric`
 
 Why:
 - Convert post-launch tickets, incidents, and customer contact into structured feedback and operating signal.
@@ -221,6 +272,7 @@ Why:
 
 - Control plane: `CEO`, `Chief of Staff`, `Agent Mechanic`
 - Research: `Idea Scout`, `Research Lead`, `Competitor Scout`, `Demand Validator`, `Revenue Validator`
+- Product Bet Validation: `Product Bet Compiler`, `Competitor Deep Dive Analyst`, `Economics Modeler`, `Offer & Positioning Strategist`, `Organic Traffic Strategist`, `Pre-Market Autoreasoner`, `Landing Surface Builder`, `Product Bet Measurement Specialist`, `Evidence Router`
 - Product Launch: `Launch Lead`, `Product Definer`, `UX Researcher`, `UX Architect`, `UI Designer`, `Pricing Strategist`, `Launch Program Manager`
 - Marketing: `CMO`, `Growth Lead`, `Marketing Strategist`, `SEO Specialist`, `Content Creator`, `Paid Media Strategist`, `Tracking & Measurement Specialist`, `Community Builder`, `AI Citation Strategist`
 - Engineering: `VP of Engineering`, `Software Architect`, `Backend Architect`, `Frontend Developer`, `AI Engineer`, `Senior Developer`, `DevOps Automator`, `SRE`, `Security Engineer`, `Code Reviewer`, `QA Director`, `QA Engineer`, `Release Engineer`

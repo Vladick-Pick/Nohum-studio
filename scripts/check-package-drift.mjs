@@ -4,7 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const errors = [];
 
-const expectedDay1Agents = new Set([
+const expectedActiveRuntimeAgents = new Set([
   "agent-mechanic",
   "ceo",
   "chief-of-staff",
@@ -16,28 +16,126 @@ const expectedDay1Agents = new Set([
   "revenue-validator",
 ]);
 
-const forbiddenRootAgents = new Set([
-  "product-bet-compiler",
-  "pre-market-autoreasoner",
-  "rat-designer",
-  "evidence-router",
-]);
-
 const expectedRootTasks = new Set([
   "tasks/bootstrap-company-access-and-secrets/TASK.md",
   "tasks/bootstrap-company/TASK.md",
 ]);
 
-const ignitionTask = "tasks/start-first-research-cycle/TASK.md";
+const ignitionTask = "docs/templates/tasks/start-first-research-cycle.md";
 const localAbsolutePathPattern = new RegExp("/" + "Users/");
 
 const mustNotExist = [
   "paperclip.manifest.json",
   "scripts/generate-detailed-org.mjs",
   "templates",
+  "docs/parked",
   "agents/market-proof-analyst",
   "agents/market-signal-scout",
   "agents/research-synthesizer",
+  "agents/rat-designer",
+  "packages/product-bet-definition",
+  "scripts/check-product-bet-package.mjs",
+  "tasks/run-automated-product-bet-cycle/TASK.md",
+  "tasks/run-product-bet-definition-sprint/TASK.md",
+  "tasks/compile-product-bet-batch/TASK.md",
+  "tasks/create-rat-plan-batch/TASK.md",
+  "tasks/run-safe-rat-batch/TASK.md",
+  "tasks/write-evidence-events/TASK.md",
+  "tasks/route-product-bet-decisions/TASK.md",
+  "tasks/run-pre-market-autoreason-batch/TASK.md",
+  "tasks/write-product-bet-learning-report/TASK.md",
+  "docs/templates/product-bets/decision-update.md",
+  "docs/templates/product-bets/task-templates/compile-product-bet-definition.md",
+  "docs/templates/product-bets/task-templates/run-product-bet-autoreason.md",
+  "docs/templates/product-bets/task-templates/write-product-bet-evidence-events.md",
+  "docs/templates/product-bets/task-templates/route-product-bet-gate-b-recommendation.md",
+  "docs/templates/product-bets/task-templates/write-product-bet-learning-report.md",
+  "docs/templates/product-bets/rat-plan.md",
+  "docs/templates/product-bets/assumption-map.md",
+  "docs/templates/product-bets/evidence-event.md",
+  "docs/product-bets/rat-execution-boundaries.md",
+];
+
+const requiredProductBetValidationPaths = [
+  "skills/product-bet-validation-loop/SKILL.md",
+  "skills/validation-surface-factory/SKILL.md",
+  "skills/landing-cro-review/SKILL.md",
+  "skills/anti-ai-slop-copy-review/SKILL.md",
+  "skills/organic-distribution-testing/SKILL.md",
+  "skills/community-prospecting/SKILL.md",
+  "skills/engineering-as-marketing-wedge/SKILL.md",
+  "skills/observation-window-evaluation/SKILL.md",
+  "docs/templates/product-bets/landing-design.md",
+  "docs/templates/product-bets/copy-variant-matrix.md",
+  "docs/templates/product-bets/waitlist-form-spec.md",
+  "docs/templates/product-bets/surface-version.md",
+  "docs/templates/product-bets/surface-qa.md",
+  "docs/templates/product-bets/anti-ai-slop-review.md",
+  "docs/templates/product-bets/pain-language-map.md",
+  "docs/templates/product-bets/search-intent-map.md",
+  "docs/templates/product-bets/community-prospecting-map.md",
+  "docs/templates/product-bets/thread-scorecard.md",
+  "docs/templates/product-bets/free-value-wedge.md",
+  "docs/templates/product-bets/organic-distribution-test-plan.md",
+  "docs/templates/product-bets/traffic-attempt.md",
+  "docs/templates/product-bets/traffic-source-report.md",
+  "docs/templates/product-bets/observation-window.md",
+  "docs/templates/product-bets/validation-cycle-report.md",
+  "docs/templates/product-bets/validation-risk-map.md",
+  "docs/templates/product-bets/validation-evidence-event.md",
+  "docs/templates/product-bets/task-templates/run-product-bet-validation-sprint.md",
+  "docs/templates/product-bets/task-templates/run-ai-hardening-loop.md",
+  "docs/templates/product-bets/task-templates/compile-initial-product-bet-card.md",
+  "docs/templates/product-bets/task-templates/run-autoreason-council.md",
+  "docs/templates/product-bets/task-templates/build-validation-surface.md",
+  "docs/templates/product-bets/task-templates/run-organic-distribution-test.md",
+  "docs/templates/product-bets/task-templates/write-validation-evidence-events.md",
+  "docs/templates/product-bets/task-templates/monitor-observation-window.md",
+  "docs/templates/product-bets/task-templates/route-validation-result.md",
+  "docs/templates/product-bets/task-templates/write-gate-b-recommendation.md",
+  "docs/templates/product-bets/task-templates/write-validation-learning-report.md",
+];
+
+const requiredProductBetCardTokens = [
+  "selected_test_revision",
+  "landing_design_ref",
+  "waitlist_form_spec_ref",
+  "organic_distribution_test_plan_ref",
+  "traffic_attempt_refs",
+  "traffic_source_report_ref",
+  "observation_window",
+  "behavior_signals",
+  "validation_decision",
+  "revise_offer",
+  "revise_landing",
+  "revise_channel",
+  "open_fork",
+];
+
+const requiredTaskTemplates = [
+  "docs/templates/tasks/start-first-research-cycle.md",
+  "docs/templates/tasks/run-market-signal-batch.md",
+  "docs/templates/tasks/run-market-proof-lite-batch.md",
+  "docs/templates/tasks/research-pre-intake-duplicate-check.md",
+  "docs/templates/tasks/research-history-sync.md",
+  "docs/templates/tasks/weekly-research-history-audit.md",
+  "docs/templates/tasks/promote-queued-venture.md",
+  "docs/templates/tasks/substrate-readiness-review.md",
+  "docs/templates/tasks/daily-ceo-operating-review.md",
+  "docs/templates/tasks/daily-chief-of-staff-blocked-work-review.md",
+  "docs/templates/tasks/daily-research-lead-queue-refresh.md",
+  "docs/templates/tasks/daily-launch-lead-readiness-review.md",
+  "docs/templates/tasks/daily-vp-engineering-substrate-review.md",
+  "docs/templates/tasks/daily-support-lead-signal-review.md",
+  "docs/templates/tasks/daily-agent-mechanic-runtime-audit.md",
+  "docs/templates/tasks/weekly-board-review.md",
+  "docs/templates/tasks/portfolio-health-review.md",
+  "docs/templates/tasks/weekly-factory-health-review.md",
+  "docs/templates/tasks/weekly-org-hygiene-review.md",
+  "docs/templates/tasks/weekly-self-improvement-review.md",
+  "docs/templates/tasks/weekly-self-improvement-failed-experiment-audit.md",
+  "docs/templates/tasks/weekly-skill-instruction-drift-review.md",
+  "docs/templates/tasks/delegation-contract-audit.md",
 ];
 
 function rel(filePath) {
@@ -171,32 +269,39 @@ function diffSets(left, right) {
   return [...left].filter((item) => !right.has(item)).sort();
 }
 
-const inPackageNotRuntime = diffSets(packageAgentSlugs, runtimeAgents);
 const inRuntimeNotPackage = diffSets(runtimeAgents, packageAgentSlugs);
-
-if (inPackageNotRuntime.length) {
-  errors.push(`Agents in COMPANY graph but missing .paperclip.yaml: ${inPackageNotRuntime.join(", ")}`);
-}
 
 if (inRuntimeNotPackage.length) {
   errors.push(`Agents in .paperclip.yaml but missing COMPANY graph: ${inRuntimeNotPackage.join(", ")}`);
 }
 
-const unexpectedPackageAgents = diffSets(packageAgentSlugs, expectedDay1Agents);
-const missingDay1Agents = diffSets(expectedDay1Agents, packageAgentSlugs);
+const allAgentSlugs = new Set(
+  fs
+    .readdirSync(path.join(root, "agents"))
+    .filter((slug) => fs.existsSync(path.join(root, "agents", slug, "AGENTS.md")))
+    .sort(),
+);
 
-if (unexpectedPackageAgents.length) {
-  errors.push(`Root import has non-day-1 agents: ${unexpectedPackageAgents.join(", ")}`);
+const missingImportedAgents = diffSets(allAgentSlugs, packageAgentSlugs);
+const unexpectedImportedAgents = diffSets(packageAgentSlugs, allAgentSlugs);
+
+if (missingImportedAgents.length) {
+  errors.push(`Root import is missing company agents: ${missingImportedAgents.join(", ")}`);
 }
 
-if (missingDay1Agents.length) {
-  errors.push(`Root import is missing day-1 agents: ${missingDay1Agents.join(", ")}`);
+if (unexpectedImportedAgents.length) {
+  errors.push(`Root import has unknown agents: ${unexpectedImportedAgents.join(", ")}`);
 }
 
-for (const slug of forbiddenRootAgents) {
-  if (packageAgentSlugs.has(slug) || runtimeAgents.has(slug)) {
-    errors.push(`Post-Gate-A Product Bet agent must not be in root import: ${slug}`);
-  }
+const unexpectedRuntimeAgents = diffSets(runtimeAgents, expectedActiveRuntimeAgents);
+const missingActiveRuntimeAgents = diffSets(expectedActiveRuntimeAgents, runtimeAgents);
+
+if (unexpectedRuntimeAgents.length) {
+  errors.push(`.paperclip.yaml has non-day-1 active runtime agents: ${unexpectedRuntimeAgents.join(", ")}`);
+}
+
+if (missingActiveRuntimeAgents.length) {
+  errors.push(`.paperclip.yaml is missing day-1 active runtime agents: ${missingActiveRuntimeAgents.join(", ")}`);
 }
 
 const unexpectedRootTasks = diffSets(packageTaskPaths, expectedRootTasks);
@@ -218,6 +323,34 @@ if (packageTaskPaths.has(ignitionTask)) {
   errors.push(`Ignition task must not be imported as immediate day-1 backlog: ${ignitionTask}`);
 }
 
+const activeTaskFiles = fs
+  .readdirSync(path.join(root, "tasks"))
+  .flatMap((slug) => {
+    const taskPath = path.join(root, "tasks", slug, "TASK.md");
+    return fs.existsSync(taskPath) ? [rel(taskPath)] : [];
+  })
+  .sort();
+
+for (const taskPath of activeTaskFiles) {
+  if (!expectedRootTasks.has(taskPath)) {
+    errors.push(`Root tasks directory contains non-bootstrap active task: ${taskPath}`);
+  }
+}
+
+for (const templatePath of requiredTaskTemplates) {
+  const absolute = path.join(root, templatePath);
+  if (!fs.existsSync(absolute)) {
+    errors.push(`Missing manager-created task template: ${templatePath}`);
+  } else if (!packageFiles.has(templatePath)) {
+    errors.push(`Manager-created task template is not in COMPANY graph: ${templatePath}`);
+  } else {
+    const kind = extractScalar(frontmatter(read(absolute)), "kind");
+    if (kind !== "task_template") {
+      errors.push(`Manager-created task template must use kind: task_template: ${templatePath}`);
+    }
+  }
+}
+
 const budgetSum = [...runtime.agents.values()].reduce(
   (sum, agent) => sum + agent.budgetMonthlyCents,
   0,
@@ -234,6 +367,29 @@ if (runtime.companyBudget == null) {
 for (const item of mustNotExist) {
   if (fs.existsSync(path.join(root, item))) {
     errors.push(`Forbidden stale path exists: ${item}`);
+  }
+}
+
+for (const item of requiredProductBetValidationPaths) {
+  if (!fs.existsSync(path.join(root, item))) {
+    errors.push(`Missing Product Bet validation path: ${item}`);
+  } else if (!packageFiles.has(item)) {
+    errors.push(`Product Bet validation path is not in COMPANY graph: ${item}`);
+  }
+}
+
+const productBetCardPath = path.join(root, "docs/templates/product-bets/product-bet-card.md");
+const productBetCard = read(productBetCardPath);
+for (const token of requiredProductBetCardTokens) {
+  if (!productBetCard.includes(token)) {
+    errors.push(`Product Bet Card missing validation token: ${token}`);
+  }
+}
+
+const gateBRecommendation = read(path.join(root, "docs/templates/product-bets/gate-b-recommendation.md"));
+for (const token of ["observation_window_complete", "organic_traffic_attempts_complete", "waitlist_or_signup_intent_measured"]) {
+  if (!gateBRecommendation.includes(token)) {
+    errors.push(`Gate B recommendation missing validation criterion: ${token}`);
   }
 }
 

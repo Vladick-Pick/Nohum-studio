@@ -6,10 +6,10 @@ Existing live `NoHum Studio` company.
 
 ## Package Shape
 
-The root package is a day-1 core and research import package. It does not import
-the full future org.
+The root package is a single-import company package. It imports the current org
+library, but only bootstrap tasks become immediate day-1 work.
 
-Imported by default:
+Imported by default as active day-1 control/runtime defaults:
 
 - `ceo`
 - `chief-of-staff`
@@ -21,47 +21,43 @@ Imported by default:
 - `revenue-validator`
 - `launch-lead`
 
-Not imported by default:
+Imported by default but dormant until gated activation:
+
+- Product Bet Validation specialists
+- Product Launch specialists
+- engineering build fleet
+- marketing fleet
+- support fleet
+
+Not imported as immediate backlog work:
 
 - recurring daily/weekly operating tasks
 - `Start First Research Cycle`
 - Research batch/proof/history tasks before bootstrap approves them
-- Product Bet specialist agents
-- product/build/GTM/support specialists
-- engineering build fleet
-- marketing fleet
-- support fleet
+- Product Bet specialist tasks
+- product/build/GTM/support tasks
 - archived plans, reference dumps, and legacy dry runs
 
 ## Collision Policy
 
-- Replace in place only for exact-parity core slugs:
-  - `ceo`
-  - `research-lead`
-  - `launch-lead`
-- Preview day-1 support and research slugs before import:
-  - `chief-of-staff`
-  - `agent-mechanic`
-  - `idea-scout`
-  - `competitor-scout`
-  - `demand-validator`
-  - `revenue-validator`
-- If a preview wants to create any Product Bet, Build, GTM, or Support role from
-  the root package, abort the import.
+- Replace in place for exact-parity slugs.
+- If a slug already exists live, verify that preview preserves the slug and
+  reporting line without producing a second record.
+- If a slug is absent live, verify it appears as a new paused or
+  activation-gated record.
+- If a preview creates non-bootstrap tasks, abort the import.
 
 ## Dry-Run Sequence
 
 1. Run `node scripts/check-package-drift.mjs`.
 2. Preview the repository import against the current Paperclip runtime.
-3. Confirm that the nine day-1 slugs above are the only agent slugs in the root import.
-4. Confirm that only the two bootstrap tasks are imported:
+3. Confirm that all company agents are present in the root import graph.
+4. Confirm that non-core agents are paused or activation-gated.
+5. Confirm that only the two bootstrap tasks are imported:
    - `Bootstrap Company Access And Secrets`
    - `Bootstrap Company`
-5. Confirm that `ceo`, `research-lead`, and `launch-lead` map 1:1 without rename or duplicate behavior.
-6. For each support/research slug, determine whether it already exists live or is absent.
-7. If a slug already exists live, verify that preview preserves the slug and updates the reporting line without producing a second record.
-8. If a slug is absent live, verify it appears as a new paused or activation-gated record.
-9. Abort bulk import if any preexisting slug is about to rename or duplicate.
+6. Confirm that `ceo`, `research-lead`, and `launch-lead` map 1:1 without rename or duplicate behavior.
+7. Abort bulk import if any preexisting slug is about to rename or duplicate.
 
 ## Post-Preview Expectations
 
@@ -69,8 +65,8 @@ Not imported by default:
 - `Idea Scout`, `Competitor Scout`, `Demand Validator`, and `Revenue Validator`
   may run only after access/secrets are wired.
 - `Chief of Staff` and `Agent Mechanic` are bootstrap support, not product operators.
-- Product Bet and downstream agents must remain absent from the root import until
-  a separate activation package exists.
+- Product Bet and downstream agents may exist, but must remain dormant until
+  gate artifacts and manager-created tasks activate them.
 
 ## Mandatory Follow-Up
 

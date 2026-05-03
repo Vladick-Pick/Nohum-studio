@@ -1,4 +1,4 @@
-# NoHum Detailed-Core Org Map
+# NoHum v1.8 Single-Import Org Map
 
 ```mermaid
 graph TD
@@ -23,6 +23,16 @@ graph TD
   RL --> CS["Competitor Scout"]
   RL --> DV["Demand Validator"]
   RL --> RV["Revenue Validator"]
+
+  LL --> PBC["Product Bet Compiler"]
+  LL --> CDDA["Competitor Deep Dive Analyst"]
+  LL --> EM["Economics Modeler"]
+  LL --> OPS["Offer & Positioning Strategist"]
+  LL --> OTS["Organic Traffic Strategist"]
+  LL --> PMA["Pre-Market Autoreasoner"]
+  LL --> LSB["Landing Surface Builder"]
+  LL --> PBMS["Product Bet Measurement Specialist"]
+  LL --> ER["Evidence Router"]
 
   LL --> PD["Product Definer"]
   LL --> UXR["UX Researcher"]
@@ -60,7 +70,13 @@ graph TD
 
 ## Notes
 
-- `launch-lead` remains exact-parity import-safe core but now owns only Product Launch.
+- The root package imports the whole org library in one pass.
+- Only bootstrap tasks are live on day one; Research, Product Bet, Build, GTM,
+  and Support work starts from manager-created tasks after gates.
+- Product Bet Validation specialists report to `launch-lead` but stay dormant
+  until CEO approves Gate A and creates a Product Bet Validation Sprint.
+- Product Launch specialists also report to `launch-lead`, but they activate
+  after Gate B when build/launch definition is approved.
 - `growth-lead` now reports to `cmo`.
 - `code-reviewer` and `release-engineer` now report to `vp-engineering`.
 - Design stays inside Product Launch instead of becoming a standalone department.

@@ -2,7 +2,7 @@
 
 ## 1. Day-1 Identity Check
 
-- confirm exactly these root-import agent slugs are present or upgraded:
+- confirm these day-1 control/runtime-default slugs are present or upgraded:
   - `ceo`
   - `chief-of-staff`
   - `agent-mechanic`
@@ -13,7 +13,9 @@
   - `revenue-validator`
   - `launch-lead`
 - confirm no duplicates were created for day-1 slugs
-- confirm no Product Bet, Build, GTM, or Support specialist was imported from the root package
+- confirm Product Bet, Build, GTM, and Support specialists are present only as
+  paused or activation-gated records
+- confirm only bootstrap tasks were imported as immediate work
 
 ## 2. Reporting Line Check
 
@@ -25,6 +27,11 @@
 - `Demand Validator -> Research Lead`
 - `Revenue Validator -> Research Lead`
 - `Launch Lead -> CEO`
+- `Product Bet Validation specialists -> Launch Lead`
+- `Product Launch specialists -> Launch Lead`
+- `Engineering specialists -> VP Engineering`
+- `Marketing specialists -> CMO`
+- `Support specialists -> Support Lead`
 
 ## 3. Activation State Check
 
@@ -32,7 +39,11 @@
 - `Research Lead` stays paused until access/secrets task is complete
 - `Idea Scout`, `Competitor Scout`, `Demand Validator`, and `Revenue Validator`
   stay paused until Research Lead opens assigned work
-- `Launch Lead` stays in boundary-owner mode until Gate A opens Product Bet Definition
+- `Launch Lead` stays in boundary-owner mode until Gate A opens Product Bet Validation
+- Product Bet Validation specialists stay paused until Launch Lead opens a
+  Product Bet Card and assigns section work
+- Build, Marketing, and Support specialists stay paused until their gate and
+  handoff artifacts exist
 - `Chief of Staff` and `Agent Mechanic` stay limited to bootstrap/support work
 
 ## 4. Company Secrets and Runtime Wiring Check
@@ -53,7 +64,7 @@
 
 ### 4.3 Later Activation Blockers
 
-Record these as later blockers for optional packs instead of blocking day-1
+Record these as later blockers for dormant teams instead of blocking day-1
 Research:
 
 - `GITHUB_TOKEN`
@@ -69,7 +80,8 @@ Research:
 
 - company hard cap is `100000` cents per month
 - sum of root-import `.paperclip.yaml` agent budgets must not exceed that cap
-- optional pack budget ceilings must not be counted as active spend until the pack is imported and approved
+- dormant role budget ceilings must not be counted as active spend until the
+  role is assigned approved work
 
 ## 6. First Work Check
 

@@ -1,13 +1,13 @@
 ---
 name: product-bet-judge
-description: Use when judging product-bet revisions and red hypothesis test readiness.
+description: Use when judging product-bet revisions and validation risk test readiness.
 ---
 
 # Product Bet Judge
 
 ## Purpose
 
-Judge product-bet revisions for red hypothesis test readiness using a bounded
+Judge product-bet revisions for validation risk test readiness using a bounded
 pass/warn/fail scorecard.
 
 ## Scorecard
@@ -31,7 +31,7 @@ Route to `proceed_to_test`, `revise`, `test_more`, or `kill`.
 
 - `inputs`: cycle context plus the upstream artifact named by this skill.
 - `outputs`: the artifact or execution state named by this skill.
-- `permission_boundary`: no spend, outreach send, public deploy, payment
-  collection, Gate A approval, Gate B approval, or build approval.
+- `permission_boundary`: no action outside Gate A constraints, no Gate A
+  approval, no Gate B approval, and no build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
   Gate B recommendation is never treated as Gate B approval or build approval.

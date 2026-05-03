@@ -8,7 +8,7 @@ description: Use when collecting and normalizing market signals for Research int
 ## Purpose
 
 Create normalized `market_signal` records from approved sources without turning
-source collection into Product Bet Definition or Gate A approval.
+source collection into Product Bet Validation or Gate A approval.
 
 ## Required Inputs
 

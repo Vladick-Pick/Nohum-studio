@@ -30,7 +30,7 @@ Create alternative versions of a product bet without modifying frozen evidence.
 
 - `inputs`: cycle context plus the upstream artifact named by this skill.
 - `outputs`: the artifact or execution state named by this skill.
-- `permission_boundary`: no spend, outreach send, public deploy, payment
-  collection, Gate A approval, Gate B approval, or build approval.
+- `permission_boundary`: no action outside Gate A constraints, no Gate A
+  approval, no Gate B approval, and no build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
   Gate B recommendation is never treated as Gate B approval or build approval.

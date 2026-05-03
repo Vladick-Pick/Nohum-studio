@@ -21,7 +21,7 @@ This document defines the deterministic transition from one queued winner into o
 
 ## Execution Surface
 
-- `tasks/promote-queued-venture/TASK.md`
+- `docs/templates/tasks/promote-queued-venture.md`
 - promotion may run only when queue preconditions and Gate A packet are complete
 - the run must update the phase transition log in the same motion as venture bootstrap artifact creation
 
@@ -37,10 +37,11 @@ This document defines the deterministic transition from one queued winner into o
 1. Research hands off exactly one queue package.
 2. CEO requests Gate A decision against that package.
 3. If Gate A fails, the candidate returns to research with explicit reason.
-4. If Gate A passes, Launch Lead creates the venture bootstrap packet and opens
-   Product Bet Definition.
-5. Gate A opens product definition, not build.
-6. The new venture may not start build until Gate B passes and repo substrate is ready.
+4. If Gate A passes, CEO creates exactly one `Run Product Bet Validation Sprint`
+   task assigned to Launch Lead.
+5. Launch Lead opens the Product Bet Card after receiving that task.
+6. Gate A opens product definition, not build.
+7. The new venture may not start build until Gate B passes and repo substrate is ready.
 
 ## Idempotency Rule
 

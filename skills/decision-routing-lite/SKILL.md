@@ -1,19 +1,30 @@
 ---
 name: decision-routing-lite
-description: Use when routing Product Bet Definition evidence into Gate B recommendations.
+description: Use when routing Product Bet validation evidence into validation decisions and Gate B recommendations.
 ---
 
 # Gate B Recommendation Routing
 
 ## Purpose
 
-Route post-Gate-A product bets from evidence events and EV bands into Gate B
+Route post-Gate-A product bets from observation-window evidence, traffic
+reports, evidence events, and EV bands into validation decisions and Gate B
 recommendations while preserving governance boundaries.
 
 ## Recommendation Outcomes
 
 - `build`
 - `revise`
+- `fork`
+- `test_more`
+- `kill`
+
+## Validation Actions
+
+- `revise_offer`
+- `revise_landing`
+- `revise_channel`
+- `open_fork`
 - `test_more`
 - `kill`
 
@@ -28,7 +39,13 @@ recommendations while preserving governance boundaries.
 - Keep business outcome separate from execution state.
 - Gate B recommendation is not Gate B approval and not build approval.
 - Weak payment proximity cannot create a build recommendation by itself.
+- Weak waitlist intent cannot create a build recommendation by itself.
+- Build recommendations require observation-window and traffic-source refs, or
+  explicit CEO/board accepted-risk refs.
 - Every decision must cite evidence refs and EV bands.
+- `build` recommendations require Product Bet Card, competitor deep dive,
+  financial model, organic distribution plan, validation surface, observation
+  window, measurement plan, and Gate B hard criteria checks.
 
 ## Readiness Contract
 

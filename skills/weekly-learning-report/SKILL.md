@@ -1,13 +1,13 @@
 ---
 name: weekly-learning-report
-description: Use when writing Product Bet Definition weekly learning reports.
+description: Use when writing Product Bet Validation weekly learning reports.
 ---
 
 # Weekly Learning Report
 
 ## Purpose
 
-Summarize Product Bet Definition cycle learning, blockers, outcomes, and
+Summarize Product Bet Validation cycle learning, blockers, outcomes, and
 next-cycle changes.
 
 ## Required Sections
@@ -15,7 +15,7 @@ next-cycle changes.
 - cycle ID
 - Gate A decision ref
 - product bets created
-- red hypotheses identified
+- validation risks identified
 - internal findings
 - test plans created
 - test execution states

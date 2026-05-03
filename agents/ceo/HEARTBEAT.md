@@ -50,6 +50,34 @@ Confirm:
 
 If the shape is broken, fix structure before creating new work.
 
+## 2.5. Open Product Bet Validation after Gate A
+
+Gate A opens product definition, not build.
+
+If a queue candidate has a recorded Gate A decision with
+`action: approve_product_bet_definition`, and no Product Bet Validation Sprint
+exists for that Gate A decision, create exactly one next task:
+
+- name: `Run Product Bet Validation Sprint`
+- assignee: `Launch Lead`
+- project: `Hypothesis Funnel`
+
+The task must include:
+
+- frozen `idea_card_ref`
+- `research_case_id`
+- `gate_a_decision_ref`
+- approved market, buyer segment, competitor pattern, and product category
+- max definition time
+- max test budget in cents
+- allowed and forbidden external actions
+- forbidden claims
+- legal/platform risks
+- stack constraints
+
+Do not directly assign Product Bet specialists from the CEO heartbeat. Launch
+Lead owns specialist assignments after the shared Product Bet Card exists.
+
 ## 3. Check time-sensitive venture state
 
 For the active venture, verify:

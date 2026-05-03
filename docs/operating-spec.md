@@ -90,8 +90,10 @@ It is assigned when the canonical `Idea Card` opens and must appear in:
 - default ventures must fit the canonical NoHum stack without architecture churn
 - board participates 15-20 minutes daily
 - company budget hard cap: $1k per month with board override only
-- root import is day-1 core and Research only; downstream Product Bet, Build,
-  GTM, and Support packs require separate activation
+- root import includes the full company org library; only bootstrap tasks are
+  immediate day-1 work
+- downstream Product Bet, Build, GTM, and Support agents remain dormant until
+  manager-created tasks activate them from gate artifacts
 
 ## Studio Self-Improvement Policy
 
@@ -405,8 +407,8 @@ The canonical pre-Gate-A artifact is the `Idea Card`. It owns market truth,
 competitor proof, demand proof, monetization proof, selection doctrine, and the
 final `QUEUE` / `KILL` / `KILL FOR NOW` research verdict.
 
-Product Bet Definition starts only after Gate A. It owns product shape,
-positioning, offer, feature scope, red hypotheses, test GTM, evidence packet,
+Product Bet Validation starts only after Gate A. It owns product shape,
+positioning, offer, feature scope, validation risks, test GTM, evidence packet,
 and the recommendation for Gate B.
 
 #### `venture -> build` (Gate B)

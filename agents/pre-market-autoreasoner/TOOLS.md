@@ -12,6 +12,6 @@ Use:
 Forbidden:
 
 - changing frozen source evidence
-- external tests
-- spend, outreach, public deploy, or payment collection
+- surface/traffic validation
+- action outside Gate A constraints
 - claiming internal findings are market validation

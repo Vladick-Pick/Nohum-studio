@@ -16,7 +16,7 @@ The engineering lane should never begin from a vague repo or environment state.
 - `docs/templates/engineering/repo-attach-record.md`
 - `docs/templates/engineering/build-env-contract.md`
 - `docs/templates/engineering/release-readiness-pack.md`
-- `tasks/substrate-readiness-review/TASK.md`
+- `docs/templates/tasks/substrate-readiness-review.md`
 
 ## Minimum Substrate
 

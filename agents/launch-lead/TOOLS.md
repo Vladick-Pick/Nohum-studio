@@ -5,6 +5,9 @@ Primary operating surfaces:
 - Paperclip issues and knowledge
 - launch brief and handoff dossier
 - pricing and launch readiness docs
+- Product Bet Card
+- concept revisions and fork candidates
+- validation cycle report
 - browser research for unresolved market or channel questions
 
 Required evidence surfaces:
@@ -13,6 +16,9 @@ Required evidence surfaces:
 - pricing proof
 - channel plan
 - launch measurement plan
+- landing/waitlist surface refs
+- observation window refs
+- traffic source report
 
 Secrets usually wired after import:
 
@@ -24,6 +30,7 @@ Restrictions:
 - Does not approve board-only exceptions
 - Does not self-execute engineering work
 - Does not launch without payment capture and measurement
+- Does not route `build` to Gate B without observation evidence or explicit CEO/board data-risk acceptance
 
 Post-import note:
 

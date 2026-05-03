@@ -1,6 +1,6 @@
 ---
 name: product-bet-critique
-description: Use when critiquing a Product Bet Definition card for evidence grounding and red hypothesis test readiness.
+description: Use when critiquing a Product Bet Validation card for evidence grounding and validation risk test readiness.
 ---
 
 # Product Bet Critique
@@ -8,7 +8,7 @@ description: Use when critiquing a Product Bet Definition card for evidence grou
 ## Purpose
 
 Find evidence, buyer, payment, channel, positioning, economics, and buildability
-weaknesses before a product bet reaches red hypothesis test planning.
+weaknesses before a product bet reaches validation risk test planning.
 
 ## Checks
 
@@ -37,7 +37,7 @@ critique:
 
 - `inputs`: cycle context plus the upstream artifact named by this skill.
 - `outputs`: the artifact or execution state named by this skill.
-- `permission_boundary`: no spend, outreach send, public deploy, payment
-  collection, Gate A approval, Gate B approval, or build approval.
+- `permission_boundary`: no action outside Gate A constraints, no Gate A
+  approval, no Gate B approval, and no build approval.
 - `checks`: required refs are present, blocked states are machine-readable, and
   Gate B recommendation is never treated as Gate B approval or build approval.

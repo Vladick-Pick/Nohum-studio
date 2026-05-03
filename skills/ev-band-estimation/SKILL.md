@@ -1,6 +1,6 @@
 ---
 name: ev-band-estimation
-description: Use when estimating interval EV bands for Product Bet Definition decisions.
+description: Use when estimating interval EV bands for Product Bet Validation decisions.
 ---
 
 # EV Band Estimation

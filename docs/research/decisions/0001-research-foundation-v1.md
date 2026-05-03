@@ -57,16 +57,19 @@ Foundation v1 is complete only when the following are explicit and stable:
 - current-vs-target role split
 - duplicate policy for TrustMRR-sourced leads
 
-## What Counts As Import Two
+## What Counts As Activation After Foundation
 
-The second import is the first allowed to add `Idea Scout`.
+The single company import may include `Idea Scout`, but `Idea Scout` is not
+allowed to start work until the bootstrap sequence confirms the research lane
+is ready.
 
 The exact scope of `Idea Scout` is refined in Decision 0002.
 
-That import may:
+That activation may:
 
-- create the `Idea Scout` role
-- attach skills and tools for TrustMRR traversal and sourcing-batch publication
-- update research team membership and execution order
+- assign `Idea Scout` the first sourcing batch task
+- attach scoped TrustMRR and SimilarWeb/Apify access
+- move the research execution order from `Research Lead` temporary intake to
+  `Idea Scout` owned intake
 
-That import may not reopen foundation-level questions already frozen here.
+That activation may not reopen foundation-level questions already frozen here.
