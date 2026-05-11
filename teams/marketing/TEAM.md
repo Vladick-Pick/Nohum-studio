@@ -10,7 +10,7 @@ includes:
   - ../../agents/seo-specialist/AGENTS.md
   - ../../agents/content-creator/AGENTS.md
   - ../../agents/paid-media-strategist/AGENTS.md
-  - ../../agents/tracking-and-measurement-specialist/AGENTS.md
+  - ../../agents/tracking-measurement-specialist/AGENTS.md
   - ../../agents/community-builder/AGENTS.md
   - ../../agents/ai-citation-strategist/AGENTS.md
   - ../../skills/launch-gtm-readiness/SKILL.md

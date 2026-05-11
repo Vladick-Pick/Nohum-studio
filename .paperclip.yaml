@@ -446,7 +446,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
-  tracking-and-measurement-specialist:
+  tracking-measurement-specialist:
     adapter:
       type: codex_local
       config:

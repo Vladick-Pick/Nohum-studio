@@ -4,7 +4,7 @@ name: NoHum Studio
 description: Single-import company package for NoHum Studio with staged runtime activation
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.8.7
+version: 1.8.8
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:

@@ -31,6 +31,7 @@ const mustNotExist = [
   "scripts/generate-detailed-org.mjs",
   "templates",
   "docs/parked",
+  "docs/archive/product-bets/product-bet-rat-v0",
   "agents/market-proof-analyst",
   "agents/market-signal-scout",
   "agents/research-synthesizer",
@@ -185,7 +186,6 @@ function normalizeUrlKey(value) {
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .replace(/-{2,}/g, "-") || null;
