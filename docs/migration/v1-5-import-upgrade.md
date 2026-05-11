@@ -6,9 +6,9 @@ This migration upgrades the previous compact package into a detailed-core org pa
 
 - Product Launch is now separate from Marketing, Engineering, and Support.
 - `launch-lead` is preserved as exact-parity core but narrowed to Product Launch ownership.
-- new top-level managers were added: `cmo` and `vp-engineering`.
+- new top-level managers were added: `cmo` and `vp-of-engineering`.
 - `growth-lead` moved under `cmo`.
-- `code-reviewer` and `release-engineer` moved under `vp-engineering`.
+- `code-reviewer` and `release-engineer` moved under `vp-of-engineering`.
 - the compact `delivery-engineer` role was removed from the package in favor of a full Engineering team.
 - local skills are now vendored directly from `pm-skills` and `superpowers`, plus NoHum-adapted `gstack`-derived engineering skills.
 

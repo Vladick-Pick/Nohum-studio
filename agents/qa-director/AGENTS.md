@@ -7,7 +7,7 @@ slug: qa-director
 role: "qa"
 adapterType: codex_local
 adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
-reportsTo: "vp-engineering"
+reportsTo: "vp-of-engineering"
 docs:
   - HEARTBEAT.md
   - SOUL.md

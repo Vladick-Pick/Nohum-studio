@@ -2,9 +2,9 @@
 name: Engineering
 slug: engineering
 description: Build, review, verify, and release ventures through a full engineering system rather than a single overloaded builder role.
-manager: ../../agents/vp-engineering/AGENTS.md
+manager: ../../agents/vp-of-engineering/AGENTS.md
 includes:
-  - ../../agents/vp-engineering/AGENTS.md
+  - ../../agents/vp-of-engineering/AGENTS.md
   - ../../agents/software-architect/AGENTS.md
   - ../../agents/backend-architect/AGENTS.md
   - ../../agents/frontend-developer/AGENTS.md

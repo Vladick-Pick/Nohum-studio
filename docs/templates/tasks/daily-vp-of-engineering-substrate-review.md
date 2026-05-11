@@ -3,7 +3,7 @@ kind: task_template
 name: Daily VP Engineering Substrate Review
 description: Daily review of engineering start conditions, repo state, env contract, and release readiness for the active venture
 schema: agentcompanies/v1
-assignee: vp-engineering
+assignee: vp-of-engineering
 project: studio-os
 recurring: true
 ---

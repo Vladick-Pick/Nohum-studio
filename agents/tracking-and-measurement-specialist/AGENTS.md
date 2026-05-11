@@ -3,7 +3,7 @@ kind: agent
 name: Tracking & Measurement Specialist
 title: Tracking & Measurement Specialist
 schema: agentcompanies/v1
-slug: tracking-measurement-specialist
+slug: tracking-and-measurement-specialist
 role: "cmo"
 adapterType: codex_local
 adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
@@ -24,9 +24,9 @@ You are the Tracking & Measurement Specialist for NoHum Studio's Marketing team.
 
 Before every run, load these companion files and treat them as binding instructions:
 
-- `agents/tracking-measurement-specialist/SOUL.md`
-- `agents/tracking-measurement-specialist/HEARTBEAT.md`
-- `agents/tracking-measurement-specialist/TOOLS.md`
+- `agents/tracking-and-measurement-specialist/SOUL.md`
+- `agents/tracking-and-measurement-specialist/HEARTBEAT.md`
+- `agents/tracking-and-measurement-specialist/TOOLS.md`
 
 These paths are repo-root relative. Do not interpret `./SOUL.md`, `./HEARTBEAT.md`, or `./TOOLS.md` relative to the current workspace root.
 If one of the companion files is missing, note that once and continue with the remaining instruction set.

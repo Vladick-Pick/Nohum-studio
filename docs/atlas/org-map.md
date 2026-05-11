@@ -78,5 +78,5 @@ graph TD
 - Product Launch specialists also report to `launch-lead`, but they activate
   after Gate B when build/launch definition is approved.
 - `growth-lead` now reports to `cmo`.
-- `code-reviewer` and `release-engineer` now report to `vp-engineering`.
+- `code-reviewer` and `release-engineer` now report to `vp-of-engineering`.
 - Design stays inside Product Launch instead of becoming a standalone department.

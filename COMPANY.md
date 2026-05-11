@@ -4,7 +4,7 @@ name: NoHum Studio
 description: Single-import company package for NoHum Studio with staged runtime activation
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.8.5
+version: 1.8.6
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
@@ -170,7 +170,7 @@ includes:
   - docs/templates/tasks/daily-chief-of-staff-blocked-work-review.md
   - docs/templates/tasks/daily-research-lead-queue-refresh.md
   - docs/templates/tasks/daily-launch-lead-readiness-review.md
-  - docs/templates/tasks/daily-vp-engineering-substrate-review.md
+  - docs/templates/tasks/daily-vp-of-engineering-substrate-review.md
   - docs/templates/tasks/daily-support-lead-signal-review.md
   - docs/templates/tasks/daily-agent-mechanic-runtime-audit.md
   - docs/templates/tasks/weekly-board-review.md

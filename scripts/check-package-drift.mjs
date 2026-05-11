@@ -127,7 +127,7 @@ const requiredTaskTemplates = [
   "docs/templates/tasks/daily-chief-of-staff-blocked-work-review.md",
   "docs/templates/tasks/daily-research-lead-queue-refresh.md",
   "docs/templates/tasks/daily-launch-lead-readiness-review.md",
-  "docs/templates/tasks/daily-vp-engineering-substrate-review.md",
+  "docs/templates/tasks/daily-vp-of-engineering-substrate-review.md",
   "docs/templates/tasks/daily-support-lead-signal-review.md",
   "docs/templates/tasks/daily-agent-mechanic-runtime-audit.md",
   "docs/templates/tasks/weekly-board-review.md",
@@ -180,6 +180,17 @@ function extractList(fm, key) {
   return out;
 }
 
+function normalizeUrlKey(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-") || null;
+}
+
 function resolveInclude(baseFile, includeRef) {
   if (/^https?:\/\//.test(includeRef)) return null;
   const baseDir = path.dirname(baseFile);
@@ -228,6 +239,16 @@ walkPackage(path.join(root, "COMPANY.md"));
 for (const file of packageAgentFiles) {
   const text = read(path.join(root, file));
   const fm = frontmatter(text);
+  const slug = extractScalar(fm, "slug") ?? path.basename(path.dirname(file));
+  const name = extractScalar(fm, "name") ?? "";
+  const normalizedName = normalizeUrlKey(name);
+  const directorySlug = path.basename(path.dirname(file));
+  if (slug !== directorySlug) {
+    errors.push(`${file} slug must match its agents/ directory: ${slug} !== ${directorySlug}`);
+  }
+  if (normalizedName !== slug) {
+    errors.push(`${file} slug must match Paperclip replace key from name: ${slug} !== ${normalizedName}`);
+  }
   const adapterType = extractScalar(fm, "adapterType");
   if (adapterType !== "codex_local") {
     errors.push(`${file} must declare adapterType: codex_local`);

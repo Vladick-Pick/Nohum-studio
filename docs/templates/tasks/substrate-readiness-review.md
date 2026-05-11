@@ -3,7 +3,7 @@ kind: task_template
 name: Substrate Readiness Review
 description: Review and prove the canonical engineering substrate before build work begins
 schema: agentcompanies/v1
-assignee: vp-engineering
+assignee: vp-of-engineering
 project: studio-os
 ---
 

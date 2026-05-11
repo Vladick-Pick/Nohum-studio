@@ -17,7 +17,7 @@ NoHum autonomy depends on recurring management, not on one-off issue bursts.
   - task: `docs/templates/tasks/daily-launch-lead-readiness-review.md`
   - output: Gate B or launch packet readiness note plus customer-world-model delta for launch surfaces
 - `VP of Engineering`
-  - task: `docs/templates/tasks/daily-vp-engineering-substrate-review.md`
+  - task: `docs/templates/tasks/daily-vp-of-engineering-substrate-review.md`
   - output: substrate readiness verdict or build-lane exception plus company-world-model delta for build surfaces
 - `Support Lead`
   - task: `docs/templates/tasks/daily-support-lead-signal-review.md`

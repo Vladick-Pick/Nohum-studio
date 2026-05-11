@@ -22,7 +22,7 @@ NoHum needs factory observability in addition to venture observability.
 | repeated runtime failures by agent | same role fails 2 or more runs in 24h | immediate remediation packet | `Agent Mechanic` | `docs/templates/tasks/daily-agent-mechanic-runtime-audit.md` |
 | unresolved escalations count | escalations without decision owner or next artifact | must be `0` by next CEO review | `CEO` | `docs/templates/tasks/daily-ceo-operating-review.md` |
 | launch readiness debt | open Gate B or launch blockers on active venture | must be `0` before traffic ramp | `Launch Lead` | `docs/templates/tasks/daily-launch-lead-readiness-review.md` |
-| substrate readiness debt | missing repo, env, release, or QA surfaces for build lane | must be `0` before build starts | `VP of Engineering` | `docs/templates/tasks/daily-vp-engineering-substrate-review.md` |
+| substrate readiness debt | missing repo, env, release, or QA surfaces for build lane | must be `0` before build starts | `VP of Engineering` | `docs/templates/tasks/daily-vp-of-engineering-substrate-review.md` |
 | support burden | critical support escalations, unresolved incidents, or unclear owner state | no critical item may cross the day boundary without owner | `Support Lead` | `docs/templates/tasks/daily-support-lead-signal-review.md` |
 | budget burn versus cap | monthly spend against factory cap | must remain within policy unless board override exists | `CEO` | `docs/templates/tasks/weekly-board-review.md` |
 | org hygiene drift | reporting-line drift, duplicate roles, or comments-only transitions | any critical drift becomes weekly action item | `Chief of Staff` | `docs/templates/tasks/weekly-org-hygiene-review.md` |
