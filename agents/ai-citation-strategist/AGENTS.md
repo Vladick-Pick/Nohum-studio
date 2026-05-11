@@ -5,6 +5,8 @@ title: AI Citation Strategist
 schema: agentcompanies/v1
 slug: ai-citation-strategist
 role: "cmo"
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "cmo"
 docs:
   - HEARTBEAT.md

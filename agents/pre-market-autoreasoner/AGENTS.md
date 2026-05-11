@@ -5,6 +5,8 @@ title: Product Bet Autoreasoner
 schema: agentcompanies/v1
 slug: pre-market-autoreasoner
 role: researcher
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: launch-lead
 docs:
   - HEARTBEAT.md

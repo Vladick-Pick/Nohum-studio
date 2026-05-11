@@ -5,6 +5,8 @@ title: UI Designer
 schema: agentcompanies/v1
 slug: ui-designer
 role: "designer"
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md

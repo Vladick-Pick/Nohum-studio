@@ -5,6 +5,8 @@ title: Backend Architect
 schema: agentcompanies/v1
 slug: backend-architect
 role: "engineer"
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "vp-engineering"
 docs:
   - HEARTBEAT.md

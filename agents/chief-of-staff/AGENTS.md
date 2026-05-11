@@ -5,6 +5,8 @@ title: Chief of Staff
 schema: agentcompanies/v1
 slug: chief-of-staff
 role: pm
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: ceo
 docs:
   - HEARTBEAT.md

@@ -5,6 +5,8 @@ title: Head of Research
 schema: agentcompanies/v1
 slug: research-lead
 role: researcher
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: ceo
 docs:
   - HEARTBEAT.md

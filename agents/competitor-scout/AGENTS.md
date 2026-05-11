@@ -5,6 +5,8 @@ title: Competitive Intelligence Specialist
 schema: agentcompanies/v1
 slug: competitor-scout
 role: researcher
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: research-lead
 docs:
   - HEARTBEAT.md

@@ -5,6 +5,8 @@ title: Feedback Synthesizer
 schema: agentcompanies/v1
 slug: feedback-synthesizer
 role: "researcher"
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "support-lead"
 docs:
   - HEARTBEAT.md

@@ -5,6 +5,8 @@ title: Offer And Positioning Strategist
 schema: agentcompanies/v1
 slug: offer-positioning-strategist
 role: cmo
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: launch-lead
 docs:
   - HEARTBEAT.md

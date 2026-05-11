@@ -5,6 +5,8 @@ title: Pricing Strategist
 schema: agentcompanies/v1
 slug: pricing-strategist
 role: "pm"
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md

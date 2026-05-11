@@ -5,6 +5,8 @@ title: Monetization and Pricing Specialist
 schema: agentcompanies/v1
 slug: revenue-validator
 role: researcher
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: research-lead
 docs:
   - HEARTBEAT.md

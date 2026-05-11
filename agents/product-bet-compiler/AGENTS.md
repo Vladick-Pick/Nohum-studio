@@ -5,6 +5,8 @@ title: Product Bet Compiler
 schema: agentcompanies/v1
 slug: product-bet-compiler
 role: pm
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: launch-lead
 docs:
   - HEARTBEAT.md

@@ -188,6 +188,7 @@ const visited = new Set();
 const packageFiles = new Set();
 const packageAgentSlugs = new Set();
 const packageTaskPaths = new Set();
+const packageAgentFiles = new Set();
 
 function walkPackage(filePath) {
   const absolute = path.resolve(filePath);
@@ -207,6 +208,7 @@ function walkPackage(filePath) {
   if (key.endsWith("/AGENTS.md") || key === "AGENTS.md") {
     const slug = extractScalar(fm, "slug") ?? path.basename(path.dirname(absolute));
     packageAgentSlugs.add(slug);
+    if (key.startsWith("agents/")) packageAgentFiles.add(key);
   }
 
   if (key.endsWith("/TASK.md") || key === "TASK.md") {
@@ -220,6 +222,18 @@ function walkPackage(filePath) {
 }
 
 walkPackage(path.join(root, "COMPANY.md"));
+
+for (const file of packageAgentFiles) {
+  const text = read(path.join(root, file));
+  const fm = frontmatter(text);
+  const adapterType = extractScalar(fm, "adapterType");
+  if (adapterType !== "codex_local") {
+    errors.push(`${file} must declare adapterType: codex_local`);
+  }
+  if (!/^adapterConfig:\s*\{.*"model"\s*:\s*"gpt-5\.4".*\}\s*$/m.test(fm)) {
+    errors.push(`${file} must declare inline codex_local adapterConfig with model gpt-5.4`);
+  }
+}
 
 function parsePaperclipYaml() {
   const filePath = path.join(root, ".paperclip.yaml");

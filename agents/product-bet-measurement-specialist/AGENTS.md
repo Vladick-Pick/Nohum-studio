@@ -5,6 +5,8 @@ title: Product Bet Measurement Specialist
 schema: agentcompanies/v1
 slug: product-bet-measurement-specialist
 role: pm
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: launch-lead
 docs:
   - HEARTBEAT.md

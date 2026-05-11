@@ -5,6 +5,8 @@ title: Landing And Test Surface Builder
 schema: agentcompanies/v1
 slug: landing-surface-builder
 role: frontend
+adapterType: codex_local
+adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: launch-lead
 docs:
   - HEARTBEAT.md
