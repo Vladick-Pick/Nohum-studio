@@ -4,22 +4,24 @@ import path from "node:path";
 const root = process.cwd();
 const errors = [];
 
-const expectedActiveRuntimeAgents = new Set([
-  "agent-mechanic",
-  "ceo",
-  "chief-of-staff",
-  "competitor-scout",
-  "demand-validator",
-  "idea-scout",
-  "launch-lead",
-  "research-lead",
-  "revenue-validator",
-]);
-
 const expectedRootTasks = new Set([
   "tasks/bootstrap-company-access-and-secrets/TASK.md",
   "tasks/bootstrap-company/TASK.md",
 ]);
+
+const importerDiscoveredBasenames = new Set([
+  "AGENTS.md",
+  "SKILL.md",
+  "PROJECT.md",
+  "TASK.md",
+]);
+
+const allowedImporterEntryPathPatterns = [
+  /^agents\/[^/]+\/AGENTS\.md$/,
+  /^skills\/.+\/SKILL\.md$/,
+  /^projects\/[^/]+\/PROJECT\.md$/,
+  /^tasks\/[^/]+\/TASK\.md$/,
+];
 
 const ignitionTask = "docs/templates/tasks/start-first-research-cycle.md";
 const localAbsolutePathPattern = new RegExp("/" + "Users/");
@@ -242,6 +244,8 @@ function parsePaperclipYaml() {
   let inCompany = false;
   let inAgents = false;
   let currentAgent = null;
+  let inAgentAdapter = false;
+  let inAgentAdapterConfig = false;
   let companyBudget = null;
 
   for (const line of lines) {
@@ -249,6 +253,8 @@ function parsePaperclipYaml() {
       inCompany = line.trim() === "company:";
       inAgents = line.trim() === "agents:";
       currentAgent = null;
+      inAgentAdapter = false;
+      inAgentAdapterConfig = false;
       continue;
     }
 
@@ -262,8 +268,40 @@ function parsePaperclipYaml() {
       const agent = line.match(/^\s{2}([a-z0-9-]+):\s*$/);
       if (agent) {
         currentAgent = agent[1];
-        agents.set(currentAgent, { budgetMonthlyCents: 0 });
+        inAgentAdapter = false;
+        inAgentAdapterConfig = false;
+        agents.set(currentAgent, {
+          budgetMonthlyCents: 0,
+          adapterType: null,
+          adapterModel: null,
+        });
         continue;
+      }
+
+      if (/^\s{4}\S/.test(line) && !/^\s{4}adapter:\s*$/.test(line)) {
+        inAgentAdapter = false;
+        inAgentAdapterConfig = false;
+      }
+
+      if (/^\s{4}adapter:\s*$/.test(line) && currentAgent) {
+        inAgentAdapter = true;
+        inAgentAdapterConfig = false;
+        continue;
+      }
+
+      if (inAgentAdapter && /^\s{6}config:\s*$/.test(line)) {
+        inAgentAdapterConfig = true;
+        continue;
+      }
+
+      if (inAgentAdapter && currentAgent) {
+        const adapterType = line.match(/^\s{6}type:\s*['"]?([^'"\n]+?)['"]?\s*$/);
+        if (adapterType) agents.get(currentAgent).adapterType = adapterType[1].trim();
+
+        const adapterModel = line.match(/^\s{8}model:\s*['"]?([^'"\n]+?)['"]?\s*$/);
+        if (inAgentAdapterConfig && adapterModel) {
+          agents.get(currentAgent).adapterModel = adapterModel[1].trim();
+        }
       }
 
       const budget = line.match(/^\s{4}budgetMonthlyCents:\s*(\d+)\s*$/);
@@ -307,15 +345,26 @@ if (unexpectedImportedAgents.length) {
   errors.push(`Root import has unknown agents: ${unexpectedImportedAgents.join(", ")}`);
 }
 
-const unexpectedRuntimeAgents = diffSets(runtimeAgents, expectedActiveRuntimeAgents);
-const missingActiveRuntimeAgents = diffSets(expectedActiveRuntimeAgents, runtimeAgents);
+const missingPaperclipExtensions = diffSets(allAgentSlugs, runtimeAgents);
+const unknownPaperclipExtensions = diffSets(runtimeAgents, allAgentSlugs);
 
-if (unexpectedRuntimeAgents.length) {
-  errors.push(`.paperclip.yaml has non-day-1 active runtime agents: ${unexpectedRuntimeAgents.join(", ")}`);
+if (missingPaperclipExtensions.length) {
+  errors.push(`.paperclip.yaml is missing import extension agents: ${missingPaperclipExtensions.join(", ")}`);
 }
 
-if (missingActiveRuntimeAgents.length) {
-  errors.push(`.paperclip.yaml is missing day-1 active runtime agents: ${missingActiveRuntimeAgents.join(", ")}`);
+if (unknownPaperclipExtensions.length) {
+  errors.push(`.paperclip.yaml has unknown import extension agents: ${unknownPaperclipExtensions.join(", ")}`);
+}
+
+for (const slug of allAgentSlugs) {
+  const agent = runtime.agents.get(slug);
+  if (!agent) continue;
+  if (agent.adapterType !== "codex_local") {
+    errors.push(`.paperclip.yaml agent ${slug} must declare adapter.type: codex_local`);
+  }
+  if (agent.adapterModel !== "gpt-5.5") {
+    errors.push(`.paperclip.yaml agent ${slug} must declare adapter.config.model: gpt-5.5`);
+  }
 }
 
 const unexpectedRootTasks = diffSets(packageTaskPaths, expectedRootTasks);
@@ -442,6 +491,14 @@ function walkFiles(dir) {
     }
   }
   return out;
+}
+
+for (const filePath of walkFiles(root)) {
+  const relative = rel(filePath);
+  if (relative.startsWith(".git/")) continue;
+  if (!importerDiscoveredBasenames.has(path.basename(relative))) continue;
+  if (allowedImporterEntryPathPatterns.some((pattern) => pattern.test(relative))) continue;
+  errors.push(`Import-discoverable runtime file outside active package surface: ${relative}`);
 }
 
 for (const filePath of walkFiles(root)) {

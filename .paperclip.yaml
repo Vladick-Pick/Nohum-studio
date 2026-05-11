@@ -1,5 +1,5 @@
 schema: paperclip/v1
-description: Active day-1 runtime defaults for NoHum Studio v1.8 single-import company package.
+description: Import extension defaults for NoHum Studio v1.8 single-import company package.
 
 company:
   budgetMonthlyCents: 100000
@@ -194,3 +194,290 @@ agents:
     notes:
       - Day-1 boundary owner only. Product Bet, Build, GTM, and Support agents may exist, but stay dormant until gate artifacts and manager-created tasks activate them.
       - Gate B recommendation remains a recommendation, not build approval.
+  ai-citation-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  ai-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  analytics-reporter:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  backend-architect:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  cmo:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  code-reviewer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  community-builder:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  competitor-deep-dive-analyst:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  content-creator:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  devops-automator:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  economics-modeler:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  evidence-router:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  feedback-synthesizer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  frontend-developer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  growth-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  landing-surface-builder:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  launch-program-manager:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  marketing-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  offer-positioning-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  organic-traffic-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  paid-media-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  pre-market-autoreasoner:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  pricing-strategist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  product-bet-compiler:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  product-bet-measurement-specialist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  product-definer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  qa-director:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  qa-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  release-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  security-engineer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  senior-developer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  seo-specialist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  software-architect:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  sre:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  support-lead:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  support-responder:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  tracking-measurement-specialist:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  ui-designer:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  ux-architect:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  ux-researcher:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
+  vp-engineering:
+    adapter:
+      type: codex_local
+      config:
+        model: gpt-5.5
+        modelReasoningEffort: high
+        dangerouslyBypassApprovalsAndSandbox: false
