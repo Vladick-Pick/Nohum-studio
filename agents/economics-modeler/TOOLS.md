@@ -7,7 +7,6 @@ Use:
 - `ev-band-estimation`
 - `pricing-strategy`
 - `monetization-strategy`
-- ``
 - `market-sizing`
 - calculator or spreadsheet-style arithmetic
 - public pricing pages and documented platform costs

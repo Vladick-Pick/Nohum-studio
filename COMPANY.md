@@ -95,6 +95,8 @@ includes:
   - docs/product-bets/README.md
   - docs/product-bets/automation-map.md
   - docs/product-bets/tool-access-matrix.md
+  - docs/product-bets/product-bet-memory.md
+  - docs/product-bets/tool-cost-registry.md
   - docs/templates/operations/blocked-work-packet.md
   - docs/templates/operations/agent-self-review.md
   - docs/templates/operations/company-world-model-report.md

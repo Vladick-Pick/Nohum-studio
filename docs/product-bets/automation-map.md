@@ -113,7 +113,7 @@ CEO creates one Product Bet Validation Sprint
 -> Launch Lead selects a test revision
 -> Landing Surface Builder creates the waitlist surface
 -> Product Bet Measurement Specialist verifies events and observation window
--> Organic Distribution Operator runs approved traffic attempts
+-> Organic Traffic Strategist runs approved traffic attempts
 -> Evidence Router writes validation decision and Gate B recommendation when warranted
 ```
 
@@ -132,6 +132,27 @@ to the exact owner of the weak surface.
 | instrumentation broken | `product-bet-measurement-specialist` | measurement QA fix |
 | evidence ambiguous | `evidence-router` | corrected validation evidence event |
 | alternate angle looks stronger | `pre-market-autoreasoner` | fork candidate or promoted revision |
+
+## Derived Memory Sync
+
+Product Bet learning is projected from canonical artifacts after evidence is
+written. Derived memory is read-optimized and must never override the Product
+Bet Card, Gate B Recommendation, or Gate B Decision.
+
+```mermaid
+flowchart LR
+  PBC["Product Bet Card"] --> PBR["Product Bet Registry"]
+  TA["Traffic Attempts"] --> CLM["Channel Learning Memory"]
+  TSR["Traffic Source Report"] --> CLM
+  VEE["Validation Evidence Events"] --> CLM
+  OB["Offer Brief"] --> OAM["Offer Angle Memory"]
+  CR["Concept Revisions"] --> OAM
+  SV["Surface Versions"] --> SPI["Surface Performance Index"]
+  SQA["Surface QA"] --> SPI
+  OW["Observation Window"] --> SPI
+  GBR["Gate B Recommendation"] --> PBR
+  GBD["Gate B Decision"] --> PBR
+```
 
 ## Marketing Relationship
 

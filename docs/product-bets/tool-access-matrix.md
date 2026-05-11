@@ -1,5 +1,9 @@
 # Research And Product Bet Tool Access Matrix
 
+For cost policy, source URLs, and spend logging rules, use
+[Tool Cost Registry](tool-cost-registry.md). This access matrix says who may
+use a tool; it does not grant budget approval.
+
 | Tool/source | Secret/access | Phase | Action |
 |---|---|---|---|
 | TrustMRR | `TRUSTMRR_API_KEY` | Research | source intake by `Idea Scout` |
@@ -24,6 +28,17 @@
 
 Agents must return these states explicitly. They must not silently skip missing
 access.
+
+## Cost Discipline
+
+- Gate A must set `max_test_budget_cents` before spend-bearing Product Bet work.
+- Spend-bearing calls require either an explicit approval ref or a tool already
+  inside the approved budget envelope.
+- Each `validation_evidence_event` records `cost_cents` for the observed signal.
+- `MISSING_ACCESS`, `APPROVAL_REQUIRED`, and `BLOCKED_BY_POLICY` are execution
+  states, not market signals.
+- If current vendor pricing is needed, reverify the registry source URL before
+  the live run and update `last_verified_at`.
 
 ## Phase Rule
 

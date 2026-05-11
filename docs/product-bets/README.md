@@ -38,7 +38,7 @@ Frozen Idea Card
 -> Launch Lead selects one test revision
 -> Landing Surface Builder creates a waitlist surface
 -> Product Bet Measurement Specialist instruments the surface
--> Organic Distribution Operator drives approved traffic attempts
+-> Organic Traffic Strategist drives approved traffic attempts
 -> Observation Window evaluates time, traffic, and intent
 -> Evidence Router routes build / revise / fork / test_more / kill
 -> CEO / Board records Gate B Decision when build is recommended
@@ -90,7 +90,7 @@ as a `fork_candidate`. Gate B always references the exact
 | `competitor-deep-dive-analyst` | product-grade competitor teardown | competitor deep dive block and pack |
 | `economics-modeler` | unit economics and scenarios | financial model, break-even, `$5k` paths |
 | `offer-positioning-strategist` | USP, offer, pricing frame | offer positioning block and brief |
-| `organic-traffic-strategist` | organic distribution operator | pain language, channel map, traffic attempts, source report |
+| `organic-traffic-strategist` | organic traffic strategy and operations | pain language, channel map, traffic attempts, source report |
 | `pre-market-autoreasoner` | internal hardening | autoreason report, revisions, fork candidates |
 | `product-bet-compiler` | validation risks | validation risk map and validation plans |
 | `landing-surface-builder` | validation surface factory | landing design, waitlist form, surface version, QA |
@@ -150,6 +150,16 @@ Each approved Gate A candidate should produce:
 - validation cycle report
 - Gate B recommendation
 - Gate B decision after CEO/board review
+
+## Derived Memory And Cost Control
+
+Product Bet Validation keeps the Product Bet Card and linked artifacts as the
+primary truth. Derived memory surfaces may index channel, offer, surface, and
+decision learning, but they cannot introduce new facts or override the card.
+
+Tool and API costs are not implicit permission to spend. The Gate A decision
+sets `max_test_budget_cents`, each evidence event records `cost_cents`, and
+live prices must be reverified before spend-bearing runs.
 
 ## Observation Window
 
@@ -252,3 +262,5 @@ CEO/board explicitly accepts the risk:
 - [Gate B Recommendation](../templates/product-bets/gate-b-recommendation.md)
 - [Gate B Decision](../templates/product-bets/gate-b-decision.md)
 - [Automation Map](automation-map.md)
+- [Product Bet Memory](product-bet-memory.md)
+- [Tool Cost Registry](tool-cost-registry.md)
