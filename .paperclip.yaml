@@ -16,6 +16,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -39,6 +40,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -61,6 +63,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -89,6 +92,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -115,6 +119,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -143,6 +148,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -171,6 +177,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -196,6 +203,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -218,6 +226,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -237,6 +246,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -248,6 +258,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -259,6 +270,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -270,6 +282,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -281,6 +294,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -292,6 +306,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -303,6 +318,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -314,6 +330,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -325,6 +342,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -336,6 +354,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -347,6 +366,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -358,6 +378,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -369,6 +390,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -380,6 +402,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -391,6 +414,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -402,6 +426,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -413,6 +438,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -424,6 +450,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -435,6 +462,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -446,6 +474,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -457,6 +486,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -468,6 +498,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -479,6 +510,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -490,6 +522,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -501,6 +534,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -512,6 +546,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -523,6 +558,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -534,6 +570,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -545,6 +582,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -556,6 +594,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -567,6 +606,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -578,6 +618,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -589,6 +630,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -600,6 +642,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -611,6 +654,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -622,6 +666,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -633,6 +678,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -644,6 +690,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -655,6 +702,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -666,6 +714,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:
@@ -677,6 +726,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+        command: /home/paperclip/.local/bin/codex
     runtime:
       modelProfiles:
         cheap:

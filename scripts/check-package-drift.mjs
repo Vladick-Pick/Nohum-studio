@@ -308,6 +308,7 @@ function parsePaperclipYaml() {
           budgetMonthlyCents: 0,
           adapterType: null,
           adapterModel: null,
+          adapterCommand: null,
           runtimeCheapDisabled: false,
         });
         continue;
@@ -366,6 +367,11 @@ function parsePaperclipYaml() {
         const adapterModel = line.match(/^\s{8}model:\s*['"]?([^'"\n]+?)['"]?\s*$/);
         if (inAgentAdapterConfig && adapterModel) {
           agents.get(currentAgent).adapterModel = adapterModel[1].trim();
+        }
+
+        const adapterCommand = line.match(/^\s{8}command:\s*['"]?([^'"\n]+?)['"]?\s*$/);
+        if (inAgentAdapterConfig && adapterCommand) {
+          agents.get(currentAgent).adapterCommand = adapterCommand[1].trim();
         }
       }
 
@@ -429,6 +435,9 @@ for (const slug of allAgentSlugs) {
   }
   if (agent.adapterModel !== "gpt-5.5") {
     errors.push(`.paperclip.yaml agent ${slug} must declare adapter.config.model: gpt-5.5`);
+  }
+  if (agent.adapterCommand !== "/home/paperclip/.local/bin/codex") {
+    errors.push(`.paperclip.yaml agent ${slug} must use the managed Codex CLI command path /home/paperclip/.local/bin/codex`);
   }
   if (!agent.runtimeCheapDisabled) {
     errors.push(`.paperclip.yaml agent ${slug} must disable runtime.modelProfiles.cheap for ChatGPT-backed Codex imports`);
