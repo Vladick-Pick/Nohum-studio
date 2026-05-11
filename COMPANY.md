@@ -4,7 +4,7 @@ name: NoHum Studio
 description: Single-import company package for NoHum Studio with staged runtime activation
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.8.1
+version: 1.8.2
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
@@ -195,7 +195,11 @@ includes:
   - docs/server-post-import-checklist.md
   - docs/doctrine/obsidian-to-repo-map.md
 requirements:
-  secrets: []
+  secrets:
+    - TRUSTMRR_API_KEY
+    - APIFY_TOKEN
+    - OPENROUTER_API_KEY
+    - BRAVE_API_KEY
 ---
 
 NoHum Studio is a venture factory, not a single-product company.
