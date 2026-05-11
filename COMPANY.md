@@ -4,10 +4,14 @@ name: NoHum Studio
 description: Single-import company package for NoHum Studio with staged runtime activation
 slug: nohum-studio
 schema: agentcompanies/v1
-version: 1.8.0
+version: 1.8.1
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
+  - skills/paperclip/SKILL.md
+  - skills/paperclip-create-agent/SKILL.md
+  - skills/paperclip-knowledge/SKILL.md
+  - skills/para-memory-files/SKILL.md
   - agents/ceo/AGENTS.md
   - teams/research/TEAM.md
   - teams/product-bet-definition/TEAM.md

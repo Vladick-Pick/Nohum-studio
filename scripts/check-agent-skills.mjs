@@ -4,12 +4,6 @@ import path from "node:path";
 const root = process.cwd();
 const agentsDir = path.join(root, "agents");
 const skillsDir = path.join(root, "skills");
-const runtimeSkills = new Set([
-  "paperclip",
-  "paperclip-create-agent",
-  "paperclip-knowledge",
-  "para-memory-files",
-]);
 
 function readFrontmatter(filePath) {
   const text = fs.readFileSync(filePath, "utf8");
@@ -53,7 +47,6 @@ for (const slug of fs.readdirSync(agentsDir).sort()) {
   const skills = extractSkills(frontmatter);
 
   for (const skill of skills) {
-    if (runtimeSkills.has(skill)) continue;
     const skillPath = path.join(skillsDir, skill, "SKILL.md");
     if (!fs.existsSync(skillPath)) {
       missing.push(`${slug}: ${skill}`);
@@ -67,4 +60,4 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-console.log("All agent skill references resolve to local skills or approved runtime skills.");
+console.log("All agent skill references resolve to package skill files.");

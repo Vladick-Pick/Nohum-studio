@@ -2,8 +2,8 @@
 
 ## Delta
 
-- resolved validator drift between package skill policy and deterministic skill checker
-- reduced false-positive runtime drift for Paperclip base skills
+- resolved validator drift between package skill policy, deterministic skill checker, and import behavior
+- removed false-positive import readiness for missing Paperclip base skill package files
 - preserved dead local skill reference detection
 
 ## Affected Surfaces
@@ -13,6 +13,6 @@
 
 ## Follow-Up
 
-- keep runtime base skills allowlisted in validators
-- do not vendor runtime base skills into `skills/`
+- require package skill files for every skill shortname referenced by agents
+- keep mirrored runtime base skills source-aligned and narrow
 - use this experiment as the reference pattern for future skill/instruction drift fixes

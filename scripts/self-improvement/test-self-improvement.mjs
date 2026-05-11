@@ -66,6 +66,13 @@ const checkAgentSkillsPath = fileURLToPath(new URL("../check-agent-skills.mjs", 
 fs.mkdirSync(path.join(tempRepo, "agents", "runtime-ok"), { recursive: true });
 fs.mkdirSync(path.join(tempRepo, "agents", "local-missing"), { recursive: true });
 fs.mkdirSync(path.join(tempRepo, "skills"), { recursive: true });
+fs.mkdirSync(path.join(tempRepo, "skills", "paperclip"), { recursive: true });
+fs.mkdirSync(path.join(tempRepo, "skills", "paperclip-knowledge"), { recursive: true });
+fs.writeFileSync(path.join(tempRepo, "skills", "paperclip", "SKILL.md"), "---\nname: paperclip\n---\n");
+fs.writeFileSync(
+  path.join(tempRepo, "skills", "paperclip-knowledge", "SKILL.md"),
+  "---\nname: paperclip-knowledge\n---\n",
+);
 
 fs.writeFileSync(
   path.join(tempRepo, "agents", "runtime-ok", "AGENTS.md"),
