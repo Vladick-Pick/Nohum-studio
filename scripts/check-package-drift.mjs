@@ -271,6 +271,9 @@ function parsePaperclipYaml() {
   let currentAgent = null;
   let inAgentAdapter = false;
   let inAgentAdapterConfig = false;
+  let inAgentRuntime = false;
+  let inAgentRuntimeModelProfiles = false;
+  let inAgentRuntimeCheapProfile = false;
   let companyBudget = null;
 
   for (const line of lines) {
@@ -280,6 +283,9 @@ function parsePaperclipYaml() {
       currentAgent = null;
       inAgentAdapter = false;
       inAgentAdapterConfig = false;
+      inAgentRuntime = false;
+      inAgentRuntimeModelProfiles = false;
+      inAgentRuntimeCheapProfile = false;
       continue;
     }
 
@@ -295,28 +301,62 @@ function parsePaperclipYaml() {
         currentAgent = agent[1];
         inAgentAdapter = false;
         inAgentAdapterConfig = false;
+        inAgentRuntime = false;
+        inAgentRuntimeModelProfiles = false;
+        inAgentRuntimeCheapProfile = false;
         agents.set(currentAgent, {
           budgetMonthlyCents: 0,
           adapterType: null,
           adapterModel: null,
+          runtimeCheapDisabled: false,
         });
         continue;
       }
 
-      if (/^\s{4}\S/.test(line) && !/^\s{4}adapter:\s*$/.test(line)) {
+      if (/^\s{4}\S/.test(line) && !/^\s{4}adapter:\s*$/.test(line) && !/^\s{4}runtime:\s*$/.test(line)) {
         inAgentAdapter = false;
         inAgentAdapterConfig = false;
+        inAgentRuntime = false;
+        inAgentRuntimeModelProfiles = false;
+        inAgentRuntimeCheapProfile = false;
       }
 
       if (/^\s{4}adapter:\s*$/.test(line) && currentAgent) {
         inAgentAdapter = true;
         inAgentAdapterConfig = false;
+        inAgentRuntime = false;
+        inAgentRuntimeModelProfiles = false;
+        inAgentRuntimeCheapProfile = false;
+        continue;
+      }
+
+      if (/^\s{4}runtime:\s*$/.test(line) && currentAgent) {
+        inAgentAdapter = false;
+        inAgentAdapterConfig = false;
+        inAgentRuntime = true;
+        inAgentRuntimeModelProfiles = false;
+        inAgentRuntimeCheapProfile = false;
         continue;
       }
 
       if (inAgentAdapter && /^\s{6}config:\s*$/.test(line)) {
         inAgentAdapterConfig = true;
         continue;
+      }
+
+      if (inAgentRuntime && /^\s{6}modelProfiles:\s*$/.test(line)) {
+        inAgentRuntimeModelProfiles = true;
+        inAgentRuntimeCheapProfile = false;
+        continue;
+      }
+
+      if (inAgentRuntimeModelProfiles && /^\s{8}cheap:\s*$/.test(line)) {
+        inAgentRuntimeCheapProfile = true;
+        continue;
+      }
+
+      if (inAgentRuntimeCheapProfile && currentAgent && /^\s{10}enabled:\s*false\s*$/.test(line)) {
+        agents.get(currentAgent).runtimeCheapDisabled = true;
       }
 
       if (inAgentAdapter && currentAgent) {
@@ -389,6 +429,9 @@ for (const slug of allAgentSlugs) {
   }
   if (agent.adapterModel !== "gpt-5.5") {
     errors.push(`.paperclip.yaml agent ${slug} must declare adapter.config.model: gpt-5.5`);
+  }
+  if (!agent.runtimeCheapDisabled) {
+    errors.push(`.paperclip.yaml agent ${slug} must disable runtime.modelProfiles.cheap for ChatGPT-backed Codex imports`);
   }
 }
 

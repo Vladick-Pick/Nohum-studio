@@ -16,6 +16,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 20000
     permissions:
       canCreateAgents: true
@@ -35,6 +39,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 5000
     permissions:
       canCreateAgents: true
@@ -53,6 +61,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 4000
     permissions:
       canCreateAgents: false
@@ -77,6 +89,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 15000
     permissions:
       canCreateAgents: true
@@ -99,6 +115,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -123,6 +143,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -147,6 +171,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -168,6 +196,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 12000
     permissions:
       canCreateAgents: false
@@ -186,6 +218,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
     budgetMonthlyCents: 8000
     permissions:
       canCreateAgents: false
@@ -201,6 +237,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   ai-engineer:
     adapter:
       type: codex_local
@@ -208,6 +248,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   analytics-reporter:
     adapter:
       type: codex_local
@@ -215,6 +259,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   backend-architect:
     adapter:
       type: codex_local
@@ -222,6 +270,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   cmo:
     adapter:
       type: codex_local
@@ -229,6 +281,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   code-reviewer:
     adapter:
       type: codex_local
@@ -236,6 +292,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   community-builder:
     adapter:
       type: codex_local
@@ -243,6 +303,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   competitor-deep-dive-analyst:
     adapter:
       type: codex_local
@@ -250,6 +314,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   content-creator:
     adapter:
       type: codex_local
@@ -257,6 +325,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   devops-automator:
     adapter:
       type: codex_local
@@ -264,6 +336,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   economics-modeler:
     adapter:
       type: codex_local
@@ -271,6 +347,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   evidence-router:
     adapter:
       type: codex_local
@@ -278,6 +358,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   feedback-synthesizer:
     adapter:
       type: codex_local
@@ -285,6 +369,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   frontend-developer:
     adapter:
       type: codex_local
@@ -292,6 +380,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   growth-lead:
     adapter:
       type: codex_local
@@ -299,6 +391,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   landing-surface-builder:
     adapter:
       type: codex_local
@@ -306,6 +402,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   launch-program-manager:
     adapter:
       type: codex_local
@@ -313,6 +413,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   marketing-strategist:
     adapter:
       type: codex_local
@@ -320,6 +424,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   offer-positioning-strategist:
     adapter:
       type: codex_local
@@ -327,6 +435,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   organic-traffic-strategist:
     adapter:
       type: codex_local
@@ -334,6 +446,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   paid-media-strategist:
     adapter:
       type: codex_local
@@ -341,6 +457,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   pre-market-autoreasoner:
     adapter:
       type: codex_local
@@ -348,6 +468,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   pricing-strategist:
     adapter:
       type: codex_local
@@ -355,6 +479,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   product-bet-compiler:
     adapter:
       type: codex_local
@@ -362,6 +490,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   product-bet-measurement-specialist:
     adapter:
       type: codex_local
@@ -369,6 +501,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   product-definer:
     adapter:
       type: codex_local
@@ -376,6 +512,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   qa-director:
     adapter:
       type: codex_local
@@ -383,6 +523,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   qa-engineer:
     adapter:
       type: codex_local
@@ -390,6 +534,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   release-engineer:
     adapter:
       type: codex_local
@@ -397,6 +545,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   security-engineer:
     adapter:
       type: codex_local
@@ -404,6 +556,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   senior-developer:
     adapter:
       type: codex_local
@@ -411,6 +567,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   seo-specialist:
     adapter:
       type: codex_local
@@ -418,6 +578,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   software-architect:
     adapter:
       type: codex_local
@@ -425,6 +589,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   sre:
     adapter:
       type: codex_local
@@ -432,6 +600,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   support-lead:
     adapter:
       type: codex_local
@@ -439,6 +611,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   support-responder:
     adapter:
       type: codex_local
@@ -446,6 +622,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   tracking-measurement-specialist:
     adapter:
       type: codex_local
@@ -453,6 +633,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   ui-designer:
     adapter:
       type: codex_local
@@ -460,6 +644,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   ux-architect:
     adapter:
       type: codex_local
@@ -467,6 +655,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   ux-researcher:
     adapter:
       type: codex_local
@@ -474,6 +666,10 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
   vp-of-engineering:
     adapter:
       type: codex_local
@@ -481,3 +677,7 @@ agents:
         model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
+    runtime:
+      modelProfiles:
+        cheap:
+          enabled: false
