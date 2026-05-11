@@ -236,6 +236,10 @@ function walkPackage(filePath) {
 
 walkPackage(path.join(root, "COMPANY.md"));
 
+if (!packageFiles.has(".paperclip.yaml")) {
+  errors.push("COMPANY graph must explicitly include .paperclip.yaml so adapter extensions survive import UI selection");
+}
+
 for (const file of packageAgentFiles) {
   const text = read(path.join(root, file));
   const fm = frontmatter(text);
