@@ -13,7 +13,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 20000
@@ -32,7 +32,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 5000
@@ -50,7 +50,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 4000
@@ -74,7 +74,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 15000
@@ -96,7 +96,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 12000
@@ -120,7 +120,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 12000
@@ -144,7 +144,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 12000
@@ -165,7 +165,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 12000
@@ -183,7 +183,7 @@ agents:
     adapter:
       type: codex_local
       config:
-        model: gpt-5.4
+        model: gpt-5.5
         modelReasoningEffort: high
         dangerouslyBypassApprovalsAndSandbox: false
     budgetMonthlyCents: 8000

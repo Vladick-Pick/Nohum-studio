@@ -6,7 +6,7 @@ schema: agentcompanies/v1
 slug: launch-program-manager
 role: "pm"
 adapterType: codex_local
-adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
+adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "launch-lead"
 docs:
   - HEARTBEAT.md

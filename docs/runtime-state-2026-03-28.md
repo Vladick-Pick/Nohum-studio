@@ -29,7 +29,7 @@ Current top-level agents:
 Current runtime configuration:
 
 - adapter: `codex_local`
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning effort: `high`
 - wake on demand: enabled
 - max concurrent runs: intended to remain `1`

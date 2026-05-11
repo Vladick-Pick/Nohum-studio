@@ -327,14 +327,14 @@ Use this as the board template for every agent card.
 
 ### CEO
 
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning: `high`
 - heartbeat: enabled
 - scope: company control plane
 
 ### Chief of Staff
 
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning: `high`
 - heartbeat: enabled
 - reports to `CEO`
@@ -342,7 +342,7 @@ Use this as the board template for every agent card.
 
 ### Agent Mechanic
 
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning: `high`
 - heartbeat: enabled
 - reports to `Chief of Staff`
@@ -351,14 +351,14 @@ Use this as the board template for every agent card.
 
 ### Research Lead
 
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning: `high`
 - reports to `CEO`
 - scope: research pod and queue recommendations
 
 ### Launch Lead
 
-- model: `gpt-5.4`
+- model: `gpt-5.5`
 - reasoning: `high`
 - reports to `CEO`
 - scope: product definition, Gate B, launch readiness

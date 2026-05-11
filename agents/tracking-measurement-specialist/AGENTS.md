@@ -6,7 +6,7 @@ schema: agentcompanies/v1
 slug: tracking-measurement-specialist
 role: "cmo"
 adapterType: codex_local
-adapterConfig: {"model":"gpt-5.4","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
+adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
 reportsTo: "cmo"
 docs:
   - HEARTBEAT.md

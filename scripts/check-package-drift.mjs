@@ -230,8 +230,8 @@ for (const file of packageAgentFiles) {
   if (adapterType !== "codex_local") {
     errors.push(`${file} must declare adapterType: codex_local`);
   }
-  if (!/^adapterConfig:\s*\{.*"model"\s*:\s*"gpt-5\.4".*\}\s*$/m.test(fm)) {
-    errors.push(`${file} must declare inline codex_local adapterConfig with model gpt-5.4`);
+  if (!/^adapterConfig:\s*\{.*"model"\s*:\s*"gpt-5\.5".*\}\s*$/m.test(fm)) {
+    errors.push(`${file} must declare inline codex_local adapterConfig with model gpt-5.5`);
   }
 }
 
