@@ -194,6 +194,7 @@ includes:
   - docs/handoffs/retry-fail-escalation.md
   - docs/import-runbook.md
   - docs/server-post-import-checklist.md
+  - docs/runbooks/company-knowledge-import.md
   - docs/doctrine/obsidian-to-repo-map.md
 requirements:
   secrets:

@@ -72,6 +72,16 @@ Not imported as immediate backlog work:
 
 After import, run the checklist in `docs/server-post-import-checklist.md`.
 
+Then import repository documents into Paperclip company knowledge before any
+non-bootstrap operating work resumes:
+
+- Run `scripts/import-company-knowledge.mjs` against the exact Git ref that was
+  imported.
+- Attach the first-sourcing research doctrine docs to the first research-cycle
+  issue before assigning Research Lead work.
+- Treat this step as mandatory because Paperclip company portability does not
+  currently materialize arbitrary `docs/**` files as company knowledge.
+
 Before `Bootstrap Company` begins, create and run the CEO-owned access task:
 
 - `tasks/bootstrap-company-access-and-secrets/TASK.md`

@@ -141,6 +141,11 @@ const requiredTaskTemplates = [
   "docs/templates/tasks/delegation-contract-audit.md",
 ];
 
+const requiredKnowledgeImportPaths = [
+  "scripts/import-company-knowledge.mjs",
+  "docs/runbooks/company-knowledge-import.md",
+];
+
 function rel(filePath) {
   return path.relative(root, filePath).split(path.sep).join("/");
 }
@@ -500,6 +505,27 @@ for (const templatePath of requiredTaskTemplates) {
     if (kind !== "task_template") {
       errors.push(`Manager-created task template must use kind: task_template: ${templatePath}`);
     }
+  }
+}
+
+for (const knowledgeImportPath of requiredKnowledgeImportPaths) {
+  if (!fs.existsSync(path.join(root, knowledgeImportPath))) {
+    errors.push(`Missing company knowledge import support path: ${knowledgeImportPath}`);
+  }
+}
+
+if (!packageFiles.has("docs/runbooks/company-knowledge-import.md")) {
+  errors.push("COMPANY graph must include docs/runbooks/company-knowledge-import.md so post-import knowledge repair is visible");
+}
+
+const importRunbook = read(path.join(root, "docs/import-runbook.md"));
+const postImportChecklist = read(path.join(root, "docs/server-post-import-checklist.md"));
+for (const [file, text] of [
+  ["docs/import-runbook.md", importRunbook],
+  ["docs/server-post-import-checklist.md", postImportChecklist],
+]) {
+  if (!text.includes("scripts/import-company-knowledge.mjs")) {
+    errors.push(`${file} must require scripts/import-company-knowledge.mjs as the post-import knowledge bridge`);
   }
 }
 

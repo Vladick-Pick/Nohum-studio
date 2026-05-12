@@ -104,3 +104,39 @@ Only the first two bootstrap tasks should exist immediately after root import.
 `Start First Research Cycle` is created by CEO only after bootstrap approval.
 Research Source Batch and Research Proof Review are created only inside that
 Research operating loop.
+
+## 7. Company Knowledge Import Check
+
+Before `Start First Research Cycle` is allowed to run, import repo docs into
+Paperclip company knowledge using the exact imported Git ref:
+
+```bash
+node scripts/import-company-knowledge.mjs \
+  --company-id "$PAPERCLIP_COMPANY_ID" \
+  --database-url "$DATABASE_URL" \
+  --postgres-module "$PAPERCLIP_POSTGRES_MODULE" \
+  --source-ref origin/main \
+  --attach-issue NOHAA-8 \
+  --attach-issue NOHAA-9 \
+  --comment \
+  --apply
+```
+
+Required first-sourcing doctrine attachments:
+
+- `docs/research/copyable-product-thesis.md`
+- `docs/research/contracts/intake-and-handoffs.md`
+- `docs/research/contracts/shared-adapters.md`
+- `docs/research/research-execution-system.md`
+
+Verify each attached knowledge item records:
+
+- `source_path`
+- `source_commit`
+- `sha256`
+- `layer`
+- `canonical`
+
+Do not let agents continue from filesystem-only copies or summarized doctrine.
+If live files differ from repo hashes, pause the relevant lane and repair the
+company knowledge records first.
