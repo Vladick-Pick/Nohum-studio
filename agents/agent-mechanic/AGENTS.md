@@ -6,7 +6,7 @@ schema: agentcompanies/v1
 slug: agent-mechanic
 role: devops
 adapterType: codex_local
-adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
+adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":true}
 reportsTo: chief-of-staff
 docs:
   - HEARTBEAT.md

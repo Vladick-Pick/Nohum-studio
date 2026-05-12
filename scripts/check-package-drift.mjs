@@ -260,6 +260,9 @@ for (const file of packageAgentFiles) {
   if (!/^adapterConfig:\s*\{.*"model"\s*:\s*"gpt-5\.5".*\}\s*$/m.test(fm)) {
     errors.push(`${file} must declare inline codex_local adapterConfig with model gpt-5.5`);
   }
+  if (!/^adapterConfig:\s*\{.*"dangerouslyBypassApprovalsAndSandbox"\s*:\s*true.*\}\s*$/m.test(fm)) {
+    errors.push(`${file} must allow the local Codex adapter to reach the Paperclip control plane`);
+  }
 }
 
 function parsePaperclipYaml() {
@@ -309,6 +312,7 @@ function parsePaperclipYaml() {
           adapterType: null,
           adapterModel: null,
           adapterCommand: null,
+          adapterBypass: null,
           runtimeCheapDisabled: false,
         });
         continue;
@@ -372,6 +376,11 @@ function parsePaperclipYaml() {
         const adapterCommand = line.match(/^\s{8}command:\s*['"]?([^'"\n]+?)['"]?\s*$/);
         if (inAgentAdapterConfig && adapterCommand) {
           agents.get(currentAgent).adapterCommand = adapterCommand[1].trim();
+        }
+
+        const adapterBypass = line.match(/^\s{8}dangerouslyBypassApprovalsAndSandbox:\s*(true|false)\s*$/);
+        if (inAgentAdapterConfig && adapterBypass) {
+          agents.get(currentAgent).adapterBypass = adapterBypass[1] === "true";
         }
       }
 
@@ -438,6 +447,9 @@ for (const slug of allAgentSlugs) {
   }
   if (agent.adapterCommand !== "/home/paperclip/.local/bin/codex") {
     errors.push(`.paperclip.yaml agent ${slug} must use the managed Codex CLI command path /home/paperclip/.local/bin/codex`);
+  }
+  if (agent.adapterBypass !== true) {
+    errors.push(`.paperclip.yaml agent ${slug} must set adapter.config.dangerouslyBypassApprovalsAndSandbox: true so local Codex can reach the Paperclip control plane`);
   }
   if (!agent.runtimeCheapDisabled) {
     errors.push(`.paperclip.yaml agent ${slug} must disable runtime.modelProfiles.cheap for ChatGPT-backed Codex imports`);

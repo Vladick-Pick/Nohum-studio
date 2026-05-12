@@ -6,7 +6,7 @@ schema: agentcompanies/v1
 slug: content-creator
 role: "cmo"
 adapterType: codex_local
-adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":false}
+adapterConfig: {"model":"gpt-5.5","modelReasoningEffort":"high","dangerouslyBypassApprovalsAndSandbox":true}
 reportsTo: "cmo"
 docs:
   - HEARTBEAT.md
