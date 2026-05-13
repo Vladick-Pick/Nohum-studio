@@ -56,29 +56,65 @@ Review owners:
   recommendation.
 - Public validation surface publication requires explicit approval before it
   goes live.
+- Product Bet Validation must run as nested loops, not as one flat downstream
+  task list.
+- `Measurement Specialist`, traffic, observation, Evidence Router, and
+  Engineering implementation tasks require their upstream dependency gates.
 
 ## Steps
 
 1. Freeze the approved `Idea Card` and Gate A decision.
 2. Open one shared Product Bet Card.
-3. Create specialist assignments for owned card sections.
+3. Run `assembly_loop`: create specialist assignments for owned card sections.
 4. Compile product identity, audience, problem/workflow, and first revision.
 5. Run competitor deep dive.
 6. Write offer and positioning.
 7. Model economics and `$5k` paths.
-8. Define organic distribution strategy and traffic test.
-9. Create validation risk map.
-10. Run internal autoreason and synthetic audience review.
+8. Create validation risk map.
+9. Launch Lead reviews each section and routes `RETRY` to the exact weak owner.
+10. Run `internal_hardening_loop`: internal autoreason and synthetic audience
+    critique.
 11. Record concept revisions and fork candidates.
-12. Select one revision to test externally.
-13. Prepare landing design, copy variants, waitlist form, and surface version.
-14. Define measurement plan and observation window.
-15. Run only approved organic traffic attempts.
-16. Monitor enough-time/enough-traffic thresholds.
-17. Record traffic, behavior, and blocker results as validation evidence events.
-18. Route validation result to build, revise, fork, test_more, or kill.
-19. Write Gate B recommendation only when build is warranted.
-20. Write one validation cycle learning report.
+12. Launch Lead accepts/rejects hardening output and selects one revision to
+    test externally.
+13. Run `surface_readiness_loop`: prepare landing design, copy variants,
+    waitlist form, surface version, and claims QA.
+14. Request or verify publication/validation approval for the surface when
+    needed.
+15. Define measurement plan only after `selected_test_revision` and
+    `surface_version` draft/ref exist.
+16. Implement only the approved validation surface and tracking contract.
+17. Run tracking QA before any external traffic.
+18. Run only approved organic traffic attempts.
+19. Monitor enough-time/enough-traffic thresholds.
+20. Record traffic, behavior, and blocker results as validation evidence events.
+21. Route validation result to build, revise, fork, test_more, or kill.
+22. Write Gate B recommendation only when build is warranted.
+23. Write one validation cycle learning report.
+
+## Dependency Gates
+
+Launch Lead must enforce these gates before creating or unblocking downstream
+tasks:
+
+| Gate | Required before | Required state |
+|---|---|---|
+| `assembly_loop_pass` | hardening task | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, and Offer Positioning Strategist sections are `PASS`, or CEO/board accepted the incomplete state |
+| `hardening_decision_recorded` | surface task | autoreason report exists; `concept_revision` / `fork_candidate` decisions are recorded; one revision is recommended |
+| `selected_test_revision_exists` | surface, measurement, traffic, observation, evidence | Launch Lead selected exactly one test revision |
+| `surface_version_draft_exists` | measurement task | Landing Surface Builder produced or requested a versioned `surface_version` |
+| `measurement_contract_ready` | implementation and traffic | Product Bet Measurement Specialist wrote event contract, thresholds, UTM policy, and QA criteria |
+| `tracking_QA_passed` | organic traffic and observation | implementation emits required events and excludes internal/test traffic |
+| `traffic_attempts_recorded` | observation and Evidence Router | approved organic/free attempts exist or blocked states are explicit |
+| `observation_ready_for_review` | Evidence Router Gate B recommendation | enough time, enough traffic, channel diversity, source quality, and measurement QA are decision-grade |
+
+Invalid shortcuts:
+
+- measurement task before `selected_test_revision` and `surface_version` draft/ref
+- Engineering implementation before surface spec and measurement contract
+- organic traffic before surface access and tracking QA
+- Gate B request before Evidence Router writes `gate_b_recommendation`
+- synthetic audience acceptance treated as market validation
 
 ## Allowed Recommendations
 
@@ -150,3 +186,5 @@ Escalate when:
 - Every traffic attempt includes thresholds, source refs, and UTM/tracking policy.
 - No build, product repo attach, or action outside Gate A constraints occurs
   without approval.
+- The runtime issue graph preserves nested-loop order, or records an explicit
+  `blocked_state` / approval request where order cannot advance.

@@ -115,6 +115,78 @@ const requiredProductBetCardTokens = [
   "open_fork",
 ];
 
+const requiredProductBetNestedLoopChecks = [
+  {
+    file: "docs/ontology/nohum-operating-ontology.md",
+    tokens: [
+      "ONT-05A Product Bet Nested Loops",
+      "assembly_loop",
+      "internal_hardening_loop",
+      "surface_readiness_loop",
+      "measurement_traffic_observation_loop",
+      "evidence_routing_loop",
+      "Synthetic audience work is allowed only inside `internal_hardening_loop`",
+    ],
+  },
+  {
+    file: "docs/templates/product-bets/task-templates/run-product-bet-validation-sprint.md",
+    tokens: [
+      "Dependency Gates",
+      "assembly_loop_pass",
+      "hardening_decision_recorded",
+      "selected_test_revision_exists",
+      "surface_version_draft_exists",
+      "measurement_contract_ready",
+      "tracking_QA_passed",
+      "observation_ready_for_review",
+    ],
+  },
+  {
+    file: "docs/playbooks/product-bet-definition-playbook.md",
+    tokens: [
+      "Nested Runtime Loops",
+      "assembly_loop",
+      "internal_hardening_loop",
+      "surface_readiness_loop",
+      "measurement_traffic_observation_loop",
+      "Synthetic audience acceptance is not a gate",
+    ],
+  },
+  {
+    file: "agents/launch-lead/HEARTBEAT.md",
+    tokens: [
+      "Downstream Task Preflight",
+      "Product Bet Measurement Specialist is not started until `selected_test_revision`",
+      "Do not flatten the Product Bet loop into a downstream task",
+    ],
+  },
+  {
+    file: "agents/product-bet-measurement-specialist/AGENTS.md",
+    tokens: [
+      "Do not begin measurement planning from a vague Product Bet idea",
+      "`selected_test_revision` exists",
+      "a `surface_version` draft/ref exists",
+    ],
+  },
+  {
+    file: "agents/landing-surface-builder/AGENTS.md",
+    tokens: [
+      "Required entry state",
+      "Launch Lead selected exactly one `selected_test_revision`",
+      "Product Definer and Product",
+      "do not replace this pre-Gate-B `surface_version` ownership",
+    ],
+  },
+  {
+    file: "agents/product-definer/TOOLS.md",
+    tokens: ["Keep paused until Gate B artifacts and templates are wired"],
+  },
+  {
+    file: "agents/vp-of-engineering/AGENTS.md",
+    tokens: ["approved Gate B packet and handoff dossier"],
+  },
+];
+
 const requiredTaskTemplates = [
   "docs/templates/tasks/start-first-research-cycle.md",
   "docs/templates/tasks/run-market-signal-batch.md",
@@ -568,6 +640,20 @@ const gateBRecommendation = read(path.join(root, "docs/templates/product-bets/ga
 for (const token of ["observation_window_complete", "organic_traffic_attempts_complete", "waitlist_or_signup_intent_measured"]) {
   if (!gateBRecommendation.includes(token)) {
     errors.push(`Gate B recommendation missing validation criterion: ${token}`);
+  }
+}
+
+for (const check of requiredProductBetNestedLoopChecks) {
+  const absolute = path.join(root, check.file);
+  if (!fs.existsSync(absolute)) {
+    errors.push(`Missing Product Bet nested-loop guard file: ${check.file}`);
+    continue;
+  }
+  const text = read(absolute);
+  for (const token of check.tokens) {
+    if (!text.includes(token)) {
+      errors.push(`${check.file} missing Product Bet nested-loop guard token: ${token}`);
+    }
   }
 }
 

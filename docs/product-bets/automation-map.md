@@ -49,30 +49,37 @@ flowchart TD
   A["Frozen Idea Card"] --> B["CEO Gate A Decision"]
   B --> C["CEO creates Product Bet Validation Sprint"]
   C --> D["Launch Lead opens Product Bet Card v0"]
-  D --> E["Product Bet Compiler: product shape"]
-  D --> F["Competitor Deep Dive"]
-  D --> G["Economics"]
-  D --> H["Offer / Positioning"]
-  E --> I["AI Hardening Loop"]
-  F --> I
-  G --> I
-  H --> I
+
+  subgraph L1["assembly_loop"]
+    D --> E["Product Bet Compiler: product shape"]
+    D --> F["Competitor Deep Dive"]
+    D --> G["Economics"]
+    D --> H["Offer / Positioning"]
+    E --> R1["Launch Lead section review"]
+    F --> R1
+    G --> R1
+    H --> R1
+    R1 -->|"RETRY exact owner"| E
+    R1 -->|"RETRY exact owner"| F
+    R1 -->|"RETRY exact owner"| G
+    R1 -->|"RETRY exact owner"| H
+  end
+
+  R1 -->|"PASS"| I["internal_hardening_loop"]
   I --> J["Concept Revisions + Fork Candidates"]
   J --> K["Launch Lead selects test revision"]
-  K --> L["Landing / Waitlist Surface"]
-  K --> M["Organic Distribution Plan"]
-  L --> N["Measurement Setup"]
-  M --> O["Organic Traffic Attempts"]
-  N --> P["Observation Window"]
-  O --> P
+  K --> L["surface_readiness_loop: Landing / Waitlist Surface"]
+  L --> N["measurement_traffic_observation_loop: Measurement Setup"]
+  N --> O["Organic Traffic Attempts"]
+  O --> P["Observation Window"]
   P --> Q{"Enough time + traffic?"}
   Q -->|"No: wait"| P
   Q -->|"No: more traffic"| O
-  Q -->|"Yes"| R["Evidence Review"]
+  Q -->|"Yes"| R["evidence_routing_loop: Evidence Review"]
   R --> S{"Validation Decision"}
   S -->|"revise_offer"| H
   S -->|"revise_landing"| L
-  S -->|"revise_channel"| M
+  S -->|"revise_channel"| O
   S -->|"open_fork"| J
   S -->|"test_more"| O
   S -->|"kill"| T["Archive learning"]
@@ -107,14 +114,14 @@ Runtime sequence:
 ```text
 CEO creates one Product Bet Validation Sprint
 -> Launch Lead opens Product Bet Card
--> Launch Lead creates specialist assignments
+-> assembly_loop creates and reviews specialist assignments
 -> specialists update card sections
--> AI hardening records revisions and forks
+-> internal_hardening_loop records revisions and forks
 -> Launch Lead selects a test revision
--> Landing Surface Builder creates the waitlist surface
--> Product Bet Measurement Specialist verifies events and observation window
+-> surface_readiness_loop creates the waitlist surface
+-> measurement_traffic_observation_loop verifies events, traffic, and observation
 -> Organic Traffic Strategist runs approved traffic attempts
--> Evidence Router writes validation decision and Gate B recommendation when warranted
+-> evidence_routing_loop writes validation decision and Gate B recommendation when warranted
 ```
 
 ## Retry Routing

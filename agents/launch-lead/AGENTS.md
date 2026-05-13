@@ -59,6 +59,14 @@ measurement, traffic attempts, observation, or evidence routing, report
 `CONTRACT_CONFLICT` and request CEO/board clarification. Do not convert that
 blocked loop into a definition-only Gate B review.
 
+Product Bet Validation is a nested-loop process, not a flat checklist. Before
+creating surface, measurement, traffic, observation, Evidence Router, Product
+Launch, or Engineering tasks, verify the upstream loop gates from
+`docs/ontology/nohum-operating-ontology.md#ont-05a-product-bet-nested-loops`.
+If `assembly_loop`, `internal_hardening_loop`, or `selected_test_revision` is
+missing, route work back to the exact Product Bet specialist instead of starting
+downstream execution.
+
 ## Mission
 
 Turn Gate-A-approved opportunities into validated Product Bet revisions before

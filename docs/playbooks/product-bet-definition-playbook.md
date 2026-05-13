@@ -31,18 +31,44 @@ one canonical card
 1. CEO records `gate_a_decision`.
 2. CEO creates exactly one runtime task: `Run Product Bet Validation Sprint`.
 3. Launch Lead opens exactly one Product Bet Card.
-4. Launch Lead creates specialist assignments only after the card exists.
+4. Launch Lead runs `assembly_loop` with specialist assignments only after the
+   card exists.
 5. Specialists write owned Product Bet Card sections and linked packs.
-6. Pre-Market Autoreasoner records revisions and forks.
-7. Launch Lead selects the revision to test externally.
-8. Landing Surface Builder creates the landing/waitlist surface.
-9. Product Bet Measurement Specialist verifies tracking and observation policy.
-10. Organic Traffic Strategist runs approved organic traffic attempts.
-11. Evidence Router writes validation evidence events and validation decision.
-12. Evidence Router writes Gate B Recommendation only when build is warranted.
-13. CEO/board records Gate B Decision.
+6. Launch Lead reviews each section and routes `RETRY` to the exact weak owner.
+7. Pre-Market Autoreasoner runs `internal_hardening_loop` and records
+   revisions and forks.
+8. Launch Lead accepts/rejects hardening output and selects one revision to test
+   externally.
+9. Landing Surface Builder runs `surface_readiness_loop` and creates the
+   landing/waitlist surface version.
+10. Product Bet Measurement Specialist writes measurement only after
+    `selected_test_revision` and a `surface_version` draft/ref exist.
+11. Organic Traffic Strategist runs approved organic traffic attempts only after
+    surface and tracking QA are ready.
+12. Product Bet Measurement Specialist opens or updates the observation window.
+13. Evidence Router writes validation evidence events and validation decision.
+14. Evidence Router writes Gate B Recommendation only when build is warranted.
+15. CEO/board records Gate B Decision.
 
 Do not import a batch of specialist tasks as immediate backlog items.
+
+## Nested Runtime Loops
+
+Product Bet Validation is deliberately cyclic. It should not be flattened into
+one downstream task list.
+
+| Loop | Entry | Required owners | Output | Stop / retry decision |
+|---|---|---|---|---|
+| `assembly_loop` | Product Bet Card exists | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | concrete product shape, competitor/economics/offer sections, validation risks | Launch Lead `PASS`, `RETRY`, or `ESCALATE` per section |
+| `internal_hardening_loop` | assembly sections are `PASS` or accepted incomplete | Pre-Market Autoreasoner | autoreason report, objections, blind variants, `concept_revision`, `fork_candidate` | Launch Lead accepts revision, opens fork, retries hardening, kills, or escalates scope drift |
+| `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder | `surface_version`, waitlist form, copy variants, claims QA | Launch Lead `PASS`, `RETRY`, or approval blocker |
+| `measurement_traffic_observation_loop` | surface draft/ref exists | Product Bet Measurement Specialist, Organic Traffic Strategist | event contract, tracking QA, traffic attempts, observation window | wait, retry instrumentation, retry traffic, or ready for Evidence Router |
+| `evidence_routing_loop` | observation evidence exists | Evidence Router | validation evidence events, route, Gate B recommendation when warranted | build, revise, fork, test_more, kill |
+
+Downstream tasks must not be created merely because the sprint exists. Launch
+Lead creates surface, measurement, traffic, observation, and evidence tasks only
+when their upstream loop exit conditions are satisfied or when the task is
+explicitly a blocked-state/approval request.
 
 ## Inputs
 
@@ -147,6 +173,11 @@ Required flow:
 7. select exactly one `selected_test_revision`
 
 Synthetic audience output is product-shaping evidence, not market validation.
+
+Synthetic audience acceptance is not a gate. The useful signal is disagreement:
+what objections recur, which buyer/job/offer assumptions break, which variants
+look sharper, and which risks must be tested externally. Launch Lead decides
+what to do with that output and records the decision in the revision ledger.
 
 ## Offer And Validation Surface
 

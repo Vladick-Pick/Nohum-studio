@@ -1,8 +1,8 @@
 # NoHum Operating Ontology
 
 Search keys: `ONT-00`, `ONT-01`, `ONT-02`, `ONT-03`, `ONT-04`,
-`ONT-05`, `ONT-06`, `ONT-07`, `ONT-08`, `ONT-09`, `ONT-10`,
-`ONT-11`, `ONT-12`, `ONT-13`.
+`ONT-05`, `ONT-05A`, `ONT-06`, `ONT-07`, `ONT-08`, `ONT-09`,
+`ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
 
 This document defines the shared runtime language for NoHum Studio.
 
@@ -212,6 +212,53 @@ stateDiagram-v2
 If public validation is not approved, the correct outcome is
 `surface_publication_approval_required` or `blocked_state`. It is not
 `gate_b_review`.
+
+## ONT-05A Product Bet Nested Loops
+
+Product Bet Validation is not a linear checklist. It is a set of bounded
+loops. Launch Lead must name the current loop before creating or advancing
+runtime work.
+
+```mermaid
+flowchart TD
+  A["Gate A approved"] --> B["assembly_loop"]
+  B --> C["internal_hardening_loop"]
+  C --> D["surface_readiness_loop"]
+  D --> E["measurement_traffic_observation_loop"]
+  E --> F["evidence_routing_loop"]
+  F -->|"build"| G["gate_b_review"]
+  F -->|"revise_offer"| B
+  F -->|"revise_landing"| D
+  F -->|"revise_channel"| E
+  F -->|"open_fork"| C
+  F -->|"test_more"| E
+  F -->|"kill"| H["killed"]
+```
+
+| Loop | Owner | Workers | Exit condition | Retry route |
+|---|---|---|---|---|
+| `assembly_loop` | Launch Lead | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | required Product Bet Card sections are `PASS` or explicitly accepted as incomplete by CEO/board | exact weak section owner |
+| `internal_hardening_loop` | Pre-Market Autoreasoner, reviewed by Launch Lead | synthetic audience panel, critic/judge prompts | hardening decision recorded, `concept_revision` / `fork_candidate` ledger updated, one revision recommended | Pre-Market Autoreasoner for at most two default rounds |
+| `surface_readiness_loop` | Landing Surface Builder | Launch Lead, Offer Positioning Strategist when copy/claims drift | versioned `surface_version` and claims/surface QA, or explicit approval blocker | Landing Surface Builder or Offer Positioning Strategist |
+| `measurement_traffic_observation_loop` | Product Bet Measurement Specialist and Organic Traffic Strategist | validation surface implementer, Organic Traffic Strategist | tracking QA passes, approved traffic attempts run, observation window reaches a decision state | Measurement Specialist for instrumentation, Organic Traffic Strategist for traffic |
+| `evidence_routing_loop` | Evidence Router | Launch Lead for sufficiency questions | `gate_b_recommendation` or route to revise/fork/test_more/kill | exact owner of the failed evidence axis |
+
+Synthetic audience work is allowed only inside `internal_hardening_loop`.
+It can generate objections, red hypotheses, blind variants, suggested
+`concept_revision` records, and `fork_candidate` records. It cannot accept the
+product, prove demand, or authorize surface/traffic/Gate B.
+
+Invalid nested-loop shortcuts:
+
+- Measurement Specialist task before `selected_test_revision` exists.
+- Measurement Specialist task before a `surface_version` draft/ref exists or is
+  explicitly being requested.
+- Surface work before `assembly_loop` sufficiency and hardening decision.
+- Engineering implementation before surface spec and measurement contract.
+- Organic traffic before surface publication/access and tracking QA.
+- Evidence Router Gate B work before observation evidence or explicit accepted
+  data-risk override.
+- Synthetic audience acceptance treated as market validation.
 
 ## ONT-06 Transition Decisions
 

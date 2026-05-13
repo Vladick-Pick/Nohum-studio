@@ -22,3 +22,26 @@ Run this checklist on every wake.
 12. Stop only when the next owner and artifact are explicit.
 
 Product Bet Validation may recommend Gate B action, but it never approves build.
+
+## Downstream Task Preflight
+
+Before creating or unblocking surface, measurement, traffic, observation,
+Evidence Router, Product Launch, or Engineering tasks, verify:
+
+- `assembly_loop` is complete: Product Bet Compiler, Competitor Deep Dive
+  Analyst, Economics Modeler, and Offer Positioning Strategist sections are
+  `PASS`, or CEO/board explicitly accepted the incomplete state.
+- `internal_hardening_loop` has a recorded hardening decision.
+- meaningful changes are recorded as `concept_revision`.
+- alternate directions are recorded as `fork_candidate`.
+- exactly one `selected_test_revision` exists.
+- `surface_version` work is owned by Landing Surface Builder unless the task is
+  explicitly a blocked-state or approval request.
+- Product Bet Measurement Specialist is not started until `selected_test_revision`
+  and `surface_version` draft/ref exist.
+- Engineering is not started before the surface spec and measurement contract
+  exist, and Engineering scope is limited to the approved validation surface.
+
+If any preflight item is missing, create or retry the upstream Product Bet
+specialist task. Do not flatten the Product Bet loop into a downstream task
+list.

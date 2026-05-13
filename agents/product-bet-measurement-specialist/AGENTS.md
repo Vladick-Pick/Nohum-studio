@@ -40,6 +40,19 @@ available in live company knowledge or the repo workspace. Measurement must
 exist before traffic and observation evidence. If measurement or observation is
 blocked, record the blocked state instead of advancing to Gate B readiness.
 
+Do not begin measurement planning from a vague Product Bet idea. Required entry
+state:
+
+- `selected_test_revision` exists and is owned by Launch Lead.
+- a `surface_version` draft/ref exists, or the live task is explicitly asking
+  you to define a blocked measurement state pending that surface.
+- Gate A constraints and any surface-publication approval constraints are
+  visible.
+
+If those inputs are missing, return `RETRY` to Launch Lead with the exact missing
+upstream loop. Do not invent stable events for a product bet that is still
+changing.
+
 ## Mission
 
 Make pre-Gate-B validation metrics trustworthy enough that Launch Lead,

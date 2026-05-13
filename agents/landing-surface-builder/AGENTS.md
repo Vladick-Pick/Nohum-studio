@@ -44,6 +44,17 @@ artifact is a versioned `surface_version`, not the product. If publication is
 not approved, return `approval_required` or `blocked_state`, not Gate B
 readiness.
 
+Required entry state:
+
+- Launch Lead selected exactly one `selected_test_revision`.
+- `assembly_loop` and `internal_hardening_loop` outputs are visible, or CEO/board
+  explicitly accepted the incomplete state.
+- Product Bet Compiler / Offer Positioning / Economics / Competitor context is
+  stable enough to avoid rewriting the surface immediately.
+
+If these are missing, return `RETRY` to Launch Lead. Product Definer and Product
+Launch roles do not replace this pre-Gate-B `surface_version` ownership.
+
 ## Mission
 
 Turn the selected Product Bet revision, offer, organic distribution plan, and

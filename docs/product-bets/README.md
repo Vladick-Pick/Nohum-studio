@@ -81,6 +81,26 @@ recorded as a `concept_revision`. Every viable alternate direction is recorded
 as a `fork_candidate`. Gate B always references the exact
 `product_bet_revision_ref` that was tested.
 
+## Nested Loops
+
+Product Bet Validation is not a linear task list. It runs five bounded loops:
+
+| Loop | Primary owner | Result |
+|---|---|---|
+| `assembly_loop` | `launch-lead` | Product Bet Card sections pass Launch Lead sufficiency review |
+| `internal_hardening_loop` | `pre-market-autoreasoner` | objections, variants, `concept_revision`, `fork_candidate`, recommended test revision |
+| `surface_readiness_loop` | `landing-surface-builder` | versioned `surface_version`, waitlist form, copy, claims QA |
+| `measurement_traffic_observation_loop` | `product-bet-measurement-specialist` and `organic-traffic-strategist` | event contract, tracking QA, traffic attempts, observation window state |
+| `evidence_routing_loop` | `evidence-router` | route to build/revise/fork/test_more/kill and Gate B recommendation when warranted |
+
+Launch Lead must not create downstream measurement, traffic, observation,
+Evidence Router, Product Launch, or Engineering tasks until upstream loop gates
+are satisfied or the task is explicitly a blocked-state/approval request.
+
+Synthetic audience output belongs only to `internal_hardening_loop`. It is a
+critique/hypothesis-generation tool, not market validation and not product
+acceptance.
+
 ## Product Bet Agents
 
 | Agent | Owns | Writes |

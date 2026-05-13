@@ -1,6 +1,6 @@
 ---
 name: product-bet-validation-loop
-description: Run the post-Gate-A Product Bet loop from selected revision through landing, traffic, observation, evidence, and Gate B routing.
+description: Run the post-Gate-A Product Bet nested loops from assembly through hardening, selected revision, landing, traffic, observation, evidence, and Gate B routing.
 ---
 
 # Product Bet Validation Loop
@@ -17,13 +17,16 @@ It does not validate payment and does not approve build.
 
 1. Load the frozen `Idea Card` and `gate_a_decision`.
 2. Open or update the shared Product Bet Card.
-3. Record concept revisions and fork candidates from AI hardening.
-4. Select one test revision.
-5. Build a landing/waitlist validation surface.
-6. Set measurement and observation window.
-7. Run approved organic traffic attempts.
-8. Evaluate enough-time/enough-traffic thresholds.
-9. Route to `build`, `revise_offer`, `revise_landing`, `revise_channel`,
+3. Run Product Bet Validation as nested loops: `assembly_loop`,
+   `internal_hardening_loop`, `surface_readiness_loop`,
+   `measurement_traffic_observation_loop`, and `evidence_routing_loop`.
+4. Record concept revisions and fork candidates from AI hardening.
+5. Select one test revision.
+6. Build a landing/waitlist validation surface.
+7. Set measurement and observation window.
+8. Run approved organic traffic attempts.
+9. Evaluate enough-time/enough-traffic thresholds.
+10. Route to `build`, `revise_offer`, `revise_landing`, `revise_channel`,
    `open_fork`, `test_more`, or `kill`.
 
 ## Decision Rules
