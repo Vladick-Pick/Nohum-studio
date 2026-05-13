@@ -20,6 +20,10 @@ product itself.
 
 ```yaml
 page_contract:
+  product_concept_name:
+  source_reference_name:
+  target_market:
+  target_market_language:
   target_audience:
   primary_job:
   one_sentence_offer:
@@ -28,6 +32,8 @@ page_contract:
   waitlist_promise:
   pricing_or_availability_hint:
   claims_boundary_ref:
+  design_standard_ref:
+  competitor_landing_benchmark_refs:
 ```
 
 ## Sections
@@ -62,8 +68,12 @@ sections:
 ```yaml
 design_constraints:
   mobile_first: yes
+  english_first_for_global_us_eu_targets: yes
+  product_name_visible_above_fold: yes
+  no_competitor_or_source_name_as_product_identity: yes
   one_primary_CTA: yes
   text_must_fit: yes
+  primary_copy_must_not_say_validation_or_test: yes
   no_fake_logos: yes
   no_fake_customer_quotes: yes
   no_unapproved_security_claims: yes
@@ -74,6 +84,11 @@ design_constraints:
 
 ```yaml
 acceptance:
+  target_market_language_matches: pass | fail
+  product_concept_name_visible: pass | fail
+  competitor_landing_benchmark_done: pass | fail
+  design_standard_applied: pass | fail
+  no_test_framing_in_primary_copy: pass | fail
   offer_understandable_in_5_seconds: pass | fail
   CTA_visible_above_fold: pass | fail
   waitlist_form_path_defined: pass | fail

@@ -18,6 +18,8 @@ surface_version:
 ```yaml
 version:
   surface_url:
+  review_preview_url:
+  preferred_public_host: https://<surface-slug>.claricont.com
   environment: local | preview | public
   published_at:
   publish_approval_ref:
@@ -47,3 +49,8 @@ Rules:
 
 - Traffic attempts must cite the exact surface version that was live.
 - Do not overwrite a live surface without creating a new version.
+- Board-review previews should use the same host shape as publication when
+  possible. Do not use raw IP URLs for review or public traffic when the company
+  validation domain is available.
+- `*.claricont.com` is the default validation host pattern unless CEO/board
+  configures another domain.

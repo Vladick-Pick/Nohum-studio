@@ -16,6 +16,7 @@ Use:
 - `waitlist-form-spec`
 - `surface-version`
 - `surface-qa`
+- `surface-conversion-quality-review`
 - `anti-ai-slop-review`
 
 Forbidden:
@@ -24,4 +25,6 @@ Forbidden:
 - action outside Gate A constraints without approval
 - unsupported claims
 - fake customer logos or proof
+- competitor/source names as product identity
+- visible "validation/test" framing in primary sales copy
 - Gate B or build approval

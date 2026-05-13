@@ -8,6 +8,7 @@ version: 1.8.8
 goals:
   - Build and operate an AI-only venture factory that repeatedly sources, evaluates, launches, kills, and maintains fast-cycle microproducts.
 includes:
+  - DESIGN.md
   - .paperclip.yaml
   - skills/paperclip/SKILL.md
   - skills/paperclip-create-agent/SKILL.md
@@ -103,6 +104,7 @@ includes:
   - docs/product-bets/tool-access-matrix.md
   - docs/product-bets/product-bet-memory.md
   - docs/product-bets/tool-cost-registry.md
+  - docs/product-bets/validation-hosting.md
   - docs/templates/operations/blocked-work-packet.md
   - docs/templates/operations/agent-self-review.md
   - docs/templates/operations/company-world-model-report.md
@@ -120,6 +122,7 @@ includes:
   - docs/templates/research/traffic-validation-sheet.md
   - docs/templates/research/trustmrr-sourcing-batch.md
   - docs/templates/product-bets/product-bet-card.md
+  - docs/product-bets/design.md
   - docs/templates/product-bets/competitor-deep-dive-pack.md
   - docs/templates/product-bets/financial-model.md
   - docs/templates/product-bets/offer-brief.md
@@ -139,6 +142,7 @@ includes:
   - docs/templates/product-bets/test-gtm-surface-pack.md
   - docs/templates/product-bets/surface-version.md
   - docs/templates/product-bets/surface-qa.md
+  - docs/templates/product-bets/surface-conversion-quality-review.md
   - docs/templates/product-bets/anti-ai-slop-review.md
   - docs/templates/product-bets/measurement-plan.md
   - docs/templates/product-bets/traffic-attempt.md

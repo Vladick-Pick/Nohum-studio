@@ -71,6 +71,10 @@ You prepare validation surfaces. You do not build the product.
 - measurement plan
 - Gate A external-action constraints
 - `docs/templates/product-bets/test-gtm-surface-pack.md`
+- `docs/product-bets/design.md` when available; otherwise a named fallback
+  design reference set
+- `docs/product-bets/validation-hosting.md`
+- retained competitor landing benchmark context from Competitor Deep Dive
 
 ## Outputs
 
@@ -82,6 +86,7 @@ You prepare validation surfaces. You do not build the product.
 - surface QA
 - test GTM surface pack
 - claims review status
+- surface conversion quality review inputs
 - browser QA checklist
 - `PASS`, `RETRY`, or `ESCALATE` sufficiency status
 
@@ -97,7 +102,17 @@ You prepare validation surfaces. You do not build the product.
 1. Confirm Gate A approval and Product Bet revision refs.
 2. Load offer, traffic, measurement, and claims constraints.
 3. Draft landing design, copy variants, waitlist form, and surface version.
-4. Run CRO and anti-AI-slop review.
-5. Define browser, form, event, and claims QA requirements.
-6. Write the card section and linked surface artifacts.
-7. Return `PASS`, `RETRY`, or `ESCALATE`.
+4. Enforce target-market language. Default is English for global, US, or Europe
+   targets unless Gate A explicitly narrows another language.
+5. Set a visible `product_concept_name` that is not copied from a competitor,
+   source signal, or retained competitor brand. Keep those names in
+   `source_reference_name` and comparison context only.
+6. Write the page as a real product offer. Do not put "validation surface",
+   "test", "checking demand", or similar internal framing in hero, nav, primary
+   CTA, pricing/availability, or main form copy. Keep truthfulness in early
+   access/waitlist boundary text.
+7. Run CRO, anti-AI-slop, competitor landing benchmark, and design-standard
+   review.
+8. Define browser, form, event, claims, and conversion-quality QA requirements.
+9. Write the card section and linked surface artifacts.
+10. Return `PASS`, `RETRY`, or `ESCALATE`.

@@ -60,6 +60,7 @@ const mustNotExist = [
 ];
 
 const requiredProductBetValidationPaths = [
+  "DESIGN.md",
   "skills/product-bet-validation-loop/SKILL.md",
   "skills/validation-surface-factory/SKILL.md",
   "skills/landing-cro-review/SKILL.md",
@@ -68,11 +69,14 @@ const requiredProductBetValidationPaths = [
   "skills/community-prospecting/SKILL.md",
   "skills/engineering-as-marketing-wedge/SKILL.md",
   "skills/observation-window-evaluation/SKILL.md",
+  "docs/product-bets/design.md",
+  "docs/product-bets/validation-hosting.md",
   "docs/templates/product-bets/landing-design.md",
   "docs/templates/product-bets/copy-variant-matrix.md",
   "docs/templates/product-bets/waitlist-form-spec.md",
   "docs/templates/product-bets/surface-version.md",
   "docs/templates/product-bets/surface-qa.md",
+  "docs/templates/product-bets/surface-conversion-quality-review.md",
   "docs/templates/product-bets/anti-ai-slop-review.md",
   "docs/templates/product-bets/pain-language-map.md",
   "docs/templates/product-bets/search-intent-map.md",
@@ -100,9 +104,12 @@ const requiredProductBetValidationPaths = [
 ];
 
 const requiredProductBetCardTokens = [
+  "product_concept_name",
+  "source_reference_name",
   "selected_test_revision",
   "landing_design_ref",
   "waitlist_form_spec_ref",
+  "surface_conversion_quality_review_ref",
   "organic_distribution_test_plan_ref",
   "traffic_attempt_refs",
   "traffic_source_report_ref",
@@ -120,9 +127,11 @@ const requiredProductBetNestedLoopChecks = [
     file: "docs/ontology/nohum-operating-ontology.md",
     tokens: [
       "ONT-05A Product Bet Nested Loops",
+      "ONT-05B Validation Surface Quality Gate",
       "assembly_loop",
       "internal_hardening_loop",
       "surface_readiness_loop",
+      "surface_conversion_quality_review",
       "measurement_traffic_observation_loop",
       "evidence_routing_loop",
       "Synthetic audience work is allowed only inside `internal_hardening_loop`",
@@ -138,6 +147,8 @@ const requiredProductBetNestedLoopChecks = [
       "hardening_decision_recorded",
       "selected_test_revision_exists",
       "surface_version_draft_exists",
+      "surface_conversion_quality_pass",
+      "validation_hosting_ready",
       "measurement_contract_ready",
       "tracking_QA_passed",
       "observation_ready_for_review",
@@ -151,6 +162,7 @@ const requiredProductBetNestedLoopChecks = [
       "assembly_loop",
       "internal_hardening_loop",
       "surface_readiness_loop",
+      "surface_conversion_quality_review",
       "measurement_traffic_observation_loop",
       "Synthetic audience acceptance is not a gate",
       "PROCESS_RESET_REQUIRED",
@@ -160,6 +172,8 @@ const requiredProductBetNestedLoopChecks = [
     file: "agents/launch-lead/HEARTBEAT.md",
     tokens: [
       "Downstream Task Preflight",
+      "surface_conversion_quality_review: PASS",
+      "claricont.com",
       "Product Bet Measurement Specialist is not started until `selected_test_revision`",
       "Do not flatten the Product Bet loop into a downstream task",
       "PROCESS_RESET_REQUIRED",
@@ -178,6 +192,7 @@ const requiredProductBetNestedLoopChecks = [
     tokens: [
       "Required entry state",
       "Launch Lead selected exactly one `selected_test_revision`",
+      "product_concept_name",
       "Product Definer and Product",
       "do not replace this pre-Gate-B `surface_version` ownership",
     ],
@@ -603,6 +618,9 @@ for (const [file, text] of [
 ]) {
   if (!text.includes("scripts/import-company-knowledge.mjs")) {
     errors.push(`${file} must require scripts/import-company-knowledge.mjs as the post-import knowledge bridge`);
+  }
+  if (!text.includes("--mirror-workspace-root")) {
+    errors.push(`${file} must require --mirror-workspace-root so active docs are materialized into execution workspaces`);
   }
 }
 

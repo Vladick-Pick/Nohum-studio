@@ -54,7 +54,8 @@ Owner: `product-bet-compiler`
 
 ```yaml
 product_identity:
-  name:
+  product_concept_name:
+  source_reference_name:
   one_liner:
   short_description:
   category:
@@ -63,6 +64,12 @@ product_identity:
   support_load_estimate: low | medium | high
   sufficiency_status: pending | pass | retry | escalate
 ```
+
+Rules:
+
+- `product_concept_name` is the NoHum working product name under test.
+- `source_reference_name` preserves the source signal or competitor/market anchor.
+- Do not use a competitor or source-signal name as the product identity.
 
 ## Audience
 
@@ -265,6 +272,7 @@ test_surfaces:
   anti_ai_slop_review_ref:
   surface_version_ref:
   surface_QA_ref:
+  surface_conversion_quality_review_ref:
   main_landing:
   comparison_page:
   pricing_intent_page:
@@ -274,6 +282,7 @@ test_surfaces:
   x_thread_variants:
   seo_pages:
   claims_review_status: pending | pass | fail
+  conversion_quality_status: not_run | pass | retry | escalate
   browser_QA_status: not_run | pass | fail | blocked
   publish_approval_required: yes | no
   sufficiency_status: pending | pass | retry | escalate

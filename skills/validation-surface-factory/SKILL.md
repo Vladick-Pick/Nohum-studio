@@ -17,6 +17,7 @@ waitlist/signup intent. This surface is not the product.
 - `waitlist-form-spec.md`
 - `surface-version.md`
 - `surface-qa.md`
+- `surface-conversion-quality-review.md`
 - `anti-ai-slop-review.md`
 
 ## Build Contract
@@ -26,12 +27,17 @@ repo-native landing artifact. It must have:
 
 - one tested product-bet revision
 - one primary audience
+- one visible product concept name that is not copied from the source signal or a
+  competitor
+- one target-market language; English-first for global / US / Europe targets
 - one primary CTA
 - one waitlist/signup form
 - one no-charge policy when checkout/payment is not approved
 - one surface version ID
 - one measurement plan
 - one approved traffic plan
+- one preferred host under `https://<surface-slug>.claricont.com` unless
+  CEO/board records an exception
 
 Do not build product functionality behind the page. If the best validation path
 requires a working demo, record it as a future-stage or board-decision blocker
@@ -69,11 +75,21 @@ Every variant must cite the `concept_revision` or `fork_candidate` it tests.
 ## Required Checks
 
 - one primary CTA
+- visible product concept name above the fold
+- English-first page copy for global / US / Europe targets unless Gate A says
+  otherwise
+- competitor/source names are not used as product identity
+- competitor landing benchmark completed before surface PASS
+- no "validation", "test", "checking demand", or internal research framing in
+  hero, nav, CTA, pricing/availability, or main form copy
 - waitlist path present
 - no fake customer logos
 - no unsupported revenue, security, or integration claims
 - events defined for page view, CTA click, waitlist submit, and UTM source
 - browser/mobile/form QA before public traffic
+- conversion-quality review before board-review preview, publication approval,
+  measurement, traffic, observation, or Evidence Router work
+- no raw IP URL for board/public traffic when the validation domain is available
 - exact surface version cited by every traffic attempt
 
 ## QA Contract
@@ -97,6 +113,7 @@ Use:
 - `docs/templates/product-bets/waitlist-form-spec.md`
 - `docs/templates/product-bets/surface-version.md`
 - `docs/templates/product-bets/surface-qa.md`
+- `docs/templates/product-bets/surface-conversion-quality-review.md`
 
 ## Permission Boundary
 

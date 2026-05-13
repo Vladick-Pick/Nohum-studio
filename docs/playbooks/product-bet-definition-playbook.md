@@ -61,7 +61,7 @@ one downstream task list.
 |---|---|---|---|---|
 | `assembly_loop` | Product Bet Card exists | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | concrete product shape, competitor/economics/offer sections, validation risks | Launch Lead `PASS`, `RETRY`, or `ESCALATE` per section |
 | `internal_hardening_loop` | assembly sections are `PASS` or accepted incomplete | Pre-Market Autoreasoner | autoreason report, objections, blind variants, `concept_revision`, `fork_candidate` | Launch Lead accepts revision, opens fork, retries hardening, kills, or escalates scope drift |
-| `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder | `surface_version`, waitlist form, copy variants, claims QA | Launch Lead `PASS`, `RETRY`, or approval blocker |
+| `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder, Launch Lead | `surface_version`, waitlist form, copy variants, claims QA, `surface_conversion_quality_review` | Launch Lead `PASS`, `RETRY`, or approval blocker |
 | `measurement_traffic_observation_loop` | surface draft/ref exists | Product Bet Measurement Specialist, Organic Traffic Strategist | event contract, tracking QA, traffic attempts, observation window | wait, retry instrumentation, retry traffic, or ready for Evidence Router |
 | `evidence_routing_loop` | observation evidence exists | Evidence Router | validation evidence events, route, Gate B recommendation when warranted | build, revise, fork, test_more, kill |
 
@@ -245,7 +245,9 @@ flowchart TD
   C --> D["Waitlist Form Spec"]
   D --> E["Static Test Surface"]
   E --> F["CRO / Anti-AI-Slop Review"]
-  F --> G["Tracking Instrumentation"]
+  F --> Q["Surface Conversion Quality Review"]
+  Q -->|"RETRY"| B
+  Q -->|"PASS"| G["Tracking Instrumentation"]
   G --> H["Browser + Event QA"]
   H --> I["Publish Approval"]
   I --> J["Organic Traffic Attempts"]
@@ -255,6 +257,19 @@ flowchart TD
 
 Only validation actions allowed by the Gate A constraints and linked approvals
 can run.
+
+`Surface Conversion Quality Review` is mandatory before board-review preview,
+publication approval, measurement activation, traffic, observation, or Evidence
+Router work. It checks:
+
+- English-first copy for global / US / Europe targets unless Gate A says
+  otherwise
+- visible NoHum product concept name
+- source or competitor name kept out of product identity
+- competitor landing benchmark
+- `docs/product-bets/design.md` compliance when present
+- no visible "validation/test" framing in primary sales copy
+- acceptable waitlist form friction
 
 ## Organic Distribution Loop
 

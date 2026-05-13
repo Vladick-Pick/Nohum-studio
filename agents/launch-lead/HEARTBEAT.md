@@ -41,6 +41,19 @@ Evidence Router, Product Launch, or Engineering tasks, verify:
   and `surface_version` draft/ref exist.
 - Engineering is not started before the surface spec and measurement contract
   exist, and Engineering scope is limited to the approved validation surface.
+- Publication approval requests include a board-review preview URL after
+  internal surface QA and `surface_conversion_quality_review: PASS`. The preview
+  must be `noindex`, unlinked, and attributed as internal/test traffic; review
+  visits and test submissions are QA/approval evidence, not market validation.
+- `surface_conversion_quality_review: PASS` requires English-first target-market
+  fit for global/US/Europe targets, visible product concept name, no
+  competitor/source name as product identity, competitor landing benchmark,
+  design-standard compliance, no visible validation/test framing in primary
+  sales copy, and acceptable waitlist friction.
+- Validation-surface preview/public URLs should use
+  `https://<surface-slug>.claricont.com` per
+  `docs/product-bets/validation-hosting.md`. Raw IP URLs are blocked for
+  board/public traffic unless CEO/board records an explicit exception.
 
 If any preflight item is missing, create or retry the upstream Product Bet
 specialist task. Do not flatten the Product Bet loop into a downstream task

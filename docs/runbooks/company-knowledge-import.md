@@ -78,6 +78,7 @@ node scripts/import-company-knowledge.mjs \
   --source-ref origin/main \
   --attach-issue NOHAA-8 \
   --attach-issue NOHAA-9 \
+  --mirror-workspace-root "$HYPOTHESIS_FUNNEL_WORKSPACE_ROOT" \
   --comment \
   --apply
 ```
@@ -98,6 +99,26 @@ Attach these exact repository documents to the active first sourcing workflow:
 
 The first sourcing cycle must not resume until these docs are attached as
 company knowledge or explicit issue documents with matching hashes.
+
+## Workspace Mirror Rule
+
+Issue-attached knowledge is necessary but not sufficient for agents that read
+repo-root relative files from the realized execution workspace. For active
+lanes, mirror the required attached docs into the project workspace at the same
+relative paths.
+
+Minimum required live files for Research and Product Bet work:
+
+- `docs/ontology/nohum-operating-ontology.md`
+- `docs/research/copyable-product-thesis.md`
+- `docs/research/contracts/intake-and-handoffs.md`
+- `docs/research/contracts/shared-adapters.md`
+- `docs/research/research-execution-system.md`
+
+Use `--mirror-workspace-root` with the project workspace root, for example the
+`Hypothesis Funnel` `_default` directory. If an agent reports that
+`docs/ontology/nohum-operating-ontology.md` is absent, pause downstream work and
+repair the workspace mirror before treating that run as clean.
 
 ## Future Paperclip Importer Fix
 

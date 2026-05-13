@@ -29,6 +29,7 @@ Options:
   --include-archive               Include docs/archive files. Default: excluded.
   --attach-issue <identifier>     Attach critical knowledge docs to this issue. Repeatable.
   --attach-path <path>            Path to attach to target issues. Repeatable.
+  --mirror-workspace-root <path>  Also write attached docs into this execution/project workspace path.
   --comment                       Add a system comment to attached issues.
   --help                          Show this help.
 
@@ -48,6 +49,7 @@ function parseArgs(argv) {
     includeArchive: false,
     attachIssues: [],
     attachPaths: [],
+    mirrorWorkspaceRoot: "",
     comment: false,
     help: false,
   };
@@ -68,6 +70,7 @@ function parseArgs(argv) {
     else if (arg === "--include-archive") out.includeArchive = true;
     else if (arg === "--attach-issue") out.attachIssues.push(next());
     else if (arg === "--attach-path") out.attachPaths.push(next());
+    else if (arg === "--mirror-workspace-root") out.mirrorWorkspaceRoot = next();
     else if (arg === "--comment") out.comment = true;
     else if (arg === "--help" || arg === "-h") out.help = true;
     else throw new Error(`Unknown argument: ${arg}`);
@@ -252,6 +255,7 @@ function buildEntries(opts) {
       kind: "note",
       summary: summarize(filePath, layer, hash, commit),
       sourceUrl,
+      content,
       body: buildBody({ filePath, layer, commit, sourceUrl, hash, importedAt, content }),
     };
   });
@@ -261,6 +265,31 @@ function countBy(entries, key) {
   const out = {};
   for (const entry of entries) out[entry[key]] = (out[entry[key]] ?? 0) + 1;
   return out;
+}
+
+function mirrorWorkspaceDocs(opts, entries) {
+  if (!opts.mirrorWorkspaceRoot) return [];
+
+  const attachPaths = opts.attachPaths.length ? opts.attachPaths : DEFAULT_ATTACH_PATHS;
+  const byPath = new Map(entries.map((entry) => [entry.filePath, entry]));
+  const root = path.resolve(opts.mirrorWorkspaceRoot);
+  const mirrored = [];
+
+  for (const filePath of attachPaths) {
+    const entry = byPath.get(filePath);
+    if (!entry) continue;
+
+    const absolute = path.resolve(root, filePath);
+    if (absolute !== root && !absolute.startsWith(`${root}${path.sep}`)) {
+      throw new Error(`Refusing to mirror outside workspace root: ${filePath}`);
+    }
+
+    fs.mkdirSync(path.dirname(absolute), { recursive: true });
+    fs.writeFileSync(absolute, `${entry.content.trimEnd()}\n`, "utf8");
+    mirrored.push({ filePath, absolute, hash: entry.hash });
+  }
+
+  return mirrored;
 }
 
 async function applyImport(opts, entries) {
@@ -413,6 +442,7 @@ async function main() {
     layerCounts: countBy(entries, "layer"),
     attachIssues: opts.attachIssues,
     attachPaths: opts.attachPaths.length ? opts.attachPaths : DEFAULT_ATTACH_PATHS,
+    mirrorWorkspaceRoot: opts.mirrorWorkspaceRoot || null,
   };
 
   if (!opts.apply) {
@@ -421,7 +451,8 @@ async function main() {
   }
 
   const result = await applyImport(opts, entries);
-  console.log(JSON.stringify({ ok: true, mode: "apply", summary, result }, null, 2));
+  const mirrored = mirrorWorkspaceDocs(opts, entries);
+  console.log(JSON.stringify({ ok: true, mode: "apply", summary, result, mirrored }, null, 2));
 }
 
 main().catch((err) => {

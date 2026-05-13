@@ -79,6 +79,9 @@ non-bootstrap operating work resumes:
   imported.
 - Attach the first-sourcing research doctrine docs to the first research-cycle
   issue before assigning Research Lead work.
+- Mirror the attached doctrine docs into the active project workspace with
+  `--mirror-workspace-root`, so agents can read repo-root relative paths like
+  `docs/ontology/nohum-operating-ontology.md`.
 - Treat this step as mandatory because Paperclip company portability does not
   currently materialize arbitrary `docs/**` files as company knowledge.
 

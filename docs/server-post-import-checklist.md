@@ -118,12 +118,14 @@ node scripts/import-company-knowledge.mjs \
   --source-ref origin/main \
   --attach-issue NOHAA-8 \
   --attach-issue NOHAA-9 \
+  --mirror-workspace-root "$HYPOTHESIS_FUNNEL_WORKSPACE_ROOT" \
   --comment \
   --apply
 ```
 
 Required first-sourcing doctrine attachments:
 
+- `docs/ontology/nohum-operating-ontology.md`
 - `docs/research/copyable-product-thesis.md`
 - `docs/research/contracts/intake-and-handoffs.md`
 - `docs/research/contracts/shared-adapters.md`
@@ -140,3 +142,8 @@ Verify each attached knowledge item records:
 Do not let agents continue from filesystem-only copies or summarized doctrine.
 If live files differ from repo hashes, pause the relevant lane and repair the
 company knowledge records first.
+
+Also verify these same files exist in the active project workspace at their
+repo-root relative paths. Agents may load `docs/ontology/nohum-operating-ontology.md`
+from the realized execution workspace; issue-attached knowledge alone is not
+enough for a clean Product Bet run.

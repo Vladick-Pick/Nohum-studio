@@ -73,6 +73,20 @@ misordered runtime tasks and restart the sprint from Product Bet Assembly. Do
 not let a 72-hour observation wait, measurement report, or Evidence Router
 retry compensate for skipped Assembly or Hardening loops.
 
+Before asking CEO/board to approve public validation surface publication,
+first require `surface_conversion_quality_review: PASS`. The review must verify
+target-market language, a visible product concept name, no competitor/source name
+used as the product identity, competitor landing benchmark, design-standard
+compliance, no visible validation/test framing in primary sales copy, and
+acceptable waitlist form friction. Also require validation hosting check from
+`docs/product-bets/validation-hosting.md`: prefer
+`https://<surface-slug>.claricont.com`, do not use raw IP URLs when the company
+validation domain is available, and block publication when DNS/TLS/proxy are not
+ready. Then include a board-review preview URL in the approval payload. That
+preview may be publicly reachable for human review only
+when it is `noindex`, unlinked, and tagged as internal/test traffic. Do not count
+preview visits, board clicks, or test submissions as market validation evidence.
+
 ## Mission
 
 Turn Gate-A-approved opportunities into validated Product Bet revisions before

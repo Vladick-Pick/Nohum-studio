@@ -37,6 +37,7 @@ Frozen Idea Card
 -> AI hardening produces revisions and forks
 -> Launch Lead selects one test revision
 -> Landing Surface Builder creates a waitlist surface
+-> Launch Lead runs surface conversion quality review
 -> Product Bet Measurement Specialist instruments the surface
 -> Organic Traffic Strategist drives approved traffic attempts
 -> Observation Window evaluates time, traffic, and intent
@@ -89,7 +90,7 @@ Product Bet Validation is not a linear task list. It runs five bounded loops:
 |---|---|---|
 | `assembly_loop` | `launch-lead` | Product Bet Card sections pass Launch Lead sufficiency review |
 | `internal_hardening_loop` | `pre-market-autoreasoner` | objections, variants, `concept_revision`, `fork_candidate`, recommended test revision |
-| `surface_readiness_loop` | `landing-surface-builder` | versioned `surface_version`, waitlist form, copy, claims QA |
+| `surface_readiness_loop` | `landing-surface-builder` + `launch-lead` review | versioned `surface_version`, waitlist form, copy, claims QA, `surface_conversion_quality_review: PASS` |
 | `measurement_traffic_observation_loop` | `product-bet-measurement-specialist` and `organic-traffic-strategist` | event contract, tracking QA, traffic attempts, observation window state |
 | `evidence_routing_loop` | `evidence-router` | route to build/revise/fork/test_more/kill and Gate B recommendation when warranted |
 
@@ -106,6 +107,13 @@ from Product Bet Assembly.
 Synthetic audience output belongs only to `internal_hardening_loop`. It is a
 critique/hypothesis-generation tool, not market validation and not product
 acceptance.
+
+Surface work has its own buyer-quality gate before preview or publication. The
+surface must be English-first for global/US/Europe targets, use a NoHum product
+concept name that is not copied from a competitor/source signal, benchmark
+retained competitor landings, apply `docs/product-bets/design.md` when present,
+avoid visible validation/test framing in primary sales copy, and keep waitlist
+friction proportional to the validation question.
 
 ## Product Bet Agents
 
@@ -169,6 +177,7 @@ Each approved Gate A candidate should produce:
 - waitlist form spec
 - test GTM surface pack
 - surface version and QA
+- surface conversion quality review
 - measurement plan
 - observation window
 - traffic attempts and traffic source report

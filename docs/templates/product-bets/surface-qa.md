@@ -42,6 +42,19 @@ claims_QA:
 ```
 
 ```yaml
+conversion_quality_QA:
+  surface_conversion_quality_review_ref:
+  target_market_language_matches: pass | fail
+  product_concept_name_visible: pass | fail
+  source_competitor_name_not_used_as_product: pass | fail
+  competitor_landing_benchmark_done: pass | fail
+  design_standard_applied: pass | fail
+  primary_copy_must_not_say_validation_or_test: pass | fail
+  waitlist_form_friction_acceptable: pass | fail
+  status: pass | retry | escalate
+```
+
+```yaml
 result:
   status: pass | retry | escalate
   blockers:

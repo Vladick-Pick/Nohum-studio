@@ -1,7 +1,7 @@
 # NoHum Operating Ontology
 
 Search keys: `ONT-00`, `ONT-01`, `ONT-02`, `ONT-03`, `ONT-04`,
-`ONT-05`, `ONT-05A`, `ONT-06`, `ONT-07`, `ONT-08`, `ONT-09`,
+`ONT-05`, `ONT-05A`, `ONT-05B`, `ONT-06`, `ONT-07`, `ONT-08`, `ONT-09`,
 `ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
 
 This document defines the shared runtime language for NoHum Studio.
@@ -65,6 +65,8 @@ org library must not import a backlog of Product Bet or Build tasks.
 | `gate_a_packet` | package asking whether to open Product Bet Validation | Research Lead | queue package |
 | `gate_a_decision` | CEO/board decision on product-bet authorization | CEO / Board | approval/decision record |
 | `product_bet_card` | canonical post-Gate-A product-shape truth | Launch Lead | Product Bet Card |
+| `source_reference_name` | name of the researched source, competitor, or market anchor | Research Lead / Launch Lead | Idea Card or Product Bet Card |
+| `product_concept_name` | working name for the NoHum product bet under test | Launch Lead | Product Bet Card |
 | `concept_revision` | controlled change to the current product bet | Pre-market Autoreasoner / Launch Lead | revision artifact |
 | `fork_candidate` | viable alternate direction, not replacement of current bet | Pre-market Autoreasoner | fork artifact |
 | `internal_product_hardening` | AI-led critique before market exposure | Pre-market Autoreasoner | autoreason report |
@@ -175,7 +177,11 @@ stateDiagram-v2
   internal_product_hardening --> concept_revisions_recorded
   concept_revisions_recorded --> test_revision_selected
   test_revision_selected --> surface_drafted
-  surface_drafted --> surface_publication_approval_required
+  surface_drafted --> surface_conversion_quality_review
+  surface_conversion_quality_review --> surface_quality_retry
+  surface_quality_retry --> surface_drafted
+  surface_conversion_quality_review --> board_review_preview_available
+  board_review_preview_available --> surface_publication_approval_required
   surface_publication_approval_required --> surface_published
   surface_publication_approval_required --> blocked_state
   surface_published --> measurement_ready
@@ -201,6 +207,9 @@ stateDiagram-v2
 | `internal_product_hardening` | Pre-market Autoreasoner | autoreason report | treating AI critique as market proof |
 | `test_revision_selected` | Launch Lead | selected revision ref | surface work without revision ref |
 | `surface_drafted` | Landing Surface Builder | landing/waitlist draft | calling draft a product |
+| `surface_conversion_quality_review` | Launch Lead | buyer-quality review artifact | technical QA only |
+| `surface_quality_retry` | Landing Surface Builder / Offer Positioning Strategist | exact retry request | cosmetic-only patch |
+| `board_review_preview_available` | Launch Lead / validation surface implementer | noindex review URL with internal-test attribution | counting review visits as market evidence |
 | `surface_publication_approval_required` | Launch Lead / CEO | approval request | skipping to Gate B |
 | `surface_published` | approved operator | surface version | spend or claims outside approval |
 | `measurement_ready` | Measurement Specialist | measurement plan + QA | traffic without events |
@@ -212,6 +221,12 @@ stateDiagram-v2
 If public validation is not approved, the correct outcome is
 `surface_publication_approval_required` or `blocked_state`. It is not
 `gate_b_review`.
+
+Board review preview is allowed before publication approval only when it is
+clearly marked as review-only: `noindex`, unlinked, internal/test attribution,
+no paid spend, no organic traffic routing, and no Evidence Router or Gate B
+claims. Review-preview visits and test submissions are QA/approval evidence, not
+market validation.
 
 ## ONT-05A Product Bet Nested Loops
 
@@ -239,7 +254,7 @@ flowchart TD
 |---|---|---|---|---|
 | `assembly_loop` | Launch Lead | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | required Product Bet Card sections are `PASS` or explicitly accepted as incomplete by CEO/board | exact weak section owner |
 | `internal_hardening_loop` | Pre-Market Autoreasoner, reviewed by Launch Lead | synthetic audience panel, critic/judge prompts | hardening decision recorded, `concept_revision` / `fork_candidate` ledger updated, one revision recommended | Pre-Market Autoreasoner for at most two default rounds |
-| `surface_readiness_loop` | Landing Surface Builder | Launch Lead, Offer Positioning Strategist when copy/claims drift | versioned `surface_version` and claims/surface QA, or explicit approval blocker | Landing Surface Builder or Offer Positioning Strategist |
+| `surface_readiness_loop` | Landing Surface Builder | Launch Lead, Offer Positioning Strategist when copy/claims drift | versioned `surface_version`, claims/surface QA, and `surface_conversion_quality_review: PASS`, or explicit approval blocker | Landing Surface Builder or Offer Positioning Strategist |
 | `measurement_traffic_observation_loop` | Product Bet Measurement Specialist and Organic Traffic Strategist | validation surface implementer, Organic Traffic Strategist | tracking QA passes, approved traffic attempts run, observation window reaches a decision state | Measurement Specialist for instrumentation, Organic Traffic Strategist for traffic |
 | `evidence_routing_loop` | Evidence Router | Launch Lead for sufficiency questions | `gate_b_recommendation` or route to revise/fork/test_more/kill | exact owner of the failed evidence axis |
 
@@ -254,6 +269,8 @@ Invalid nested-loop shortcuts:
 - Measurement Specialist task before a `surface_version` draft/ref exists or is
   explicitly being requested.
 - Surface work before `assembly_loop` sufficiency and hardening decision.
+- Board-review preview, publication approval, measurement, traffic, observation,
+  or Evidence Router work before `surface_conversion_quality_review: PASS`.
 - Engineering implementation before surface spec and measurement contract.
 - Organic traffic before surface publication/access and tracking QA.
 - Evidence Router Gate B work before observation evidence or explicit accepted
@@ -267,6 +284,49 @@ artifacts only as incident/recovery evidence, and restart from
 `assembly_loop`. Observation time windows, traffic ledgers, and Evidence Router
 retry documents are invalid as Product Bet evidence when Assembly or Hardening
 was skipped.
+
+## ONT-05B Validation Surface Quality Gate
+
+The validation surface must be good enough to test real buyer behavior before it
+is shown to external traffic. A technically working landing page is not enough.
+
+`surface_conversion_quality_review` is part of `surface_readiness_loop` and must
+run before board-review preview, publication approval, measurement activation,
+traffic, observation, or Evidence Router work.
+
+Minimum PASS criteria:
+
+| Axis | Required standard | Retry owner |
+|---|---|---|
+| `target_market_language` | English-first for global / US / Europe targets unless Gate A explicitly narrows another language | Landing Surface Builder |
+| `product_concept_name` | visible product concept name exists and is not copied from a competitor or source signal | Product Bet Compiler / Launch Lead |
+| `source_reference_name` | competitor/source names stay in evidence and comparison context, not product identity | Launch Lead |
+| `primary_sales_copy` | reads like a real product offer; no visible "validation surface", "test", or "we are only checking demand" framing in hero/primary conversion copy | Offer Positioning Strategist |
+| `waitlist_truthfulness` | CTA honestly captures early access/waitlist interest without pretending payment, SLA, support, or production availability exists | Landing Surface Builder |
+| `competitor_landing_benchmark` | compares against retained competitors' above-fold promise, CTA, trust, setup/demo path, and friction | Competitor Deep Dive Analyst / Landing Surface Builder |
+| `design_standard` | follows `docs/product-bets/design.md` when present; otherwise records the fallback reference set and visual direction used | Landing Surface Builder |
+| `mobile_desktop_render` | visual layout does not shift, overflow, hide product name/CTA, or make form dominate before value is clear | Landing Surface Builder |
+| `form_friction` | waitlist form asks only fields needed for qualification and routing; long research forms require explicit justification | Product Bet Measurement Specialist |
+
+Default decision:
+
+```yaml
+surface_conversion_quality_review:
+  status: pass | retry | escalate
+  product_concept_name:
+  source_reference_name:
+  target_market_language:
+  competitor_landing_benchmark_ref:
+  design_standard_ref:
+  strongest_conversion_risk:
+  required_rewrites:
+  retry_owner:
+```
+
+If the surface fails this gate, the correct transition is
+`surface_quality_retry`, not publication approval and not measurement/traffic.
+Technical tracking QA may be preserved as implementation evidence, but it does
+not make a weak landing valid for market exposure.
 
 ## ONT-06 Transition Decisions
 
@@ -294,7 +354,10 @@ was skipped.
 | `record_concept_revision` | `internal_product_hardening` | `concept_revisions_recorded` | Pre-market Autoreasoner | revision artifact |
 | `record_fork_candidate` | `internal_product_hardening` | `concept_revisions_recorded` | Pre-market Autoreasoner | fork artifact |
 | `select_test_revision` | `concept_revisions_recorded` | `test_revision_selected` | Launch Lead | revision ledger |
-| `request_surface_publication_approval` | `surface_drafted` | `surface_publication_approval_required` | Launch Lead | surface version |
+| `review_surface_conversion_quality` | `surface_drafted` | `surface_conversion_quality_review` | Launch Lead | buyer-quality review artifact |
+| `retry_surface_quality` | `surface_conversion_quality_review` | `surface_quality_retry` | Launch Lead | exact weak quality axis |
+| `publish_board_review_preview` | `surface_conversion_quality_review` | `board_review_preview_available` | Launch Lead / validation surface implementer | quality PASS + noindex review URL |
+| `request_surface_publication_approval` | `board_review_preview_available` | `surface_publication_approval_required` | Launch Lead | surface version + quality PASS + preview URL |
 | `approve_surface_publication` | `surface_publication_approval_required` | `surface_published` | CEO / Board | approval |
 | `start_observation_window` | `traffic_attempts_running` | `observation_window_open` | Measurement Specialist | traffic + measurement refs |
 | `route_validation_evidence` | `observation_window_open` | `evidence_routing` | Evidence Router | evidence events |

@@ -12,12 +12,16 @@ Decide whether a validation landing surface is clear enough to test externally.
 ## Review Axes
 
 - headline clarity in 5 seconds
+- visible product concept name
+- target-market language fit
 - audience specificity
 - pain recognition
 - offer specificity
 - first value moment
 - CTA visibility and consistency
 - waitlist promise clarity
+- primary copy does not expose internal validation/test framing
+- competitor landing benchmark quality
 - pricing or availability hint
 - trust and proof boundaries
 - objection handling
@@ -42,4 +46,9 @@ landing_CRO_review:
 
 - Do not optimize for beauty before clarity.
 - Do not let generic SaaS copy pass.
+- Do not let a page pass when the hero/nav/CTA/form are in the wrong market
+  language.
+- Do not let a competitor or original source-signal name pass as the product
+  name.
+- Do not let primary sales copy say that the page is only a validation test.
 - If the user cannot understand who it is for and what happens after CTA, retry.

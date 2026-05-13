@@ -45,6 +45,9 @@ Review owners:
 - Gate A decision and constraints, including `gate_a_decision_ref`
 - `docs/product-bets/README.md`
 - `docs/playbooks/product-bet-definition-playbook.md`
+- `docs/product-bets/design.md` when present; otherwise a named fallback design
+  reference set
+- `docs/product-bets/validation-hosting.md`
 - Gate B policy
 - product-bet templates under `docs/templates/product-bets/`
 
@@ -79,18 +82,28 @@ Review owners:
     test externally.
 13. Run `surface_readiness_loop`: prepare landing design, copy variants,
     waitlist form, surface version, and claims QA.
-14. Request or verify publication/validation approval for the surface when
-    needed.
-15. Define measurement plan only after `selected_test_revision` and
+14. Run `surface_conversion_quality_review`: verify English-first target-market
+    fit, product concept naming, competitor landing benchmark, design standard,
+    no visible test framing in primary copy, and acceptable waitlist friction.
+15. Verify validation hosting: use `https://<surface-slug>.claricont.com` when
+    the validation domain is configured; raw IP URLs are not acceptable for
+    board/public traffic unless CEO/board records an exception.
+16. Publish or verify a board-review preview URL when the surface has passed
+    internal QA. The preview must be `noindex`, unlinked, and attributed as
+    internal/test traffic; preview visits are QA/approval evidence, not market
+    validation.
+17. Request or verify publication/validation approval for the surface when
+    needed, including the board-review preview URL in the approval payload.
+18. Define measurement plan only after `selected_test_revision` and
     `surface_version` draft/ref exist.
-16. Implement only the approved validation surface and tracking contract.
-17. Run tracking QA before any external traffic.
-18. Run only approved organic traffic attempts.
-19. Monitor enough-time/enough-traffic thresholds.
-20. Record traffic, behavior, and blocker results as validation evidence events.
-21. Route validation result to build, revise, fork, test_more, or kill.
-22. Write Gate B recommendation only when build is warranted.
-23. Write one validation cycle learning report.
+19. Implement only the approved validation surface and tracking contract.
+20. Run tracking QA before any external traffic.
+21. Run only approved organic traffic attempts.
+22. Monitor enough-time/enough-traffic thresholds.
+23. Record traffic, behavior, and blocker results as validation evidence events.
+24. Route validation result to build, revise, fork, test_more, or kill.
+25. Write Gate B recommendation only when build is warranted.
+26. Write one validation cycle learning report.
 
 ## Dependency Gates
 
@@ -103,14 +116,21 @@ tasks:
 | `hardening_decision_recorded` | surface task | autoreason report exists; `concept_revision` / `fork_candidate` decisions are recorded; one revision is recommended |
 | `selected_test_revision_exists` | surface, measurement, traffic, observation, evidence | Launch Lead selected exactly one test revision |
 | `surface_version_draft_exists` | measurement task | Landing Surface Builder produced or requested a versioned `surface_version` |
+| `surface_conversion_quality_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | buyer-quality review is `PASS`: English-first target fit, product name visible, competitor/source names not used as product identity, competitor benchmark done, design standard applied, no visible test framing in primary copy, acceptable waitlist friction |
+| `validation_hosting_ready` | board-review preview, publication approval, traffic | preferred domain host resolves, TLS/proxy route works, noindex/robots/internal-test attribution are present for preview |
 | `measurement_contract_ready` | implementation and traffic | Product Bet Measurement Specialist wrote event contract, thresholds, UTM policy, and QA criteria |
 | `tracking_QA_passed` | organic traffic and observation | implementation emits required events and excludes internal/test traffic |
+| `board_review_preview_available` | publication approval request | review URL exists, is noindex/unlinked, uses internal/test attribution, and is included in the approval payload |
 | `traffic_attempts_recorded` | observation and Evidence Router | approved organic/free attempts exist or blocked states are explicit |
 | `observation_ready_for_review` | Evidence Router Gate B recommendation | enough time, enough traffic, channel diversity, source quality, and measurement QA are decision-grade |
 
 Invalid shortcuts:
 
 - measurement task before `selected_test_revision` and `surface_version` draft/ref
+- board-review preview, publication approval, measurement, traffic, observation,
+  or evidence work before `surface_conversion_quality_pass`
+- raw IP board/public URL when `claricont.com` validation hosting is available
+  but not configured
 - Engineering implementation before surface spec and measurement contract
 - organic traffic before surface access and tracking QA
 - Gate B request before Evidence Router writes `gate_b_recommendation`
@@ -150,6 +170,7 @@ The recommendation is not Gate B approval and is not build approval.
 - autoreason report
 - test GTM surface pack
 - surface version and surface QA
+- surface conversion quality review
 - measurement plan
 - observation window
 - traffic attempts and traffic source report

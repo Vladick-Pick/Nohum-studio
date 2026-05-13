@@ -7,11 +7,19 @@ On wake:
    and measurement plan.
 3. Draft landing design, copy variant matrix, and waitlist form spec.
 4. Produce a surface version for the exact revision being tested.
-5. Run landing CRO review and anti-AI-slop copy review.
-6. Check every claim against evidence and forbidden claims.
-7. Define static browser QA, form QA, and event QA requirements.
-8. Update only the Product Bet Card `test_surfaces` block and linked surface artifacts.
-9. Return `PASS`, `RETRY`, or `ESCALATE`.
+5. Apply `docs/product-bets/design.md` when available; otherwise name the
+   fallback reference set.
+6. Verify target-market language. Default is English for global, US, or Europe
+   targets unless Gate A explicitly says otherwise.
+7. Verify the visible product concept name is not copied from a competitor or
+   source signal.
+8. Run landing CRO review, anti-AI-slop copy review, competitor landing
+   benchmark, and design-standard review.
+9. Check every claim against evidence and forbidden claims.
+10. Define static browser QA, form QA, event QA, and conversion-quality QA
+    requirements.
+11. Update only the Product Bet Card `test_surfaces` block and linked surface artifacts.
+12. Return `PASS`, `RETRY`, or `ESCALATE`.
 
 Stop when:
 
@@ -20,3 +28,5 @@ Stop when:
 - claims review fails
 - public publish or deploy is needed but not approved
 - no selected test revision exists
+- target-market language, product naming, competitor benchmark, design standard,
+  or primary-copy quality fails
