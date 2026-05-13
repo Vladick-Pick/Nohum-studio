@@ -21,6 +21,8 @@ one canonical card
 -> manager sufficiency review
 -> versioned revisions and forks
 -> landing/waitlist surface
+-> surface quality and visual conversion gates
+-> board review preview and publication approval
 -> organic traffic attempts
 -> observation window
 -> gate recommendation
@@ -41,14 +43,23 @@ one canonical card
    externally.
 9. Landing Surface Builder runs `surface_readiness_loop` and creates the
    landing/waitlist surface version.
-10. Product Bet Measurement Specialist writes measurement only after
-    `selected_test_revision` and a `surface_version` draft/ref exist.
-11. Organic Traffic Strategist runs approved organic traffic attempts only after
+10. Launch Lead runs `surface_conversion_quality_review` and routes `RETRY` to
+    the exact weak owner when buyer-quality gates fail.
+11. Launch Lead requests independent `visual_conversion_review` from UI
+    Designer and UX Architect.
+12. Validation hosting produces a noindex board-review preview URL, or an
+    explicit blocked state when DNS/TLS/proxy are not ready.
+13. CEO/board approves public validation surface publication before market
+    traffic is sent.
+14. Product Bet Measurement Specialist writes measurement only after
+    `selected_test_revision`, a `surface_version` draft/ref, quality gates, and
+    publication boundary are resolved.
+15. Organic Traffic Strategist runs approved organic traffic attempts only after
     surface and tracking QA are ready.
-12. Product Bet Measurement Specialist opens or updates the observation window.
-13. Evidence Router writes validation evidence events and validation decision.
-14. Evidence Router writes Gate B Recommendation only when build is warranted.
-15. CEO/board records Gate B Decision.
+16. Product Bet Measurement Specialist opens or updates the observation window.
+17. Evidence Router writes validation evidence events and validation decision.
+18. Evidence Router writes Gate B Recommendation only when build is warranted.
+19. CEO/board records Gate B Decision.
 
 Do not import a batch of specialist tasks as immediate backlog items.
 
@@ -62,7 +73,7 @@ one downstream task list.
 | `assembly_loop` | Product Bet Card exists | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | concrete product shape, competitor/economics/offer sections, validation risks | Launch Lead `PASS`, `RETRY`, or `ESCALATE` per section |
 | `internal_hardening_loop` | assembly sections are `PASS` or accepted incomplete | Pre-Market Autoreasoner | autoreason report, objections, blind variants, `concept_revision`, `fork_candidate` | Launch Lead accepts revision, opens fork, retries hardening, kills, or escalates scope drift |
 | `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder, Launch Lead, UI Designer, UX Architect | `surface_version`, waitlist form, copy variants, claims QA, `surface_conversion_quality_review`, `visual_conversion_review` | Launch Lead `PASS`, `RETRY`, or approval blocker |
-| `measurement_traffic_observation_loop` | surface draft/ref exists | Product Bet Measurement Specialist, Organic Traffic Strategist | event contract, tracking QA, traffic attempts, observation window | wait, retry instrumentation, retry traffic, or ready for Evidence Router |
+| `measurement_traffic_observation_loop` | quality-gated surface exists and publication boundary is approved or explicitly blocked | Product Bet Measurement Specialist, Organic Traffic Strategist | event contract, tracking QA, traffic attempts, observation window | wait, retry instrumentation, retry traffic, or ready for Evidence Router |
 | `evidence_routing_loop` | observation evidence exists | Evidence Router | validation evidence events, route, Gate B recommendation when warranted | build, revise, fork, test_more, kill |
 
 Downstream tasks must not be created merely because the sprint exists. Launch
@@ -201,6 +212,9 @@ It must produce:
 - landing and comparison surface pack
 - pricing intent surface
 - surface version and browser QA
+- surface conversion quality review
+- visual conversion review
+- board-review preview URL and publication approval status
 - directory/community/public post drafts when allowed
 - measurement plan
 - claims review
@@ -249,16 +263,21 @@ flowchart TD
   Q -->|"RETRY"| B
   Q -->|"PASS"| V["Visual Conversion Review"]
   V -->|"RETRY"| B
-  V -->|"PASS"| G["Tracking Instrumentation"]
+  V -->|"PASS"| P["Validation Hosting + Board Review Preview"]
+  P --> I["Publication Approval"]
+  I --> G["Measurement Plan + Tracking Instrumentation"]
   G --> H["Browser + Event QA"]
-  H --> I["Publish Approval"]
-  I --> J["Organic Traffic Attempts"]
+  H --> J["Organic Traffic Attempts"]
   J --> K["Observation Window"]
   K --> L["Validation Evidence Events"]
 ```
 
 Only validation actions allowed by the Gate A constraints and linked approvals
-can run.
+may proceed. `first_view_containment`, `test_framing_absence`, and
+`form_completion_friction` are hard-fail visual review axes. If any fail,
+return to Landing Surface Builder, UI Designer, UX Architect, Product Bet
+Compiler, or Offer Positioning Strategist by exact weakness before measurement
+or traffic starts.
 
 `Surface Conversion Quality Review` is mandatory before board-review preview,
 publication approval, measurement activation, traffic, observation, or Evidence
@@ -277,7 +296,9 @@ Router work. It checks:
 publication approval, measurement activation, traffic, observation, or Evidence
 Router work. It is performed independently by UI Designer and UX Architect and
 checks first-view credibility, visual hierarchy, buyer journey, CTA path, trust
-handling, competitor landing quality bar, and mobile/desktop screenshots.
+handling, competitor landing quality bar, mobile/desktop screenshots,
+`first_view_containment`, `test_framing_absence`, and
+`form_completion_friction`.
 
 ## Organic Distribution Loop
 
@@ -406,6 +427,9 @@ Escalate when:
 - Every detailed pack is linked from the card.
 - A selected test revision exists.
 - Landing/waitlist surface exists as a versioned measurement surface.
+- `surface_conversion_quality_review: PASS` exists.
+- `visual_conversion_review: PASS` exists.
+- Board-review preview and publication approval state are explicit.
 - Organic distribution attempts exist or blocked states are explicit.
 - Observation window is complete or the decision is `test_more`.
 - Every validation risk has a risk class and test method.

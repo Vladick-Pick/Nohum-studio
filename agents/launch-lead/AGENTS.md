@@ -82,8 +82,11 @@ acceptable waitlist form friction. Then require independent
 `visual_conversion_review: PASS` from UI Designer and UX Architect. This review
 must inspect desktop/mobile screenshots, first-view credibility, visual
 hierarchy, buyer journey, CTA path, trust handling, competitor landing quality
-bar, and form timing. Landing Surface Builder, browser QA, and tracking QA
-cannot self-certify this visual/conversion gate. Also require validation hosting
+bar, and form timing. `first_view_containment`, `test_framing_absence`, and
+`form_completion_friction` are hard-fail axes: if any fail, route `RETRY` before
+preview, publication, measurement, traffic, observation, or Evidence Router
+work. Landing Surface Builder, browser QA, and tracking QA cannot self-certify
+this visual/conversion gate. Also require validation hosting
 check from
 `docs/product-bets/validation-hosting.md`: prefer
 `https://<surface-slug>.claricont.com`, do not use raw IP URLs when the company

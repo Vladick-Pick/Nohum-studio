@@ -34,15 +34,20 @@ Frozen Idea Card
 -> CEO Gate A Decision
 -> CEO creates one Product Bet Validation Sprint
 -> Launch Lead opens shared Product Bet Card
--> AI hardening produces revisions and forks
--> Launch Lead selects one test revision
--> Landing Surface Builder creates a waitlist surface
--> Launch Lead runs surface conversion quality review
--> Product Bet Measurement Specialist instruments the surface
+-> L1 Product Bet Assembly
+-> L2 Internal Hardening records concept_revision / fork_candidate
+-> Launch Lead selects one test_revision
+-> L3 Surface Readiness creates versioned surface_version
+-> surface_conversion_quality_review
+-> visual_conversion_review
+-> validation hosting check
+-> board_review_preview_available
+-> CEO/Board surface publication approval
+-> Product Bet Measurement Specialist instruments the approved surface
 -> Organic Traffic Strategist drives approved traffic attempts
--> Observation Window evaluates time, traffic, and intent
--> Evidence Router routes build / revise / fork / test_more / kill
--> CEO / Board records Gate B Decision when build is recommended
+-> Observation Window evaluates time, traffic, source quality, and intent
+-> Evidence Router routes build/revise/fork/test_more/kill
+-> CEO/Board records Gate B Decision when build is recommended
 ```
 
 The root package imports Product Bet agents, skills, docs, and templates. It
@@ -69,6 +74,8 @@ one canonical card
 -> manager sufficiency review
 -> versioned revisions and forks
 -> validation surface
+-> surface quality and visual conversion gates
+-> board preview and publication approval
 -> organic traffic loop
 -> observation window
 -> gate recommendation
@@ -122,18 +129,22 @@ browser-QA-passing or copy-compliant surfaces from being treated as credible
 market tests when the first viewport, visual hierarchy, CTA path, or mobile scan
 would repel a real buyer.
 
+The visual review has three hard-fail axes that block preview, publication,
+measurement, traffic, observation, and Evidence Router work:
+`first_view_containment`, `test_framing_absence`, and
+`form_completion_friction`.
+
 ## Product Bet Agents
 
 | Agent | Owns | Writes |
 |---|---|---|
 | `launch-lead` | process owner, card owner, sufficiency review | Gate A context, revision ledger, section review |
-| `product-bet-compiler` | product identity and shape | identity, audience, problem/workflow |
+| `product-bet-compiler` | product identity, shape, and validation risks | identity, audience, problem/workflow, validation risk map |
 | `competitor-deep-dive-analyst` | product-grade competitor teardown | competitor deep dive block and pack |
 | `economics-modeler` | unit economics and scenarios | financial model, break-even, `$5k` paths |
 | `offer-positioning-strategist` | USP, offer, pricing frame | offer positioning block and brief |
 | `organic-traffic-strategist` | organic traffic strategy and operations | pain language, channel map, traffic attempts, source report |
 | `pre-market-autoreasoner` | internal hardening | autoreason report, revisions, fork candidates |
-| `product-bet-compiler` | validation risks | validation risk map and validation plans |
 | `landing-surface-builder` | validation surface factory | landing design, waitlist form, surface version, QA |
 | `product-bet-measurement-specialist` | observation and instrumentation | measurement plan, observation window status |
 | `evidence-router` | evidence and routing | validation evidence events, validation decision, Gate B recommendation |
@@ -186,6 +197,7 @@ Each approved Gate A candidate should produce:
 - surface version and QA
 - surface conversion quality review
 - visual conversion review
+- board-review preview URL and surface publication approval request
 - measurement plan
 - observation window
 - traffic attempts and traffic source report
@@ -262,6 +274,9 @@ CEO/board explicitly accepts the risk:
 | Top risks tested or accepted | Validation Evidence Events |
 | Selected test revision exists | Product Bet Card and Concept Revision |
 | Landing/waitlist surface ready | Landing Design, Waitlist Form Spec, Surface Version |
+| Surface conversion quality passed | Surface Conversion Quality Review |
+| Visual conversion quality passed | Visual Conversion Review |
+| Board/publication boundary resolved | Board-review preview URL and surface publication approval or explicit blocker |
 | Test surfaces ready/tested | Test GTM Surface Pack and Surface QA |
 | Organic traffic attempts complete | Traffic Attempts and Traffic Source Report |
 | Observation window complete | Observation Window |

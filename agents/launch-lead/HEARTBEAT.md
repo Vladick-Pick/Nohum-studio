@@ -52,10 +52,11 @@ Evidence Router, Product Launch, or Engineering tasks, verify:
   design-standard compliance, no visible validation/test framing in primary
   sales copy, and acceptable waitlist friction.
 - `visual_conversion_review: PASS` requires independent UI Designer and UX
-  Architect review of screenshots, first-view credibility, visual hierarchy,
-  buyer journey, CTA path, trust handling, competitor landing quality bar, and
-  mobile scan. Browser QA and Landing Surface Builder self-review are not
-  sufficient.
+  Architect review of screenshots, first-view credibility,
+  `first_view_containment`, visual hierarchy, buyer journey, CTA path, trust
+  handling, `test_framing_absence`, `form_completion_friction`, competitor
+  landing quality bar, and mobile scan. Browser QA and Landing Surface Builder
+  self-review are not sufficient.
 - Validation-surface preview/public URLs should use
   `https://<surface-slug>.claricont.com` per
   `docs/product-bets/validation-hosting.md`. Raw IP URLs are blocked for

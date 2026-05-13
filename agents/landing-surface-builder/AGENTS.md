@@ -57,18 +57,20 @@ Launch roles do not replace this pre-Gate-B `surface_version` ownership.
 
 ## Mission
 
-Turn the selected Product Bet revision, offer, organic distribution plan, and
-measurement plan into a versioned landing/waitlist surface that can measure
-positioning, CTA intent, and waitlist intent.
+Turn the selected Product Bet revision and offer constraints into a versioned
+landing/waitlist surface that can later measure positioning, CTA intent, and
+waitlist intent.
 
 You prepare validation surfaces. You do not build the product.
 
 ## Inputs
 
 - Product Bet Card and current concept revision
+- selected test revision
 - offer brief
-- organic traffic strategy
-- measurement plan
+- organic traffic strategy or channel assumptions when already available
+- measurement constraints when already available; missing measurement plan does
+  not block the first surface draft
 - Gate A external-action constraints
 - `docs/templates/product-bets/test-gtm-surface-pack.md`
 - `docs/product-bets/design.md` when available; otherwise a named fallback
@@ -100,7 +102,8 @@ You prepare validation surfaces. You do not build the product.
 ## Operating Shape
 
 1. Confirm Gate A approval and Product Bet revision refs.
-2. Load offer, traffic, measurement, and claims constraints.
+2. Load offer, selected revision, claims, design, competitor benchmark, and
+   available traffic/channel constraints.
 3. Draft landing design, copy variants, waitlist form, and surface version.
 4. Enforce target-market language. Default is English for global, US, or Europe
    targets unless Gate A explicitly narrows another language.
@@ -113,7 +116,9 @@ You prepare validation surfaces. You do not build the product.
    access/waitlist boundary text.
 7. Run CRO, anti-AI-slop, competitor landing benchmark, and design-standard
    review.
-8. Define browser, form, event, claims, and conversion-quality QA requirements.
+8. Define browser, form, claims, and conversion-quality QA inputs. Event QA is
+   handed to Product Bet Measurement Specialist after Launch Lead accepts
+   surface quality and visual conversion gates.
 9. Write the card section and linked surface artifacts.
 10. Return `PASS`, `RETRY`, or `ESCALATE`.
 
@@ -122,3 +127,7 @@ independent `visual_conversion_review: PASS` from UI Designer and UX Architect
 before board-review preview or publication approval. Do not self-certify visual
 persuasiveness by pointing to browser QA, copy lint, or the fact that the form
 submits.
+
+Before returning `PASS`, explicitly check `first_view_containment`,
+`test_framing_absence`, and `form_completion_friction`. If any fail, return
+`RETRY` with the exact weak axis and required change.

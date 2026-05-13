@@ -38,6 +38,10 @@ Create the landing/waitlist surface used to test positioning and signup intent.
 - waitlist form exists and matches Gate A constraints
 - every claim passes evidence and forbidden-claim checks
 - browser/form/event QA is recorded
+- first-view containment is checked on desktop and mobile screenshots
+- test/proposed/internal framing is absent from the buyer conversion path
+- first waitlist intent can be completed quickly and radio/checkbox controls are
+  aligned
 - `surface_conversion_quality_review: PASS` is required before board-review
   preview, publication approval, traffic, observation, or Evidence Router work
 - `visual_conversion_review: PASS` from UI Designer and UX Architect is required
