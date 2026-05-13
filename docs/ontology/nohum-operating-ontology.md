@@ -1,8 +1,8 @@
 # NoHum Operating Ontology
 
 Search keys: `ONT-00`, `ONT-01`, `ONT-02`, `ONT-03`, `ONT-04`,
-`ONT-05`, `ONT-05A`, `ONT-05B`, `ONT-06`, `ONT-07`, `ONT-08`, `ONT-09`,
-`ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
+`ONT-05`, `ONT-05A`, `ONT-05B`, `ONT-05C`, `ONT-06`, `ONT-07`, `ONT-08`,
+`ONT-09`, `ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
 
 This document defines the shared runtime language for NoHum Studio.
 
@@ -71,6 +71,7 @@ org library must not import a backlog of Product Bet or Build tasks.
 | `fork_candidate` | viable alternate direction, not replacement of current bet | Pre-market Autoreasoner | fork artifact |
 | `internal_product_hardening` | AI-led critique before market exposure | Pre-market Autoreasoner | autoreason report |
 | `surface_version` | versioned landing/waitlist measurement surface | Landing Surface Builder | surface artifact |
+| `visual_conversion_review` | independent human-grade visual and UX review of a validation surface | UI Designer / UX Architect, accepted by Launch Lead | visual conversion review artifact |
 | `traffic_attempt` | operational organic attempt to attract relevant traffic | Organic Traffic Strategist | traffic artifact |
 | `observation_window` | bounded period for behavior measurement | Measurement Specialist | observation artifact |
 | `validation_evidence_event` | normalized behavioral or blocked-state signal | Evidence Router | evidence event |
@@ -180,7 +181,9 @@ stateDiagram-v2
   surface_drafted --> surface_conversion_quality_review
   surface_conversion_quality_review --> surface_quality_retry
   surface_quality_retry --> surface_drafted
-  surface_conversion_quality_review --> board_review_preview_available
+  surface_conversion_quality_review --> visual_conversion_review
+  visual_conversion_review --> surface_quality_retry
+  visual_conversion_review --> board_review_preview_available
   board_review_preview_available --> surface_publication_approval_required
   surface_publication_approval_required --> surface_published
   surface_publication_approval_required --> blocked_state
@@ -208,6 +211,7 @@ stateDiagram-v2
 | `test_revision_selected` | Launch Lead | selected revision ref | surface work without revision ref |
 | `surface_drafted` | Landing Surface Builder | landing/waitlist draft | calling draft a product |
 | `surface_conversion_quality_review` | Launch Lead | buyer-quality review artifact | technical QA only |
+| `visual_conversion_review` | UI Designer / UX Architect, accepted by Launch Lead | visual/UX conversion review artifact | builder self-review or browser QA only |
 | `surface_quality_retry` | Landing Surface Builder / Offer Positioning Strategist | exact retry request | cosmetic-only patch |
 | `board_review_preview_available` | Launch Lead / validation surface implementer | noindex review URL with internal-test attribution | counting review visits as market evidence |
 | `surface_publication_approval_required` | Launch Lead / CEO | approval request | skipping to Gate B |
@@ -254,7 +258,7 @@ flowchart TD
 |---|---|---|---|---|
 | `assembly_loop` | Launch Lead | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | required Product Bet Card sections are `PASS` or explicitly accepted as incomplete by CEO/board | exact weak section owner |
 | `internal_hardening_loop` | Pre-Market Autoreasoner, reviewed by Launch Lead | synthetic audience panel, critic/judge prompts | hardening decision recorded, `concept_revision` / `fork_candidate` ledger updated, one revision recommended | Pre-Market Autoreasoner for at most two default rounds |
-| `surface_readiness_loop` | Landing Surface Builder | Launch Lead, Offer Positioning Strategist when copy/claims drift | versioned `surface_version`, claims/surface QA, and `surface_conversion_quality_review: PASS`, or explicit approval blocker | Landing Surface Builder or Offer Positioning Strategist |
+| `surface_readiness_loop` | Landing Surface Builder | Launch Lead, Offer Positioning Strategist when copy/claims drift, UI Designer, UX Architect | versioned `surface_version`, claims/surface QA, `surface_conversion_quality_review: PASS`, and `visual_conversion_review: PASS`, or explicit approval blocker | Landing Surface Builder, Offer Positioning Strategist, UI Designer, UX Architect |
 | `measurement_traffic_observation_loop` | Product Bet Measurement Specialist and Organic Traffic Strategist | validation surface implementer, Organic Traffic Strategist | tracking QA passes, approved traffic attempts run, observation window reaches a decision state | Measurement Specialist for instrumentation, Organic Traffic Strategist for traffic |
 | `evidence_routing_loop` | Evidence Router | Launch Lead for sufficiency questions | `gate_b_recommendation` or route to revise/fork/test_more/kill | exact owner of the failed evidence axis |
 
@@ -270,7 +274,8 @@ Invalid nested-loop shortcuts:
   explicitly being requested.
 - Surface work before `assembly_loop` sufficiency and hardening decision.
 - Board-review preview, publication approval, measurement, traffic, observation,
-  or Evidence Router work before `surface_conversion_quality_review: PASS`.
+  or Evidence Router work before `surface_conversion_quality_review: PASS` and
+  `visual_conversion_review: PASS`.
 - Engineering implementation before surface spec and measurement contract.
 - Organic traffic before surface publication/access and tracking QA.
 - Evidence Router Gate B work before observation evidence or explicit accepted
@@ -291,8 +296,8 @@ The validation surface must be good enough to test real buyer behavior before it
 is shown to external traffic. A technically working landing page is not enough.
 
 `surface_conversion_quality_review` is part of `surface_readiness_loop` and must
-run before board-review preview, publication approval, measurement activation,
-traffic, observation, or Evidence Router work.
+run before visual conversion review, board-review preview, publication approval,
+measurement activation, traffic, observation, or Evidence Router work.
 
 Minimum PASS criteria:
 
@@ -328,6 +333,60 @@ If the surface fails this gate, the correct transition is
 Technical tracking QA may be preserved as implementation evidence, but it does
 not make a weak landing valid for market exposure.
 
+## ONT-05C Human Visual Conversion Gate
+
+`surface_conversion_quality_review` removes doctrine, copy, identity, and
+technical-readiness defects. It does not prove that a human buyer will find the
+page credible or worth acting on.
+
+Before board-review preview, publication approval, measurement activation,
+traffic, observation, or Evidence Router work, Launch Lead must obtain an
+independent `visual_conversion_review: PASS`.
+
+Required reviewers:
+
+| Reviewer | Owns | Cannot replace |
+|---|---|---|
+| `ui-designer` | visual hierarchy, typography, composition, spacing, responsive screenshots, product credibility | UX journey critique |
+| `ux-architect` | above-fold comprehension, CTA path, objection handling, form timing/friction, buyer journey coherence | visual composition critique |
+| `launch-lead` | acceptance and retry routing | specialist visual/UX evidence |
+
+Default decision:
+
+```yaml
+visual_conversion_review:
+  status: pass | retry | escalate
+  surface_version_ref:
+  reviewed_surface_url_or_path:
+  screenshots_reviewed:
+  ui_designer_verdict:
+  ux_architect_verdict:
+  visual_score_0_5:
+  ux_score_0_5:
+  strongest_human_rejection_reason:
+  required_changes:
+    - owner:
+      required_change:
+  publication_ready_for_human_review: true | false
+```
+
+Minimum PASS criteria:
+
+| Axis | Required standard | Retry owner |
+|---|---|---|
+| `first_view_credibility` | first viewport looks like a credible product offer, not a generated placeholder or internal form | UI Designer / Landing Surface Builder |
+| `visual_hierarchy` | product name, promise, outcome, CTA, and proof/proxy are visually ordered without clutter | UI Designer |
+| `buyer_journey` | page progression answers value, setup, trust, availability, and CTA in a natural order | UX Architect |
+| `cta_path` | primary CTA is visible, consistent, and not buried behind premature form friction | UX Architect |
+| `visual_specificity` | design supports the selected buyer/job and is not generic AI-SaaS decoration | UI Designer |
+| `competitor_quality_bar` | page is compared against retained competitor landing quality, not just feature parity | UI Designer / UX Architect |
+| `mobile_human_scan` | mobile screenshot is readable and persuasive without forcing the form before value | UI Designer / UX Architect |
+
+If `visual_conversion_review` fails, the correct transition is
+`surface_quality_retry`. If the failure is product identity or offer clarity,
+Launch Lead may route to Product Bet Compiler or Offer Positioning Strategist
+before returning to Landing Surface Builder.
+
 ## ONT-06 Transition Decisions
 
 ### Research Decisions
@@ -355,8 +414,10 @@ not make a weak landing valid for market exposure.
 | `record_fork_candidate` | `internal_product_hardening` | `concept_revisions_recorded` | Pre-market Autoreasoner | fork artifact |
 | `select_test_revision` | `concept_revisions_recorded` | `test_revision_selected` | Launch Lead | revision ledger |
 | `review_surface_conversion_quality` | `surface_drafted` | `surface_conversion_quality_review` | Launch Lead | buyer-quality review artifact |
+| `review_visual_conversion_quality` | `surface_conversion_quality_review` | `visual_conversion_review` | UI Designer / UX Architect, accepted by Launch Lead | visual conversion review artifact |
 | `retry_surface_quality` | `surface_conversion_quality_review` | `surface_quality_retry` | Launch Lead | exact weak quality axis |
-| `publish_board_review_preview` | `surface_conversion_quality_review` | `board_review_preview_available` | Launch Lead / validation surface implementer | quality PASS + noindex review URL |
+| `retry_visual_conversion_quality` | `visual_conversion_review` | `surface_quality_retry` | Launch Lead | exact visual/UX weakness |
+| `publish_board_review_preview` | `visual_conversion_review` | `board_review_preview_available` | Launch Lead / validation surface implementer | conversion quality PASS + visual conversion PASS + noindex review URL |
 | `request_surface_publication_approval` | `board_review_preview_available` | `surface_publication_approval_required` | Launch Lead | surface version + quality PASS + preview URL |
 | `approve_surface_publication` | `surface_publication_approval_required` | `surface_published` | CEO / Board | approval |
 | `start_observation_window` | `traffic_attempts_running` | `observation_window_open` | Measurement Specialist | traffic + measurement refs |

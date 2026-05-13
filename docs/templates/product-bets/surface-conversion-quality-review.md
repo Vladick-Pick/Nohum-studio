@@ -21,6 +21,11 @@ measurement activation, organic traffic, observation, or Evidence Router work.
 Technical QA is not enough. A page can render, submit forms, and emit events
 while still being useless as a demand test.
 
+This review also does not replace `visual_conversion_review`. If the page passes
+doctrine, identity, language, offer, and form-friction checks, Launch Lead still
+must route an independent UI/UX visual conversion review before preview or
+publication.
+
 ## Required Context
 
 ```yaml
@@ -86,3 +91,6 @@ If `status: retry`, Launch Lead routes the task to the exact owner:
 
 Do not publish, route traffic, open observation, or ask Evidence Router for Gate
 B while this review is `retry` or `escalate`.
+
+If this review is `pass`, the next required state is
+`visual_conversion_review`, not publication approval.

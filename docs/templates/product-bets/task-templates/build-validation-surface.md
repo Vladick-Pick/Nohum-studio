@@ -21,6 +21,7 @@ Create the landing/waitlist surface used to test positioning and signup intent.
 - surface version
 - surface QA
 - surface conversion quality review inputs
+- visual conversion review inputs
 - Product Bet Card test surface block
 
 ## Acceptance Criteria
@@ -39,4 +40,7 @@ Create the landing/waitlist surface used to test positioning and signup intent.
 - browser/form/event QA is recorded
 - `surface_conversion_quality_review: PASS` is required before board-review
   preview, publication approval, traffic, observation, or Evidence Router work
+- `visual_conversion_review: PASS` from UI Designer and UX Architect is required
+  before board-review preview, publication approval, traffic, observation, or
+  Evidence Router work
 - surface version is stable for traffic attempts

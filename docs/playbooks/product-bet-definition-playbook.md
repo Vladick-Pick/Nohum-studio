@@ -61,7 +61,7 @@ one downstream task list.
 |---|---|---|---|---|
 | `assembly_loop` | Product Bet Card exists | Product Bet Compiler, Competitor Deep Dive Analyst, Economics Modeler, Offer Positioning Strategist | concrete product shape, competitor/economics/offer sections, validation risks | Launch Lead `PASS`, `RETRY`, or `ESCALATE` per section |
 | `internal_hardening_loop` | assembly sections are `PASS` or accepted incomplete | Pre-Market Autoreasoner | autoreason report, objections, blind variants, `concept_revision`, `fork_candidate` | Launch Lead accepts revision, opens fork, retries hardening, kills, or escalates scope drift |
-| `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder, Launch Lead | `surface_version`, waitlist form, copy variants, claims QA, `surface_conversion_quality_review` | Launch Lead `PASS`, `RETRY`, or approval blocker |
+| `surface_readiness_loop` | one `selected_test_revision` | Landing Surface Builder, Launch Lead, UI Designer, UX Architect | `surface_version`, waitlist form, copy variants, claims QA, `surface_conversion_quality_review`, `visual_conversion_review` | Launch Lead `PASS`, `RETRY`, or approval blocker |
 | `measurement_traffic_observation_loop` | surface draft/ref exists | Product Bet Measurement Specialist, Organic Traffic Strategist | event contract, tracking QA, traffic attempts, observation window | wait, retry instrumentation, retry traffic, or ready for Evidence Router |
 | `evidence_routing_loop` | observation evidence exists | Evidence Router | validation evidence events, route, Gate B recommendation when warranted | build, revise, fork, test_more, kill |
 
@@ -247,7 +247,9 @@ flowchart TD
   E --> F["CRO / Anti-AI-Slop Review"]
   F --> Q["Surface Conversion Quality Review"]
   Q -->|"RETRY"| B
-  Q -->|"PASS"| G["Tracking Instrumentation"]
+  Q -->|"PASS"| V["Visual Conversion Review"]
+  V -->|"RETRY"| B
+  V -->|"PASS"| G["Tracking Instrumentation"]
   G --> H["Browser + Event QA"]
   H --> I["Publish Approval"]
   I --> J["Organic Traffic Attempts"]
@@ -270,6 +272,12 @@ Router work. It checks:
 - `docs/product-bets/design.md` compliance when present
 - no visible "validation/test" framing in primary sales copy
 - acceptable waitlist form friction
+
+`Visual Conversion Review` is also mandatory before board-review preview,
+publication approval, measurement activation, traffic, observation, or Evidence
+Router work. It is performed independently by UI Designer and UX Architect and
+checks first-view credibility, visual hierarchy, buyer journey, CTA path, trust
+handling, competitor landing quality bar, and mobile/desktop screenshots.
 
 ## Organic Distribution Loop
 

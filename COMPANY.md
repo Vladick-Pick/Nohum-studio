@@ -143,6 +143,7 @@ includes:
   - docs/templates/product-bets/surface-version.md
   - docs/templates/product-bets/surface-qa.md
   - docs/templates/product-bets/surface-conversion-quality-review.md
+  - docs/templates/product-bets/visual-conversion-review.md
   - docs/templates/product-bets/anti-ai-slop-review.md
   - docs/templates/product-bets/measurement-plan.md
   - docs/templates/product-bets/traffic-attempt.md

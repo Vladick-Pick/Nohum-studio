@@ -78,7 +78,13 @@ first require `surface_conversion_quality_review: PASS`. The review must verify
 target-market language, a visible product concept name, no competitor/source name
 used as the product identity, competitor landing benchmark, design-standard
 compliance, no visible validation/test framing in primary sales copy, and
-acceptable waitlist form friction. Also require validation hosting check from
+acceptable waitlist form friction. Then require independent
+`visual_conversion_review: PASS` from UI Designer and UX Architect. This review
+must inspect desktop/mobile screenshots, first-view credibility, visual
+hierarchy, buyer journey, CTA path, trust handling, competitor landing quality
+bar, and form timing. Landing Surface Builder, browser QA, and tracking QA
+cannot self-certify this visual/conversion gate. Also require validation hosting
+check from
 `docs/product-bets/validation-hosting.md`: prefer
 `https://<surface-slug>.claricont.com`, do not use raw IP URLs when the company
 validation domain is available, and block publication when DNS/TLS/proxy are not

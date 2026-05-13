@@ -273,6 +273,7 @@ test_surfaces:
   surface_version_ref:
   surface_QA_ref:
   surface_conversion_quality_review_ref:
+  visual_conversion_review_ref:
   main_landing:
   comparison_page:
   pricing_intent_page:
@@ -283,6 +284,7 @@ test_surfaces:
   seo_pages:
   claims_review_status: pending | pass | fail
   conversion_quality_status: not_run | pass | retry | escalate
+  visual_conversion_status: not_run | pass | retry | escalate
   browser_QA_status: not_run | pass | fail | blocked
   publish_approval_required: yes | no
   sufficiency_status: pending | pass | retry | escalate

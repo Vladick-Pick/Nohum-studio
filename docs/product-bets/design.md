@@ -14,7 +14,7 @@ claims. NoHum surfaces use the extracted design language as a quality floor, not
 as a cloned brand identity.
 
 Search keys: `PBD-00`, `PBD-01`, `PBD-02`, `PBD-03`, `PBD-04`, `PBD-05`,
-`PBD-06`, `PBD-07`.
+`PBD-06`, `PBD-07`, `PBD-08`.
 
 ## PBD-00 Visual Token Source
 
@@ -129,7 +129,8 @@ Required checks:
 
 Before board-review preview, publication approval, measurement, traffic,
 observation, or Evidence Router work, Launch Lead must have a
-`surface_conversion_quality_review` with `status: pass`.
+`surface_conversion_quality_review` with `status: pass` and a separate
+`visual_conversion_review` with `status: pass`.
 
 Minimum PASS:
 
@@ -141,3 +142,30 @@ Minimum PASS:
 - waitlist truthfulness without over-disclosure in the hero
 - mobile and desktop render coherent
 - form friction proportional to the validation question
+
+## PBD-08 Independent Visual Conversion Review
+
+Landing Surface Builder cannot self-certify that the page is visually
+persuasive. Browser QA and copy lint prove implementation hygiene; they do not
+prove that a target buyer will trust the surface.
+
+Before any board-review preview or publication approval request, Launch Lead
+must route an independent visual/conversion review:
+
+| Reviewer | Must inspect |
+|---|---|
+| `ui-designer` | first viewport, visual hierarchy, typography, spacing, responsive screenshots, product credibility |
+| `ux-architect` | buyer journey, CTA path, objection handling, form timing/friction, mobile scan |
+
+Minimum PASS:
+
+- first viewport looks like a credible product offer, not a placeholder
+- product name, outcome, CTA, and proof/proxy are visually prioritized
+- design is specific to the buyer job and not generic AI-SaaS decoration
+- CTA path is obvious and not form-led before value is clear
+- trust/boundary copy exists without killing motivation
+- retained competitor landing quality was used as a quality bar
+- desktop and mobile screenshots are reviewed directly
+
+If this review fails, the surface returns to `surface_quality_retry`. Do not
+hide the failure behind a working form, passing analytics, or hosting blocker.

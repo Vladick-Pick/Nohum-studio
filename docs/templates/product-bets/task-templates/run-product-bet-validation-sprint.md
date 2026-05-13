@@ -48,6 +48,7 @@ Review owners:
 - `docs/product-bets/design.md` when present; otherwise a named fallback design
   reference set
 - `docs/product-bets/validation-hosting.md`
+- `docs/templates/product-bets/visual-conversion-review.md`
 - Gate B policy
 - product-bet templates under `docs/templates/product-bets/`
 
@@ -85,25 +86,29 @@ Review owners:
 14. Run `surface_conversion_quality_review`: verify English-first target-market
     fit, product concept naming, competitor landing benchmark, design standard,
     no visible test framing in primary copy, and acceptable waitlist friction.
-15. Verify validation hosting: use `https://<surface-slug>.claricont.com` when
+15. Run `visual_conversion_review`: route independent UI Designer and UX
+    Architect review of first-view credibility, visual hierarchy, buyer journey,
+    CTA path, trust handling, competitor landing quality bar, and mobile/desktop
+    screenshots.
+16. Verify validation hosting: use `https://<surface-slug>.claricont.com` when
     the validation domain is configured; raw IP URLs are not acceptable for
     board/public traffic unless CEO/board records an exception.
-16. Publish or verify a board-review preview URL when the surface has passed
+17. Publish or verify a board-review preview URL when the surface has passed
     internal QA. The preview must be `noindex`, unlinked, and attributed as
     internal/test traffic; preview visits are QA/approval evidence, not market
     validation.
-17. Request or verify publication/validation approval for the surface when
+18. Request or verify publication/validation approval for the surface when
     needed, including the board-review preview URL in the approval payload.
-18. Define measurement plan only after `selected_test_revision` and
+19. Define measurement plan only after `selected_test_revision` and
     `surface_version` draft/ref exist.
-19. Implement only the approved validation surface and tracking contract.
-20. Run tracking QA before any external traffic.
-21. Run only approved organic traffic attempts.
-22. Monitor enough-time/enough-traffic thresholds.
-23. Record traffic, behavior, and blocker results as validation evidence events.
-24. Route validation result to build, revise, fork, test_more, or kill.
-25. Write Gate B recommendation only when build is warranted.
-26. Write one validation cycle learning report.
+20. Implement only the approved validation surface and tracking contract.
+21. Run tracking QA before any external traffic.
+22. Run only approved organic traffic attempts.
+23. Monitor enough-time/enough-traffic thresholds.
+24. Record traffic, behavior, and blocker results as validation evidence events.
+25. Route validation result to build, revise, fork, test_more, or kill.
+26. Write Gate B recommendation only when build is warranted.
+27. Write one validation cycle learning report.
 
 ## Dependency Gates
 
@@ -117,6 +122,7 @@ tasks:
 | `selected_test_revision_exists` | surface, measurement, traffic, observation, evidence | Launch Lead selected exactly one test revision |
 | `surface_version_draft_exists` | measurement task | Landing Surface Builder produced or requested a versioned `surface_version` |
 | `surface_conversion_quality_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | buyer-quality review is `PASS`: English-first target fit, product name visible, competitor/source names not used as product identity, competitor benchmark done, design standard applied, no visible test framing in primary copy, acceptable waitlist friction |
+| `visual_conversion_review_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | independent UI Designer / UX Architect review is `PASS`: first-view credibility, visual hierarchy, buyer journey, CTA path, trust handling, competitor quality bar, and mobile/desktop screenshots |
 | `validation_hosting_ready` | board-review preview, publication approval, traffic | preferred domain host resolves, TLS/proxy route works, noindex/robots/internal-test attribution are present for preview |
 | `measurement_contract_ready` | implementation and traffic | Product Bet Measurement Specialist wrote event contract, thresholds, UTM policy, and QA criteria |
 | `tracking_QA_passed` | organic traffic and observation | implementation emits required events and excludes internal/test traffic |
@@ -128,7 +134,8 @@ Invalid shortcuts:
 
 - measurement task before `selected_test_revision` and `surface_version` draft/ref
 - board-review preview, publication approval, measurement, traffic, observation,
-  or evidence work before `surface_conversion_quality_pass`
+  or evidence work before `surface_conversion_quality_pass` and
+  `visual_conversion_review_pass`
 - raw IP board/public URL when `claricont.com` validation hosting is available
   but not configured
 - Engineering implementation before surface spec and measurement contract

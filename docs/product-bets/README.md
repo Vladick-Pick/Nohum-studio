@@ -90,7 +90,7 @@ Product Bet Validation is not a linear task list. It runs five bounded loops:
 |---|---|---|
 | `assembly_loop` | `launch-lead` | Product Bet Card sections pass Launch Lead sufficiency review |
 | `internal_hardening_loop` | `pre-market-autoreasoner` | objections, variants, `concept_revision`, `fork_candidate`, recommended test revision |
-| `surface_readiness_loop` | `landing-surface-builder` + `launch-lead` review | versioned `surface_version`, waitlist form, copy, claims QA, `surface_conversion_quality_review: PASS` |
+| `surface_readiness_loop` | `landing-surface-builder` + `launch-lead` review + UI/UX visual review | versioned `surface_version`, waitlist form, copy, claims QA, `surface_conversion_quality_review: PASS`, `visual_conversion_review: PASS` |
 | `measurement_traffic_observation_loop` | `product-bet-measurement-specialist` and `organic-traffic-strategist` | event contract, tracking QA, traffic attempts, observation window state |
 | `evidence_routing_loop` | `evidence-router` | route to build/revise/fork/test_more/kill and Gate B recommendation when warranted |
 
@@ -114,6 +114,13 @@ concept name that is not copied from a competitor/source signal, benchmark
 retained competitor landings, apply `docs/product-bets/design.md` when present,
 avoid visible validation/test framing in primary sales copy, and keep waitlist
 friction proportional to the validation question.
+
+That buyer-quality gate is necessary but not sufficient. Before board-review
+preview or publication approval, Launch Lead must also route
+`visual_conversion_review: PASS` to UI Designer and UX Architect. This prevents
+browser-QA-passing or copy-compliant surfaces from being treated as credible
+market tests when the first viewport, visual hierarchy, CTA path, or mobile scan
+would repel a real buyer.
 
 ## Product Bet Agents
 
@@ -178,6 +185,7 @@ Each approved Gate A candidate should produce:
 - test GTM surface pack
 - surface version and QA
 - surface conversion quality review
+- visual conversion review
 - measurement plan
 - observation window
 - traffic attempts and traffic source report
@@ -287,6 +295,8 @@ CEO/board explicitly accepts the risk:
 - [Test GTM Surface Pack](../templates/product-bets/test-gtm-surface-pack.md)
 - [Surface Version](../templates/product-bets/surface-version.md)
 - [Surface QA](../templates/product-bets/surface-qa.md)
+- [Surface Conversion Quality Review](../templates/product-bets/surface-conversion-quality-review.md)
+- [Visual Conversion Review](../templates/product-bets/visual-conversion-review.md)
 - [Anti AI Slop Review](../templates/product-bets/anti-ai-slop-review.md)
 - [Measurement Plan](../templates/product-bets/measurement-plan.md)
 - [Traffic Attempt](../templates/product-bets/traffic-attempt.md)

@@ -18,6 +18,7 @@ waitlist/signup intent. This surface is not the product.
 - `surface-version.md`
 - `surface-qa.md`
 - `surface-conversion-quality-review.md`
+- `visual-conversion-review.md` inputs for UI Designer / UX Architect
 - `anti-ai-slop-review.md`
 
 ## Build Contract
@@ -89,6 +90,8 @@ Every variant must cite the `concept_revision` or `fork_candidate` it tests.
 - browser/mobile/form QA before public traffic
 - conversion-quality review before board-review preview, publication approval,
   measurement, traffic, observation, or Evidence Router work
+- independent visual conversion review before board-review preview, publication
+  approval, measurement, traffic, observation, or Evidence Router work
 - no raw IP URL for board/public traffic when the validation domain is available
 - exact surface version cited by every traffic attempt
 
@@ -114,6 +117,7 @@ Use:
 - `docs/templates/product-bets/surface-version.md`
 - `docs/templates/product-bets/surface-qa.md`
 - `docs/templates/product-bets/surface-conversion-quality-review.md`
+- `docs/templates/product-bets/visual-conversion-review.md`
 
 ## Permission Boundary
 
