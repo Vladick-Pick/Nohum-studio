@@ -51,12 +51,26 @@ context:
 | Axis | PASS means | RETRY means |
 |---|---|---|
 | First-view credibility | first viewport feels like a credible product offer | page feels like placeholder, internal tool, or generated draft |
+| First-view containment | common laptop desktop first viewport shows product name, headline, support copy, primary CTA, boundary note, and one credible proof cue without scroll | hero is so tall, oversized, or sparse that the buyer must scroll to understand the offer/proof block |
 | Visual hierarchy | product name, promise, outcome, CTA, and proof/proxy have clear priority | everything competes for attention or CTA is visually weak |
 | Buyer-job specificity | layout and visuals support the selected buyer/job | generic AI-SaaS layout that could fit any product |
 | CTA path | primary CTA is visible, repeated consistently, and appears after value is clear | CTA is buried, premature, inconsistent, or form-led |
 | Trust handling | objections, availability, boundaries, and affiliation are handled without killing motivation | page either overpromises or over-disclaims |
+| Test/proposed framing absence | primary buyer-facing copy reads like a real early-access product offer while preserving truthful boundaries | copy foregrounds test, proposed, validation, Product Bet, Gate, internal approval, or "not a product" framing in the conversion path |
+| Form completion friction | first waitlist intent can be completed in under 60 seconds; detailed qualification is optional/progressive; radio/checkbox controls are aligned | form is long, research-like, visually broken, or asks detailed qualification before intent |
 | Competitor quality bar | page is compared against retained competitor landing quality, not only feature parity | no above-fold / CTA / trust / friction comparison |
 | Mobile human scan | mobile screenshot is readable, persuasive, and not form-dominated before value | mobile layout is cramped, confusing, or conversion-hostile |
+
+Hard-fail checks:
+
+- If the hero does not fit as a self-contained offer/proof block on a common
+  laptop desktop first viewport, return `retry`.
+- If primary buyer-facing copy says or implies that this is a test,
+  validation, proposed product, Product Bet, Gate, or internal approval
+  surface, return `retry`.
+- If the first waitlist form cannot be completed quickly by a motivated buyer,
+  or if radio/checkbox controls are visually misaligned on desktop or mobile,
+  return `retry`.
 
 ## Decision
 

@@ -88,8 +88,9 @@ Review owners:
     no visible test framing in primary copy, and acceptable waitlist friction.
 15. Run `visual_conversion_review`: route independent UI Designer and UX
     Architect review of first-view credibility, visual hierarchy, buyer journey,
-    CTA path, trust handling, competitor landing quality bar, and mobile/desktop
-    screenshots.
+    CTA path, trust handling, first-view containment, test/proposed framing
+    absence, form completion friction, competitor landing quality bar, and
+    mobile/desktop screenshots.
 16. Verify validation hosting: use `https://<surface-slug>.claricont.com` when
     the validation domain is configured; raw IP URLs are not acceptable for
     board/public traffic unless CEO/board records an exception.
@@ -122,7 +123,7 @@ tasks:
 | `selected_test_revision_exists` | surface, measurement, traffic, observation, evidence | Launch Lead selected exactly one test revision |
 | `surface_version_draft_exists` | measurement task | Landing Surface Builder produced or requested a versioned `surface_version` |
 | `surface_conversion_quality_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | buyer-quality review is `PASS`: English-first target fit, product name visible, competitor/source names not used as product identity, competitor benchmark done, design standard applied, no visible test framing in primary copy, acceptable waitlist friction |
-| `visual_conversion_review_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | independent UI Designer / UX Architect review is `PASS`: first-view credibility, visual hierarchy, buyer journey, CTA path, trust handling, competitor quality bar, and mobile/desktop screenshots |
+| `visual_conversion_review_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | independent UI Designer / UX Architect review is `PASS`: first-view credibility, first-view containment, visual hierarchy, buyer journey, CTA path, trust handling, test/proposed framing absence, form completion friction, competitor quality bar, and mobile/desktop screenshots |
 | `validation_hosting_ready` | board-review preview, publication approval, traffic | preferred domain host resolves, TLS/proxy route works, noindex/robots/internal-test attribution are present for preview |
 | `measurement_contract_ready` | implementation and traffic | Product Bet Measurement Specialist wrote event contract, thresholds, UTM policy, and QA criteria |
 | `tracking_QA_passed` | organic traffic and observation | implementation emits required events and excludes internal/test traffic |

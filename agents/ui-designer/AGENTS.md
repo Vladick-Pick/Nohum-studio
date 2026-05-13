@@ -74,6 +74,11 @@ rules. If the first viewport looks like a placeholder, generic AI-SaaS page, or
 internal experiment, return `RETRY` with exact visual fixes for Landing Surface
 Builder.
 
+Hard-fail the review when the desktop first viewport is not self-contained:
+product name, headline, support copy, primary CTA, boundary note, and one
+credible proof cue must be understandable without scrolling on a common laptop
+viewport. Also hard-fail visually broken or misaligned form controls.
+
 ## Handoffs
 
 Upstream inputs:

@@ -375,12 +375,20 @@ Minimum PASS criteria:
 | Axis | Required standard | Retry owner |
 |---|---|---|
 | `first_view_credibility` | first viewport looks like a credible product offer, not a generated placeholder or internal form | UI Designer / Landing Surface Builder |
+| `first_view_containment` | common laptop desktop first viewport shows product name, headline, support copy, primary CTA, boundary note, and one credible proof cue without requiring scroll to understand the hero | UI Designer / Landing Surface Builder |
 | `visual_hierarchy` | product name, promise, outcome, CTA, and proof/proxy are visually ordered without clutter | UI Designer |
 | `buyer_journey` | page progression answers value, setup, trust, availability, and CTA in a natural order | UX Architect |
 | `cta_path` | primary CTA is visible, consistent, and not buried behind premature form friction | UX Architect |
+| `test_framing_absence` | primary buyer-facing copy reads like a real early-access product offer and does not foreground test, proposed, validation, Product Bet, Gate, or internal approval framing | UX Architect / Offer Positioning Strategist |
+| `form_completion_friction` | first waitlist intent can be completed in under 60 seconds; detailed qualification is optional/progressive, and radio/checkbox controls are aligned on desktop and mobile | UX Architect / Landing Surface Builder |
 | `visual_specificity` | design supports the selected buyer/job and is not generic AI-SaaS decoration | UI Designer |
 | `competitor_quality_bar` | page is compared against retained competitor landing quality, not just feature parity | UI Designer / UX Architect |
 | `mobile_human_scan` | mobile screenshot is readable and persuasive without forcing the form before value | UI Designer / UX Architect |
+
+Hard-fail rule: if any of `first_view_containment`,
+`test_framing_absence`, or `form_completion_friction` fails, the review must be
+`RETRY` even when the page renders correctly, submits correctly, and passes
+copy/doctrine checks.
 
 If `visual_conversion_review` fails, the correct transition is
 `surface_quality_retry`. If the failure is product identity or offer clarity,

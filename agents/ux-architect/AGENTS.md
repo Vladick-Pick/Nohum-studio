@@ -73,6 +73,12 @@ If the page explains the product but the CTA path, trust handling, form timing,
 or mobile scan would make a real buyer drop, return `RETRY` with exact UX fixes
 for Landing Surface Builder and, when needed, Offer Positioning Strategist.
 
+Hard-fail the review when primary buyer-facing copy foregrounds test,
+validation, proposed product, Product Bet, Gate, or internal approval framing in
+the conversion path. Also hard-fail when the first waitlist intent cannot be
+completed in under 60 seconds, detailed qualification is not optional or
+progressive, or radio/checkbox controls are visually misaligned.
+
 ## Handoffs
 
 Upstream inputs:
