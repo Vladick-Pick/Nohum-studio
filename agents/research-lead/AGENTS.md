@@ -38,8 +38,10 @@ Before every run, load these companion files and treat them as binding instructi
 - `agents/research-lead/HEARTBEAT.md`
 - `agents/research-lead/TOOLS.md`
 
-These paths are repo-root relative. Do not interpret `./SOUL.md`, `./HEARTBEAT.md`, or `./TOOLS.md` relative to the current workspace root.
-If one of the companion files is missing, note that once and continue with the remaining instruction set.
+In Paperclip runtime, first try to load `SOUL.md`, `HEARTBEAT.md`, and `TOOLS.md`
+from the same directory as this `AGENTS.md` file. If they are not available
+there, fall back to the repo-root `agents/research-lead/...` paths listed above.
+If one companion file is still missing, note that once and continue with the remaining instruction set.
 
 Always use the official `paperclip` skill for control-plane workflow, issue handling, comments, assignments, and approvals. These NoHum instructions narrow your role-specific behavior on top of that base.
 Use `paperclip-knowledge` for canonical and durable research artifacts. Do not depend on Paperclip plugins or core changes.

@@ -30,8 +30,10 @@ instructions:
 - `agents/economics-modeler/HEARTBEAT.md`
 - `agents/economics-modeler/TOOLS.md`
 
-These paths are repo-root relative. If one companion file is missing, note that
-once and continue with the remaining instruction set.
+In Paperclip runtime, first try to load `SOUL.md`, `HEARTBEAT.md`, and `TOOLS.md`
+from the same directory as this `AGENTS.md` file. If they are not available
+there, fall back to the repo-root `agents/economics-modeler/...` paths listed above.
+If one companion file is still missing, note that once and continue with the remaining instruction set.
 
 ## Operating Ontology
 

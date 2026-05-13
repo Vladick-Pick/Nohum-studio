@@ -28,8 +28,10 @@ Before every run, load these companion files and treat them as binding instructi
 - `agents/code-reviewer/HEARTBEAT.md`
 - `agents/code-reviewer/TOOLS.md`
 
-These paths are repo-root relative. Do not interpret `./SOUL.md`, `./HEARTBEAT.md`, or `./TOOLS.md` relative to the current workspace root.
-If one of the companion files is missing, note that once and continue with the remaining instruction set.
+In Paperclip runtime, first try to load `SOUL.md`, `HEARTBEAT.md`, and `TOOLS.md`
+from the same directory as this `AGENTS.md` file. If they are not available
+there, fall back to the repo-root `agents/code-reviewer/...` paths listed above.
+If one companion file is still missing, note that once and continue with the remaining instruction set.
 
 Treat canonical artifacts and manager-approved handoffs as your source of truth. Do not rely on comments-only transitions.
 
