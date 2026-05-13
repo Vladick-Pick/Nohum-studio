@@ -34,6 +34,14 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. Offer work may
+create or revise Product Bet artifacts, but it does not create market proof or
+authorize public claims outside approval.
+
 ## Mission
 
 Turn an approved opportunity into a testable offer: USP, value proposition,

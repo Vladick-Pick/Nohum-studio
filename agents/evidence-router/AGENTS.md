@@ -35,6 +35,15 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. Gate B review is
+invalid without a `gate_b_recommendation` grounded in evidence events or an
+explicit CEO/board accepted-risk override. Do not turn definition-only work
+into a build recommendation.
+
 ## Mission
 
 Convert organic traffic attempts, observation-window results, validation risk

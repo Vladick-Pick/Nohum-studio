@@ -39,6 +39,7 @@ The original file contents are stored after this metadata block.
 | Repository path | Knowledge layer | Runtime meaning |
 | --- | --- | --- |
 | `COMPANY.md`, `.paperclip.yaml` | `runtime_manifest` | active import/runtime contract |
+| `docs/ontology/**` | `operating_ontology` | active shared runtime language for definitions, states, and decisions |
 | `docs/research/**` | `active_research` | active pre-Gate-A research doctrine |
 | `docs/product-bets/**` | `active_product_bet` | active post-Gate-A / pre-Gate-B doctrine |
 | `docs/templates/**` | `template` | reusable artifact templates, not active work |
@@ -89,6 +90,7 @@ Postgres URL and `PAPERCLIP_POSTGRES_MODULE` points at the release-local
 
 Attach these exact repository documents to the active first sourcing workflow:
 
+- `docs/ontology/nohum-operating-ontology.md`
 - `docs/research/copyable-product-thesis.md`
 - `docs/research/contracts/intake-and-handoffs.md`
 - `docs/research/contracts/shared-adapters.md`

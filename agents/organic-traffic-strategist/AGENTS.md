@@ -32,6 +32,15 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. Organic traffic is
+an operational `traffic_attempt` loop. If traffic or publication is not
+approved, record an approval blocker or blocked state instead of treating the
+strategy as completed validation.
+
 ## Mission
 
 Answer the question that a landing page alone cannot answer: can NoHum earn

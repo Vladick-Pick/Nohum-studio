@@ -7,6 +7,7 @@ import path from "node:path";
 import process from "node:process";
 
 const DEFAULT_ATTACH_PATHS = [
+  "docs/ontology/nohum-operating-ontology.md",
   "docs/research/copyable-product-thesis.md",
   "docs/research/contracts/intake-and-handoffs.md",
   "docs/research/contracts/shared-adapters.md",
@@ -142,6 +143,7 @@ function classifyLayer(filePath) {
   if (filePath.startsWith("projects/")) return "project";
   if (filePath.startsWith("tasks/")) return "bootstrap_task";
   if (filePath === "COMPANY.md" || filePath === ".paperclip.yaml" || filePath === ".paperclip.yml") return "runtime_manifest";
+  if (filePath.startsWith("docs/ontology/")) return "operating_ontology";
   if (filePath.startsWith("docs/research/")) return "active_research";
   if (filePath.startsWith("docs/product-bets/")) return "active_product_bet";
   if (filePath.startsWith("docs/playbooks/")) return "playbook";

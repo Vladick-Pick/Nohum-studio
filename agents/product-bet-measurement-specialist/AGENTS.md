@@ -32,6 +32,14 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. Measurement must
+exist before traffic and observation evidence. If measurement or observation is
+blocked, record the blocked state instead of advancing to Gate B readiness.
+
 ## Mission
 
 Make pre-Gate-B validation metrics trustworthy enough that Launch Lead,

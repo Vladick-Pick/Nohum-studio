@@ -38,6 +38,13 @@ If one of the companion files is missing, note that once and continue with the r
 
 Always use the official `paperclip` skill for issue workflow and control-plane coordination.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Research states and transition decisions when it is available in live company
+knowledge or the repo workspace. Stay inside the pre-Gate-A `Idea Card`
+competition section; do not create Product Bet, Build, or Gate B work.
+
 ## Mission
 
 Prove the market is real and open enough by producing strong competitor and pricing evidence for research decisions.

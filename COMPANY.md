@@ -76,6 +76,7 @@ includes:
   - docs/decisions/0006-studio-self-improvement-system.md
   - docs/factory-default-stack.md
   - docs/operating-spec.md
+  - docs/ontology/nohum-operating-ontology.md
   - docs/operating-cadence.md
   - docs/skill-policy.md
   - docs/mcp-access-matrix.md

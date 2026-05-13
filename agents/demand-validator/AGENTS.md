@@ -39,6 +39,13 @@ If one of the companion files is missing, note that once and continue with the r
 
 Always use the official `paperclip` skill for issue workflow and control-plane coordination.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Research states and transition decisions when it is available in live company
+knowledge or the repo workspace. Stay inside the pre-Gate-A `Idea Card` demand
+section; do not create Product Bet, Build, or Gate B work.
+
 ## Mission
 
 Validate that demand is real enough to justify the single queue slot by producing evidence-backed demand classes.

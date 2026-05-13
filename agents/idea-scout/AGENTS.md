@@ -41,6 +41,13 @@ If one of the companion files is missing, note that once and continue with the r
 Always use the official `paperclip` skill for issue workflow and control-plane coordination.
 Use `paperclip-knowledge` for durable sourcing artifacts and duplicate evidence. Do not depend on Paperclip plugins or core changes.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Research states and transition decisions when it is available in live company
+knowledge or the repo workspace. Stay inside the pre-Gate-A sourcing state
+machine; do not create Product Bet, Build, or Gate B work.
+
 ## Mission
 
 Find plausible new venture candidates from approved sources and return normalized sourcing batches to `Research Lead` without flooding the research funnel.

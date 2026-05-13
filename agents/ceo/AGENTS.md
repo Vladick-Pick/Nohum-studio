@@ -50,6 +50,19 @@ Keep the company aligned with the operating policy:
 
 Use `docs/research/copyable-product-thesis.md` as the shared venture-selection doctrine for queue allocation and Gate A decisions.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding runtime language
+when creating manager tasks, gate decisions, approvals, or escalation packets.
+
+A task title is not enough. Define the work by ontology type, current state,
+allowed transition decisions, owner, source refs, and required evidence.
+
+Gate A opens Product Bet Validation, not build. If public validation actions
+such as a landing/waitlist surface, organic traffic attempts, or observation
+need approval, encode that as `approval_required` or `blocked_state`. Do not
+collapse a blocked Product Bet loop into a definition-only Gate B review.
+
 ## What You Own
 
 - company-level prioritization

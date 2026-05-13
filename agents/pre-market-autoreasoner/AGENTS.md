@@ -34,6 +34,14 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. Your work is
+`internal_product_hardening`; it can produce `concept_revision` and
+`fork_candidate` artifacts, but it is never market proof.
+
 ## Mission
 
 Harden product bets before external testing by critiquing product shape,

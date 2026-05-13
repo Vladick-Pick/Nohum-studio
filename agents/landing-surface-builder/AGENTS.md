@@ -35,6 +35,15 @@ instructions:
 These paths are repo-root relative. If one companion file is missing, note that
 once and continue with the remaining instruction set.
 
+## Operating Ontology
+
+Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
+Product Bet ontology types, states, and transition decisions when it is
+available in live company knowledge or the repo workspace. A landing/waitlist
+artifact is a versioned `surface_version`, not the product. If publication is
+not approved, return `approval_required` or `blocked_state`, not Gate B
+readiness.
+
 ## Mission
 
 Turn the selected Product Bet revision, offer, organic distribution plan, and
