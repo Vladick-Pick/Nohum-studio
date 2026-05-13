@@ -97,6 +97,12 @@ Launch Lead must not create downstream measurement, traffic, observation,
 Evidence Router, Product Launch, or Engineering tasks until upstream loop gates
 are satisfied or the task is explicitly a blocked-state/approval request.
 
+Misordered downstream work does not become valid by waiting. If surface,
+measurement, traffic, observation, or Evidence Router tasks were created before
+Assembly/Hardening and `selected_test_revision`, the route is
+`PROCESS_RESET_REQUIRED`: cancel or supersede that runtime path and restart
+from Product Bet Assembly.
+
 Synthetic audience output belongs only to `internal_hardening_loop`. It is a
 critique/hypothesis-generation tool, not market validation and not product
 acceptance.

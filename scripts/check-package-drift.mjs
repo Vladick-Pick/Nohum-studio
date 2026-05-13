@@ -126,6 +126,8 @@ const requiredProductBetNestedLoopChecks = [
       "measurement_traffic_observation_loop",
       "evidence_routing_loop",
       "Synthetic audience work is allowed only inside `internal_hardening_loop`",
+      "PROCESS_RESET_REQUIRED",
+      "restart from\n`assembly_loop`",
     ],
   },
   {
@@ -139,6 +141,7 @@ const requiredProductBetNestedLoopChecks = [
       "measurement_contract_ready",
       "tracking_QA_passed",
       "observation_ready_for_review",
+      "PROCESS_RESET_REQUIRED",
     ],
   },
   {
@@ -150,6 +153,7 @@ const requiredProductBetNestedLoopChecks = [
       "surface_readiness_loop",
       "measurement_traffic_observation_loop",
       "Synthetic audience acceptance is not a gate",
+      "PROCESS_RESET_REQUIRED",
     ],
   },
   {
@@ -158,6 +162,7 @@ const requiredProductBetNestedLoopChecks = [
       "Downstream Task Preflight",
       "Product Bet Measurement Specialist is not started until `selected_test_revision`",
       "Do not flatten the Product Bet loop into a downstream task",
+      "PROCESS_RESET_REQUIRED",
     ],
   },
   {

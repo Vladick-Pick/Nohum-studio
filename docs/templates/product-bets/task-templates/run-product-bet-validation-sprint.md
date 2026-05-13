@@ -116,6 +116,13 @@ Invalid shortcuts:
 - Gate B request before Evidence Router writes `gate_b_recommendation`
 - synthetic audience acceptance treated as market validation
 
+If any downstream shortcut has already happened in a live sprint, do not repair
+it by waiting for an observation window. Set the sprint route to
+`PROCESS_RESET_REQUIRED`, cancel or supersede the misordered runtime tasks for
+canonical Product Bet purposes, and create one restart task beginning at
+`assembly_loop`. Previous artifacts may be cited only as incident evidence or
+raw inputs, not as completed gates.
+
 ## Allowed Recommendations
 
 - `build`

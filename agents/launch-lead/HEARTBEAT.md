@@ -45,3 +45,11 @@ Evidence Router, Product Launch, or Engineering tasks, verify:
 If any preflight item is missing, create or retry the upstream Product Bet
 specialist task. Do not flatten the Product Bet loop into a downstream task
 list.
+
+If a live sprint has already created downstream surface, measurement, traffic,
+observation, or Evidence Router work before `assembly_loop`,
+`internal_hardening_loop`, and `selected_test_revision` were completed, do not
+continue by waiting on observation time. Route `PROCESS_RESET_REQUIRED`: mark
+the misordered tasks as superseded/cancelled for canonical runtime purposes and
+restart from Product Bet Assembly. A 72-hour observation window is valid only
+after the upstream loops and surface readiness gate are real.

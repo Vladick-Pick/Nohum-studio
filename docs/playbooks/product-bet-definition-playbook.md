@@ -70,6 +70,13 @@ Lead creates surface, measurement, traffic, observation, and evidence tasks only
 when their upstream loop exit conditions are satisfied or when the task is
 explicitly a blocked-state/approval request.
 
+If a runtime sprint has already created downstream tasks before Assembly and
+Hardening passed, do not continue the path with an observation-window wait. The
+correct route is `PROCESS_RESET_REQUIRED`: supersede/cancel the misordered
+runtime tasks, preserve artifacts as incident evidence only, and restart with
+Product Bet Assembly. A 72-hour wait is meaningful only after the canonical
+upstream loops and surface readiness gate are complete.
+
 ## Inputs
 
 - frozen Idea Card

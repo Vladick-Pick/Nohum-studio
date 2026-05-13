@@ -260,6 +260,14 @@ Invalid nested-loop shortcuts:
   data-risk override.
 - Synthetic audience acceptance treated as market validation.
 
+If a live Product Bet sprint has already taken one of these shortcuts, the
+correct transition is `PROCESS_RESET_REQUIRED`, not `test_more`. Cancel or
+supersede the misordered runtime tasks for canonical purposes, preserve their
+artifacts only as incident/recovery evidence, and restart from
+`assembly_loop`. Observation time windows, traffic ledgers, and Evidence Router
+retry documents are invalid as Product Bet evidence when Assembly or Hardening
+was skipped.
+
 ## ONT-06 Transition Decisions
 
 ### Research Decisions

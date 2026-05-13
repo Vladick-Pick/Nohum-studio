@@ -67,6 +67,12 @@ If `assembly_loop`, `internal_hardening_loop`, or `selected_test_revision` is
 missing, route work back to the exact Product Bet specialist instead of starting
 downstream execution.
 
+If downstream Product Bet work already exists out of order, treat it as
+`PROCESS_RESET_REQUIRED`, not as a partial pass. Supersede or cancel the
+misordered runtime tasks and restart the sprint from Product Bet Assembly. Do
+not let a 72-hour observation wait, measurement report, or Evidence Router
+retry compensate for skipped Assembly or Hardening loops.
+
 ## Mission
 
 Turn Gate-A-approved opportunities into validated Product Bet revisions before
