@@ -8,7 +8,7 @@ description: Use when checking whether a product bet has a plausible reachable f
 ## Purpose
 
 Assess whether the buyer can be reached cheaply enough for a Research verdict
-or post-Gate-A validation risk test.
+or post-Gate-A external validation.
 
 ## Checks
 

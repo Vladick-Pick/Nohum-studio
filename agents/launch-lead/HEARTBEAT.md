@@ -61,6 +61,11 @@ Evidence Router, Product Launch, or Engineering tasks, verify:
   `https://<surface-slug>.claricont.com` per
   `docs/product-bets/validation-hosting.md`. Raw IP URLs are blocked for
   board/public traffic unless CEO/board records an explicit exception.
+- For validation hosting readiness, require the Engineering/SRE runbook
+  `docs/runbooks/validation-surface-hosting.md`: DNS, TLS, reverse proxy,
+  noindex/internal-test preview attribution, host implementation, and supervised
+  service state must be recorded before preview, publication, measurement,
+  traffic, observation, or Evidence Router work.
 
 If any preflight item is missing, create or retry the upstream Product Bet
 specialist task. Do not flatten the Product Bet loop into a downstream task

@@ -48,6 +48,7 @@ Review owners:
 - `docs/product-bets/design.md` when present; otherwise a named fallback design
   reference set
 - `docs/product-bets/validation-hosting.md`
+- `docs/runbooks/validation-surface-hosting.md`
 - `docs/templates/product-bets/visual-conversion-review.md`
 - Gate B policy
 - product-bet templates under `docs/templates/product-bets/`
@@ -124,12 +125,33 @@ tasks:
 | `surface_version_draft_exists` | measurement task | Landing Surface Builder produced or requested a versioned `surface_version` |
 | `surface_conversion_quality_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | buyer-quality review is `PASS`: English-first target fit, product name visible, competitor/source names not used as product identity, competitor benchmark done, design standard applied, no visible test framing in primary copy, acceptable waitlist friction |
 | `visual_conversion_review_pass` | board-review preview, publication approval, measurement, traffic, observation, evidence | independent UI Designer / UX Architect review is `PASS`: first-view credibility, first-view containment, visual hierarchy, buyer journey, CTA path, trust handling, test/proposed framing absence, form completion friction, competitor quality bar, and mobile/desktop screenshots |
-| `validation_hosting_ready` | board-review preview, publication approval, traffic | preferred domain host resolves, TLS/proxy route works, noindex/robots/internal-test attribution are present for preview |
+| `validation_hosting_ready` | board-review preview, publication approval, traffic | preferred domain host resolves, TLS/proxy route works, service is supervised, noindex/robots/internal-test attribution are present for preview, and the host implementation is recorded per `docs/runbooks/validation-surface-hosting.md` |
 | `measurement_contract_ready` | implementation and traffic | Product Bet Measurement Specialist wrote event contract, thresholds, UTM policy, and QA criteria |
 | `tracking_QA_passed` | organic traffic and observation | implementation emits required events and excludes internal/test traffic |
 | `board_review_preview_available` | publication approval request | review URL exists, is noindex/unlinked, uses internal/test attribution, and is included in the approval payload |
 | `traffic_attempts_recorded` | observation and Evidence Router | approved organic/free attempts exist or blocked states are explicit |
 | `observation_ready_for_review` | Evidence Router Gate B recommendation | enough time, enough traffic, channel diversity, source quality, and measurement QA are decision-grade |
+
+## Monitor Discipline
+
+Any child task that waits for future time or traffic must be scheduled as a
+machine-wakeable monitor, not left as prose. This applies to indexing checks,
+traffic-watch checkpoints, observation windows, and any `test_more` route that
+depends on later analytics.
+
+Required monitor fields:
+
+| Field | Meaning |
+|---|---|
+| `next_check_at` | exact UTC timestamp for the next runtime wake |
+| `measurement_cutoff` | timestamp after which evidence may be counted |
+| `analytics_condition` | event/source-quality condition that would unblock review |
+| `owner` | agent responsible for the next check |
+| `max_attempts` / `timeout_at` | bound so the loop cannot wait forever |
+
+Use `blocked` for missing approval, access, account identity, policy, tooling,
+or infrastructure. Use `in_progress` or `in_review` with a monitor for waiting
+on time, indexing, traffic, or observation maturity.
 
 Invalid shortcuts:
 
@@ -139,6 +161,8 @@ Invalid shortcuts:
   `visual_conversion_review_pass`
 - raw IP board/public URL when `claricont.com` validation hosting is available
   but not configured
+- treating the current shared wildcard route as an immutable multi-surface
+  registry before a publisher/gateway or dedicated service routing exists
 - Engineering implementation before surface spec and measurement contract
 - organic traffic before surface access and tracking QA
 - Gate B request before Evidence Router writes `gate_b_recommendation`
@@ -179,12 +203,16 @@ The recommendation is not Gate B approval and is not build approval.
 - test GTM surface pack
 - surface version and surface QA
 - surface conversion quality review
+- visual conversion review
+- validation hosting check
+- board-review preview URL and surface publication approval request
 - measurement plan
 - observation window
 - traffic attempts and traffic source report
 - validation evidence events
 - validation cycle report
 - Gate B recommendation
+- Gate B decision after CEO/board review
 - validation learning report
 
 ## Idempotency

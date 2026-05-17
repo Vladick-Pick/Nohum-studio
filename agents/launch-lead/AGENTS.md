@@ -93,8 +93,11 @@ check from
 `docs/product-bets/validation-hosting.md`: prefer
 `https://<surface-slug>.claricont.com`, do not use raw IP URLs when the company
 validation domain is available, and block publication when DNS/TLS/proxy are not
-ready. Then include a board-review preview URL in the approval payload. That
-preview may be publicly reachable for human review only
+ready. For Engineering/SRE verification details use
+`docs/runbooks/validation-surface-hosting.md`; require the host implementation
+and supervised service state to be recorded before treating
+`validation_hosting_ready` as `PASS`. Then include a board-review preview URL in
+the approval payload. That preview may be publicly reachable for human review only
 when it is `noindex`, unlinked, and tagged as internal/test traffic. Do not count
 preview visits, board clicks, or test submissions as market validation evidence.
 

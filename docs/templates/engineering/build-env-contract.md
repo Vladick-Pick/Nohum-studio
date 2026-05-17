@@ -2,6 +2,8 @@
 
 - canonical repo
 - canonical workspace
+- repo_attach_record_ref
+- build_scope_ref
 - Railway project or deploy target
 - environment scope: preview / staging / production
 - `DATABASE_URL`
@@ -15,3 +17,5 @@
 - optional `OPENROUTER_API_KEY` only if the venture ships LLM product features
 - env owner
 - last verification date
+- rollback_path
+- secret_values_must_not_be_written: true

@@ -21,8 +21,12 @@ On wake:
     requirements. Do not require a measurement plan before the first surface
     draft; event instrumentation is handed to Product Bet Measurement Specialist
     after surface and visual gates pass.
-11. Update only the Product Bet Card `test_surfaces` block and linked surface artifacts.
-12. Return `PASS`, `RETRY`, or `ESCALATE`.
+11. If a board/public URL is needed, use
+    `docs/runbooks/validation-surface-hosting.md` for the hosting blocked-state
+    handoff. Do not substitute a raw IP URL when `claricont.com` hosting is
+    available.
+12. Update only the Product Bet Card `test_surfaces` block and linked surface artifacts.
+13. Return `PASS`, `RETRY`, or `ESCALATE`.
 
 Stop when:
 

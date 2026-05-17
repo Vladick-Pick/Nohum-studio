@@ -4,7 +4,7 @@ The engineering lane should never begin from a vague repo or environment state.
 
 ## Canonical Inputs
 
-- approved Gate B packet
+- `gate_b_decision.action: approve_build`
 - definition-to-build handoff dossier
 - venture manifest
 - repo attach record

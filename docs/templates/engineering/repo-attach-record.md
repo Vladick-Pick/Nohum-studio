@@ -1,6 +1,10 @@
 # Repo Attach Record Template
 
 - `venture_id`
+- `gate_b_decision_ref`
+- `build_scope_ref`
+- `definition_to_build_handoff_ref`
+- `product_bet_revision_ref`
 - canonical repository URL
 - canonical workspace path
 - default branch

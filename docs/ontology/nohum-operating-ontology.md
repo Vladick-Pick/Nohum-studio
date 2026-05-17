@@ -1,8 +1,8 @@
 # NoHum Operating Ontology
 
 Search keys: `ONT-00`, `ONT-01`, `ONT-02`, `ONT-03`, `ONT-04`,
-`ONT-05`, `ONT-05A`, `ONT-05B`, `ONT-05C`, `ONT-06`, `ONT-07`, `ONT-08`,
-`ONT-09`, `ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
+`ONT-05`, `ONT-05A`, `ONT-05B`, `ONT-05C`, `ONT-05D`, `ONT-06`, `ONT-07`,
+`ONT-08`, `ONT-09`, `ONT-10`, `ONT-11`, `ONT-12`, `ONT-13`.
 
 This document defines the shared runtime language for NoHum Studio.
 
@@ -78,6 +78,15 @@ org library must not import a backlog of Product Bet or Build tasks.
 | `gate_b_recommendation` | evidence-based route: build/revise/fork/test_more/kill | Evidence Router | Gate B packet |
 | `gate_b_decision` | human decision on build permission | CEO / Board | approval/decision record |
 | `build_scope` | approved implementation boundary after Gate B | Launch Lead / Build owner | build brief |
+| `definition_to_build_handoff` | product-to-engineering transfer packet | Launch Lead | handoff dossier |
+| `repo_attach_record` | product repo identity and ownership record | VP Engineering | repo attach artifact |
+| `build_env_contract` | runtime env, secrets, CI, deploy, and rollback contract | DevOps Automator / VP Engineering | env contract artifact |
+| `architecture_plan` | technical decomposition of the approved build scope | Software Architect | architecture plan |
+| `change_package` | implementation diff plus verification evidence | assigned implementer | repo/PR/worktree |
+| `review_verdict` | independent code-review decision | Code Reviewer | review artifact |
+| `qa_verdict` | QA decision with executed scenarios | QA Director / QA Engineer | QA artifact |
+| `release_readiness_pack` | release checklist, risks, rollback, observability | Release Engineer | release pack |
+| `launch_handoff` | release-ready build package passed to Launch/GTM | VP Engineering | handoff artifact |
 | `derived_memory` | read-optimized projection from canonical artifacts | owning manager | never overrides canonical artifacts |
 
 Alias rule:
@@ -196,7 +205,8 @@ stateDiagram-v2
   evidence_routing --> route_fork
   evidence_routing --> route_test_more
   evidence_routing --> route_kill
-  route_build --> gate_b_review
+  route_build --> gate_b_recommendation_ready
+  gate_b_recommendation_ready --> gate_b_review
   gate_b_review --> gate_b_approved
   gate_b_review --> gate_b_rejected
 ```
@@ -220,6 +230,7 @@ stateDiagram-v2
 | `traffic_attempts_running` | Organic Traffic Strategist | traffic attempt records | strategy memo with no attempt |
 | `observation_window_open` | Measurement Specialist | observation window | deciding too early |
 | `evidence_routing` | Evidence Router | evidence events | build recommendation without evidence |
+| `gate_b_recommendation_ready` | Evidence Router | Gate B recommendation packet | treating recommendation as approval |
 | `gate_b_review` | CEO / Board | Gate B recommendation | approval without Evidence Router |
 
 If public validation is not approved, the correct outcome is
@@ -395,6 +406,50 @@ If `visual_conversion_review` fails, the correct transition is
 Launch Lead may route to Product Bet Compiler or Offer Positioning Strategist
 before returning to Landing Surface Builder.
 
+## ONT-05D Build State Machine
+
+Build is the post-Gate-B engineering graph. It turns an approved, scoped Product
+Bet into a release-ready implementation package. It does not redefine the
+Product Bet, approve Gate B, or own Launch/GTM outcomes.
+
+```mermaid
+flowchart TD
+  GBD["gate_b_approved"] --> BH["build_handoff_ready"]
+  BH --> IR["build_intake_review"]
+  IR -->|"retry_build_handoff"| BHR["build_handoff_retry"]
+  BHR --> BH
+  IR -->|"accept_build_handoff"| RA["repo_attach_ready"]
+  RA -->|"attach_repo"| R["repo_attached"]
+  R -->|"approve_build_env"| ENV["build_env_ready"]
+  ENV -->|"approve_architecture_plan"| AP["architecture_plan_ready"]
+  AP -->|"start_implementation"| IMP["implementation_in_progress"]
+  IMP -->|"submit_change_package"| RR["review_ready"]
+  RR --> CR["code_review"]
+  CR -->|"request_review_changes"| IMP
+  CR -->|"approve_code_review"| QA["qa_ready"]
+  QA --> QE["qa_execution"]
+  QE -->|"request_qa_fixes"| IMP
+  QE -->|"security_or_sre_review_required"| RISK["risk_review"]
+  RISK -->|"request_fixes"| IMP
+  RISK -->|"approve_risk_review"| REL["release_readiness_review"]
+  QE -->|"approve_qa"| REL
+  REL -->|"block_release"| IMP
+  REL -->|"approve_release_readiness"| LH["launch_handoff_ready"]
+```
+
+Build minimum invariants:
+
+- `gate_b_decision` must exist before `build_handoff_ready`.
+- `repo_attach_record` must exist before `build_env_ready`.
+- `build_env_contract` must exist before implementation.
+- `architecture_plan` must exist before implementation tasks.
+- `review_verdict` must exist before QA.
+- `qa_verdict` must exist before release readiness.
+- `release_readiness_pack` and rollback plan must exist before Launch handoff.
+
+Build retry rule: every retry must name the exact weak owner and required
+artifact. Vague "engineering should improve" feedback is invalid.
+
 ## ONT-06 Transition Decisions
 
 ### Research Decisions
@@ -430,8 +485,28 @@ before returning to Landing Surface Builder.
 | `approve_surface_publication` | `surface_publication_approval_required` | `surface_published` | CEO / Board | approval |
 | `start_observation_window` | `traffic_attempts_running` | `observation_window_open` | Measurement Specialist | traffic + measurement refs |
 | `route_validation_evidence` | `observation_window_open` | `evidence_routing` | Evidence Router | evidence events |
-| `recommend_build` | `evidence_routing` | `gate_b_review` | Evidence Router | Gate B hard criteria |
-| `approve_gate_b` | `gate_b_review` | `gate_b_approved` | CEO / Board | Gate B recommendation |
+| `recommend_build` | `evidence_routing` | `gate_b_recommendation_ready` | Evidence Router | Gate B hard criteria pass or accepted-risk candidate |
+| `request_gate_b_decision` | `gate_b_recommendation_ready` | `gate_b_review` | Launch Lead / Evidence Router / CEO | Gate B recommendation packet |
+| `approve_build` | `gate_b_review` | `gate_b_approved` | CEO / Board | `gate_b_decision.action: approve_build`, approved build scope, and risk contract |
+
+### Build Decisions
+
+| Decision | From | To | Owner | Required evidence |
+|---|---|---|---|---|
+| `accept_build_handoff` | `build_intake_review` | `repo_attach_ready` | VP Engineering | Gate B decision, build scope, handoff dossier |
+| `retry_build_handoff` | `build_intake_review` | `build_handoff_retry` | VP Engineering | exact missing/conflicting input |
+| `attach_repo` | `repo_attach_ready` | `repo_attached` | VP Engineering | repo attach record |
+| `approve_build_env` | `repo_attached` | `build_env_ready` | DevOps Automator / VP Engineering | env contract, secrets, CI/deploy checks |
+| `approve_architecture_plan` | `build_env_ready` | `architecture_plan_ready` | VP Engineering | architecture plan |
+| `start_implementation` | `architecture_plan_ready` | `implementation_in_progress` | VP Engineering | task split and verification plan |
+| `submit_change_package` | `implementation_in_progress` | `review_ready` | assigned implementer | diff, tests, manual evidence |
+| `approve_code_review` | `code_review` | `qa_ready` | Code Reviewer | review verdict |
+| `request_review_changes` | `code_review` | `review_retry` | Code Reviewer | exact findings and owner |
+| `approve_qa` | `qa_execution` | `release_readiness_review` | QA Director | QA verdict |
+| `request_qa_fixes` | `qa_execution` | `qa_retry` | QA Director | failed scenarios and owner |
+| `approve_risk_review` | `risk_review` | `release_readiness_review` | Security Engineer / SRE | risk review artifact |
+| `block_release` | `release_readiness_review` | `release_blocked` | Release Engineer / VP Engineering | blocker, rollback, or verification gap |
+| `approve_release_readiness` | `release_readiness_review` | `launch_handoff_ready` | Release Engineer / VP Engineering | release readiness pack |
 
 ## ONT-07 Gate Authority
 
@@ -465,6 +540,19 @@ instead of pretending Gate B is ready.
 | `landing-surface-builder` | surface draft/version/QA | public publication approval |
 | `product-bet-measurement-specialist` | measurement plan and observation window | build recommendation alone |
 | `evidence-router` | evidence events and validation route | Gate B approval |
+| `vp-of-engineering` | Build orchestration, handoff acceptance, engineering gates | Gate B or own implementation without review/QA |
+| `software-architect` | architecture plan and decomposition | release readiness |
+| `backend-architect` | backend contracts, data model, server behavior | scope expansion |
+| `frontend-developer` | frontend implementation | design/product approval |
+| `ai-engineer` | AI behavior, evals, prompts, model/tool surfaces | unsupported behavior claims |
+| `senior-developer` | implementation change package | self-review |
+| `devops-automator` | CI/CD, deploy config, runtime contract | product scope |
+| `sre` | reliability, health checks, incident readiness | product readiness alone |
+| `security-engineer` | security review and risk framing | release approval alone |
+| `code-reviewer` | independent code review | release/QA approval |
+| `qa-director` | QA plan and verdict | code-review approval |
+| `qa-engineer` | scenario execution and QA evidence | final QA sign-off unless delegated |
+| `release-engineer` | release readiness, rollback, release packaging | unreviewed release |
 
 ## ONT-09 Contract Conflict Rules
 
@@ -481,6 +569,11 @@ contradict the ontology.
 | Product Bet uses old RAT/outreach/checkout/concierge layer | reject as archive/invalid surface |
 | imported template appears as live backlog task | move to templates/org library, not active runtime |
 | derived memory conflicts with canonical card | canonical artifact wins |
+| Build task starts before Gate B approval | block and return to Gate B |
+| Build task starts from comments-only context | request definition-to-build handoff |
+| Build expands scope beyond `build_scope` | escalate to CEO/board |
+| Implementation asks to bypass review, QA, or rollback | block and restore Build state machine |
+| Release claims success before Launch handoff | route to Launch/GTM; Build only owns release readiness |
 
 Prohibited active Product Bet surface:
 
@@ -512,6 +605,12 @@ flowchart LR
   VEE["Validation Evidence Event"] --> CLM
   GBR["Gate B Recommendation"] --> PBR
   GBD["Gate B Decision"] --> PBR
+  GBD --> BS["Build Scope"]
+  BS --> BEC["Build Env Contract"]
+  BEC --> RV["Review Verdict"]
+  RV --> QV["QA Verdict"]
+  QV --> RRP["Release Readiness Pack"]
+  RRP --> EM["Engineering Learning Memory"]
 ```
 
 Memory rules:
@@ -522,6 +621,9 @@ Memory rules:
   Evidence Router recommendation.
 - Cost, source quality, freshness, and confidence should be recorded on
   evidence-bearing artifacts.
+- Engineering memory may summarize review defects, QA failures, deployment
+  blockers, and rollback lessons. It may not replace the repo, review verdict,
+  QA verdict, or release readiness pack.
 
 ## ONT-11 Import And Runtime Rules
 
@@ -565,6 +667,20 @@ Product Bet:
 - observation window exists before evidence route
 - Evidence Router wrote recommendation before Gate B approval
 
+Build:
+
+- Gate B decision explicitly approves build before engineering work
+- definition-to-build handoff cites build scope and acceptance criteria
+- VP Engineering accepted handoff or returned exact retry
+- repo attach record exists before implementation
+- build env contract exists before implementation
+- architecture plan exists before implementation tasks
+- implementation package includes verification evidence
+- Code Reviewer verdict exists before QA
+- QA verdict exists before release readiness
+- release readiness pack includes rollback and operational owners
+- Launch handoff is separate from release readiness
+
 Immediate red flags:
 
 - `gate_b_review` before surface/traffic/observation/evidence
@@ -572,6 +688,10 @@ Immediate red flags:
 - public validation forbidden with no approval/blocker state
 - Launch Lead asks for Gate B without Evidence Router
 - old RAT assets active in Product Bet
+- engineering starts from comments-only context
+- implementation starts without `gate_b_approved`
+- release readiness claimed without review, QA, and rollback
+- Build claims customer launch or GTM outcome directly
 
 ## ONT-13 Search Terms And Aliases
 
@@ -602,6 +722,17 @@ Do not use the word `ready` without naming the target state:
 - `ready_for_observation`
 - `ready_for_evidence_routing`
 - `ready_for_gate_b_review`
+- `ready_for_build_handoff`
+- `ready_for_code_review`
+- `ready_for_qa`
+- `ready_for_release_readiness`
+- `ready_for_launch_handoff`
 
-`ready_for_gate_b_review` is invalid without Evidence Router recommendation or
-explicit CEO/board accepted-risk override.
+`ready_for_gate_b_review` is invalid without an Evidence Router
+`gate_b_recommendation_ready` state and a request for CEO/board decision.
+An accepted risk is governance data; accepted risk is not a substitute for Gate B approval. It must be recorded
+inside `gate_b_decision.action: approve_build` with owner, mitigation, and
+stop/rollback condition.
+
+`ready_for_launch_handoff` is invalid without review verdict, QA verdict,
+release readiness pack, and rollback plan.

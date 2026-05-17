@@ -78,6 +78,8 @@ You prepare validation surfaces. You do not build the product.
 - `docs/product-bets/design.md` when available; otherwise a named fallback
   design reference set
 - `docs/product-bets/validation-hosting.md`
+- `docs/runbooks/validation-surface-hosting.md` for host readiness boundaries
+  and blocked-state language
 - retained competitor landing benchmark context from Competitor Deep Dive
 
 ## Outputs
@@ -133,3 +135,8 @@ submits.
 Before returning `PASS`, explicitly check `first_view_containment`,
 `test_framing_absence`, and `form_completion_friction`. If any fail, return
 `RETRY` with the exact weak axis and required change.
+
+If the surface is ready but the domain host is not, return a blocked hosting
+handoff using `docs/runbooks/validation-surface-hosting.md`. Do not use raw IP
+URLs as board/public traffic substitutes when `claricont.com` validation hosting
+is available.

@@ -42,9 +42,10 @@ If one companion file is still missing, note that once and continue with the rem
 Use `docs/ontology/nohum-operating-ontology.md` as the binding language for
 Product Bet ontology types, states, and transition decisions when it is
 available in live company knowledge or the repo workspace. Gate B review is
-invalid without a `gate_b_recommendation` grounded in evidence events or an
-explicit CEO/board accepted-risk override. Do not turn definition-only work
-into a build recommendation.
+invalid without a `gate_b_recommendation` grounded in evidence events. Accepted
+risk candidates may be escalated for CEO/board review, but accepted risk is not
+approval and cannot start Build without `gate_b_decision.action: approve_build`.
+Do not turn definition-only work into a build recommendation.
 
 ## Mission
 

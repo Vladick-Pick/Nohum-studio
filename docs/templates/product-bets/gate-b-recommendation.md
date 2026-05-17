@@ -97,12 +97,16 @@ ev_band:
 ## Build Boundary
 
 ```yaml
-build_boundary:
-  approved_build_scope:
-  forbidden_scope:
+proposed_build_boundary:
+  proposed_build_scope:
+  proposed_forbidden_scope:
   required_assets:
   required_tracking:
-  accepted_risks:
+  accepted_risk_candidates:
+    - hard_criterion:
+      reason_build_may_still_be_worth_reviewing:
+      mitigation_owner_candidate:
+      proposed_stop_or_rollback_condition:
   unresolved_red_hypotheses:
   financial_model_ref:
   organic_traffic_ref:
@@ -126,5 +130,9 @@ next_step:
   escalation_owner:
 ```
 
-This is a recommendation for Gate B review. It is not Gate B approval and it is
-not build approval.
+This is a recommendation for Gate B review. The recommendation is not Gate B approval
+and it is not build approval.
+
+Evidence Router may propose build scope and accepted-risk candidates. Only the
+CEO/board `gate_b_decision` can turn those proposals into approved build scope,
+accepted risks, and Build activation.

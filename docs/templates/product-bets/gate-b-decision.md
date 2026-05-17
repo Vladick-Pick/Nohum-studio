@@ -21,6 +21,10 @@ decision_contract:
   approved_build_scope:
   forbidden_scope:
   accepted_risks:
+    - hard_criterion:
+      accepted_reason:
+      mitigation_owner:
+      stop_or_rollback_condition:
   unresolved_red_hypotheses:
   financial_model_ref:
   organic_traffic_ref:
@@ -43,3 +47,7 @@ rationale:
 
 Gate B is the build permission boundary. A Product Bet Validation Sprint can
 recommend Gate B action, but only this decision can approve build.
+
+Only `action: approve_build` can open Build. Accepted risk is not a separate
+approval path; it is part of this decision contract and must name the hard
+criterion, mitigation owner, and stop or rollback condition.

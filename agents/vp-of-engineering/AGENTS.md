@@ -58,6 +58,8 @@ Run engineering as a full system with clean role boundaries between architecture
 - review, QA, release, and rollback policy
 - handoff integrity from Product Launch into engineering
 - `build_release_pipeline` as a measured process surface
+- validation surface hosting readiness for Product Bet preview/public URLs,
+  following `docs/runbooks/validation-surface-hosting.md`
 
 ## Outputs
 
@@ -65,11 +67,24 @@ Run engineering as a full system with clean role boundaries between architecture
 - architecture and staffing decisions
 - release readiness recommendation
 - engineering risk register
+- validation hosting QA verdict when a Product Bet surface depends on
+  `claricont.com`
+
+## Validation Surface Hosting Boundary
+
+For pre-Gate-B validation surfaces, you may verify and coordinate DNS, TLS,
+reverse proxy, service supervision, and host health. Use
+`docs/runbooks/validation-surface-hosting.md` as the binding operational
+contract.
+
+You do not approve Product Bet publication, traffic, observation, Gate B, build,
+payment, support, or spend. A hosting `PASS` only unblocks Launch Lead's next
+Product Bet gate.
 
 ## Handoffs
 
 Upstream inputs:
-- approved Gate B packet and handoff dossier
+- `gate_b_decision.action: approve_build` and handoff dossier
 - CEO budget and deadline framing
 - Launch Lead launch constraints
 

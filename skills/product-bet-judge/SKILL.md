@@ -1,13 +1,13 @@
 ---
 name: product-bet-judge
-description: Use when judging product-bet revisions and validation risk test readiness.
+description: Use when judging product-bet revisions for selected-test-revision readiness before external validation.
 ---
 
 # Product Bet Judge
 
 ## Purpose
 
-Judge product-bet revisions for validation risk test readiness using a bounded
+Judge product-bet revisions for selected-test-revision readiness using a bounded
 pass/warn/fail scorecard.
 
 ## Scorecard

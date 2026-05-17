@@ -55,6 +55,7 @@ This document defines the deterministic transition from one queued winner into o
 ## Required Outputs
 
 - one queue winner record with freshness and owner state
-- one Gate A decision with `PASS / FAIL / RETRY / ESCALATE`
+- one Gate A decision with
+  `approve_product_bet_definition | reject | hold | request_more_research`
 - one venture bootstrap packet rooted in a single `venture_id`
 - one phase transition log entry for the move from `queued` to `venture`

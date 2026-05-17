@@ -85,6 +85,8 @@ includes:
   - docs/observability/process-surface-catalog.md
   - docs/observability/company-world-model.md
   - docs/observability/org-hygiene-checklist.md
+  - docs/atlas/factory-module-map.md
+  - docs/atlas/module-documentation-standard.md
   - docs/atlas/org-map.md
   - docs/research/README.md
   - docs/research/source-registry.md
@@ -193,14 +195,24 @@ includes:
   - docs/playbooks/research-playbook.md
   - docs/playbooks/queue-gate-a-playbook.md
   - docs/playbooks/product-bet-definition-playbook.md
+  - docs/playbooks/gate-b-playbook.md
+  - docs/playbooks/build-playbook.md
   - docs/readiness/research-readiness.md
   - docs/readiness/gate-a-readiness.md
+  - docs/readiness/gate-b-readiness.md
   - docs/handoffs/specialist-to-specialist.md
   - docs/handoffs/research-to-launch.md
   - docs/handoffs/retry-fail-escalation.md
+  - docs/handoffs/definition-to-build.md
+  - docs/build/README.md
+  - docs/runbooks/engineering-substrate.md
+  - docs/templates/engineering/repo-attach-record.md
+  - docs/templates/engineering/build-env-contract.md
+  - docs/templates/engineering/release-readiness-pack.md
   - docs/import-runbook.md
   - docs/server-post-import-checklist.md
   - docs/runbooks/company-knowledge-import.md
+  - docs/runbooks/validation-surface-hosting.md
   - docs/doctrine/obsidian-to-repo-map.md
 requirements:
   secrets:

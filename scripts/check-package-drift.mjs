@@ -23,6 +23,8 @@ const allowedImporterEntryPathPatterns = [
   /^tasks\/[^/]+\/TASK\.md$/,
 ];
 
+const allowedCodexOnlyRootFiles = new Set(["AGENTS.md"]);
+
 const ignitionTask = "docs/templates/tasks/start-first-research-cycle.md";
 const localAbsolutePathPattern = new RegExp("/" + "Users/");
 
@@ -71,6 +73,7 @@ const requiredProductBetValidationPaths = [
   "skills/observation-window-evaluation/SKILL.md",
   "docs/product-bets/design.md",
   "docs/product-bets/validation-hosting.md",
+  "docs/runbooks/validation-surface-hosting.md",
   "docs/templates/product-bets/landing-design.md",
   "docs/templates/product-bets/copy-variant-matrix.md",
   "docs/templates/product-bets/waitlist-form-spec.md",
@@ -102,6 +105,20 @@ const requiredProductBetValidationPaths = [
   "docs/templates/product-bets/task-templates/route-validation-result.md",
   "docs/templates/product-bets/task-templates/write-gate-b-recommendation.md",
   "docs/templates/product-bets/task-templates/write-validation-learning-report.md",
+];
+
+const requiredGateBBuildPaths = [
+  "docs/atlas/factory-module-map.md",
+  "docs/atlas/module-documentation-standard.md",
+  "docs/readiness/gate-b-readiness.md",
+  "docs/playbooks/gate-b-playbook.md",
+  "docs/build/README.md",
+  "docs/playbooks/build-playbook.md",
+  "docs/handoffs/definition-to-build.md",
+  "docs/runbooks/engineering-substrate.md",
+  "docs/templates/engineering/repo-attach-record.md",
+  "docs/templates/engineering/build-env-contract.md",
+  "docs/templates/engineering/release-readiness-pack.md",
 ];
 
 const requiredProductBetCardTokens = [
@@ -279,7 +296,89 @@ const requiredProductBetNestedLoopChecks = [
   },
   {
     file: "agents/vp-of-engineering/AGENTS.md",
-    tokens: ["approved Gate B packet and handoff dossier"],
+    tokens: ["`gate_b_decision.action: approve_build` and handoff dossier"],
+  },
+];
+
+const requiredGateBBuildChecks = [
+  {
+    file: "docs/ontology/nohum-operating-ontology.md",
+    tokens: [
+      "route_build --> gate_b_recommendation_ready",
+      "gate_b_recommendation_ready --> gate_b_review",
+      "`gate_b_recommendation_ready`",
+      "`request_gate_b_decision`",
+      "`approve_build`",
+      "`gate_b_decision.action: approve_build`",
+      "accepted risk is not a substitute for Gate B approval",
+    ],
+    forbiddenTokens: [
+      "route_build --> gate_b_review",
+      "| `recommend_build` | `evidence_routing` | `gate_b_review`",
+      "| `approve_gate_b` | `gate_b_review` | `gate_b_approved`",
+      "explicit CEO/board accepted-risk override",
+    ],
+  },
+  {
+    file: "docs/templates/product-bets/gate-b-recommendation.md",
+    tokens: [
+      "proposed_build_scope",
+      "proposed_forbidden_scope",
+      "accepted_risk_candidates",
+      "hard_criterion",
+      "recommendation is not Gate B approval",
+    ],
+    forbiddenTokens: [
+      "approved_build_scope",
+    ],
+  },
+  {
+    file: "docs/templates/product-bets/gate-b-decision.md",
+    tokens: [
+      "approved_build_scope",
+      "accepted_risks",
+      "hard_criterion",
+      "mitigation_owner",
+      "stop_or_rollback_condition",
+      "Only `action: approve_build` can open Build",
+    ],
+  },
+  {
+    file: "docs/templates/product-bets/task-templates/run-product-bet-validation-sprint.md",
+    tokens: [
+      "visual conversion review",
+      "validation hosting check",
+      "board-review preview URL and surface publication approval request",
+      "Gate B decision after CEO/board review",
+    ],
+  },
+  {
+    file: "docs/templates/engineering/repo-attach-record.md",
+    tokens: [
+      "gate_b_decision_ref",
+      "build_scope_ref",
+      "definition_to_build_handoff_ref",
+      "product_bet_revision_ref",
+    ],
+  },
+  {
+    file: "docs/templates/engineering/build-env-contract.md",
+    tokens: [
+      "repo_attach_record_ref",
+      "build_scope_ref",
+      "secret_values_must_not_be_written",
+      "rollback_path",
+    ],
+  },
+  {
+    file: "docs/templates/engineering/release-readiness-pack.md",
+    tokens: [
+      "gate_b_decision_ref",
+      "rollback_plan_ref",
+      "qa_verdict_ref",
+      "review_verdict_ref",
+      "launch_handoff_ready",
+    ],
   },
 ];
 
@@ -727,6 +826,14 @@ for (const item of requiredProductBetValidationPaths) {
   }
 }
 
+for (const item of requiredGateBBuildPaths) {
+  if (!fs.existsSync(path.join(root, item))) {
+    errors.push(`Missing Gate B / Build path: ${item}`);
+  } else if (!packageFiles.has(item)) {
+    errors.push(`Gate B / Build path is not in COMPANY graph: ${item}`);
+  }
+}
+
 const productBetCardPath = path.join(root, "docs/templates/product-bets/product-bet-card.md");
 const productBetCard = read(productBetCardPath);
 for (const token of requiredProductBetCardTokens) {
@@ -752,6 +859,25 @@ for (const check of requiredProductBetNestedLoopChecks) {
   for (const token of check.tokens) {
     if (!text.includes(token)) {
       errors.push(`${check.file} missing Product Bet nested-loop guard token: ${token}`);
+    }
+  }
+}
+
+for (const check of requiredGateBBuildChecks) {
+  const absolute = path.join(root, check.file);
+  if (!fs.existsSync(absolute)) {
+    errors.push(`Missing Gate B / Build guard file: ${check.file}`);
+    continue;
+  }
+  const text = read(absolute);
+  for (const token of check.tokens) {
+    if (!text.includes(token)) {
+      errors.push(`${check.file} missing Gate B / Build guard token: ${token}`);
+    }
+  }
+  for (const token of check.forbiddenTokens ?? []) {
+    if (text.includes(token)) {
+      errors.push(`${check.file} contains forbidden Gate B / Build drift token: ${token}`);
     }
   }
 }
@@ -798,6 +924,14 @@ for (const filePath of walkFiles(root)) {
   if (relative.startsWith(".git/")) continue;
   if (!importerDiscoveredBasenames.has(path.basename(relative))) continue;
   if (allowedImporterEntryPathPatterns.some((pattern) => pattern.test(relative))) continue;
+  if (allowedCodexOnlyRootFiles.has(relative)) {
+    const text = read(filePath);
+    const fm = frontmatter(text);
+    if (extractScalar(fm, "kind") || extractScalar(fm, "schema") || extractScalar(fm, "slug")) {
+      errors.push(`Codex-only root file must not look like a Paperclip runtime entity: ${relative}`);
+    }
+    continue;
+  }
   errors.push(`Import-discoverable runtime file outside active package surface: ${relative}`);
 }
 

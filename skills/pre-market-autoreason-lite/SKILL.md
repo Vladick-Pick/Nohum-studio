@@ -1,6 +1,6 @@
 ---
 name: pre-market-autoreason-lite
-description: Use when hardening Product Bet Validation cards before external validation risk test planning.
+description: Use when hardening Product Bet Validation cards before selected-test-revision and external validation.
 ---
 
 # Pre-Market Autoreason Lite
@@ -18,7 +18,7 @@ Improve or kill product bets before market exposure. This is not market proof.
 5. Synthesize the strongest revision.
 6. Record concept revisions and fork candidates.
 7. Recommend the revision that should be externally tested.
-8. Judge validation risk test readiness.
+8. Judge selected-test-revision readiness.
 
 ## Output
 

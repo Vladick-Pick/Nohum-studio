@@ -1,7 +1,7 @@
 ---
 kind: task_template
 name: Run Autoreason Council
-description: Internal product-bet hardening before validation risk tests
+description: Internal product-bet hardening before selected-test-revision and external validation
 schema: agentcompanies/v1
 assignee: pre-market-autoreasoner
 project: hypothesis-funnel

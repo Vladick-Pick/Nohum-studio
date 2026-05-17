@@ -39,6 +39,9 @@ repo-native landing artifact. It must have:
 - one approved traffic plan
 - one preferred host under `https://<surface-slug>.claricont.com` unless
   CEO/board records an exception
+- one validation hosting check that follows
+  `docs/runbooks/validation-surface-hosting.md` before any board/public URL is
+  treated as ready
 
 Do not build product functionality behind the page. If the best validation path
 requires a working demo, record it as a future-stage or board-decision blocker
@@ -93,6 +96,8 @@ Every variant must cite the `concept_revision` or `fork_candidate` it tests.
 - independent visual conversion review before board-review preview, publication
   approval, measurement, traffic, observation, or Evidence Router work
 - no raw IP URL for board/public traffic when the validation domain is available
+- validation hosting follows `docs/product-bets/validation-hosting.md` and
+  `docs/runbooks/validation-surface-hosting.md`
 - exact surface version cited by every traffic attempt
 
 ## QA Contract
@@ -106,6 +111,8 @@ Before traffic starts, verify:
 - UTM capture is defined
 - claims review is `pass`
 - surface version is frozen for the traffic attempt
+- surface host is DNS/TLS/proxy/service verified before publication approval or
+  traffic
 
 ## Output
 

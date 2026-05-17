@@ -42,6 +42,8 @@ This is not a marketing strategy memo. It is a traffic experiment loop.
     status, result metrics, qualitative feedback, and evidence event ref.
 12. Write traffic source report and route next action: wait, more traffic,
     revise channel, revise offer, open fork, or evidence review.
+13. If the route waits for future traffic/time, schedule a machine monitor with
+    a concrete next check timestamp. Do not rely on a prose reminder.
 
 ## Default Channels
 
@@ -108,6 +110,26 @@ thresholds, but the threshold must be written before traffic starts.
 | one alternate segment responds better | `open_fork` |
 | promising waitlist signal | `review_evidence` |
 | max window expired with no signal | `kill` or `park_with_learning` |
+
+## Monitor Requirement
+
+Any route that depends on future traffic, indexing, a minimum runtime, or an
+observation checkpoint must create a monitor-eligible runtime state:
+
+```yaml
+traffic_watch:
+  status: in_progress
+  next_check_at:
+  measurement_cutoff:
+  analytics_condition:
+  owner:
+  max_attempts:
+  timeout_at:
+```
+
+Use `blocked` only for missing approval, access, account identity, policy,
+tooling, or infrastructure. A task that says "check again later" without a
+machine monitor is incomplete.
 
 ## Permission Boundary
 

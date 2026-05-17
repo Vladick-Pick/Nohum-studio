@@ -47,6 +47,8 @@ Keep the launchable system observable enough that failures are detected and cont
 - runtime reliability checks
 - incident-risk reviews
 - post-release reliability notes
+- validation surface DNS/TLS/proxy/service readiness checks when assigned by VP
+  of Engineering or Launch Lead
 
 ## Outputs
 
@@ -54,6 +56,18 @@ Keep the launchable system observable enough that failures are detected and cont
 - observability gaps report
 - incident-readiness notes
 - runtime risk summary
+- validation hosting check packet for `claricont.com` surfaces
+
+## Validation Surface Hosting Boundary
+
+Use `docs/runbooks/validation-surface-hosting.md` for Product Bet validation
+surface hosting tasks.
+
+You may configure or verify DNS, TLS, reverse proxy routing, noindex middleware,
+and service supervision when access is available. You may not approve Product
+Bet publication, traffic, observation, Gate B, build, payment, support, or
+spend. If access or verification is missing, record
+`validation_hosting_blocked` with the exact failing check.
 
 ## Handoffs
 

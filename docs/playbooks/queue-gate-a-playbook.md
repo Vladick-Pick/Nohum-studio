@@ -13,6 +13,7 @@ Canonical outputs:
 - venture promotion decision
 
 Exit condition:
-- approved to `venture`
+- `approve_product_bet_definition` recorded and one Product Bet Validation
+  Sprint created
 - sent back to `research`
 - killed

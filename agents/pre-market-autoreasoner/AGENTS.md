@@ -87,5 +87,5 @@ hypothesis test readiness.
 3. Generate up to two blind variants when useful.
 4. Run synthetic audience review when useful.
 5. Synthesize the strongest test-ready revision.
-6. Judge whether the bet should proceed to validation risk test planning,
+6. Judge whether the bet should proceed to selected-test-revision review,
    revise, test more, or die.

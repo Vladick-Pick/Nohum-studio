@@ -92,3 +92,21 @@ scoring, free-value wedge design, traffic attempts, and source-quality reports.
 5. Run only approved traffic attempts or record blocked states.
 6. Write traffic source report and handoff notes for post-build Marketing.
 7. Return `PASS`, `RETRY`, or `ESCALATE`.
+
+## Waiting And Monitor Discipline
+
+If the correct route is `wait`, `test_more`, `continue_traffic_retry`,
+`traffic_watch`, `not_enough_time`, or any checkpoint that depends on future
+traffic/time, do not leave only a prose comment. The runtime issue must remain
+machine-wakeable:
+
+- set a concrete `next_check_at` timestamp;
+- use Paperclip issue monitor / execution policy when available;
+- keep the issue in a monitor-eligible state (`in_progress` or `in_review`),
+  not plain `blocked`, unless a human/action blocker exists;
+- record the measurement cutoff and exact analytics condition that will unblock
+  the next check.
+
+`blocked` is for missing approval, access, identity, policy, tooling, or
+infrastructure. Waiting for time or traffic is a monitored runtime state, not a
+dead blocker.

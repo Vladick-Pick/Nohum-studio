@@ -50,9 +50,119 @@ Frozen Idea Card
 -> CEO/Board records Gate B Decision when build is recommended
 ```
 
+## Full Loop Map
+
+This is the canonical operating map for the post-Gate-A Product Bet module.
+It shows the required loop order, retry routes, approval gates, and invalid
+shortcut reset path.
+
+```mermaid
+flowchart TD
+  A["Frozen Idea Card"] --> B["CEO Gate A Decision"]
+  B --> C["CEO creates one Product Bet Validation Sprint"]
+  C --> D["Launch Lead opens shared Product Bet Card"]
+
+  BAD["Misordered downstream work"] --> RESET["PROCESS_RESET_REQUIRED<br/>cancel/supersede and restart from Assembly"]
+
+  subgraph L1["L1: Product Bet Assembly Loop"]
+    D --> PBC["Product Bet Compiler<br/>product identity, ICP, workflow, risks"]
+    D --> CD["Competitor Deep Dive Analyst<br/>competitor product, pricing, onboarding, gaps"]
+    D --> EM["Economics Modeler<br/>unit economics, break-even, $5k paths"]
+    D --> OP["Offer Positioning Strategist<br/>offer, USP, pricing frame, objections"]
+
+    PBC --> R1["Launch Lead sufficiency review"]
+    CD --> R1
+    EM --> R1
+    OP --> R1
+
+    R1 -->|"RETRY exact weak owner"| PBC
+    R1 -->|"RETRY exact weak owner"| CD
+    R1 -->|"RETRY exact weak owner"| EM
+    R1 -->|"RETRY exact weak owner"| OP
+  end
+
+  R1 -->|"PASS assembly_loop"| H0["Pre-Market Autoreasoner"]
+
+  subgraph L2["L2: Internal Hardening Loop"]
+    H0 --> BV["Blind variants + critique prompts"]
+    BV --> SA["Synthetic audience panel<br/>skeptical buyer, competitor user, price-sensitive buyer, busy operator, early adopter, false-positive non-buyer"]
+    SA --> J["Judge/Jury synthesis"]
+    J --> HD{"Hardening decision"}
+
+    HD -->|"revise_current"| CR["concept_revision"]
+    HD -->|"open_fork"| FC["fork_candidate"]
+    HD -->|"test_more_internal"| BV
+    HD -->|"kill / park"| KILL["Kill or park before external test"]
+
+    CR --> R2["Launch Lead accepts/rejects revision"]
+    FC --> R2
+    R2 -->|"retry hardening, bounded rounds"| H0
+  end
+
+  R2 -->|"select exactly one test_revision"| STR["selected_test_revision"]
+
+  subgraph L3["L3: Surface Readiness Loop"]
+    STR --> LS["Landing Surface Builder<br/>surface_version, English-first copy, waitlist form, claims QA"]
+    LS --> SQ["surface_conversion_quality_review"]
+    SQ -->|"FAIL"| LS
+
+    SQ -->|"PASS"| UX["UI Designer + UX Architect<br/>visual_conversion_review"]
+    UX -->|"FAIL first_view / test_framing / form_friction"| LS
+
+    UX -->|"PASS"| HOST["Validation hosting check<br/>claricont route, TLS, noindex/index policy, preview URL"]
+    HOST -->|"FAIL infra/access"| SRE["SRE / hosting fix"]
+    SRE --> HOST
+
+    HOST -->|"PASS"| PREVIEW["board_review_preview_available"]
+    PREVIEW --> AP["CEO/Board surface publication approval"]
+  end
+
+  AP -->|"approved"| MS["Product Bet Measurement Specialist"]
+
+  subgraph L4["L4: Measurement + Traffic + Observation Loop"]
+    MS --> MP["Measurement Plan<br/>event contract, UTM, thresholds, QA"]
+    MP --> QA["Tracking QA on exact surface_version"]
+    QA -->|"FAIL"| MS
+
+    QA -->|"PASS"| OT["Organic Traffic Strategist<br/>approved free/low-cost traffic attempts"]
+    OT --> TA["traffic_attempts + source quality"]
+    TA --> OW["Observation Window<br/>time, traffic, CTA, waitlist, feedback"]
+
+    OW -->|"not enough time"| MON["Runtime monitor<br/>next_check_at, cutoff, owner, timeout"]
+    MON --> OW
+
+    OW -->|"not enough traffic"| OT
+    OW -->|"tracking/source quality weak"| MS
+  end
+
+  OW -->|"ready_for_review"| ER["Evidence Router"]
+
+  subgraph L5["L5: Evidence Routing Loop"]
+    ER --> VEE["validation_evidence_events<br/>visits, CTA, waitlist, feedback, source quality, blocked states, cost"]
+    VEE --> ROUTE{"Route decision"}
+
+    ROUTE -->|"revise_offer"| OP
+    ROUTE -->|"revise_landing"| LS
+    ROUTE -->|"revise_channel"| OT
+    ROUTE -->|"open_fork"| FC
+    ROUTE -->|"test_more"| OT
+    ROUTE -->|"kill / park"| KILL
+    ROUTE -->|"build only if hard criteria pass"| GBR["Gate B Recommendation"]
+  end
+
+  GBR --> GB["CEO/Board Gate B Decision"]
+  GB -->|"approve build"| BUILD["Build module may start"]
+  GB -->|"reject / revise"| ROUTE
+```
+
 The root package imports Product Bet agents, skills, docs, and templates. It
 does not import Product Bet runtime tasks. Runtime work is created by CEO and
 Launch Lead after Gate A.
+
+Validation hosting uses `docs/product-bets/validation-hosting.md` for Product
+Bet policy and `docs/runbooks/validation-surface-hosting.md` for the
+Engineering/SRE runtime contract. A working `claricont.com` host is a dependency
+gate, not product evidence and not publication approval.
 
 ## Boundary
 
@@ -134,6 +244,11 @@ measurement, traffic, observation, and Evidence Router work:
 `first_view_containment`, `test_framing_absence`, and
 `form_completion_friction`.
 
+The validation host must also pass the hosting runbook checks before board
+preview or public validation traffic. The current runtime may use a shared
+wildcard route for the active surface, but traffic and evidence must still cite
+the exact `surface_version` and host implementation.
+
 ## Product Bet Agents
 
 | Agent | Owns | Writes |
@@ -148,6 +263,23 @@ measurement, traffic, observation, and Evidence Router work:
 | `landing-surface-builder` | validation surface factory | landing design, waitlist form, surface version, QA |
 | `product-bet-measurement-specialist` | observation and instrumentation | measurement plan, observation window status |
 | `evidence-router` | evidence and routing | validation evidence events, validation decision, Gate B recommendation |
+
+## Module Source Map
+
+Use this map before creating or advancing Product Bet runtime work:
+
+| Need | Source |
+|---|---|
+| module purpose, doctrine, loop map, agents, outputs | this file |
+| object definitions, states, transition decisions | [Operating Ontology](../ontology/nohum-operating-ontology.md) |
+| execution sequence and manager review rules | [Product Bet Validation Playbook](../playbooks/product-bet-definition-playbook.md) |
+| task creation contract | [Run Product Bet Validation Sprint](../templates/product-bets/task-templates/run-product-bet-validation-sprint.md) |
+| agent/tool/API access | [Tool Access Matrix](tool-access-matrix.md) |
+| spend and cost logging | [Tool Cost Registry](tool-cost-registry.md) |
+| memory and derived learning surfaces | [Product Bet Memory](product-bet-memory.md) |
+| landing design standard | [Validation Surface Design Standard](design.md) |
+| hosting and domain policy | [Product Bet Validation Hosting](validation-hosting.md) and [Validation Surface Hosting Runbook](../runbooks/validation-surface-hosting.md) |
+| artifact shapes | [Product Bet Templates](../templates/product-bets/) |
 
 ## Gate A Decision Contract
 
@@ -251,6 +383,21 @@ Decision interpretation:
 - strong qualified waitlist signal -> Gate B build recommendation may be written
 - contradictory behavior -> fork or test more
 - no signal after the bounded window -> kill or park with learning
+
+Any future-time state must be machine scheduled. A Product Bet task may not
+leave a bare comment like "check again in 24h" or "wait for traffic" without a
+runtime monitor. If the route is waiting for indexing, traffic, observation
+time, or analytics maturity, the child issue must remain monitor-eligible
+(`in_progress` or `in_review`) and must record:
+
+- `next_check_at`
+- measurement cutoff
+- analytics/source-quality condition
+- owner
+- max attempts or timeout
+
+Use `blocked` only for missing approval, access, identity, policy, tooling, or
+infrastructure. Waiting is a scheduled runtime state, not a dead blocker.
 
 ## Gate B Hard Criteria
 

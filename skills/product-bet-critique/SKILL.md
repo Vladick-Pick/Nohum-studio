@@ -1,6 +1,6 @@
 ---
 name: product-bet-critique
-description: Use when critiquing a Product Bet Validation card for evidence grounding and validation risk test readiness.
+description: Use when critiquing a Product Bet Validation card for evidence grounding and selected-test-revision readiness.
 ---
 
 # Product Bet Critique
@@ -8,7 +8,7 @@ description: Use when critiquing a Product Bet Validation card for evidence grou
 ## Purpose
 
 Find evidence, buyer, payment, channel, positioning, economics, and buildability
-weaknesses before a product bet reaches validation risk test planning.
+weaknesses before Launch Lead selects a revision for external validation.
 
 ## Checks
 

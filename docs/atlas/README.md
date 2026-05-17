@@ -41,6 +41,8 @@ For NoHum this translates into:
 
 ## Atlas Files
 
+- [factory-module-map.md](./factory-module-map.md)
+- [module-documentation-standard.md](./module-documentation-standard.md)
 - [org-map.md](./org-map.md)
 - [venture-lifecycle.md](./venture-lifecycle.md)
 - [research-machine.md](./research-machine.md)
