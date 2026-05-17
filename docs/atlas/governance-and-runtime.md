@@ -55,14 +55,24 @@ Every mature agent should eventually have:
   - `LIVE`
   - full four-file bundle present
 - `Agent Mechanic`
-  - `LIVE / PARTIAL`
-  - only `AGENTS.md` present today
+  - `LIVE`
+  - full four-file bundle present
 - `Research Lead`
   - `LIVE`
-  - full four-file bundle expected
+  - full four-file bundle present
 - `Launch Lead`
   - `LIVE`
-  - full four-file bundle expected
+  - full four-file bundle present
+- `VP of Engineering 2`
+  - `LIVE / DRIFTED`
+  - full managed four-file bundle present
+  - active runtime slug is `vp-of-engineering-2`, while the repo-owned package path is still `agents/vp-engineering`
+
+## Runtime Drift Notes
+
+- managed runtime bundles currently match repo source after the expected `AGENTS.md` frontmatter stripping step during import/sync
+- the previously reported missing `SOUL.md`, `HEARTBEAT.md`, and `TOOLS.md` overlay problem for `Agent Mechanic` is no longer present
+- the remaining meaningful runtime/package drift is the duplicate engineering manager surface: terminated `vp-engineering` versus active `vp-of-engineering-2`
 
 ## Restriction Board
 

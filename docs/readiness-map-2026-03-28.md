@@ -48,6 +48,7 @@ These pieces are no longer only in conversation. They are saved as canonical doc
 - research machine v1
 - research evidence and storage contract
 - first payment signal normalization
+- build environment contract
 
 Verdict:
 
@@ -127,3 +128,5 @@ The machine should only be called real when all of the following are true:
 Until then, the correct phrase is:
 
 - `NoHum Studio is a live venture OS under construction`
+
+The current build substrate review artifact is `docs/build-environment-contract.md`.

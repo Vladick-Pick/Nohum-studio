@@ -46,9 +46,12 @@ flowchart LR
 - `feedback-log`
 - `payment-events`
 - `handoff-dossier`
+- `build-environment-contract`
 
 ## Current Reality
 
 The live venture lane exists.
 
 The full launch machine does not yet exist as repeatable runtime behavior.
+
+The missing substrate boundary between `Gate B` approval and repeatable engineering execution is now defined by `docs/build-environment-contract.md`.

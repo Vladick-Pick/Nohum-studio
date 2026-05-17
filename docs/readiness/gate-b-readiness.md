@@ -5,5 +5,6 @@ Checklist:
 - [ ] ICP, offer, pricing, and MVP boundary are explicit
 - [ ] UX flow and key states are documented
 - [ ] Engineering has a clean definition-to-build handoff dossier
+- [ ] Engineering release-readiness packet names reviewer, QA owner, release owner, and rollback expectation
 - [ ] Marketing has a measurable launch plan
 - [ ] Support has a readiness and escalation outline

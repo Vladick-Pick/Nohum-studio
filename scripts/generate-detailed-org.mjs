@@ -2374,6 +2374,7 @@ const docIncludes = [
   "docs/skill-policy.md",
   "docs/team-skill-matrix.md",
   "docs/mcp-access-matrix.md",
+  "docs/build-environment-contract.md",
   "docs/atlas/org-map.md",
   "docs/playbooks/research-playbook.md",
   "docs/playbooks/queue-gate-a-playbook.md",
@@ -3347,12 +3348,12 @@ function writeDocs() {
     renderPlaybook(
       "Build Playbook",
       ["VP of Engineering", "Software Architect", "Senior Developer", "Code Reviewer", "QA Director", "Release Engineer"],
-      ["implementation plan", "review verdict", "QA verdict", "release checklist"],
+      ["implementation plan", "build-environment contract", "review verdict", "QA verdict", "release checklist"],
       [
-        "Begin only from an approved Gate B packet and definition-to-build handoff dossier.",
+        "Begin only from an approved Gate B packet, definition-to-build handoff dossier, and build-environment contract.",
         "Keep architecture, implementation, review, QA, and release as separate gates.",
         "Require fresh verification evidence before review, QA, and release claims.",
-        "Use rollback-aware release packaging, not one-shot shipping.",
+        "Use rollback-aware release packaging and a named canary, not one-shot shipping.",
       ]
     )
   );
@@ -3395,11 +3396,21 @@ function writeDocs() {
   );
   write(
     "docs/handoffs/definition-to-build.md",
-    renderHandoff("Definition to Build", ["approved definition packet", "handoff dossier", "acceptance criteria", "UX architecture notes"], [
-      "Engineering never starts from comments-only context.",
-      "Every open risk must be named in the build handoff.",
-      "VP of Engineering owns the first acceptance or retry of the build handoff.",
-    ])
+    renderHandoff(
+      "Definition to Build",
+      [
+        "approved definition packet",
+        "handoff dossier",
+        "acceptance criteria",
+        "release-readiness packet with named reviewer, QA owner, release owner, and rollback expectation",
+        "UX architecture notes",
+      ],
+      [
+        "Engineering never starts from comments-only context.",
+        "Every open risk must be named in the build handoff.",
+        "VP of Engineering owns the first acceptance or retry of the build handoff.",
+      ]
+    )
   );
   write(
     "docs/handoffs/launch-to-support.md",
@@ -3425,6 +3436,7 @@ function writeDocs() {
       "ICP, offer, pricing, and MVP boundary are explicit",
       "UX flow and key states are documented",
       "Engineering has a clean definition-to-build handoff dossier",
+      "Engineering release-readiness packet names reviewer, QA owner, release owner, and rollback expectation",
       "Marketing has a measurable launch plan",
       "Support has a readiness and escalation outline",
     ])

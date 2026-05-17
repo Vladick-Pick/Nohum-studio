@@ -132,6 +132,7 @@ includes:
   - docs/skill-policy.md
   - docs/team-skill-matrix.md
   - docs/mcp-access-matrix.md
+  - docs/build-environment-contract.md
   - docs/atlas/org-map.md
   - docs/playbooks/research-playbook.md
   - docs/playbooks/queue-gate-a-playbook.md

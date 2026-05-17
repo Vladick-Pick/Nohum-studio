@@ -4,6 +4,7 @@ Required artifacts:
 - approved definition packet
 - handoff dossier
 - acceptance criteria
+- release-readiness packet with named reviewer, QA owner, release owner, and rollback expectation
 - UX architecture notes
 
 Rules:

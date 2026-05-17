@@ -53,11 +53,6 @@ Live file state:
 - `HEARTBEAT.md` present
 - `TOOLS.md` present
 
-Live quality note:
-
-- there is also a stray typo file `HEARBEAT.md`
-- that should be cleaned later
-
 ### Agent Mechanic
 
 Live role intent:
@@ -75,15 +70,16 @@ Live reporting line:
 Live file state:
 
 - `AGENTS.md` present
-- `SOUL.md` missing
-- `HEARTBEAT.md` missing
-- `TOOLS.md` missing
+- `SOUL.md` present
+- `HEARTBEAT.md` present
+- `TOOLS.md` present
 
 Verdict:
 
 - `Chief of Staff` is a real and useful role for NoHum
 - `Agent Mechanic` is also a real and useful role
-- `Agent Mechanic` should be treated as a first-class system role and brought up to the four-file standard
+- `Agent Mechanic` is now operating on the four-file standard
+- the remaining live/package drift is the active engineering manager slug `vp-of-engineering-2`, which is still sourced from the repo package at `agents/vp-engineering`
 
 ## 3. Recommended Org Shape
 
